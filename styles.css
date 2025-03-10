@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+  
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat"),
+        url("./assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+    font-weight: 500;
+}
+
+/* SHITCODE */
+
+.App {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  
+    padding: 10px;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .panel {
+    padding: 10px;
+    border-radius: 15px;
+  
+    box-shadow: var(--panel-shadow);
+  
+    transition: all 0.1s ease;
+  }
+  .panel.hover:hover {
+    box-shadow: var(--panel-hover-shadow);
+  }
+  
+  .y-scroll {
+    overflow-y: auto;
+  }
+  .x-scroll {
+    overflow-x: auto;
+  }
+  .hide-scroll {
+    scrollbar-width: none;
+  }
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .accent-item {
+    background: var(--accent-background-color);
+    color: var(--accent-font-color);
+  
+    font-weight: bold;
+  
+    border: none;
+    border-radius: 20px;
+  
+    padding: 5px 10px 5px 10px;
+  }
+  
+  .lighter-hover:hover {
+    filter: brightness(1.1);
+  }
+  .lighter-active:active {
+    filter: brightness(1.2);
+  }
+  .darker-hover:hover {
+    filter: brightness(0.9);
+  }
+  .darker-active:active {
+    filter: brightness(0.8);
+  }
+  
+  h1 {
+    margin: 0;
+    color: var(--title-color);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  
+    border-radius: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0);
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background: rgba(0,0,0,0.4);
+  }
+  ::-webkit-scrollbar-thumb:active{
+    background: rgba(0,0,0,.9);
+  }
+  
+  *:hover::-webkit-scrollbar {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  *:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  input {
+    background-color: transparent;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus{
+    background-color: transparent;
+    transition: background-color 50000s ease-in-out 0s;
+  }
+  
+  .dstuLabelForm {
+      margin-top: 20px;
+      width: 400px;
+      border-radius: 5px;
+      background: #fff;
+  }
+  
+  .icon-s {
+    width: 20px;
+    height: 20px;
+  }
+  .icon-m {
+    width: 25px;
+    height: 25px;
+  }
+  .icon-l {
+    width: 30px;
+    height: 30px;
+  }
+  .icon-g {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .round {
+    border-radius: 100%;
+  }

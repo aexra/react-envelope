@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import TransparentTextBox from '../TransparentTextBox/TransparentTextBox';
@@ -23,7 +23,7 @@ function ExTextBox({
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(isPassword);
     const [isValid, setValidState] = useState(true);
-    const [inputEmpty, setInputEmpty] = useState(false);
+    const [inputEmpty, setInputEmpty] = useState(true);
 
     var validationRegex;
 

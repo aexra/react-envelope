@@ -3,10 +3,54 @@ body {
     --dstu-blue: #4a76a8;
     --dstu-light-blue: #365da6;
     --dstu-error-color: #ff5252;
+
+    /* SHITCODE */
+
+    --accent-background-color: #77c0c6;
+    --accent-font-color: #ffffff;
+    --subaccent-background-color: #f3feff;
+    --button-background-color: #c4dee0;
+    --title-color: #77c0c6;
+    --subtitle-color: #b2b2b2;
+    --subtitle-highlighted-color: #243a51;
+    --panel-background-color: #ededed;
+    --panel-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --panel-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    --inset-panel-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+    --outline-border-color: rgba(0, 0, 0, 0.7);
+    --text-color: #202020;
+    --dark-cover-color: #404645;
+  
+    --footer-min-height: 150px;
+  
+    --dstu-dark-blue: #2a4a77;
+    --dstu-blue: #4a76a8;
+    --dstu-light-blue: #365da6;
+    --dstu-error-color: #ff5252;
+  
+    --sidebar-width: 60px;
+    --sidebar-hover-width: 250px;
+  
+    --dim-overlay-alpha: 0.5;
+  
+    --dropout-z: 200;
+
+    --sidebar-dim-z: 500;
+    --sidebar-z: 1000;
+
+    --modal-z1: 2000;
+    --modal-z2: 2001;
+    --modal-z3: 2002;
+    --modal-z4: 2003;
+    --modal-z5: 2004;
+    --modal-dim-offset: -500;
+
+    --filter-white: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(561%) hue-rotate(167deg) brightness(104%) contrast(101%);
+    --filter-black: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(18%) hue-rotate(357deg) brightness(106%) contrast(106%);
 }
 
 body.light {
-    
+    --background-color: floralwhite;
 }
 
 body.dark {
