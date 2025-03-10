@@ -1,0 +1,67 @@
+.console {
+    width: 350px;
+    background-color: #333;
+    padding: 0;
+
+    position: relative;
+}
+
+.line {
+    background-color: #444;
+
+    border-radius: 0 0 10px 10px;
+
+    color: #fff;
+    font-family: inherit;
+
+    text-wrap: wrap;
+
+    height: 20px;
+}
+
+.prompts {
+    padding: 10px;
+    height: 95%;
+}
+
+.prompt {
+    color: #ddd;
+    height: 20px;
+    animation: arrivalh 0.3s ease;
+    animation: arrivalo 0.3s ease;
+}
+
+@keyframes arrivalh {
+    from {
+        height: 0;
+    }
+    to {
+        height: 20px;
+    }
+}
+
+@keyframes arrivalo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.clear {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+
+    border: 0;
+    background: transparent;
+
+    text-decoration: underline;
+
+    color: #ccc;
+
+    cursor: pointer;
+
+    animation: arrivalo 0.3s ease;
+}
