@@ -1,0 +1,58 @@
+.container {
+    width: 100px;
+    height: 100px;
+
+    box-shadow: var(--panel-shadow);
+
+    background: #efefef;
+
+    position: relative;
+}
+.container:hover .addImageContainer {
+    background: rgba(0, 0, 0, 0.15);
+}
+.container:hover .addImage {
+    opacity: 1;
+}
+
+.image {
+    opacity: 0.3;
+    pointer-events: none;
+    user-select: none;
+    object-fit: cover;
+    object-position: center center;
+}
+.setIcon {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.addImageContainer {
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+
+    width: 100%;
+    height: 100%;
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.addImage {
+    width: 30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: var(--filter-white);
+    pointer-events: none;
+    user-select: none;
+}
+
+.iInput {
+    display: none;
+}

@@ -1,0 +1,17 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+
+    transition: all 0.3s ease;
+
+    height: 100vh;
+
+    z-index: var(--sidebar-z);
+}
+
+.l {
+    left: 0;
+}
+.r {
+    right: 0;
+}

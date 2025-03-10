@@ -1,0 +1,20 @@
+.footer {
+    min-height: var(--footer-min-height);
+    padding: 0 40px;
+
+    background-color: var(--dark-cover-color);
+
+    margin-top: auto;
+}
+
+.image {
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.upper {
+    margin-left: auto;
+    transform: rotateZ(-90deg);
+}

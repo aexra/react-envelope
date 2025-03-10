@@ -1,0 +1,27 @@
+.label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 99%;
+    height: 70px;
+
+    border-radius: 5px;
+
+    color: #fff;
+    font-weight: bold;
+
+    position: relative;
+    top: -25px;
+
+    font-size: larger;
+
+    box-shadow: var(--panel-shadow);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+}

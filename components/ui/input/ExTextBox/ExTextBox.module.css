@@ -1,0 +1,82 @@
+.hint {
+    color: var(--subtitle-color);
+    font-size: small;
+
+    transition: all 0.3s ease;
+
+    transform-origin: 0% 0%;
+
+    pointer-events: none;
+}
+.highlightedHint {
+    color: #5e6e7e;
+}
+.hintOverlap {
+    transform: scale(1.2) translateY(20px);
+}
+
+.box {
+    transition: all 0.3s ease;
+    
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--subtitle-color);
+
+    position: relative;
+}
+.highlightedBox {
+    /* border-bottom: 1px solid var(--subtitle-highlighted-color); */
+}
+
+.input {
+    padding: 0;
+    border-radius: 0;
+    font-family: inherit;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+
+    filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(27%) hue-rotate(53deg) brightness(94%) contrast(105%);
+
+    transition: all 0.3s ease;
+}
+
+.vButton {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(27%) hue-rotate(53deg) brightness(94%) contrast(105%);
+    transition: all 0.3s ease;
+}
+
+.highlightedIcon {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(51%) saturate(738%) hue-rotate(170deg) brightness(86%) contrast(81%);
+}
+
+.expander {
+    position: absolute;
+
+    bottom: -1px;
+
+    width: 100%;
+
+    border: 1px solid var(--subtitle-color);
+
+    transition: all 0.3s ease;
+    transform: scaleX(0);
+}
+.highlightedExpander {
+    left: 0%;
+    transform: scaleX(1);
+    border: 1px solid var(--subtitle-highlighted-color);
+}
+
+.errorIcon {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(87%) saturate(4243%) hue-rotate(332deg) brightness(108%) contrast(107%);
+}
+.errorHint {
+    color: var(--dstu-error-color);
+}
+.errorBox,
+.errorExpander {
+    border-bottom: 1px solid var(--dstu-error-color);
+}
+

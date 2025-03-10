@@ -1,0 +1,39 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: var(--sidebar-width);
+    height: 100vh;
+    box-sizing: border-box;
+
+    background-color: var(--dstu-dark-blue);
+    color: white;
+    
+    z-index: var(--sidebar-z);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    overflow-x: hidden;
+}
+.sidebar:hover {
+    background-color: var(--dstu-light-blue);
+    width: var(--sidebar-hover-width);
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.logoContainer {
+    height: 80px;
+    align-self: stretch;
+}
+
+.debug {
+    background-color: #000 !important;
+    color: #008000 !important;
+}
+.debug:hover {
+    background-color: #111 !important;
+}
+.debugIcon {
+    filter: brightness(0) saturate(100%) invert(22%) sepia(100%) saturate(3216%) hue-rotate(96deg) brightness(96%) contrast(108%) !important;
+}

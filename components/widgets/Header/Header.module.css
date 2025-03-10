@@ -1,0 +1,19 @@
+.header {
+    min-height: 40px;
+    background: var(--dstu-light-blue);
+    padding: 0 10px;
+}
+
+.last {
+    margin-left: auto;
+}
+
+.loginButton {
+    background: none;
+}
+.loginButton:hover {
+    filter: brightness(0.9);
+}
+.loginButton:active {
+    filter: brightness(0.8);
+}

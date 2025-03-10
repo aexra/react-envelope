@@ -1,0 +1,12 @@
+button.accent {
+    padding: 8px 15px 8px 15px;
+    cursor: pointer;
+}
+
+button.accent:hover {
+    filter: brightness(1.1);
+}
+
+button.accent:active {
+    filter: brightness(1.2);
+}

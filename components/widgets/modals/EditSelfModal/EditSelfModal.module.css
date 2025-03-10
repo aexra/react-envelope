@@ -1,0 +1,13 @@
+.hcontainer {
+    height: 100%;
+    padding: 10px;
+}
+
+.datacontainer {
+    margin-top: auto;
+}
+
+.iconPicker {
+    width: 150px;
+    height: 150px;
+}
