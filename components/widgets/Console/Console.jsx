@@ -10,14 +10,14 @@ export const Console = ({ ref, className, onSubmit }) => {
 
     const handleSubmit = (e) => {
         if (e != "") {
-            setPrompts(prompts.concat([`> ${e}`]));
             inputRef.current.value = "";
-            if (onSubmit) onSubmit(e, handleCallback);
+            if (onSubmit) {
+                const reponse = onSubmit(e);
+                setPrompts([...prompts, ...[`> ${e}`, reponse]]);
+            } else {
+                setPrompts([...prompts, `> ${e}`]);
+            }
         }
-    };
-
-    const handleCallback = (e) => {
-        setPrompts(prompts.concat([`> ${e}`]));
     };
 
     return (
