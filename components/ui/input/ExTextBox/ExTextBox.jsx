@@ -37,7 +37,7 @@ function ExTextBox({
     };
 
     const handleTextChange = (e) => {
-        validate();
+        validate(e);
 
         if (e != "") {
             setInputEmpty(false);
