@@ -12,8 +12,9 @@ export const Console = ({ ref, className, onSubmit }) => {
         if (e != "") {
             inputRef.current.value = "";
             if (onSubmit) {
-                const reponse = onSubmit(e);
-                setPrompts([...prompts, ...[`> ${e}`, reponse]]);
+                const response = onSubmit(e);
+                if (response && response != "") setPrompts([...prompts, ...[`> ${e}`, response]]);
+                else setPrompts([...prompts, `> ${e}`]);
             } else {
                 setPrompts([...prompts, `> ${e}`]);
             }
