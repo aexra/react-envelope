@@ -35,15 +35,15 @@ export const useAuth = () => {
     removeUser();
   };
 
-  const logoutAccount = (user: User) => {
+  const logoutAuth = (user: User) => {
     removeAccount(user);
   }
 
-  const switchAccount = (user: User) => {
+  const switchAuth = (user: User) => {
     removeAccount(user);
     if (auth) addAccount(auth);
     addUser(user);
   };
 
-  return { auth, login, logout, logoutAccount, setUser, switchAccount };
+  return { auth, login, logout, logoutAuth, setUser, switchAuth };
 };
