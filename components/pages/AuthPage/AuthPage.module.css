@@ -1,0 +1,25 @@
+.page {
+    background: url(../../../assets/vectors/Background1.svg);
+    background-position: center center;
+    background-size: 400% 400%;
+}
+
+.container {
+    height: 100vh;
+}
+
+.homeButton {
+    background-color: #fff;
+    box-shadow: var(--panel-shadow);
+    color: #000;
+
+    font-size: small;
+
+    height: 35px;
+}
+.homeButton:hover {
+    filter: brightness(0.95);
+}
+.homeButton:active {
+    filter: brightness(0.9);
+}
