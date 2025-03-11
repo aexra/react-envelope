@@ -28,6 +28,7 @@ export const useAuth = () => {
         removeAccount(user);
         if (auth) addAccount(auth);
         setUser(user);
+        window.location.reload();
     };
 
     return { auth, accounts, login, logout, logoutAuth, switchAuth }

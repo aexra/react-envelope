@@ -18,7 +18,7 @@ export const useAccounts = () => {
 
     const removeAccount = (user: User) => {
         var list: User[] | null = getItem("accounts");
-        if (list) list = list.filter(u => u != user);
+        if (list) list = list.filter(u => u.login != user.login);
         
         setItem("accounts", list);
         setAccountsObject(list);

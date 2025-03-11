@@ -26,7 +26,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
         if (e === accounts.length) {
             navigate('/login');
         } else if (e < accounts.length) {
-            switchAuth(accounts[e]);
+            switchAuth(accounts.filter(a => a.login !== auth?.login)[e]);
         }
     };
 
@@ -44,17 +44,17 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                            valign='center'>
                     <img src={personIcon} alt="Avatar" className={`icon-g round`}/>
                     <VBoxPanel gap='5px'>
-                        <span>{auth?.credentials?.username}</span>
-                        <span className={css.name}>{auth?.data?.firstname} {auth?.data?.lastname}</span>
+                        <span>{auth?.login}</span>
+                        <span className={css.name}>{auth?.firstname} {auth?.lastname}</span>
                     </VBoxPanel>
                     <Dropout className={`${css.last}`}
                              side={0}
                              onSelect={handleAccountSwitch}
                              options={[
-                                ...(accounts.filter(a => a.credentials?.username !== auth?.credentials?.username).map((a, i) => 
-                                    <SmallUserItem avatar={a.data?.avatar}
-                                                   username={a.credentials?.username}
-                                                   name={a.data?.name}
+                                ...(accounts.filter(a => a.login !== auth?.login).map((a, i) => 
+                                    <SmallUserItem avatar={a.avatar}
+                                                   username={a.login}
+                                                //    name={`${a.firstname} ${a.lastname}`}
                                                    key={i}/>
                                 )),
                                 <HBoxPanel className={css.addAccountButton}
