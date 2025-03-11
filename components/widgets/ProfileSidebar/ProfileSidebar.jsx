@@ -11,15 +11,14 @@ import Dropout from '../../wrappers/Dropout/Dropout';
 import addUserIcon from '../../../assets/images/add-user.png';
 import { SmallUserItem } from '../../dummies/SmallUserItem/SmallUserItem';
 import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../utils/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
-    const { unsetAuth, switchAuth, auth, accounts } = useContext(AuthContext);
+    // const { unsetAuth, switchAuth, auth, accounts } = useContext(AuthContext);
 
     const handleLogout = () => {
-        unsetAuth();
+        // unsetAuth();
         navigate('/login');
     };
     
@@ -27,7 +26,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
         if (e === accounts.length) {
             navigate('/login');
         } else if (e < accounts.length) {
-            switchAuth(e);
+            // switchAuth(e);
         }
     };
 

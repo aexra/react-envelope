@@ -1,0 +1,13 @@
+.container {
+    height: 30px;
+}
+
+span.name {
+    color: var(--subtitle-color);
+    text-wrap: nowrap;
+    font-size: small;
+}
+
+span.username {
+    font-size: small;
+}

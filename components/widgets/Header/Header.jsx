@@ -6,7 +6,6 @@ import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton
 import person from '../../../assets/images/user.png';
 import { useContext, useState } from 'react';
 import { ProfileSidebar } from '../ProfileSidebar/ProfileSidebar';
-import { AuthContext } from '../../../utils/contexts/AuthContext';
 
 function Header({ ref, className, style }) {
     const navigate = useNavigate();

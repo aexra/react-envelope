@@ -1,26 +1,49 @@
 import { useEffect } from "react";
-import { useUser, User } from "./useUser";
-import { useLocalStorage } from "./useLocalStorage";
+import { useUser } from "./useUser";
+import { User } from "../interfaces/User";
+import { useAccounts } from "./useAccounts";
+import { useObjectLocalStorage } from "./useObjectLocalStorage";
 
 export const useAuth = () => {
-  // we can re export the user methods or object from this hook
-  const { user, addUser, removeUser, setUser } = useUser();
-  const { getItem } = useLocalStorage();
+  const { user: auth, addUser, removeUser, setUser } = useUser();
+  const { getItem } = useObjectLocalStorage();
+  const { accounts, addAccount, removeAccount, setAccounts } = useAccounts();
 
   useEffect(() => {
     const user = getItem("user");
     if (user) {
-      addUser(JSON.parse(user));
+      addUser(user);
     }
-  }, [addUser, getItem]);
 
-  const login = (user: User) => {
+    const accounts = getItem("accounts");
+    if (accounts) {
+      setAccounts(accounts);
+    }
+  }, [addUser, getItem, setAccounts]);
+
+  const login = (user: User, save: boolean = false) => {
+    if (save && auth) {
+      addAccount(auth);
+    }
     addUser(user);
   };
 
-  const logout = () => {
+  const logout = (save: boolean = false) => {
+    if (save && auth) {
+      addAccount(auth);
+    }
     removeUser();
   };
 
-  return { user, login, logout, setUser };
+  const logoutAccount = (user: User) => {
+    removeAccount(user);
+  }
+
+  const switchAccount = (user: User) => {
+    removeAccount(user);
+    if (auth) addAccount(auth);
+    addUser(user);
+  };
+
+  return { auth, login, logout, logoutAccount, setUser, switchAccount };
 };
