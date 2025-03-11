@@ -13,11 +13,30 @@ export const Console = ({ ref, className, onSubmit }) => {
             inputRef.current.value = "";
             if (onSubmit) {
                 const response = onSubmit(e);
-                if (response && response != "") setPrompts([...prompts, ...[`> ${e}`, response]]);
-                else setPrompts([...prompts, `> ${e}`]);
+                if (response && response != "") setPrompts([...prompts, ...[{
+                    msg: `> ${e}`,
+                    type: `default`
+                }, response]]);
+                else setPrompts([...prompts, {
+                    msg: `> ${e}`,
+                    type: `default`
+                }]);
             } else {
-                setPrompts([...prompts, `> ${e}`]);
+                setPrompts([...prompts, {
+                    msg: `> ${e}`,
+                    type: `default`
+                }]);
             }
+            console.log(prompts);
+        }
+    };
+
+    const mapTypeToClass = (type) => {
+        switch (type) {
+            case 'success': return css.success;
+            case 'warning': return css.warning;
+            case 'error': return css.error;
+            default: return css.default;
         }
     };
 
@@ -25,7 +44,7 @@ export const Console = ({ ref, className, onSubmit }) => {
         <VBoxPanel ref={ref}
                    className={`panel ${className} ${css.console}`}>
             <VBoxPanel className={`${css.prompts}  y-scroll`} valign='end'>
-                {prompts.map((p, i) => <span key={i} className={`${css.prompt}`}>{p}</span>)}
+                {prompts.map((p, i) => <span key={i} className={`${css.prompt} ${mapTypeToClass(p.type)}`}>{p.msg}</span>)}
             </VBoxPanel>
             <TransparentTextBox className={css.line}
                                 placeholder={'>'}

@@ -65,3 +65,14 @@
 
     animation: arrivalo 0.3s ease;
 }
+
+
+.success {
+    color: var(--success-color);
+}
+.warning {
+    color: var(--warning-color);
+}
+.error {
+    color: var(--error-color);
+}

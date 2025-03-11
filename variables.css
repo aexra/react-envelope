@@ -4,6 +4,11 @@ body {
     --dstu-light-blue: #365da6;
     --dstu-error-color: #ff5252;
 
+    --info-color: #33b5e5;
+    --success-color: #01c851;
+    --warning-color: #ffbb34;
+    --error-color: #ff5252;
+
     /* SHITCODE */
 
     --accent-background-color: #77c0c6;
