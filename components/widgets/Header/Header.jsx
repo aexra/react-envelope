@@ -11,7 +11,7 @@ import { useAuth } from '../../../hooks/useAuth';
 function Header({ ref, className, style }) {
     const navigate = useNavigate();
     const [isProfileSidebarShown, setProfileSidebarVisibility] = useState(false);
-    const { auth, accounts, login, logout, logoutAuth, switchAuth } = useAuth();
+    const { auth } = useAuth();
     
     return (
         <HBoxPanel ref={ref}
