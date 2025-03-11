@@ -4,14 +4,14 @@ import TagButton from '../../ui/buttons/TagButton/TagButton';
 import css from './Header.module.css';
 import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
 import person from '../../../assets/images/user.png';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { ProfileSidebar } from '../ProfileSidebar/ProfileSidebar';
 import { useAuth } from '../../../hooks/useAuth';
 
 function Header({ ref, className, style }) {
     const navigate = useNavigate();
     const [isProfileSidebarShown, setProfileSidebarVisibility] = useState(false);
-    const { auth } = useAuth();
+    const { auth, accounts, login, logout, logoutAuth, switchAuth } = useAuth();
     
     return (
         <HBoxPanel ref={ref}

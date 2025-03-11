@@ -11,13 +11,11 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { login, register } from '../../../api/auth';
 import { me } from '../../../api/user';
 import { useAuth } from '../../../hooks/useAuth';
-import { useSnackbar } from 'notistack';
 
 export const AuthPage = () => {
     const navigate = useNavigate();
     const [isLogin, setLoginMode] = useState(true);
-    const { auth, logout, switchAuth, accounts, login: setAuth} = useAuth();
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { login: setAuth } = useAuth();
 
     const handleLogin = async (e, data) => {
         try {
@@ -43,7 +41,7 @@ export const AuthPage = () => {
 
             navigate('/');
         } catch (error) {
-            enqueueSnackbar("Login error", "error");
+            // enqueueSnackbar("Login error", "error");
             console.log("Login error:", error.response.data);
         }
     };
@@ -53,7 +51,7 @@ export const AuthPage = () => {
             const response = await register(data);
             await handleLogin(null, data);
         } catch (error) {
-            enqueueSnackbar("Login error", "error");
+            // enqueueSnackbar("Login error", "error");
             console.log("Login error:", error.response.data);
         }
     };

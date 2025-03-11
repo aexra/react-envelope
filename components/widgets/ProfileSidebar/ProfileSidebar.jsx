@@ -15,7 +15,7 @@ import { useAuth } from '../../../hooks/useAuth';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
-    const { auth, logout, switchAuth, accounts } = useAuth();
+    const { auth, accounts, login, logout, logoutAuth, switchAuth } = useAuth();
 
     const handleLogout = () => {
         logout();

@@ -4,8 +4,8 @@ import { useObjectLocalStorage } from "./useObjectLocalStorage";
 import { AccountsContext } from "../contexts/AccountsContext";
 
 export const useAccounts = () => {
+    const { accounts, setAccounts: setAccountsObject } = useContext(AccountsContext);
     const { setItem, getItem } = useObjectLocalStorage();
-    const { accounts, setAccounts } = useContext(AccountsContext);
 
     const addAccount = (user: User) => {
         var list: User[] | null = getItem("accounts");
@@ -13,7 +13,7 @@ export const useAccounts = () => {
         else list = [...list, user];
 
         setItem("accounts", list);
-        setAccounts(list);
+        setAccountsObject(list);
     };
 
     const removeAccount = (user: User) => {
@@ -21,8 +21,8 @@ export const useAccounts = () => {
         if (list) list = list.filter(u => u != user);
         
         setItem("accounts", list);
-        setAccounts(list);
+        setAccountsObject(list);
     };
 
-    return { accounts, addAccount, removeAccount, setAccounts };
+    return { accounts, addAccount, removeAccount };
 };

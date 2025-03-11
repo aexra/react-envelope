@@ -1,49 +1,34 @@
-import { useEffect } from "react";
-import { useUser } from "./useUser";
-import { User } from "../interfaces/User";
-import { useAccounts } from "./useAccounts";
-import { useObjectLocalStorage } from "./useObjectLocalStorage";
+import { User } from '../interfaces/User';
+import { useAccounts } from './useAccounts';
+import { useUser } from './useUser';
 
 export const useAuth = () => {
-  const { user: auth, addUser, removeUser, setUser } = useUser();
-  const { getItem } = useObjectLocalStorage();
-  const { accounts, addAccount, removeAccount, setAccounts } = useAccounts();
+    const { user: auth, setUser, removeUser } = useUser();
+    const { accounts, addAccount, removeAccount } = useAccounts();
 
-  useEffect(() => {
-    const user = getItem("user");
-    if (user) {
-      addUser(user);
+    const login = (user: User, save: boolean = false) => {
+        if (save && auth) {
+            addAccount(auth);
+        }
+        setUser(user);
+    };
+
+    const logout = (save: boolean = false) => {
+        if (save && auth) {
+            addAccount(auth);
+        }
+        removeUser();
+    };
+
+    const logoutAuth = (user: User) => {
+        removeAccount(user);
     }
 
-    const accounts = getItem("accounts");
-    if (accounts) {
-      setAccounts(accounts);
-    }
-  }, [addUser, getItem, setAccounts]);
+    const switchAuth = (user: User) => {
+        removeAccount(user);
+        if (auth) addAccount(auth);
+        setUser(user);
+    };
 
-  const login = (user: User, save: boolean = false) => {
-    if (save && auth) {
-      addAccount(auth);
-    }
-    addUser(user);
-  };
-
-  const logout = (save: boolean = false) => {
-    if (save && auth) {
-      addAccount(auth);
-    }
-    removeUser();
-  };
-
-  const logoutAuth = (user: User) => {
-    removeAccount(user);
-  }
-
-  const switchAuth = (user: User) => {
-    removeAccount(user);
-    if (auth) addAccount(auth);
-    addUser(user);
-  };
-
-  return { auth, login, logout, logoutAuth, setUser, switchAuth };
+    return { auth, accounts, login, logout, logoutAuth, switchAuth }
 };
