@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
-import css from './NavSidebar.module.css';
+import css from './DSTUNavSidebar.module.css';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarButton';
@@ -10,7 +10,7 @@ import person from '../../../assets/images/user.png';
 import bug from '../../../assets/images/coding.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 
-function NavSidebar({ ref, className }) {    
+function DSTUNavSidebar({ ref, className }) {    
     const [isDimming, setDimming] = useState(false);
     
     const handleHover = (e) => {
@@ -42,4 +42,4 @@ function NavSidebar({ ref, className }) {
     )
 }
 
-export default NavSidebar;
+export default DSTUNavSidebar;

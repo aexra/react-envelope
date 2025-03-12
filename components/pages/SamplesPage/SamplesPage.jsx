@@ -4,6 +4,7 @@ import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
 import { Close, Code, Email, Home, Logout, Moon, Sun, Swap, User, UserAdd } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
+import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 
 export const SamplesPage = () => {
     const setHeaderContent = () => {
@@ -14,8 +15,9 @@ export const SamplesPage = () => {
 
     return (
         <BasePage headerContent={setHeaderContent()}
+                  bodyClassName={`fullh`}
                   footerContent={<DSTUFooter/>}
-                  bodyClassName={`fullh`}>
+                  navSidebar={<DSTUNavSidebar/>}>
             <h1>Иконки</h1>
             <FlowPanel className={``}>
                 <Moon/>
