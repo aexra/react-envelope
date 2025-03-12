@@ -1,13 +1,27 @@
 body {
+    /* DSTU COLORS */
     --dstu-dark-blue: #2a4a77;
     --dstu-blue: #4a76a8;
     --dstu-light-blue: #365da6;
     --dstu-error-color: #ff5252;
 
+    /* RESULT STATES PALETTE */
     --info-color: #33b5e5;
     --success-color: #01c851;
     --warning-color: #ffbb34;
     --error-color: #ff5252;
+
+    /* BUTTONS */
+    --textbutton-bk: transparent;
+
+    /* FILTERS */
+
+    --filter-white: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(561%) hue-rotate(167deg) brightness(104%) contrast(101%);
+    --filter-black: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(18%) hue-rotate(357deg) brightness(106%) contrast(106%);
+
+    /* IMPORTANT */
+
+    /* default grey: #9198a1 */
 
     /* SHITCODE */
 
@@ -15,8 +29,6 @@ body {
     --accent-font-color: #ffffff;
     --subaccent-background-color: #f3feff;
     --button-background-color: #c4dee0;
-    --title-color: #77c0c6;
-    --subtitle-color: #b2b2b2;
     --subtitle-highlighted-color: #243a51;
     --panel-background-color: #ededed;
     --panel-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -27,11 +39,6 @@ body {
     --dark-cover-color: #404645;
   
     --footer-min-height: 150px;
-  
-    --dstu-dark-blue: #2a4a77;
-    --dstu-blue: #4a76a8;
-    --dstu-light-blue: #365da6;
-    --dstu-error-color: #ff5252;
   
     --sidebar-width: 60px;
     --sidebar-hover-width: 250px;
@@ -49,15 +56,62 @@ body {
     --modal-z4: 2003;
     --modal-z5: 2004;
     --modal-dim-offset: -500;
-
-    --filter-white: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(561%) hue-rotate(167deg) brightness(104%) contrast(101%);
-    --filter-black: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(18%) hue-rotate(357deg) brightness(106%) contrast(106%);
 }
 
 body.light {
+    /*        */
+    /* COLORS */
+    /*        */
+
+    /* BACKGROUND */
     --background-color: floralwhite;
+
+    /* BUTTONS */
+    --button-hover-bk: rgba(0, 0, 0, 0.2);
+    --button-active-bk: rgba(0, 0, 0, 0.3);
+    --button-theme-toggle-color: #000;
+    --button-theme-toggle-bk: transparent;
+    --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
+
+    /* SIDEBAR */
+    --sidebar-user-bk: #fff;
+
+    /* DROPDOWN */
+    --dropdown-bk: #ddd;
+
+    /* TEXT */
+    --caption-font-color: #494949;
+    --font-color: #333;
+    --subtitle-font-color: #222;
+    --title-font-color: #000;
+    --display-font-color: #77c0c6;
 }
 
 body.dark {
-    
+    /*        */
+    /* COLORS */
+    /*        */    
+
+    /* BACKGROUND */
+    --background-color: #333;
+
+    /* BUTTONS */
+    --button-hover-bk: rgba(255, 255, 255, 0.05);
+    --button-active-bk: rgba(255, 255, 255, 0.15);
+    --button-theme-toggle-color: #fff;
+    --button-theme-toggle-bk: transparent;
+    --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
+
+    /* SIDEBAR */
+    --sidebar-user-bk: #151b23;
+
+    /* DROPDOWN */
+    --dropdown-bk: #1b232e;
+
+    /* TEXT */
+    --caption-font-color: #9c9c9c;
+    --font-color: #efefef;
+    --subtitle-font-color: #fefefe;
+    --title-font-color: #fff;
+    --display-font-color: #77c0c6;
 }

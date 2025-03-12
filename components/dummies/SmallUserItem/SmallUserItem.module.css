@@ -3,11 +3,12 @@
 }
 
 span.name {
-    color: var(--subtitle-color);
+    color: var(--subtitle-font-color);
     text-wrap: nowrap;
     font-size: small;
 }
 
 span.username {
     font-size: small;
+    color: inherit;
 }

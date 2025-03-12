@@ -4,10 +4,6 @@
     padding: 0 10px;
 }
 
-.last {
-    margin-left: auto;
-}
-
 .loginButton {
     background: none;
 }
@@ -16,4 +12,8 @@
 }
 .loginButton:active {
     filter: brightness(0.8);
+}
+
+.toggleTheme {
+    cursor: pointer;
 }

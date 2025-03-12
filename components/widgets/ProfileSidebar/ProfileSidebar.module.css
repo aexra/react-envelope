@@ -1,27 +1,14 @@
 .profileSidebar {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--sidebar-user-bk);
 }
 
 span.name {
-    color: var(--subtitle-color);
     text-wrap: nowrap;
     font-size: small;
 }
 
 .last {
     margin-left: auto;
-}
-
-.ib {
-    background: #333;
-    padding: 5px;
-}
-.ib:hover {
-    background: #444;
-}
-.ib:active {
-    background: #555;
 }
 
 .addAccountButton {

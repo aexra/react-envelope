@@ -5,6 +5,8 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    color: var(--font-color);
 }
   
 code {
@@ -16,6 +18,213 @@ code {
     src: local("Montserrat"),
         url("./assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
     font-weight: 500;
+}
+
+/* LAYOUT */
+
+.flex {
+  display: flex;
+}
+.flex.col,
+.flex.column {
+  flex-direction: column;
+}
+.flex.row {
+  flex-direction: row;
+}
+
+.flex.g0 {
+  gap: 0;
+}
+.flex.g5 {
+  gap: 5px;
+}
+.flex.g10 {
+  gap: 10px;
+}
+.flex.g15 {
+  gap: 15px;
+}
+.flex.g20 {
+  gap: 20px;
+}
+.flex.g25 {
+  gap: 25px;
+}
+.flex.g30 {
+  gap: 30px;
+}
+
+.start-self {
+  align-self: flex-start !important;
+}
+.center-self {
+  align-self: center !important;
+}
+.end-self {
+  align-self: flex-end !important;
+}
+
+.hfirst {
+  margin-right: auto;
+}
+.hlast {
+  margin-left: auto;
+}
+.vfirst {
+  margin-bottom: auto;
+}
+.vlast {
+  margin-top: auto;
+}
+
+/* FILTERS */
+
+.white {
+  filter: var(--filter-white);
+}
+.black {
+  filter: var(--filter-black)
+}
+
+/* BORDER-RADIUS */
+
+.r5 {
+  border-radius: 5px !important;
+}
+.r10 {
+  border-radius: 10px !important;
+}
+.r100 {
+  border-radius: 100% !important;
+}
+
+/* PADDING */
+
+.pad5 {
+  padding: 5px;
+}
+.pad10 {
+  padding: 10px;
+}
+.pad20 {
+  padding: 20px;
+}
+.padh5 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.padh10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.padh20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.padv5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.padv10 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.padv20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* FONTS */
+
+.caption {
+  color: var(--caption-font-color);
+}
+.subtitle {
+  color: var(--subtitle-font-color);
+}
+.title {
+  color: var(--title-font-color);
+}
+.display {
+  color: var(--display-font-color);
+}
+
+/* PALETTE PREFABS */
+
+.textbutton {
+  background: var(--textbutton-bk);
+}
+.textbutton:hover {
+  background: var(--button-hover-bk);
+}
+.textbutton:active {
+  background: var(--button-active-bk);
+}
+
+.dstu-accent-button {
+  background: var(--dstu-dark-blue);
+}
+.dstu-accent-button:hover {
+  opacity: 1.1;
+}
+.dstu-accent-button:active {
+  opacity: 1.2;
+}
+
+/* SIZES */
+
+.rect5 {
+  width: 5px;
+  height: 5px;
+}
+.rect10 {
+  width: 10px;
+  height: 10px;
+}
+.rect15 {
+  width: 15px;
+  height: 15px;
+}
+.rect20 {
+  width: 20px;
+  height: 20px;
+}
+.rect25 {
+  width: 25px;
+  height: 25px;
+}
+.rect30 {
+  width: 30px;
+  height: 30px;
+}
+.rect35 {
+  width: 35px;
+  height: 35px;
+}
+.rect40 {
+  width: 40px;
+  height: 40px;
+}
+.rect45 {
+  width: 45px;
+  height: 45px;
+}
+.rect50 {
+  width: 50px;
+  height: 50px;
+}
+.rect55 {
+  width: 55px;
+  height: 55px;
+}
+.rect60 {
+  width: 60px;
+  height: 60px;
+}
+.rect65 {
+  width: 65px;
+  height: 65px;
 }
 
 /* SHITCODE */

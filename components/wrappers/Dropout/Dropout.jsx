@@ -64,7 +64,7 @@ const Dropout = ({
                    gap='5px'
                    style={listStyles}>
             {options.map((o, i) => <div key={i} 
-                                        className={`${css.dropoutItem}`}
+                                        className={`${css.dropoutItem} textbutton`}
                                         onClick={() => handleSelect(i)}>{o}</div>)}
         </VBoxPanel>
       )}

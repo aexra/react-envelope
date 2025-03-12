@@ -1,12 +1,8 @@
 .button {
     min-height: 35px;
 
-    color: #fff;
-
     border: none;
     border-radius: 5px;
-
-    background: var(--dstu-dark-blue);
 
     font-weight: bold;
     letter-spacing: 1.5px;
@@ -17,10 +13,6 @@
     transition: all 0.1s ease;
 
     cursor: pointer;
-}
-.button:hover {
-    filter: brightness(1.1)
-}
-.button:active {
-    filter: brightness(1.2)
+
+    color: inherit;
 }
