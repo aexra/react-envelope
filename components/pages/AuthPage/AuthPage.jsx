@@ -11,6 +11,7 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { login, register } from '../../../api/auth';
 import { me } from '../../../api/user';
 import { useAuth } from '../../../hooks/useAuth';
+import toast from 'react-hot-toast';
 
 export const AuthPage = () => {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const AuthPage = () => {
 
             navigate('/');
         } catch (error) {
-            // enqueueSnackbar("Login error", "error");
+            toast.error("Ошибка авторизации");
             console.log("Login error:", error.response.data);
         }
     };
@@ -63,6 +64,7 @@ export const AuthPage = () => {
     return (
         <BasePage hasHeader={false}
                   hasFooter={false}
+                  hasNavSidebar={false}
                   className={css.page}>
             <VBoxPanel className={css.container} halign='center' valign='center'>
                 {isLogin ? <VBoxPanel gap='15px'>
