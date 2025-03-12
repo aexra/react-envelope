@@ -1,12 +1,8 @@
 .navButton {
     border-radius: 0;
     text-align: start;
-    background: transparent;
 
     transition: all 0.3s ease;
 
     padding: 10px 19px;
-}
-.navButton:hover {
-    background-color: var(--dstu-light-blue);
 }

@@ -64,7 +64,11 @@ body.light {
     /*        */
 
     /* BACKGROUND */
-    --background-color: floralwhite;
+    --bk-color: floralwhite;
+    --header-bk-color: var(--dstu-light-blue);
+
+    /* BORDER */
+    --border-color: #999;
 
     /* BUTTONS */
     --button-hover-bk: rgba(0, 0, 0, 0.2);
@@ -85,6 +89,13 @@ body.light {
     --subtitle-font-color: #222;
     --title-font-color: #000;
     --display-font-color: #77c0c6;
+
+    /*            */
+    /* FULL PROPS */
+    /*            */
+    
+    /* BORDER */
+    --header-border: none;
 }
 
 body.dark {
@@ -93,7 +104,11 @@ body.dark {
     /*        */    
 
     /* BACKGROUND */
-    --background-color: #333;
+    --bk-color: #0d1117;
+    --header-bk-color: #000;
+
+    /* BORDER */
+    --border-color: #3d444d;
 
     /* BUTTONS */
     --button-hover-bk: rgba(255, 255, 255, 0.05);
@@ -114,4 +129,11 @@ body.dark {
     --subtitle-font-color: #fefefe;
     --title-font-color: #fff;
     --display-font-color: #77c0c6;
+
+    /*            */
+    /* FULL PROPS */
+    /*            */
+    
+    /* BORDER */
+    --header-border: 1px solid var(--border-color);
 }

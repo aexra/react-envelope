@@ -20,7 +20,7 @@ export const NavSidebarButton = ({
     
     return (
         <ExButton ref={ref}
-                  className={`${className} ${css.navButton}`}
+                  className={`${className} ${css.navButton} textbutton`}
                   onClick={handleClick}
                   leftIcon={icon}
                   hAlign='start'

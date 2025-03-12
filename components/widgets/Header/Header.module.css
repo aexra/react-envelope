@@ -1,7 +1,9 @@
 .header {
     min-height: 40px;
-    background: var(--dstu-light-blue);
+    background: var(--header-bk-color);
     padding: 0 10px;
+
+    border-bottom: var(--header-border);
 }
 
 .loginButton {
