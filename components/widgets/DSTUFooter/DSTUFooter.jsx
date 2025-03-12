@@ -1,10 +1,10 @@
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
-import css from './Footer.module.css';
+import css from './DSTUFooter.module.css';
 import footer_image from '../../../assets/images/dstu_footer.png';
 import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
 import rArrow from '../../../assets/vectors/rArrow-w.svg';
 
-function Footer({ ref, className, style }) {
+function DSTUFooter({ ref, className, style }) {
     return (
         <HBoxPanel ref={ref}
                    className={`${css.footer} ${className}`}
@@ -20,4 +20,4 @@ function Footer({ ref, className, style }) {
     );
 }
 
-export default Footer;
+export default DSTUFooter;
