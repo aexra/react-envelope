@@ -11,7 +11,7 @@ import { useTheme } from '../../../hooks/useTheme';
 import light from '../../../assets/vectors/theme-light.svg';
 import dark from '../../../assets/vectors/theme-dark.svg';
 
-function Header({ ref, className, style }) {
+function Header({ ref, className, style, children }) {
     const navigate = useNavigate();
     const [isProfileSidebarShown, setProfileSidebarVisibility] = useState(false);
     const { auth } = useAuth();
@@ -27,6 +27,7 @@ function Header({ ref, className, style }) {
                    style={style}
                    valign='center'
                    gap='10px'>
+            {children}
             <img src={theme === 'light' ? light : dark} 
                  className={`${theme === 'light' ? 'icon-m' : 'icon-s'} hlast br-round ${css.toggleTheme}`}
                  onClick={handleThemeToggle}/>
