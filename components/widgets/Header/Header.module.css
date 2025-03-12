@@ -5,17 +5,3 @@
 
     border-bottom: var(--header-border);
 }
-
-.loginButton {
-    background: none;
-}
-.loginButton:hover {
-    filter: brightness(0.9);
-}
-.loginButton:active {
-    filter: brightness(0.8);
-}
-
-.toggleTheme {
-    cursor: pointer;
-}

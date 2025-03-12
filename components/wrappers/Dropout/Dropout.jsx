@@ -56,7 +56,7 @@ const Dropout = ({
   return (
     <div className={`${className} ${css.dropoutContainer}`} 
          ref={dropdownRef}>
-      <div onClick={toggleDropdown}>
+      <div className='flex center' onClick={toggleDropdown}>
         {children}
       </div>
       {isOpen && (

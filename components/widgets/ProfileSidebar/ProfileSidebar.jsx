@@ -6,11 +6,6 @@ import personIcon from '../../../assets/images/user.png';
 import personIconB from '../../../assets/images/user-b.png';
 import logoutIconB from '../../../assets/vectors/logout-b.svg';
 import logoutIconW from '../../../assets/vectors/logout-g.svg';
-import swapIconB from '../../../assets/vectors/swap-b.svg';
-import swapIconW from '../../../assets/vectors/swap-g.svg';
-import closeIconB from '../../../assets/vectors/close-b.svg';
-import closeIconW from '../../../assets/vectors/close-g.svg';
-import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import Dropout from '../../wrappers/Dropout/Dropout';
 import addUserIcon from '../../../assets/images/add-user.png';
@@ -19,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import { useTheme } from '../../../hooks/useTheme';
+import { Close, Logout, Swap, User } from '../../dummies/Icons';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
@@ -45,12 +41,15 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                  mode={1}
                  active={active}
                  onMinimized={onMinimized}
-                 fullSize='300px'>
+                 fullSize='var(--user-sidebar-width)'>
             <VBoxPanel gap='10px'
                        padding='10px'>
                 <HBoxPanel gap='5px'
                            valign='center'>
-                    <img src={theme === 'light' ? personIconB : personIcon} alt="Avatar" className={`icon-g round`}/>
+                    <User className={`icon-l round pad5`} style={{
+                        border: '2px solid var(--font-color)',
+                        marginRight: '5px'
+                    }}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
                         <span className={`${css.name} caption`}>{auth?.firstname} {auth?.lastname}</span>
@@ -72,18 +71,18 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                                     <span>Добавить</span>
                                 </HBoxPanel>
                              ]}>
-                        <RoundImageButton image={isLight ? swapIconB : swapIconW} className={`icon-l textbutton pad5`}/>
+                        <Swap className={`icon-s textbutton pad5 r5`}/>
                     </Dropout>
-                    <RoundImageButton image={isLight ? closeIconB : closeIconW} className={`icon-l textbutton pad5`} onClick={onMinimized}/>
+                    <Close className={`icon-s textbutton pad5 r5`} onClick={onMinimized}/>
                 </HBoxPanel>
 
                 <HDivider/>
 
-                <ExButton leftIcon={isLight ? logoutIconB : logoutIconW}
-                          iconClassName='rect25'
+                <ExButton iconClassName='rect25'
                           className={`textbutton`}
                           hAlign='start'
-                          onClick={handleLogout}>Выйти</ExButton>
+                          onClick={handleLogout}
+                          gap='5px'><Logout className='icon-m'/> Выйти</ExButton>
             </VBoxPanel>
         </Sidebar>
     );

@@ -70,10 +70,10 @@ code {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flex.col .stretch-h {
+.flex.col .h-stretch {
   align-items: stretch;
 }
-.flex.col .stretch-v {
+.flex.col .v-stretch {
   justify-content: stretch;
 }
 
@@ -114,10 +114,10 @@ code {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flex.row .stretch-h {
+.flex.row .h-stretch {
   justify-content: stretch;
 }
-.flex.row .stretch-v {
+.flex.row .v-stretch {
   align-items: stretch;
 }
 
@@ -156,16 +156,16 @@ code {
   align-self: stretch !important;
 }
 
-.hfirst {
+.h-first {
   margin-right: auto;
 }
-.hlast {
+.h-last {
   margin-left: auto;
 }
-.vfirst {
+.v-first {
   margin-bottom: auto;
 }
-.vlast {
+.v-last {
   margin-top: auto;
 }
 
@@ -322,11 +322,17 @@ code {
   height: 65px;
 }
 
-.fullh {
+.h-full {
   width: 100%;
 }
-.fullv {
+.v-full {
   height: 100%;
+}
+
+/* CURSOR */
+
+.pointer {
+  cursor: pointer;
 }
 
 /* SHITCODE */

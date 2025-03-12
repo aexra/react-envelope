@@ -23,6 +23,10 @@ body {
 
     /* default grey: #9198a1 */
 
+    /* SIZE */
+
+    --user-sidebar-width: 350px;
+
     /* SHITCODE */
 
     --accent-background-color: #77c0c6;

@@ -15,7 +15,7 @@ export const SamplesPage = () => {
 
     return (
         <BasePage headerContent={setHeaderContent()}
-                  bodyClassName={`fullh`}
+                  bodyClassName={`h-full`}
                   footerContent={<DSTUFooter/>}
                   navSidebar={<DSTUNavSidebar/>}>
             <h1>Иконки</h1>
