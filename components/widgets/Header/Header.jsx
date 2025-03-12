@@ -27,12 +27,13 @@ function Header({ ref, className, style, children }) {
                    gap='10px'>
             {children}
             <div onClick={handleThemeToggle} className={`h-last br-round pointer flex center-v`}>
-                {isLight ? <Sun className='icon-m pointer'/> : <Moon className='icon-m pointer'/>}
+                {isLight ? <Sun className='icon-m pointer' color='#fff'/> : <Moon className='icon-m pointer' color='#fff'/>}
             </div>
             {!auth ? <TagButton className={`textbutton h-last`}
                        onClick={() => navigate('/login')}>Войти</TagButton> :
                         <User className={`icon-m pointer`}
-                              onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}/>}
+                              onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
+                              color='#fff'/>}
             <ProfileSidebar active={isProfileSidebarShown}
                             onMinimized={() => setProfileSidebarVisibility(false)}/>
         </HBoxPanel>
