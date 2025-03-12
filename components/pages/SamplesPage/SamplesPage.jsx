@@ -5,7 +5,7 @@ import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
 export const SamplesPage = () => {
     const setHeaderContent = () => {
         return (
-            <span className='title'>ENVELOPE</span>
+            <span className={`${css.title}`}>ENVELOPE</span>
         );
     };
 
