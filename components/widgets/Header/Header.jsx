@@ -6,7 +6,6 @@ import { useTheme } from '../../../hooks/useTheme';
 import { ProfileSidebar } from '../ProfileSidebar/ProfileSidebar';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import TagButton from '../../ui/buttons/TagButton/TagButton';
-import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
 import { Moon, Sun, User } from '../../dummies/Icons';
 
 function Header({ ref, className, style, children }) {
