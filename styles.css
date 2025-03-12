@@ -33,6 +33,94 @@ code {
   flex-direction: row;
 }
 
+/* COLUMN ALIGNMENTS */
+.flex.col .top-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex.col .top-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex.col .top-right {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.flex.col .center-left {
+  justify-content: center;
+  align-items: flex-start;
+}
+.flex.col .center {
+  justify-content: center;
+  align-items: center;
+}
+.flex.col .center-right {
+  justify-content: center;
+  align-items: flex-end;
+}
+.flex.col .bottom-left {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.flex.col .bottom-center {
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex.col .bottom-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.flex.col .stretch-h {
+  align-items: stretch;
+}
+.flex.col .stretch-v {
+  justify-content: stretch;
+}
+
+/* ROW ALIGNMENTS */
+.flex.row .top-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex.row .top-center {
+  justify-content: center;
+  align-items: flex-start;
+}
+.flex.row .top-right {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.flex.row .center-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex.row .center {
+  justify-content: center;
+  align-items: center;
+}
+.flex.row .center-right {
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex.row .bottom-left {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.flex.row .bottom-center {
+  justify-content: center;
+  align-items: flex-end;
+}
+.flex.row .bottom-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.flex.row .stretch-h {
+  justify-content: stretch;
+}
+.flex.row .stretch-v {
+  align-items: stretch;
+}
+
 .flex.g0 {
   gap: 0;
 }
@@ -63,6 +151,9 @@ code {
 }
 .end-self {
   align-self: flex-end !important;
+}
+.stretch-self {
+  align-self: stretch !important;
 }
 
 .hfirst {
@@ -172,6 +263,10 @@ code {
   opacity: 1.2;
 }
 
+.fixed1280 {
+  width: 1280px;
+}
+
 /* SIZES */
 
 .rect5 {
@@ -225,6 +320,13 @@ code {
 .rect65 {
   width: 65px;
   height: 65px;
+}
+
+.fullh {
+  width: 100%;
+}
+.fullv {
+  height: 100%;
 }
 
 /* SHITCODE */
