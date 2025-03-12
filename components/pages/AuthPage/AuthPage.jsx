@@ -40,6 +40,9 @@ export const AuthPage = () => {
                 token: lr.data.token
             }, false);
 
+            if (mr.data.middlename) toast.success(`Добро пожаловать, ${mr.data.firstname} ${mr.data.middlename}!`);
+            else toast.success(`Добро пожаловать, ${mr.data.login}!`);
+
             navigate('/');
         } catch (error) {
             toast.error("Ошибка авторизации");
@@ -52,7 +55,7 @@ export const AuthPage = () => {
             const response = await register(data);
             await handleLogin(null, data);
         } catch (error) {
-            // enqueueSnackbar("Login error", "error");
+            toast.error("Ошибка авторизации");
             console.log("Login error:", error.response.data);
         }
     };
