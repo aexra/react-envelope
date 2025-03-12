@@ -2,19 +2,14 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import { Sidebar } from '../../wrappers/Sidebar/Sidebar';
 import css from './ProfileSidebar.module.css';
-import personIcon from '../../../assets/images/user.png';
-import personIconB from '../../../assets/images/user-b.png';
-import logoutIconB from '../../../assets/vectors/logout-b.svg';
-import logoutIconW from '../../../assets/vectors/logout-g.svg';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import Dropout from '../../wrappers/Dropout/Dropout';
-import addUserIcon from '../../../assets/images/add-user.png';
 import { SmallUserItem } from '../../dummies/SmallUserItem/SmallUserItem';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import { useTheme } from '../../../hooks/useTheme';
-import { Close, Logout, Swap, User } from '../../dummies/Icons';
+import { Close, Logout, Swap, User, UserAdd } from '../../dummies/Icons';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
@@ -67,7 +62,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                                 <HBoxPanel className={css.addAccountButton}
                                            gap='10px'
                                            valign='center'>
-                                    <img src={addUserIcon} alt="" className={`icon-s`}/>
+                                    <UserAdd className='icon-m'/>
                                     <span>Добавить</span>
                                 </HBoxPanel>
                              ]}>
