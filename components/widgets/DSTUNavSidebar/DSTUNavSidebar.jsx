@@ -7,7 +7,7 @@ import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarBu
 import dstu from '../../../assets/images/dstu-w.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { useAuth } from '../../../hooks/useAuth';
-import { Code, Home } from '../../dummies/Icons';
+import { Code, ExperimentOutlined, Home } from '../../dummies/Icons';
 
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
@@ -34,6 +34,9 @@ function DSTUNavSidebar({ ref, className, children }) {
                 <VBoxPanel>
                     <NavSidebarButton text='Домой' to='/' icon={<Home/>}/>
                     {children}
+                    <NavSidebarButton text={'Лабораторная работа №5'}
+                                      icon={<ExperimentOutlined/>}
+                                      to='/lab/5'/>
                     {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>

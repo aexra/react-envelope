@@ -6,3 +6,7 @@
     border-bottom: var(--header-border);
     color: #fff;
 }
+
+.header > :first-child {
+    margin-left: 20px;
+}
