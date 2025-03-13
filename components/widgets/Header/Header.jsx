@@ -31,8 +31,8 @@ function Header({ ref, className, style, children }) {
             {!auth ? <ExButton className={`textbutton-less color-light`}
                                onClick={() => navigate('/login')}>Войти</ExButton> :
                 <HBoxPanel valign='center' gap='5px'>
-                    <span className='white'>{auth.lastname}</span>
-                    <span className='white'>{auth.firstname}</span>
+                    <span>{auth.lastname}</span>
+                    <span>{auth.firstname}</span>
                     {auth.middlename && <span className='white'>{auth.middlename}</span>}
                     <User className={`icon-m pointer`}
                           onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}

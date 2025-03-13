@@ -41,8 +41,8 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                 <HBoxPanel gap='5px'
                            valign='center'>
                     <User className={`icon-l round pad5`} style={{
-                        border: '2px solid var(--font-color)',
-                        marginRight: '5px'
+                          border: '2px solid var(--font-color)',
+                          marginRight: '5px'
                     }}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
