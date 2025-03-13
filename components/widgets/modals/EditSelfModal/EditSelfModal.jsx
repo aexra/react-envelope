@@ -15,11 +15,7 @@ export const EditSelfModal = ({
     onCloseRequested,
     isEnabled
 }) => {
-    const { auth } = useAuth();
-
-    const lnRef = useRef(null);
-    const fnRef = useRef(null);
-    const mnRef = useRef(null);
+    const { auth, refresh } = useAuth();
 
     const [lnValue, setlnValue] = useState();
     const [fnValue, setfnValue] = useState();
@@ -32,14 +28,14 @@ export const EditSelfModal = ({
     const handleUpdate = async () => {
         if (vs1 && vs2 && vs3) {
             await update({
-                lastname: lnRef.current.value,
-                firstname: fnRef.current.value,
-                middlename: mnRef.current.value
+                lastname: lnValue,
+                firstname: fnValue,
+                middlename: mnValue
             });
 
-            window.location.reload();
-
             onCloseRequested();
+            
+            refresh();
 
             // TODO: Уведомление
         } else {
@@ -79,7 +75,6 @@ export const EditSelfModal = ({
                            className={css.datacontainer}>
                     <ExTextBox hint='Фамилия' 
                                icon={<User/>}
-                               inputRef={lnRef}
                                regex="."
                                placeholder="Введите фамилию"
                                text={lnValue}
@@ -87,7 +82,6 @@ export const EditSelfModal = ({
                                textChanged={(e) => setlnValue(e)}/>
                     <ExTextBox hint='Имя' 
                                icon={<User/>}
-                               inputRef={fnRef}
                                regex="."
                                placeholder="Введите имя"
                                text={fnValue}
@@ -95,7 +89,6 @@ export const EditSelfModal = ({
                                textChanged={(e) => setfnValue(e)}/>
                     <ExTextBox hint='Отчество' 
                                icon={<User/>}
-                               inputRef={mnRef}
                                placeholder="Введите отчество"
                                text={mnValue}
                                onValidationStateChanged={(e) => setvs3(e)}

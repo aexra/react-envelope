@@ -1,3 +1,4 @@
+import { me } from '../api/user';
 import { User } from '../interfaces/User';
 import { useAccounts } from './useAccounts';
 import { useUser } from './useUser';
@@ -32,5 +33,23 @@ export const useAuth = () => {
         window.location.reload();
     };
 
-    return { auth, accounts, login, logout, logoutAuth, switchAuth }
+    const refresh = async () => {
+        try {
+            const mr = await me();
+
+            login({
+                id: mr.data.id,
+                login: auth?.login,
+                password: auth?.password,
+                firstname: mr.data.firstname,
+                lastname: mr.data.lastname,
+                middlename: mr.data.middlename,
+                token: auth?.token
+            }, false);
+        } catch (er) {
+            console.log(er);
+        }
+    };
+
+    return { auth, accounts, login, logout, logoutAuth, switchAuth, refresh }
 };

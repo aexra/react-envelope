@@ -39,7 +39,7 @@ function TransparentTextBox({
                onKeyDown={handleKeyDown}
                onFocus={handleFocusGain}
                onBlur={handleFocusLose}
-               onInput={handleTextChanged}
+               onChange={handleTextChanged}
                placeholder={placeholder}
                value={text}/>
     );

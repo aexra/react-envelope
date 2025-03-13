@@ -63,11 +63,11 @@ export const Modal = ({
                                                                       className={`${css.buttons}`}
                                                                       halign='end'>
                     {primaryButtonText && <ExButton onClick={() => {if (onPrimaryClick) onPrimaryClick()}}
-                                                    className={`${css.button} ${defaultButton !== 0 && css.generalButton}`}>{primaryButtonText}</ExButton>}
+                                                    className={`${css.button} ${defaultButton !== 0 ? css.generalButton : 'dstu-accent-button'}`}>{primaryButtonText}</ExButton>}
                     {secondaryButtonText && <ExButton onClick={() => {if (onSecondaryClick) onSecondaryClick()}}
-                                                      className={`${css.button} ${defaultButton !== 1 && css.generalButton}`}>{secondaryButtonText}</ExButton>}
+                                                      className={`${css.button} ${defaultButton !== 1 ? css.generalButton : 'dstu-accent-button'}`}>{secondaryButtonText}</ExButton>}
                     {closeButtonText && <ExButton onClick={handleCloseRequest}
-                                                  className={`${css.button} ${defaultButton !== 2 && css.generalButton}`}>{closeButtonText}</ExButton>}
+                                                  className={`${css.button} ${defaultButton !== 2 ? css.generalButton : 'dstu-accent-button'}`}>{closeButtonText}</ExButton>}
                 </HBoxPanel>}
             </VBoxPanel>}
             <DimOverlay z={`calc(${z} + var(--modal-dim-offset))`}

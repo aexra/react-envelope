@@ -6,7 +6,7 @@ export const me = async () => {
 };
 
 export const update = async (data) => {
-    const auth = JSON.parse(localStorage.getItem('auth'));
-    const response = await api.put(`/users/${auth?.data?.id}`, data);
+    const auth = JSON.parse(localStorage.getItem('user'));
+    const response = await api.put(`/users/${auth?.id}`, data);
     return response;
 };
