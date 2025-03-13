@@ -43,12 +43,12 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
                            isPassword={true}
                            regex="."
                            placeholder="Введите пароль"/>
-                <ExButton onClick={handleLoginButtonClick}>ВОЙТИ</ExButton>
+                <ExButton className={`dstu-accent-button`} onClick={handleLoginButtonClick}>ВОЙТИ</ExButton>
                 <VBoxPanel gap='5px'>
                     <h3>Для обучающихся:</h3>
                     <FlowPanel gap='10px'>
-                        <TagButton onClick={handleRegisterButtonClick}>РЕГИСТРАЦИЯ</TagButton>
-                        <TagButton onClick={handleRecoverButtonClick}>ВОССТАНОВЛЕНИЯ ПАРОЛЯ</TagButton>
+                        <TagButton className={`dstu-accent-button`} onClick={handleRegisterButtonClick}>РЕГИСТРАЦИЯ</TagButton>
+                        <TagButton className={`dstu-accent-button`} onClick={handleRecoverButtonClick}>ВОССТАНОВЛЕНИЯ ПАРОЛЯ</TagButton>
                     </FlowPanel>
                 </VBoxPanel>
             </VBoxPanel>

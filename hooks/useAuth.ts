@@ -11,6 +11,7 @@ export const useAuth = () => {
             addAccount(auth);
         }
         setUser(user);
+        removeAccount(user);
     };
 
     const logout = (save: boolean = false) => {

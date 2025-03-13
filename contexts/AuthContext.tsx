@@ -21,7 +21,6 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
     const user = getItem("user");
     if (user) {
       setUser(user);
-      setItem("user", user);
     }
   }, []);
 

@@ -6,12 +6,12 @@ import css from './AuthPage.module.css';
 import RegisterForm from '../../widgets/RegisterForm/RegisterForm';
 import { useNavigate } from 'react-router-dom';
 import TagButton from '../../ui/buttons/TagButton/TagButton';
-import homeIcon from '../../../assets/images/home.png';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { login, register } from '../../../api/auth';
 import { me } from '../../../api/user';
 import { useAuth } from '../../../hooks/useAuth';
 import toast from 'react-hot-toast';
+import { HomeFilled } from '../../dummies/Icons';
 
 export const AuthPage = () => {
     const navigate = useNavigate();
@@ -46,7 +46,7 @@ export const AuthPage = () => {
             navigate('/');
         } catch (error) {
             toast.error("Ошибка авторизации");
-            console.log("Login error:", error.response.data);
+            console.log("Login error:", error);
         }
     };
 
@@ -56,7 +56,7 @@ export const AuthPage = () => {
             await handleLogin(null, data);
         } catch (error) {
             toast.error("Ошибка авторизации");
-            console.log("Login error:", error.response.data);
+            console.log("Login error:", error);
         }
     };
 
@@ -76,7 +76,7 @@ export const AuthPage = () => {
                     <TagButton className={css.homeButton}
                                onClick={navigateToHomeClicked}>
                         <HBoxPanel gap='10px' valign='center'>
-                            <img className='icon-s' src={homeIcon} alt="Home"/>НА ГЛАВНУЮ
+                            <HomeFilled className='icon-m'/> НА ГЛАВНУЮ
                         </HBoxPanel>
                     </TagButton>
                 </VBoxPanel> : 

@@ -21,7 +21,8 @@ export const AccountsProvider: React.FC<{children: React.ReactNode}> = ({ childr
     const accounts = getItem("accounts");
     if (accounts) {
       setAccounts(accounts);
-      setItem("accounts", accounts);
+    } else {
+      setItem("accounts", []);
     }
   }, []);
 

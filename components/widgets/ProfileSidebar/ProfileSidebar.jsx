@@ -17,7 +17,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const { theme, isLight } = useTheme();
 
     const handleLogout = () => {
-        logout();
+        logout(true);
         navigate('/login');
     };
     
