@@ -138,7 +138,13 @@ export function ExperimentOutlined(props) {
 
 export function Add(props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32" {...props}><path fill="currentColor" d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" {...props}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M12 20v-8m0 0V4m0 8h8m-8 0H4"></path></svg>
+  )
+}
+
+export function Remove(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" {...props}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M20 12H4"></path></svg>
   )
 }
 
