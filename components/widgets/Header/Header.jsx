@@ -23,16 +23,22 @@ function Header({ ref, className, style, children }) {
                    className={`${className} ${css.header}`}
                    style={style}
                    valign='center'
-                   gap='10px'>
+                   gap='20px'>
             {children}
             <div onClick={handleThemeToggle} className={`h-last br-round pointer flex center-v`}>
                 {isLight ? <Sun className='icon-m pointer' color='#fff'/> : <Moon className='icon-m pointer' color='#fff'/>}
             </div>
             {!auth ? <ExButton className={`textbutton-less color-light`}
                                onClick={() => navigate('/login')}>Войти</ExButton> :
-                        <User className={`icon-m pointer`}
-                              onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
-                              color='#fff'/>}
+                <HBoxPanel valign='center' gap='5px'>
+                    <span className='white'>{auth.lastname}</span>
+                    <span className='white'>{auth.firstname}</span>
+                    {auth.middlename && <span className='white'>{auth.middlename}</span>}
+                    <User className={`icon-m pointer`}
+                          onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
+                          color='#fff'/>
+                </HBoxPanel>            
+            }
             <ProfileSidebar active={isProfileSidebarShown}
                             onMinimized={() => setProfileSidebarVisibility(false)}/>
         </HBoxPanel>
