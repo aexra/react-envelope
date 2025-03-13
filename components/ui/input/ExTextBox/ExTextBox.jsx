@@ -24,7 +24,7 @@ function ExTextBox({
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(isPassword);
     const [isValid, setValidState] = useState(true);
-    const [inputEmpty, setInputEmpty] = useState(true);
+    const [inputEmpty, setInputEmpty] = useState(text === null);
 
     var validationRegex;
 
@@ -60,9 +60,9 @@ function ExTextBox({
     };
 
     return (
-        <VBoxPanel ref={ref} className={`${className} ${css.box} ${!isValid ? css.errorBox : ""} ${isFocused ? css.highlightedBox : ""}`} gap='5px'>
-            {hint ? <span className={`${inputEmpty && !isFocused ? css.hintOverlap : ""} ${!isValid ? css.errorHint : ""} ${isFocused ? css.highlightedHint : ""} ${css.hint}`}>{hint}</span> : <></>}
-            <div className={`${!isValid ? css.errorIcon : ""} ${css.expander} ${isFocused ? css.highlightedExpander : ""}`}></div>
+        <VBoxPanel ref={ref} className={`${className} ${css.box} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
+            {hint && <span className={`${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
+            <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
             <HBoxPanel gap='5px' valign='center'>
                 <TransparentTextBox className={css.input}
                                     onFocusChanged={handleFocusChange}
@@ -71,8 +71,8 @@ function ExTextBox({
                                     isPassword={isPasswordVisible}
                                     ref={inputRef}
                                     text={text}/>
-                {isPassword ? <ToggleButton className={`${!isValid && css.errorIcon} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
-                icon && <div className={`${css.icon} ${!isValid && css.errorIcon} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
+                {isPassword ? <ToggleButton className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
+                icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
             </HBoxPanel>
         </VBoxPanel>
     );

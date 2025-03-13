@@ -19,7 +19,9 @@
     transition: all 0.3s ease;
     
     padding-bottom: 5px;
-    border-bottom: 1px solid var(--hint-color);
+
+    color: var(--hint-color);
+    border-bottom: 1px solid currentColor;
 
     position: relative;
 }
@@ -53,7 +55,8 @@
 
     width: 100%;
 
-    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border: 1px solid currentColor;
 
     transition: all 0.3s ease;
     transform: scaleX(0);
@@ -61,15 +64,11 @@
 .highlightedExpander {
     left: 0%;
     transform: scaleX(1);
-    border: 1px solid var(--highlight-hint-color);
+    color: var(--highlight-hint-color);
 }
 
-.errorIcon svg,
-.errorHint {
+.error,
+.error svg {
     color: var(--dstu-error-color);
-}
-.errorBox,
-.errorExpander {
-    border-bottom: 1px solid var(--dstu-error-color);
 }
 

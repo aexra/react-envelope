@@ -4,11 +4,10 @@ import ExTextBox from '../../../ui/input/ExTextBox/ExTextBox';
 import { Modal } from '../../../wrappers/Modal/Modal';
 import { IconFilePicker } from '../../IconFilePicker/IconFilePicker';
 import css from './EditSelfModal.module.css';
-import userIcon from '../../../../assets/images/user.png';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { AuthContext } from '../../../../utils/contexts/AuthContext';
+import { useEffect, useRef, useState } from 'react';
 import { update } from '../../../../api/user';
-import { UtilsContext } from '../../../../utils/contexts/UtilsContext';
+import { useAuth } from '../../../../hooks/useAuth';
+import { User } from '../../../dummies/Icons';
 
 export const EditSelfModal = ({
     ref,
@@ -16,8 +15,7 @@ export const EditSelfModal = ({
     onCloseRequested,
     isEnabled
 }) => {
-    const { auth } = useContext(AuthContext);
-    const { refreshAuth } = useContext(UtilsContext);
+    const { auth } = useAuth();
 
     const lnRef = useRef(null);
     const fnRef = useRef(null);
@@ -39,7 +37,7 @@ export const EditSelfModal = ({
                 middlename: mnRef.current.value
             });
 
-            refreshAuth();
+            window.location.reload();
 
             onCloseRequested();
 
@@ -50,9 +48,9 @@ export const EditSelfModal = ({
     };
 
     const setDefault = () => {
-        setlnValue(auth?.data?.lastname);
-        setfnValue(auth?.data?.firstname);
-        setmnValue(auth?.data?.middlename);
+        setlnValue(auth?.lastname);
+        setfnValue(auth?.firstname);
+        setmnValue(auth?.middlename);
     };
 
     useEffect(() => {
@@ -76,11 +74,11 @@ export const EditSelfModal = ({
                             valign='stretch'>
                     <IconFilePicker className={css.iconPicker}/>
                 </HBoxPanel>
-                <VBoxPanel gap='10px'
+                <VBoxPanel gap='15px'
                            padding='10px'
                            className={css.datacontainer}>
                     <ExTextBox hint='Фамилия' 
-                               icon={userIcon}
+                               icon={<User/>}
                                inputRef={lnRef}
                                regex="."
                                placeholder="Введите фамилию"
@@ -88,7 +86,7 @@ export const EditSelfModal = ({
                                onValidationStateChanged={(e) => setvs1(e)}
                                textChanged={(e) => setlnValue(e)}/>
                     <ExTextBox hint='Имя' 
-                               icon={userIcon}
+                               icon={<User/>}
                                inputRef={fnRef}
                                regex="."
                                placeholder="Введите имя"
@@ -96,7 +94,7 @@ export const EditSelfModal = ({
                                onValidationStateChanged={(e) => setvs2(e)}
                                textChanged={(e) => setfnValue(e)}/>
                     <ExTextBox hint='Отчество' 
-                               icon={userIcon}
+                               icon={<User/>}
                                inputRef={mnRef}
                                placeholder="Введите отчество"
                                text={mnValue}
