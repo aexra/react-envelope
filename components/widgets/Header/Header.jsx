@@ -7,6 +7,7 @@ import { ProfileSidebar } from '../ProfileSidebar/ProfileSidebar';
 import { Moon, Sun, User } from '../../dummies/Icons';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
+import VDivider from '../../ui/dividers/VDivider/VDivider';
 
 function Header({ ref, className, style, children }) {
     const navigate = useNavigate();
