@@ -2,12 +2,13 @@ import css from './LoginForm.module.css';
 import userIcon from '../../../assets/images/user.png';
 
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
-import IconLabel from '../../ui/labels/IconLabel/IconLabel';
 import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import TagButton from '../../ui/buttons/TagButton/TagButton';
 import { useRef } from 'react';
+import { DSTULabeledForm } from '../DSTULabeledForm/DSTULabeledForm';
+import { UserFilled } from '../../dummies/Icons';
 
 function LoginForm({ onRegisterClick, onLoginClick }) {
     const usernameRef = useRef(null);
@@ -29,11 +30,10 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
     };
 
     return (
-        <VBoxPanel className={`dstuLabelForm panel`}>
-            <IconLabel className={css.label} text='Личный кабинет' icon={userIcon}/>
+        <DSTULabeledForm label={'Личный кабинет'} iconContent={<UserFilled className='icon-l'/>}>
             <VBoxPanel className={css.formBody} gap='30px'>
                 <ExTextBox hint='Логин' 
-                           icon={userIcon}
+                           icon={<UserFilled/>}
                            inputRef={usernameRef}
                            regex="."
                            placeholder="Введите логин"/>
@@ -52,7 +52,7 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
                     </FlowPanel>
                 </VBoxPanel>
             </VBoxPanel>
-        </VBoxPanel>
+        </DSTULabeledForm>
     )
 }
 

@@ -87,12 +87,22 @@ body.light {
     /* DROPDOWN */
     --dropdown-bk: #ddd;
 
+    /* MODAL */
+    --modal-bk: #fff;
+
     /* TEXT */
     --caption-font-color: #494949;
     --font-color: #333;
+    --highlight-font-color: #5e6e7e;
+    --inverse-font-color: #efefef;
     --subtitle-font-color: #222;
     --title-font-color: #000;
     --display-font-color: #77c0c6;
+    --hint-color: #999;
+    --highlight-hint-color: var(--highlight-font-color);
+
+    /* ACCENT */
+    --accent-color: #fff;
 
     /*            */
     /* FULL PROPS */
@@ -127,17 +137,27 @@ body.dark {
     /* DROPDOWN */
     --dropdown-bk: #1b232e;
 
+    /* MODAL */
+    --modal-bk: #283546;
+
     /* TEXT */
     --caption-font-color: #9c9c9c;
     --font-color: #efefef;
+    --highlight-font-color: #5e6e7e;
+    --inverse-font-color: #333;
     --subtitle-font-color: #fefefe;
     --title-font-color: #fff;
     --display-font-color: #77c0c6;
+    --hint-color: var(--highlight-font-color);
+    --highlight-hint-color: var(--font-color);
+
+    /* ACCENT */
+    --accent-color: #fff;
 
     /*            */
     /* FULL PROPS */
     /*            */
     
     /* BORDER */
-    --header-border: 1px solid var(--border-color);
+    --header-border: 1px solid var(--accent-color);
 }

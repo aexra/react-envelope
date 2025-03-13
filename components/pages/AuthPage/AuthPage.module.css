@@ -1,5 +1,5 @@
 .page {
-    background: url(../../../assets/vectors/Background1.svg);
+    background-image: url(../../../assets/vectors/Background1.svg);
     background-position: center center;
     background-size: 400% 400%;
 }
@@ -9,9 +9,8 @@
 }
 
 .homeButton {
-    background-color: #fff;
+    background-color: var(--modal-bk);
     box-shadow: var(--panel-shadow);
-    color: #000;
 
     font-size: small;
 

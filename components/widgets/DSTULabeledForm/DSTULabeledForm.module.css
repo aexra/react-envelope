@@ -1,0 +1,6 @@
+.dstuLabelForm {
+    margin-top: 20px;
+    width: 400px;
+    border-radius: 5px;
+    background: var(--modal-bk);
+}

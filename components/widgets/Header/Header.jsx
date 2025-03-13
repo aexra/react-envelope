@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useAuth } from '../../../hooks/useAuth';
 import { useTheme } from '../../../hooks/useTheme';
 import { ProfileSidebar } from '../ProfileSidebar/ProfileSidebar';
-import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
-import TagButton from '../../ui/buttons/TagButton/TagButton';
 import { Moon, Sun, User } from '../../dummies/Icons';
+import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
+import ExButton from '../../ui/buttons/ExButton/ExButton';
 
 function Header({ ref, className, style, children }) {
     const navigate = useNavigate();
@@ -28,8 +28,8 @@ function Header({ ref, className, style, children }) {
             <div onClick={handleThemeToggle} className={`h-last br-round pointer flex center-v`}>
                 {isLight ? <Sun className='icon-m pointer' color='#fff'/> : <Moon className='icon-m pointer' color='#fff'/>}
             </div>
-            {!auth ? <TagButton className={`textbutton h-last`}
-                       onClick={() => navigate('/login')}>Войти</TagButton> :
+            {!auth ? <ExButton className={`textbutton-less color-light`}
+                               onClick={() => navigate('/login')}>Войти</ExButton> :
                         <User className={`icon-m pointer`}
                               onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
                               color='#fff'/>}

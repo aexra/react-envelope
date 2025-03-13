@@ -253,6 +253,10 @@ code {
   background: var(--button-active-bk);
 }
 
+.textbutton-less {
+  background: var(--textbutton-bk);
+}
+
 .dstu-accent-button {
   background: var(--dstu-dark-blue);
 }
@@ -265,6 +269,16 @@ code {
 
 .fixed1280 {
   width: 1280px;
+}
+
+.color-inverse {
+  color: var(--inverse-font-color) !important;
+}
+.color-light {
+  color: #efefef !important;
+}
+.color-dark {
+  color: #333 !important;
 }
 
 /* SIZES */
@@ -329,6 +343,58 @@ code {
   height: 100%;
 }
 
+/* SCROLLBAR */
+
+.y-scroll {
+  overflow-y: auto;
+}
+.x-scroll {
+  overflow-x: auto;
+}
+.hide-scroll {
+  scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 15px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: rgba(0,0,0,0);
+}
+::-webkit-scrollbar-thumb:hover{
+  background: rgba(0,0,0,0.4);
+}
+::-webkit-scrollbar-thumb:active{
+  background: rgba(0,0,0,.9);
+}
+
+*:hover::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.1);
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+input {
+  background-color: transparent;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus{
+  background-color: transparent;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
 /* CURSOR */
 
 .pointer {
@@ -362,18 +428,7 @@ code {
     box-shadow: var(--panel-hover-shadow);
   }
   
-  .y-scroll {
-    overflow-y: auto;
-  }
-  .x-scroll {
-    overflow-x: auto;
-  }
-  .hide-scroll {
-    scrollbar-width: none;
-  }
-  .hide-scroll::-webkit-scrollbar {
-    display: none;
-  }
+  
   
   .accent-item {
     background: var(--accent-background-color);
@@ -403,50 +458,6 @@ code {
   h1 {
     margin: 0;
     color: var(--title-color);
-  }
-  
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  
-    border-radius: 15px;
-  }
-  ::-webkit-scrollbar-track {
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    background: rgba(0,0,0,0);
-  }
-  ::-webkit-scrollbar-thumb:hover{
-    background: rgba(0,0,0,0.4);
-  }
-  ::-webkit-scrollbar-thumb:active{
-    background: rgba(0,0,0,.9);
-  }
-  
-  *:hover::-webkit-scrollbar {
-    background: rgba(0, 0, 0, 0.1);
-  }
-  *:hover::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-  }
-  
-  input {
-    background-color: transparent;
-  }
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus{
-    background-color: transparent;
-    transition: background-color 50000s ease-in-out 0s;
-  }
-  
-  .dstuLabelForm {
-      margin-top: 20px;
-      width: 400px;
-      border-radius: 5px;
-      background: #fff;
   }
   
   .icon-s {

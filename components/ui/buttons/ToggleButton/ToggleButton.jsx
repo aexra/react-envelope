@@ -9,7 +9,7 @@ function ToggleButton({
     text,
     toggledText,
     icon,
-    toggledIcon
+    toggledIcon,
 }) {
     const [isToggled, setToggle] = useState(false);
 
@@ -25,12 +25,16 @@ function ToggleButton({
                 {isToggled ? 
                     <HBoxPanel gap='5px'>
                         <span>{toggledText ? toggledText : text}</span>
-                        {icon ? <img src={toggledIcon ? toggledIcon : icon} alt="Toggled icon" className={css.icon}/> : <></>}
+                        <div className={css.icon}>
+                            {icon && (toggledIcon ?? icon)}
+                        </div>
                     </HBoxPanel>
                  :
                     <HBoxPanel gap='5px'>
                         <span>{text}</span>
-                        {icon ? <img src={icon} alt="Icon" className={css.icon}/> : <></>}
+                        <div className={css.icon}>
+                            {icon}
+                        </div>
                     </HBoxPanel>
                 }
         </button>

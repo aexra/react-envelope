@@ -6,6 +6,7 @@ import css from './ExTextBox.module.css';
 import ToggleButton from '../../buttons/ToggleButton/ToggleButton';
 import visible0 from '../../../../assets/images/visible0.png';
 import visible1 from '../../../../assets/images/visible2.png';
+import { Visibility, VisibilityOff } from '../../../dummies/Icons';
 
 function ExTextBox({
     ref, 
@@ -70,7 +71,8 @@ function ExTextBox({
                                     isPassword={isPasswordVisible}
                                     ref={inputRef}
                                     text={text}/>
-                {isPassword ? <ToggleButton className={`${!isValid ? css.errorIcon : ""} ${isFocused ? css.highlightedIcon : ""} ${css.vButton}`} icon={visible0} toggledIcon={visible1} onToggle={setPasswordVisibility}/> : icon ? <img className={`${!isValid ? css.errorIcon : ""} ${isFocused ? css.highlightedIcon : ""} ${css.icon}`} src={icon} alt="Icon"/> : <></>}
+                {isPassword ? <ToggleButton className={`${!isValid && css.errorIcon} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
+                icon && <div className={`${css.icon} ${!isValid && css.errorIcon} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
             </HBoxPanel>
         </VBoxPanel>
     );
