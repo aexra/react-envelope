@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { update } from '../../../../api/user';
 import { useAuth } from '../../../../hooks/useAuth';
 import { User } from '../../../dummies/Icons';
+import toast from 'react-hot-toast';
 
 export const EditSelfModal = ({
     ref,
@@ -26,20 +27,25 @@ export const EditSelfModal = ({
     const [vs3, setvs3] = useState(true);
 
     const handleUpdate = async () => {
-        if (vs1 && vs2 && vs3) {
-            await update({
-                lastname: lnValue,
-                firstname: fnValue,
-                middlename: mnValue
-            });
+        try {
+            if (vs1 && vs2 && vs3) {
+                await update({
+                    lastname: lnValue,
+                    firstname: fnValue,
+                    middlename: mnValue
+                });
 
-            onCloseRequested();
-            
-            refresh();
+                onCloseRequested();
+                
+                refresh();
 
-            // TODO: Уведомление
-        } else {
-            // TODO: Уведомление
+                toast.success(`Сохранено`);
+            } else {
+                toast.error(`Необходимо заполнить все поля`);
+            }
+        } catch (ex) {
+            toast.error(`Ошибка сети`);
+            console.log(ex);
         }
     };
 
