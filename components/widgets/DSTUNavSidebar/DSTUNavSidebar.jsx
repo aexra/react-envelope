@@ -9,9 +9,11 @@ import home from '../../../assets/images/home-w.png';
 import person from '../../../assets/images/user.png';
 import bug from '../../../assets/images/coding.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
+import { useAuth } from '../../../hooks/useAuth';
 
 function DSTUNavSidebar({ ref, className }) {    
     const [isDimming, setDimming] = useState(false);
+    const { auth } = useAuth();
     
     const handleHover = (e) => {
         setDimming(e);
@@ -33,8 +35,7 @@ function DSTUNavSidebar({ ref, className }) {
                 <HDivider color='var(--dstu-blue)' margin='0 0 5px 0'/>
                 <VBoxPanel>
                     <NavSidebarButton text='Домой' to='/' icon={home}/>
-                    <NavSidebarButton text='Вход' to='/login' icon={person}/>
-                    <NavSidebarButton text='Экспериментальная' to='/_lab' icon={bug} className={css.debug} iconClassName={css.debugIcon}/>
+                    {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={bug} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>

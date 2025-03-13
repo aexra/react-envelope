@@ -9,12 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import { useTheme } from '../../../hooks/useTheme';
-import { Close, Logout, Swap, User, UserAdd } from '../../dummies/Icons';
+import { Close, Logout, Settings, Swap, User, UserAdd } from '../../dummies/Icons';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
-    const { auth, accounts, login, logout, logoutAuth, switchAuth } = useAuth();
-    const { theme, isLight } = useTheme();
+    const { auth, accounts, logout, switchAuth } = useAuth();
 
     const handleLogout = () => {
         logout(true);
@@ -73,11 +72,18 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
 
                 <HDivider/>
 
+                <ExButton className={`textbutton`}
+                          hAlign='start'
+                          onClick={() => navigate('/profile/settings')}
+                          gap='10px'><Settings className='icon-m'/> Настройки</ExButton>
+
+                <HDivider/>
+
                 <ExButton iconClassName='rect25'
                           className={`textbutton`}
                           hAlign='start'
                           onClick={handleLogout}
-                          gap='5px'><Logout className='icon-m'/> Выйти</ExButton>
+                          gap='10px'><Logout className='icon-m'/> Выйти</ExButton>
             </VBoxPanel>
         </Sidebar>
     );

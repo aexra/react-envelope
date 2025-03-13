@@ -1,6 +1,6 @@
 import css from './VDivider.module.css';
 
-function VDivider({ color = "var(--subtitle-font-color)", style, className, margin = '0 8px' }) {
+function VDivider({ color = "var(--accent-color)", style, className, margin = '0 8px' }) {
     const styles = {
         borderRight: `1px solid ${color}`,
         margin: margin,

@@ -1,7 +1,7 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
@@ -31,9 +31,17 @@ export const SamplesPage = () => {
                 <Swap/>
                 <Close/>
                 <Logout/>
+                <LogoutThick/>
                 <Email/>
                 <Visibility/>
                 <VisibilityOff/>
+                <SettingsHorizontal/>
+                <SettingsVertical/>
+                <SettingsOutline/>
+                <SettingsSolid/>
+                <SettingsSharp/>
+                <Settings/>
+                <SettingsFilled/>
             </FlowPanel>
             <HDivider className={`stretch-self`}/>
         </BasePage>

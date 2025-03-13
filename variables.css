@@ -102,7 +102,7 @@ body.light {
     --highlight-hint-color: var(--highlight-font-color);
 
     /* ACCENT */
-    --accent-color: #fff;
+    --accent-color: #333;
 
     /*            */
     /* FULL PROPS */
@@ -152,7 +152,7 @@ body.dark {
     --highlight-hint-color: var(--font-color);
 
     /* ACCENT */
-    --accent-color: #fff;
+    --accent-color: var(--font-color);
 
     /*            */
     /* FULL PROPS */

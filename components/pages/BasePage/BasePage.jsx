@@ -1,9 +1,8 @@
 import Header from '../../widgets/Header/Header';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import css from './BasePage.module.css';
-import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 
-function BasePage({ ref, className, style, children, hasHeader = true, bodyGap = '40px', bodyClassName, navSidebar, headerContent, footerContent }) {
+function BasePage({ ref, className, style, children, bodyGap = '40px', bodyClassName, navSidebar, headered = false, headerContent, footerContent }) {
     return (
         <VBoxPanel  className={`${className} ${css.page} ${!footerContent && css.footerless} ${navSidebar && css.pageSidebarMargin}`}
                     style={{
@@ -12,7 +11,7 @@ function BasePage({ ref, className, style, children, hasHeader = true, bodyGap =
                     ref={ref}
                     gap='40px'>
             {navSidebar}
-            {hasHeader && <Header>{headerContent}</Header>}
+            {(headerContent || headered) && <Header>{headerContent}</Header>}
             <VBoxPanel className={`${css.body} ${bodyClassName}`}
                        gap={bodyGap}>
                 {children}
