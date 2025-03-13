@@ -135,3 +135,15 @@ export function ExperimentOutlined(props) {
     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 1024 1024" {...props}><path fill="currentColor" d="M512 472a40 40 0 1 0 80 0a40 40 0 1 0-80 0m367 352.9L696.3 352V178H768v-68H256v68h71.7v174L145 824.9c-2.8 7.4-4.3 15.2-4.3 23.1c0 35.3 28.7 64 64 64h614.6c7.9 0 15.7-1.5 23.1-4.3c33-12.7 49.4-49.8 36.6-82.8M395.7 364.7V180h232.6v184.7L719.2 600c-20.7-5.3-42.1-8-63.9-8c-61.2 0-119.2 21.5-165.3 60a188.78 188.78 0 0 1-121.3 43.9c-32.7 0-64.1-8.3-91.8-23.7zM210.5 844l41.7-107.8c35.7 18.1 75.4 27.8 116.6 27.8c61.2 0 119.2-21.5 165.3-60c33.9-28.2 76.3-43.9 121.3-43.9c35 0 68.4 9.5 97.6 27.1L813.5 844z"></path></svg>
   )
 }
+
+export function Add(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32" {...props}><path fill="currentColor" d="M17 15V8h-2v7H8v2h7v7h2v-7h7v-2z"></path></svg>
+  )
+}
+
+export function Bin(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16" {...props}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5.75 4.25v-2.5h4.5v2.5m-6.5 1v9h8.5v-9m-9.5-.5h10.5"></path></svg>
+  )
+}

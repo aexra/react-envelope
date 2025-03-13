@@ -71,6 +71,16 @@ body.light {
     --bk-color: floralwhite;
     --header-bk-color: var(--dstu-light-blue);
 
+    /* RESULT STATES PALETTE */
+    --info-hover-color: #178eb9;
+    --success-hover-color: #00963c;
+    --warning-hover-color: #dfa023;
+    --error-hover-color: #d82727;
+    --info-active-color: #106c8d;
+    --success-active-color: #006b2b;
+    --warning-active-color: #ac7915;
+    --error-active-color: #ac1515;
+
     /* BORDER */
     --border-color: #999;
 
@@ -120,6 +130,16 @@ body.dark {
     /* BACKGROUND */
     --bk-color: #0d1117;
     --header-bk-color: #000;
+
+    /* RESULT STATES PALETTE */
+    --info-hover-color: #178eb9;
+    --success-hover-color: #00963c;
+    --warning-hover-color: #dfa023;
+    --error-hover-color: #d82727;
+    --info-active-color: #106c8d;
+    --success-active-color: #006b2b;
+    --warning-active-color: #ac7915;
+    --error-active-color: #ac1515;
 
     /* BORDER */
     --border-color: #3d444d;
