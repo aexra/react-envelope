@@ -5,13 +5,11 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarButton';
 import dstu from '../../../assets/images/dstu-w.png';
-import home from '../../../assets/images/home-w.png';
-import person from '../../../assets/images/user.png';
-import bug from '../../../assets/images/coding.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { useAuth } from '../../../hooks/useAuth';
+import { Code, Home } from '../../dummies/Icons';
 
-function DSTUNavSidebar({ ref, className }) {    
+function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
     const { auth } = useAuth();
     
@@ -34,8 +32,9 @@ function DSTUNavSidebar({ ref, className }) {
                 </HBoxPanel>
                 <HDivider color='var(--dstu-blue)' margin='0 0 5px 0'/>
                 <VBoxPanel>
-                    <NavSidebarButton text='Домой' to='/' icon={home}/>
-                    {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={bug} className={css.debug} iconClassName={css.debugIcon}/>}
+                    <NavSidebarButton text='Домой' to='/' icon={<Home/>}/>
+                    {children}
+                    {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>

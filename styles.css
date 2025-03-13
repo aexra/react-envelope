@@ -461,19 +461,23 @@ input:-webkit-autofill:focus{
     color: var(--title-color);
   }
   
-  .icon-s {
+  .icon-s,
+  .icon-s svg {
     width: 20px;
     height: 20px;
   }
-  .icon-m {
+  .icon-m,
+  .icon-m svg {
     width: 25px;
     height: 25px;
   }
-  .icon-l {
+  .icon-l,
+  .icon-l svg {
     width: 30px;
     height: 30px;
   }
-  .icon-g {
+  .icon-g,
+  .icon-g svg {
     width: 40px;
     height: 40px;
   }

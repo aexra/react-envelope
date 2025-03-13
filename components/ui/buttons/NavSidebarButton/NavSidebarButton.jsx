@@ -22,11 +22,13 @@ export const NavSidebarButton = ({
         <ExButton ref={ref}
                   className={`${className} ${css.navButton} textbutton`}
                   onClick={handleClick}
-                  leftIcon={icon}
                   hAlign='start'
                   gap='25px'
                   iconClassName={`icon-s ${iconClassName}`}>
-            {text}
+            <div className={`icon-m flex center`}>
+                {icon}
+            </div>
+            <span>{text}</span>
         </ExButton>
     );
 };
