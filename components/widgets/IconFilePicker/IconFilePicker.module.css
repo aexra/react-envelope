@@ -1,10 +1,10 @@
 .container {
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
 
     box-shadow: var(--panel-shadow);
 
-    background: #efefef;
+    background: var(--dropout-bk);
 
     position: relative;
 }
@@ -16,11 +16,7 @@
 }
 
 .image {
-    opacity: 0.3;
-    pointer-events: none;
-    user-select: none;
-    object-fit: cover;
-    object-position: center center;
+    opacity: 0.4;
 }
 .setIcon {
     opacity: 1;
@@ -45,12 +41,10 @@
 }
 
 .addImage {
-    width: 30px;
+    width: 40px;
+
     opacity: 0;
     transition: all 0.3s ease;
-    filter: var(--filter-white);
-    pointer-events: none;
-    user-select: none;
 }
 
 .iInput {

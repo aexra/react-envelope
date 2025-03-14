@@ -262,7 +262,7 @@ code {
 }
 
 .dstu-accent-button {
-  background: var(--dstu-dark-blue);
+  background: var(--dstu-accent-button-bk);
   color: #fff !important;
 }
 .dstu-accent-button:hover {

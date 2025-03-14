@@ -91,6 +91,7 @@ body.light {
     --button-theme-toggle-color: #000;
     --button-theme-toggle-bk: transparent;
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
+    --dstu-accent-button-bk: var(--dstu-dark-blue);
 
     /* SIDEBAR */
     --sidebar-user-bk: #fff;
@@ -152,6 +153,7 @@ body.dark {
     --button-theme-toggle-color: #fff;
     --button-theme-toggle-bk: transparent;
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
+    --dstu-accent-button-bk: var(--dstu-light-blue);
 
     /* SIDEBAR */
     --sidebar-user-bk: #151b23;

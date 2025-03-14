@@ -1,7 +1,7 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
@@ -46,6 +46,17 @@ export const SamplesPage = () => {
                 <Add/>
                 <Remove/>
                 <Bin/>
+                <RefreshOutline/>
+                <Edit/>
+                <Pencil/>
+                <PaperPlane/>
+                <Palette/>
+                <Package/>
+                <Pin/>
+                <Phone/>
+                <Pizza/>
+                <Party/>
+                <Parking/>
             </FlowPanel>
             <HDivider className={`stretch-self`}/>
         </BasePage>
