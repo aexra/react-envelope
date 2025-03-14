@@ -1,6 +1,6 @@
 .modal {
     position: absolute;
-    background-color: var(--panel-background-color);
+    background-color: var(--modal-bk);
 }
 
 .headerContainer {
