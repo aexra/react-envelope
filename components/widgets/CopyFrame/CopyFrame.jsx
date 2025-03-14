@@ -15,7 +15,7 @@ export const CopyFrame = ({ ref, className, src, children }) => {
     };
     
     return (
-        <div ref={ref} className={`${css.cf} ${className} pad5 r10`} onClick={handleCopy}>
+        <div ref={ref} className={`${css.cf} ${className} pad5 r10 flex row center`} onClick={handleCopy}>
             {children}
         </div>
     );

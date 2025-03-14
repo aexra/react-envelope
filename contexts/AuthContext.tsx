@@ -19,6 +19,9 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
   
   useEffect(() => {
     const user = getItem("user");
+
+    
+
     if (user) {
       setUser(user);
     }
