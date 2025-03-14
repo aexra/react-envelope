@@ -1,26 +1,22 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
+import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
+import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
 
 export const SamplesPage = () => {
-    const setHeaderContent = () => {
-        return (
-            <span className={`${css.title}`}>ENVELOPE</span>
-        );
-    };
-
     return (
-        <BasePage headerContent={setHeaderContent()}
+        <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
                   bodyClassName={`h-full`}
                   footerContent={<DSTUFooter/>}
                   navSidebar={<DSTUNavSidebar/>}>
             <h1>Иконки</h1>
             <FlowPanel className={``}>
-                <Moon/>
+                <CopyFrame src={<Moon/>}><Moon/></CopyFrame>
                 <Sun/>
                 <User/>
                 <UserFilled/>
@@ -55,6 +51,7 @@ export const SamplesPage = () => {
                 <Pin/>
                 <Phone/>
                 <Pizza/>
+                <PizzaFilled/>
                 <Party/>
                 <Parking/>
             </FlowPanel>

@@ -76,90 +76,90 @@ code {
 }
 
 /* COLUMN ALIGNMENTS */
-.flex.col .top-left {
+.flex.col.top-left {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.flex.col .top-center {
+.flex.col.top-center {
   justify-content: flex-start;
   align-items: center;
 }
-.flex.col .top-right {
+.flex.col.top-right {
   justify-content: flex-start;
   align-items: flex-end;
 }
-.flex.col .center-left {
+.flex.col.center-left {
   justify-content: center;
   align-items: flex-start;
 }
-.flex.col .center {
+.flex.col.center {
   justify-content: center;
   align-items: center;
 }
-.flex.col .center-right {
+.flex.col.center-right {
   justify-content: center;
   align-items: flex-end;
 }
-.flex.col .bottom-left {
+.flex.col.bottom-left {
   justify-content: flex-end;
   align-items: flex-start;
 }
-.flex.col .bottom-center {
+.flex.col.bottom-center {
   justify-content: flex-end;
   align-items: center;
 }
-.flex.col .bottom-right {
+.flex.col.bottom-right {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flex.col .h-stretch {
+.flex.col.h-stretch {
   align-items: stretch;
 }
-.flex.col .v-stretch {
+.flex.col.v-stretch {
   justify-content: stretch;
 }
 
 /* ROW ALIGNMENTS */
-.flex.row .top-left {
+.flex.row.top-left {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.flex.row .top-center {
+.flex.row.top-center {
   justify-content: center;
   align-items: flex-start;
 }
-.flex.row .top-right {
+.flex.row.top-right {
   justify-content: flex-end;
   align-items: flex-start;
 }
-.flex.row .center-left {
+.flex.row.center-left {
   justify-content: flex-start;
   align-items: center;
 }
-.flex.row .center {
+.flex.row.center {
   justify-content: center;
   align-items: center;
 }
-.flex.row .center-right {
+.flex.row.center-right {
   justify-content: flex-end;
   align-items: center;
 }
-.flex.row .bottom-left {
+.flex.row.bottom-left {
   justify-content: flex-start;
   align-items: flex-end;
 }
-.flex.row .bottom-center {
+.flex.row.bottom-center {
   justify-content: center;
   align-items: flex-end;
 }
-.flex.row .bottom-right {
+.flex.row.bottom-right {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flex.row .h-stretch {
+.flex.row.h-stretch {
   justify-content: stretch;
 }
-.flex.row .v-stretch {
+.flex.row.v-stretch {
   align-items: stretch;
 }
 
