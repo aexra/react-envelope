@@ -155,6 +155,7 @@ body.dark {
     --ex-button-bk: #4e5058;
     --ex-button-hover-bk: #6d6f78;
     --ex-button-active-bk: #777980;
+    --button-bk: rgba(255, 255, 255, 0.03);
     --button-hover-bk: rgba(255, 255, 255, 0.05);
     --button-active-bk: rgba(255, 255, 255, 0.15);
     --button-theme-toggle-color: #fff;

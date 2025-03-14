@@ -9,6 +9,47 @@ import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
 
 export const SamplesPage = () => {
+    const icons = [
+        { element: <Moon />, jsx: "<Moon />" },
+        { element: <Sun />, jsx: "<Sun />" },
+        { element: <User />, jsx: "<User />" },
+        { element: <UserFilled />, jsx: "<UserFilled />" },
+        { element: <UserAdd />, jsx: "<UserAdd />" },
+        { element: <Home />, jsx: "<Home />" },
+        { element: <HomeFilled />, jsx: "<HomeFilled />" },
+        { element: <Code />, jsx: "<Code />" },
+        { element: <Swap />, jsx: "<Swap />" },
+        { element: <Close />, jsx: "<Close />" },
+        { element: <Logout />, jsx: "<Logout />" },
+        { element: <LogoutThick />, jsx: "<LogoutThick />" },
+        { element: <Email />, jsx: "<Email />" },
+        { element: <Visibility />, jsx: "<Visibility />" },
+        { element: <VisibilityOff />, jsx: "<VisibilityOff />" },
+        { element: <SettingsHorizontal />, jsx: "<SettingsHorizontal />" },
+        { element: <SettingsVertical />, jsx: "<SettingsVertical />" },
+        { element: <SettingsOutline />, jsx: "<SettingsOutline />" },
+        { element: <SettingsSolid />, jsx: "<SettingsSolid />" },
+        { element: <SettingsSharp />, jsx: "<SettingsSharp />" },
+        { element: <Settings />, jsx: "<Settings />" },
+        { element: <SettingsFilled />, jsx: "<SettingsFilled />" },
+        { element: <ExperimentOutlined />, jsx: "<ExperimentOutlined />" },
+        { element: <Add />, jsx: "<Add />" },
+        { element: <Remove />, jsx: "<Remove />" },
+        { element: <Bin />, jsx: "<Bin />" },
+        { element: <RefreshOutline />, jsx: "<RefreshOutline />" },
+        { element: <Edit />, jsx: "<Edit />" },
+        { element: <Pencil />, jsx: "<Pencil />" },
+        { element: <PaperPlane />, jsx: "<PaperPlane />" },
+        { element: <Palette />, jsx: "<Palette />" },
+        { element: <Package />, jsx: "<Package />" },
+        { element: <Pin />, jsx: "<Pin />" },
+        { element: <Phone />, jsx: "<Phone />" },
+        { element: <Pizza />, jsx: "<Pizza />" },
+        { element: <PizzaFilled />, jsx: "<PizzaFilled />" },
+        { element: <Party />, jsx: "<Party />" },
+        { element: <Parking />, jsx: "<Parking />" },
+    ];
+
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
                   bodyClassName={`h-full`}
@@ -16,44 +57,9 @@ export const SamplesPage = () => {
                   navSidebar={<DSTUNavSidebar/>}>
             <h1>Иконки</h1>
             <FlowPanel className={``}>
-                <CopyFrame src={<Moon/>}><Moon/></CopyFrame>
-                <Sun/>
-                <User/>
-                <UserFilled/>
-                <UserAdd/>
-                <Home/>
-                <HomeFilled/>
-                <Code/>
-                <Swap/>
-                <Close/>
-                <Logout/>
-                <LogoutThick/>
-                <Email/>
-                <Visibility/>
-                <VisibilityOff/>
-                <SettingsHorizontal/>
-                <SettingsVertical/>
-                <SettingsOutline/>
-                <SettingsSolid/>
-                <SettingsSharp/>
-                <Settings/>
-                <SettingsFilled/>
-                <ExperimentOutlined/>
-                <Add/>
-                <Remove/>
-                <Bin/>
-                <RefreshOutline/>
-                <Edit/>
-                <Pencil/>
-                <PaperPlane/>
-                <Palette/>
-                <Package/>
-                <Pin/>
-                <Phone/>
-                <Pizza/>
-                <PizzaFilled/>
-                <Party/>
-                <Parking/>
+            {icons.map((icon, id) => (
+                <CopyFrame key={id} src={icon.jsx}>{icon.element}</CopyFrame>
+            ))}
             </FlowPanel>
             <HDivider className={`stretch-self`}/>
         </BasePage>
