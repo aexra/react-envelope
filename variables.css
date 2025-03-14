@@ -68,7 +68,7 @@ body.light {
     /*        */
 
     /* BACKGROUND */
-    --bk-color: floralwhite;
+    --bk-color: #fefefe;
     --header-bk-color: var(--dstu-light-blue);
     --panel-bk: #fff;
 
@@ -86,12 +86,16 @@ body.light {
     --border-color: #999;
 
     /* BUTTONS */
+    --ex-button-bk: #ffffff;
+    --ex-button-hover-bk: #c2c4ce;
+    --ex-button-active-bk: #9597a1;
     --button-hover-bk: rgba(0, 0, 0, 0.2);
     --button-active-bk: rgba(0, 0, 0, 0.3);
     --button-theme-toggle-color: #000;
     --button-theme-toggle-bk: transparent;
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
     --dstu-accent-button-bk: var(--dstu-dark-blue);
+    --dstu-accent-button-hover-bk: var(--dstu-light-blue);
 
     /* SIDEBAR */
     --sidebar-user-bk: #fff;
@@ -131,7 +135,7 @@ body.dark {
 
     /* BACKGROUND */
     --bk-color: #242424;
-    --header-bk-color: #000;
+    --header-bk-color: #1e1f22;
     --panel-bk: #333;
 
     /* RESULT STATES PALETTE */
@@ -148,12 +152,16 @@ body.dark {
     --border-color: #3d444d;
 
     /* BUTTONS */
+    --ex-button-bk: #4e5058;
+    --ex-button-hover-bk: #6d6f78;
+    --ex-button-active-bk: #777980;
     --button-hover-bk: rgba(255, 255, 255, 0.05);
     --button-active-bk: rgba(255, 255, 255, 0.15);
     --button-theme-toggle-color: #fff;
     --button-theme-toggle-bk: transparent;
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
     --dstu-accent-button-bk: var(--dstu-light-blue);
+    --dstu-accent-button-hover-bk: var(--dstu-dark-blue);
 
     /* SIDEBAR */
     --sidebar-user-bk: #151b23;

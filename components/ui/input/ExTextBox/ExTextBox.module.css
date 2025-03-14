@@ -25,12 +25,15 @@
 
     position: relative;
 }
+.borderless {
+    border: none;
+}
 .highlightedBox {
     /* border-bottom: 1px solid var(--subtitle-highlighted-color); */
 }
 
 .input {
-    padding: 0;
+    padding: 10px 0 0 0;
     border-radius: 0;
     font-family: inherit;
 }

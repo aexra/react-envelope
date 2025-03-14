@@ -1,0 +1,7 @@
+.tbhint {
+    color: var(--caption-font-color);
+}
+
+.panel {
+    background-color: var(--dropdown-bk);
+}

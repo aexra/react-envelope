@@ -20,7 +20,9 @@ function ExTextBox({
     inputRef,
     onValidationStateChanged,
     text,
-    readOnly = false
+    readOnly = false,
+    hintClassName,
+    borderless = false
 }) {
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(isPassword);
@@ -61,8 +63,8 @@ function ExTextBox({
     };
 
     return (
-        <VBoxPanel ref={ref} className={`${className} ${css.box} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
-            {hint && <span className={`${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
+        <VBoxPanel ref={ref} className={`${className} ${css.box} ${borderless && css.borderless} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
+            {hint && <span className={`${hintClassName} ${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
             <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
             <HBoxPanel gap='5px' valign='center'>
                 <TransparentTextBox className={css.input}

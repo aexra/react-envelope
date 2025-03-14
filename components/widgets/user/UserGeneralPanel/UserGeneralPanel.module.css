@@ -1,14 +1,5 @@
 .panel {
-    min-height: 300px;
     padding: 30px;
-}
-
-.avatarGroup {
-    
-}
-
-.dataGroup {
-    
 }
 
 .avatar {
@@ -17,6 +8,6 @@
 }
 
 .globalEdit {
-    padding: 5px 15px 5px 15px;
     font-size: small;
 }
+

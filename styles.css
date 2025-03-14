@@ -20,6 +20,48 @@ code {
     font-weight: 500;
 }
 
+/* PALETTE PREFABS */
+
+.textbutton {
+  background: var(--textbutton-bk) !important;
+}
+.textbutton:hover {
+  background: var(--button-hover-bk) !important;
+}
+.textbutton:active {
+  background: var(--button-active-bk) !important;
+}
+
+.textbutton-less {
+  background: var(--textbutton-bk) !important;
+}
+
+.dstu-accent-button {
+  background-color: var(--dstu-accent-button-bk) !important;
+  color: #fff !important;
+}
+.dstu-accent-button:hover {
+  background-color: var(--dstu-accent-button-hover-bk) !important;
+}
+
+.fixed1280 {
+  width: 1280px;
+}
+
+.panel {
+  padding: 10px;
+  border-radius: 15px;
+
+  box-shadow: var(--panel-shadow);
+
+  transition: all 0.1s ease;
+
+  background-color: var(--panel-bk);
+}
+.panel.hover:hover {
+  box-shadow: var(--panel-hover-shadow);
+}
+
 /* LAYOUT */
 
 .flex {
@@ -157,7 +199,10 @@ code {
 }
 
 .flex-1 {
-  flex: 1
+  flex: 1 !important
+}
+.flex-0-1 {
+  flex: 0 1 !important;
 }
 
 .h-first {
@@ -243,37 +288,6 @@ code {
 }
 .display {
   color: var(--display-font-color);
-}
-
-/* PALETTE PREFABS */
-
-.textbutton {
-  background: var(--textbutton-bk);
-}
-.textbutton:hover {
-  background: var(--button-hover-bk);
-}
-.textbutton:active {
-  background: var(--button-active-bk);
-}
-
-.textbutton-less {
-  background: var(--textbutton-bk);
-}
-
-.dstu-accent-button {
-  background: var(--dstu-accent-button-bk);
-  color: #fff !important;
-}
-.dstu-accent-button:hover {
-  opacity: 1.1;
-}
-.dstu-accent-button:active {
-  opacity: 1.2;
-}
-
-.fixed1280 {
-  width: 1280px;
 }
 
 .color-inverse {
@@ -406,6 +420,21 @@ input:-webkit-autofill:focus{
   cursor: pointer;
 }
 
+/* TEXT */
+
+.bold {
+  font-weight: bold;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+
 /* SHITCODE */
 
 .App {
@@ -415,24 +444,6 @@ input:-webkit-autofill:focus{
     align-items: start;
   
     padding: 10px;
-  }
-  
-  .bold {
-    font-weight: bold;
-  }
-  
-  .panel {
-    padding: 10px;
-    border-radius: 15px;
-  
-    box-shadow: var(--panel-shadow);
-  
-    transition: all 0.1s ease;
-
-    background-color: var(--panel-bk);
-  }
-  .panel.hover:hover {
-    box-shadow: var(--panel-hover-shadow);
   }
   
   

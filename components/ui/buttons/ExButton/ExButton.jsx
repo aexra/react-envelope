@@ -15,14 +15,14 @@ function ExButton({
 }) {
     return (
         <button ref={ref}
-                className={`${className} ${css.button}`}
+                className={`${className} ${css.button} padh20`}
                 onClick={onClick}>
             <HBoxPanel gap={gap}
                        halign={hAlign}
                        valign={vAlign}>
-                {leftIcon && <img className={iconClassName} src={leftIcon} alt="lIcon"/>}
+                {leftIcon}
                 {children}
-                {rightIcon && <img className={iconClassName} src={rightIcon} alt="rIcon"/>}
+                {rightIcon}
             </HBoxPanel>
         </button>
     );

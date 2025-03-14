@@ -15,4 +15,12 @@
     cursor: pointer;
 
     color: inherit;
+
+    background-color: var(--ex-button-bk);
+}
+.button:hover {
+    background-color: var(--ex-button-hover-bk);
+}
+.button:active {
+    background-color: var(--ex-button-active-bk);
 }
