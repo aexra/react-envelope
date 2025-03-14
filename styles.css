@@ -156,6 +156,10 @@ code {
   align-self: stretch !important;
 }
 
+.flex-1 {
+  flex: 1
+}
+
 .h-first {
   margin-right: auto;
 }
@@ -424,6 +428,8 @@ input:-webkit-autofill:focus{
     box-shadow: var(--panel-shadow);
   
     transition: all 0.1s ease;
+
+    background-color: var(--panel-bk);
   }
   .panel.hover:hover {
     box-shadow: var(--panel-hover-shadow);

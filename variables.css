@@ -70,6 +70,7 @@ body.light {
     /* BACKGROUND */
     --bk-color: floralwhite;
     --header-bk-color: var(--dstu-light-blue);
+    --panel-bk: #fff;
 
     /* RESULT STATES PALETTE */
     --info-hover-color: #178eb9;
@@ -130,6 +131,7 @@ body.dark {
     /* BACKGROUND */
     --bk-color: #242424;
     --header-bk-color: #000;
+    --panel-bk: #333;
 
     /* RESULT STATES PALETTE */
     --info-hover-color: #178eb9;

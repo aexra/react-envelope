@@ -9,7 +9,8 @@ function TransparentTextBox({
     isPassword = false, 
     onTextChanged = null,
     placeholder,
-    text
+    text,
+    readOnly = false
 }) {
     const handleFocusGain = () => {
         if (onFocusChanged) onFocusChanged(true);
@@ -32,6 +33,7 @@ function TransparentTextBox({
     };
     
     return (
+        readOnly ? <span className={`${className} ${css.input}`}>{text}</span> : 
         <input ref={ref} 
                className={`${className} ${css.input}`} 
                style={style} 
