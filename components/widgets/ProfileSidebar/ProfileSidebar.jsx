@@ -13,7 +13,7 @@ import { Close, Logout, Settings, Swap, User, UserAdd } from '../../dummies/Icon
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
-    const { auth, accounts, logout, switchAuth } = useAuth();
+    const { auth, user, accounts, logout, switchAuth } = useAuth();
 
     const handleLogout = () => {
         logout(true);
@@ -46,7 +46,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                     }}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
-                        <span className={`${css.name} caption`}>{auth?.firstname} {auth?.lastname}</span>
+                        <span className={`${css.name} caption`}>{user?.firstname} {user?.lastname}</span>
                     </VBoxPanel>
                     <Dropout className={`${css.last}`}
                              side={0}

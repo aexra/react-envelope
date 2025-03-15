@@ -16,7 +16,7 @@ export const EditSelfModal = ({
     onCloseRequested,
     isEnabled
 }) => {
-    const { auth, refresh } = useAuth();
+    const { auth, user, refresh } = useAuth();
 
     const [lnValue, setlnValue] = useState();
     const [fnValue, setfnValue] = useState();
@@ -50,9 +50,9 @@ export const EditSelfModal = ({
     };
 
     const setDefault = () => {
-        setlnValue(auth?.lastname);
-        setfnValue(auth?.firstname);
-        setmnValue(auth?.middlename);
+        setlnValue(user?.lastname);
+        setfnValue(user?.firstname);
+        setmnValue(user?.middlename);
     };
 
     useEffect(() => {

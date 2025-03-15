@@ -12,7 +12,7 @@ import VDivider from '../../ui/dividers/VDivider/VDivider';
 function Header({ ref, className, style, children }) {
     const navigate = useNavigate();
     const [isProfileSidebarShown, setProfileSidebarVisibility] = useState(false);
-    const { auth } = useAuth();
+    const { auth, user } = useAuth();
     const { isLight, theme, setTheme } = useTheme();
 
     const handleThemeToggle = () => {
@@ -32,9 +32,9 @@ function Header({ ref, className, style, children }) {
             {!auth ? <ExButton className={`textbutton-less color-light`}
                                onClick={() => navigate('/login')}>Войти</ExButton> :
                 <HBoxPanel valign='center' gap='5px'>
-                    <span>{auth.lastname}</span>
-                    <span>{auth.firstname}</span>
-                    {auth.middlename && <span className='white'>{auth.middlename}</span>}
+                    <span>{user?.lastname}</span>
+                    <span>{user?.firstname}</span>
+                    {user?.middlename && <span className='white'>{user?.middlename}</span>}
                     <User className={`icon-m pointer`}
                           onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
                           color='#fff'/>
