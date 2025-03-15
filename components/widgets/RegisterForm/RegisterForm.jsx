@@ -8,6 +8,8 @@ import userIcon from '../../../assets/images/user.png';
 import { useRef } from 'react';
 import identityIcon from '../../../assets/images/id-card.png';
 import emailIcon from '../../../assets/images/email.png';
+import { Email, User, UserFilled } from '../../dummies/Icons';
+import { DSTULabeledForm } from '../DSTULabeledForm/DSTULabeledForm';
 
 function RegisterForm({ onBackClick, onRegisterClick }) {
     const fnameRef = useRef(null);
@@ -23,36 +25,35 @@ function RegisterForm({ onBackClick, onRegisterClick }) {
 
     const handleRegisterButtonClick = (e) => {
         if (onRegisterClick) onRegisterClick(e, {
-            firstName: fnameRef.current.value,
-            lastName: lnameRef.current.value,
-            middleName: mnameRef.current.value,
+            firstname: fnameRef.current.value,
+            lastname: lnameRef.current.value,
+            middlename: mnameRef.current.value,
             // studentId: studentIdRef.current.value,
-            username: emailRef.current.value,
+            login: emailRef.current.value,
             password: passwordRef.current.value
         });
     };
 
     return (
-        <VBoxPanel className={`dstuLabelForm panel`}>
-            <IconLabel className={css.label} text='Регистрация' icon={userIcon}/>
+        <DSTULabeledForm label={'Личный кабинет'} iconContent={<UserFilled className='icon-l'/>}>
             <VBoxPanel className={css.formBody} gap='30px'>
                 <ExTextBox hint='Логин' 
-                           icon={emailIcon}
+                           icon={<Email/>}
                            inputRef={emailRef}
                            regex="."
                            placeholder="Введите логин"/>
                 <ExTextBox hint='Фамилия' 
-                           icon={userIcon}
+                           icon={<User/>}
                            inputRef={lnameRef}
                            regex="."
                            placeholder="Введите фамилию"/>
                 <ExTextBox hint='Имя' 
-                           icon={userIcon}
+                           icon={<User/>}
                            inputRef={fnameRef}
                            regex="."
                            placeholder="Введите имя"/>
                 <ExTextBox hint='Отчество' 
-                           icon={userIcon}
+                           icon={<User/>}
                            inputRef={mnameRef}
                            placeholder="Введите отчество"/>
                 {/* <ExTextBox hint='Номер зачетной книжки' 
@@ -61,17 +62,17 @@ function RegisterForm({ onBackClick, onRegisterClick }) {
                            regex="."
                            placeholder="Введите номер ЗК"/> */}
                 <ExTextBox hint='Пароль' 
-                           icon={userIcon}
+                           icon={<User/>}
                            inputRef={passwordRef}
                            isPassword={true}
                            regex="."
                            placeholder="Введите пароль"/>
                 <FlowPanel gap='10px'>
-                    <TagButton onClick={handleBackButtonClick}>НАЗАД</TagButton>
-                    <TagButton className={css.lastTag} onClick={handleRegisterButtonClick}>ЗАРЕГИСТРИРОВАТЬСЯ</TagButton>
+                    <TagButton className={`dstu-accent-button`} onClick={handleBackButtonClick}>НАЗАД</TagButton>
+                    <TagButton className={`dstu-accent-button h-last`} onClick={handleRegisterButtonClick}>ЗАРЕГИСТРИРОВАТЬСЯ</TagButton>
                 </FlowPanel>
             </VBoxPanel>
-        </VBoxPanel>
+        </DSTULabeledForm>
     );
 }
 
