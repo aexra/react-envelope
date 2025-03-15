@@ -11,7 +11,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
     (config) => {
-        const auth = localStorage.getItem('user'); // Получаем токен из localStorage
+        const auth = localStorage.getItem('auth'); // Получаем токен из localStorage
         if (auth != null) {
             const token = JSON.parse(auth).token;
             config.headers.Authorization = `Bearer ${token}`; // Добавляем токен в заголовок
@@ -29,7 +29,7 @@ api.interceptors.response.use(
     },
     (error) => {
         if (error.response.status === 401) {
-            localStorage.removeItem('user');
+            localStorage.removeItem('auth');
             // window.location.href = '/login';
         }
         return Promise.reject(error);

@@ -16,7 +16,7 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
 
     const handleLoginButtonClick = (e) => {
         if (onLoginClick) onLoginClick(e, {
-            username: usernameRef.current.value, 
+            login:    usernameRef.current.value, 
             password: passwordRef.current.value
         });
     };

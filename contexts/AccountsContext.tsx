@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
-import { User } from "../interfaces/User";
 import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
+import { Auth } from "../interfaces/Auth";
 
 interface IAccountsContext {
-  accounts: User[] | null;
-  setAccounts: (accounts: User[] | null) => void;
+  accounts: Auth[] | null;
+  setAccounts: (accounts: Auth[] | null) => void;
 }
 
 export const AccountsContext = createContext<IAccountsContext>({
@@ -13,13 +13,17 @@ export const AccountsContext = createContext<IAccountsContext>({
 });
 
 export const AccountsProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  const [accounts, setAccounts] = useState<User[] | null>([]);
-  
+  const [accounts, setAccounts] = useState<Auth[] | null>([]);
   const { getItem, setItem } = useObjectLocalStorage();
 
   useEffect(() => {
     const accounts = getItem("accounts");
     if (accounts) {
+
+      // TODO: Проверить все аккаунты на валидность токенов, 
+      // если не валидны токены - удалить аккаунт 
+      // (или попробовать войти через сохраненные данные, если они есть)
+
       setAccounts(accounts);
     } else {
       setItem("accounts", []);

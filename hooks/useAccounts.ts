@@ -1,24 +1,24 @@
 import { useContext } from "react";
-import { User } from "../interfaces/User";
 import { useObjectLocalStorage } from "./useObjectLocalStorage";
 import { AccountsContext } from "../contexts/AccountsContext";
+import { Auth } from "../interfaces/Auth";
 
 export const useAccounts = () => {
     const { accounts, setAccounts: setAccountsObject } = useContext(AccountsContext);
     const { setItem, getItem } = useObjectLocalStorage();
 
-    const addAccount = (user: User) => {
-        var list: User[] | null = getItem("accounts");
-        if (!list) list = [user];
-        else list = [...list, user];
+    const addAccount = (auth: Auth) => {
+        var list: Auth[] | null = getItem("accounts");
+        if (!list) list = [auth];
+        else list = [...list, auth];
 
         setItem("accounts", list);
         setAccountsObject(list);
     };
 
-    const removeAccount = (user: User) => {
-        var list: User[] | null = getItem("accounts");
-        if (list) list = list.filter(u => u.login != user.login);
+    const removeAccount = (auth: Auth) => {
+        var list: Auth[] | null = getItem("accounts");
+        if (list) list = list.filter(a => a.login != auth.login);
         
         setItem("accounts", list);
         setAccountsObject(list);

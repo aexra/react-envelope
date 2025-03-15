@@ -7,8 +7,6 @@ import RegisterForm from '../../widgets/RegisterForm/RegisterForm';
 import { useNavigate } from 'react-router-dom';
 import TagButton from '../../ui/buttons/TagButton/TagButton';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
-import { login, register } from '../../../api/auth';
-import { me } from '../../../api/user';
 import { useAuth } from '../../../hooks/useAuth';
 import toast from 'react-hot-toast';
 import { HomeFilled } from '../../dummies/Icons';
@@ -16,47 +14,51 @@ import { HomeFilled } from '../../dummies/Icons';
 export const AuthPage = () => {
     const navigate = useNavigate();
     const [isLogin, setLoginMode] = useState(true);
-    const { login: setAuth } = useAuth();
+    const { auth, user, login, register } = useAuth();
 
     const handleLogin = async (e, data) => {
         try {
-            const lr = await login(data);
-
-            setAuth({
-                login: data.username,
-                password: data.password,
-                token: lr.data.token
-            }, true);
-
-            const mr = await me();
+            // TODO: Добавить выбор сохранить пароль и текущий аккаунт если он есть или нет
+            await login({
+                login: data.login,
+                password: data.password
+            }, true, true);
             
-            setAuth({
-                id: mr.data.id,
-                login: data.username,
-                password: data.password,
-                firstname: mr.data.firstname,
-                lastname: mr.data.lastname,
-                middlename: mr.data.middlename,
-                token: lr.data.token
-            }, false);
-
-            if (mr.data.middlename) toast.success(`Добро пожаловать, ${mr.data.firstname} ${mr.data.middlename}!`);
-            else toast.success(`Добро пожаловать, ${mr.data.login}!`);
+            if (user.middlename) toast.success(`Добро пожаловать, ${user.firstname} ${user.middlename}!`);
+            else toast.success(`Добро пожаловать, ${auth.login}!`);
 
             navigate('/');
-        } catch (error) {
+        } catch (er) {
             toast.error("Ошибка авторизации");
-            console.log("Login error:", error);
+            console.log(er);
         }
     };
 
     const handleRegister = async (e, data) => {
         try {
-            const response = await register(data);
-            await handleLogin(null, data);
-        } catch (error) {
-            toast.error("Ошибка авторизации");
-            console.log("Login error:", error);
+            // TODO: Добавить выбор сохранить пароль или нет
+            const response = await register(
+                {
+                    login: data.login,
+                    password: data.password
+                },
+                {
+                    firstname: data.firstname,
+                    lastname: data.lastname,
+                    middlename: data.middlename
+                    // TODO: Добавить еще если нужно
+                }
+            );
+            
+            if (response.status !== 200) {
+                toast('Ошибка регистрации');
+            } else {
+                toast(`${data.login}, аккаунт создан!`);
+                setLoginMode(true);
+            }
+        } catch (er) {
+            toast.error("Ошибка регистрации");
+            console.log(er);
         }
     };
 

@@ -1,55 +1,81 @@
 import { me } from '../api/user';
-import { User } from '../interfaces/User';
+import { Auth } from '../interfaces/Auth';
 import { useAccounts } from './useAccounts';
 import { useUser } from './useUser';
+import { login as _login, register as _register } from '../api/auth';
+import { User } from '../interfaces/User';
 
 export const useAuth = () => {
-    const { user: auth, setUser, removeUser } = useUser();
+    const { auth: _auth, user: _user, setAuth, setUser, remove } = useUser();
     const { accounts, addAccount, removeAccount } = useAccounts();
 
-    const login = (user: User, save: boolean = false) => {
-        if (save && auth) {
-            addAccount(auth);
-        }
-        setUser(user);
-        removeAccount(user);
+    const register = async (auth: { login: string, password: string }, user: User, savePreviousAccount: boolean) => {
+        const response = await _register(auth, user);
+        return response;
     };
 
-    const logout = (save: boolean = false) => {
-        if (save && auth) {
-            addAccount(auth);
+    const login = async (auth: { login: string, password: string }, savePassword: boolean = false, savePreviousAccount = true) => {
+        try {
+            const lr = await _login(auth.login, auth.password);
+
+            if (lr.status !== 200) {
+                throw('Invalid password or username');
+            }
+
+            const new_auth: Auth = {
+                token: lr.data.token,
+                login: auth.login,
+                password: (savePassword ? auth.password : null)
+            };
+
+            console.log(new_auth);
+            
+            if (savePreviousAccount && _auth) {
+                addAccount(_auth);
+            }
+            
+            setAuth(new_auth);
+            removeAccount(new_auth);
+
+            await refresh(false);
+        } catch (er) {
+            throw(er);
         }
-        removeUser();
     };
 
-    const logoutAuth = (user: User) => {
-        removeAccount(user);
+    const logout = async (savePreviousAccount: boolean = false) => {
+        if (savePreviousAccount && _auth) {
+            addAccount(_auth);
+        }
+        remove();
+    };
+
+    const logoutAuth = async (auth: Auth) => {
+        removeAccount(auth);
     }
 
-    const switchAuth = (user: User) => {
-        removeAccount(user);
-        if (auth) addAccount(auth);
-        setUser(user);
+    const switchAuth = async (auth: Auth) => {
+        removeAccount(auth);
+        if (_auth) addAccount(_auth);
+        setAuth(auth);
+
+        await refresh();
+
         window.location.reload();
     };
 
-    const refresh = async () => {
+    const refresh = async (reload: boolean = true) => {
         try {
             const mr = await me();
-
-            login({
-                id: mr.data.id,
-                login: auth?.login,
-                password: auth?.password,
-                firstname: mr.data.firstname,
-                lastname: mr.data.lastname,
-                middlename: mr.data.middlename,
-                token: auth?.token
-            }, false);
+            setUser(mr.data);
+            console.log(_user);
+            if (reload) window.location.reload();
         } catch (er) {
             console.log(er);
+            remove();
+            throw(er);
         }
     };
 
-    return { auth, accounts, login, logout, logoutAuth, switchAuth, refresh }
+    return { auth: _auth, user: _user, accounts, register, login, logout, logoutAuth, switchAuth, refresh }
 };
