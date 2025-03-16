@@ -1,6 +1,8 @@
 .page {
     min-height: calc(100vh + var(--footer-min-height));
     background-color: var(--bk-color);
+
+    margin-top: 40px;
 }
 .pageSidebarMargin {
     margin-left: var(--sidebar-width);

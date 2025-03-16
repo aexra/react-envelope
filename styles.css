@@ -15,13 +15,17 @@ code {
     background-color: var(--code-bk);
     color: var(--code-font-color);
 
-    padding: 5px 10px 5px 10px;
-    border-radius: 8px;
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
 }
 
 p {
   margin: 0;
-  line-height: 30px;
+  line-height: 25px;
+}
+
+a {
+  color: var(--accent-color);
 }
   
 @font-face {

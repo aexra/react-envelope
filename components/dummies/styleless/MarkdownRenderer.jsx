@@ -10,9 +10,11 @@ import 'highlight.js/styles/github-dark.css';
 
 export function MarkdownRenderer({ children: markdown }) {
   return (
-    <Markdown remarkPlugins={[remarkGfm, remarkMath]}
-              rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}>
-      {markdown}
-    </Markdown>
+    <div>
+      <Markdown remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}>
+        {markdown}
+      </Markdown>
+    </div>
   );
 }

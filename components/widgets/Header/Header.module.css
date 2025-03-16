@@ -1,10 +1,14 @@
 .header {
-    min-height: 40px;
+    height: 40px;
     background: var(--header-bk-color);
     padding: 0 10px;
 
     border-bottom: var(--header-border);
     color: #fff;
+
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
 }
 
 .header > :first-child {
