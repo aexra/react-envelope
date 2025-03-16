@@ -58,12 +58,12 @@ export const SamplesPage = () => {
                     
             <h1 className='article'>Иконки</h1>
 
-            <MarkdownRenderer>{`
-
+            <div><MarkdownRenderer>{`
+Библиотека компонентов (и не только) \`react-envelope\`
 \`\`\`js
-    console.log(a)
+console.log(a)
 \`\`\`
-            `}</MarkdownRenderer>
+            `}</MarkdownRenderer></div>
 
             <FlowPanel className={``}>
                 {icons.map((icon, id) => (

@@ -118,6 +118,8 @@ body.light {
     --title-font-color: #000;
     --display-font-color: #77c0c6;
     --hint-color: #999;
+    --code-bk: #d6d6d6;
+    --code-font-color: #000;
 
     /* ACCENT */
     --accent-color: var(--dstu-dark-blue);
@@ -144,7 +146,7 @@ body.dark {
     --bk-color: #242424;
     --header-bk-color: #1e1f22;
     --panel-bk: #333;
-
+    
     /* RESULT STATES PALETTE */
     --info-hover-color: #178eb9;
     --success-hover-color: #00963c;
@@ -154,10 +156,10 @@ body.dark {
     --success-active-color: #006b2b;
     --warning-active-color: #ac7915;
     --error-active-color: #ac1515;
-
+    
     /* BORDER */
     --border-color: #3d444d;
-
+    
     /* BUTTONS */
     --ex-button-bk: #4e5058;
     --ex-button-hover-bk: #6d6f78;
@@ -173,16 +175,16 @@ body.dark {
     --colorbutton-color: var(--font-color);
     --colorbutton-color-hover: color-mix(in srgb, var(--colorbutton-color) 50%, grey 50%);
     --colorbutton-color-active: color-mix(in srgb, var(--colorbutton-color) 50%, black 50%);
-
+    
     /* SIDEBAR */
     --sidebar-user-bk: #151b23;
-
+    
     /* DROPDOWN */
     --dropdown-bk: #1b232e;
-
+    
     /* MODAL */
     --modal-bk: #283546;
-
+    
     /* TEXT */
     --caption-font-color: #9c9c9c;
     --font-color: #efefef;
@@ -192,7 +194,9 @@ body.dark {
     --title-font-color: #fff;
     --display-font-color: #77c0c6;
     --hint-color: var(--highlight-font-color);
-
+    --code-bk: #1e1f22;
+    --code-font-color: #fff;
+    
     /* ACCENT */
     --accent-color: var(--dstu-light-blue);
     --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);

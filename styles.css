@@ -11,6 +11,12 @@ body {
   
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+    background-color: var(--code-bk);
+    color: var(--code-font-color);
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 8px
 }
   
 @font-face {
