@@ -16,7 +16,12 @@ code {
     color: var(--code-font-color);
 
     padding: 5px 10px 5px 10px;
-    border-radius: 8px
+    border-radius: 8px;
+}
+
+p {
+  margin: 0;
+  line-height: 30px;
 }
   
 @font-face {

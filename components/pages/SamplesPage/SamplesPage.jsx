@@ -58,12 +58,49 @@ export const SamplesPage = () => {
                     
             <h1 className='article'>Иконки</h1>
 
-            <div><MarkdownRenderer>{`
-Библиотека компонентов (и не только) \`react-envelope\`
-\`\`\`js
-console.log(a)
+            <div>
+                <MarkdownRenderer>{`
+Библиотека компонентов (и не только) \`react-envelope\` предоставляет возможность использовать прямо в разметке иконки из файла \`/react-envelope/components/dummies/Icons.jsx\` следующим образом:
+\`\`\`jsx
+// Например, иконка Home
+import { Home } from '../../dummies/Icons'; // Примерное расположение
+
+// Ваш компонент
+export const MyComponent = ({ ... }) => {
+    return (
+        <Home/>
+    );    
+}
 \`\`\`
-            `}</MarkdownRenderer></div>
+Результатом на экране будет это:
+            `}</MarkdownRenderer>
+                <Home/>
+                <MarkdownRenderer>{`
+Вы также можете изменять размер иконки заготовленными классами:
+\`\`\`jsx
+<Home className='icon-s'/>
+\`\`\`
+Доступные классы можно найти в \`/react-envelope/styles.css\`, вот некоторые из них:
+\`\`\`jsx
+<FlowPanel gap='10px'>
+    <Home className='icon-s'/>
+    <Home className='icon-m'/>
+    <Home className='icon-l'/>
+    <Home className='icon-g'/>
+<FlowPanel/>
+\`\`\`
+                `}</MarkdownRenderer>
+            <FlowPanel gap='10px'>
+                <Home className='icon-s'/>
+                <Home className='icon-m'/>
+                <Home className='icon-l'/>
+                <Home className='icon-g'/>
+            </FlowPanel>
+            <MarkdownRenderer>{`
+Ниже представлены все доступные иконки (можно добавлять свои по аналогии).
+Вы можете нажать на иконку для копирования разметки.
+            `}</MarkdownRenderer>
+            </div>
 
             <FlowPanel className={``}>
                 {icons.map((icon, id) => (
