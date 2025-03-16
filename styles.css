@@ -46,6 +46,19 @@ code {
   background: var(--textbutton-bk) !important;
 }
 
+.accent-button {
+  background-color: var(--accent-color) !important;
+  color: var(--accent-font-color) !important;
+}
+.accent-button:hover {
+  background-color: var(--accent-color-hover) !important;
+  color: var(--accent-font-color-hover) !important;
+}
+.accent-button:active {
+  background-color: var(--accent-color-active) !important;
+  color: var(--accent-font-color-active) !important;
+}
+
 .dstu-accent-button {
   background-color: var(--dstu-accent-button-bk) !important;
   color: #fff !important;

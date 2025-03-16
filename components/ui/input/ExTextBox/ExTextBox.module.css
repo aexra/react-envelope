@@ -9,7 +9,7 @@
     pointer-events: none;
 }
 .highlightedHint {
-    color: var(--highlight-hint-color);
+    color: var(--accent-color);
 }
 .hintOverlap {
     transform: scale(1.2) translateY(20px);
@@ -48,7 +48,7 @@
 }
 
 .highlightedIcon svg {
-    color: var(--highlight-hint-color);
+    color: var(--accent-color);
 }
 
 .expander {
@@ -58,7 +58,7 @@
 
     width: 100%;
 
-    color: var(--accent-color);
+    color: var(--accent-color-hover);
     border: 1px solid currentColor;
 
     transition: all 0.3s ease;
@@ -67,7 +67,7 @@
 .highlightedExpander {
     left: 0%;
     transform: scaleX(1);
-    color: var(--highlight-hint-color);
+    color: var(--accent-color);
 }
 
 .error,
