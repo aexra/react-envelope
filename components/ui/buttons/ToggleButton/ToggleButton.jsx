@@ -10,8 +10,9 @@ function ToggleButton({
     toggledText,
     icon,
     toggledIcon,
+    toggled = false
 }) {
-    const [isToggled, setToggle] = useState(false);
+    const [isToggled, setToggle] = useState(toggled);
 
     const handleToggle = (e) => {
         setToggle(!isToggled);

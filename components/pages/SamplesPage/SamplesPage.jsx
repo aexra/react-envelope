@@ -7,6 +7,13 @@ import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
 import { MarkdownRenderer } from '../../dummies/styleless/MarkdownRenderer';
+import { Headline } from '../../ui/labels/Headline/Headline';
+import AccentButton from '../../ui/buttons/AccentButton/AccentButton';
+import ExButton from '../../ui/buttons/ExButton/ExButton';
+import { Pair } from '../../layouts/Pair/Pair';
+import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarButton';
+import { StatusTag } from '../../ui/labels/StatusTag/StatusTag';
+import ToggleButton from '../../ui/buttons/ToggleButton/ToggleButton';
 
 export const SamplesPage = () => {
     const icons = [
@@ -64,6 +71,13 @@ export const SamplesPage = () => {
 
 Здесь вы найдете:
 - Принятые соглашения о реализации
+  - Структура проекта
+  - Компоненты
+    - Категории компонентов
+    - Написание
+      - CSS
+      - JSX
+      - TSX
 - Иконки
 - Компоненты
 - Хуки
@@ -72,7 +86,7 @@ export const SamplesPage = () => {
 - Глобальные стили
             `}</MarkdownRenderer>
 
-            <h1 className='article'>Соглашения</h1>
+            <Headline>Соглашения</Headline>
 
             <MarkdownRenderer>{`
 ## Структура проекта
@@ -102,11 +116,11 @@ export const SamplesPage = () => {
 
 ## Компоненты
 
-Все компоненты будут находиться в директории \`src/react-envelope/components\`, если это компоненты библиотеки, и \`/src/components\`, если это компоненты одного конкретного проекта.
+Все компоненты будут находиться в директории \`/src/react-envelope/components\`, если это компоненты библиотеки, и \`/src/components\`, если это компоненты одного конкретного проекта.
 
 ### Категории компонентов
 
-Все компоненты вы разбиваете на следующие категории (и каталоги в \`/components\`, соответственно) по их иерархии использования (каждый компонент может использовать компоненты только ниже себя по категории):
+Все компоненты вы разбиваете на следующие категории (и каталоги в \`/components/\`, соответственно) по их иерархии использования (каждый компонент может использовать компоненты только ниже себя по категории):
 1. **pages** - страницы, верхний уровень, они размеющаются в рутинге (см. рутинг)
 2. **widgets** - компоненты с бизнес-логикой, могут вызывать апи, иметь сложные принципы работы и т.д. и т.п.
 3. **dummies** - "карточки" - куски интерфейса, которые просто что-то показывают (например, карточка товара)
@@ -114,7 +128,19 @@ export const SamplesPage = () => {
 
 Вне иерархии:
 - **layouts** - менеджеры расположения компонентов
-- **wrappers** - обертки компонентов ( я бы это назвал энвелоупы ) - что-то, что стилизует и расставляет своих детей, и возможно имеет какую-то логику
+- **wrappers** - обертки компонентов ( эдакие энвелоупы ) - что-то, что стилизует и расставляет своих детей, и возможно имеет какую-то логику
+
+По хорошему стараемся группировать все что группируется.\n
+У вас есть несколько модалок которые относятся к юзеру?
+- widgets
+  - modals
+    - user
+      - Modalka1
+        - ...jsx
+        - ...css
+      - Modalka2
+        - ...jsx
+        - ...css
 
 ### Написание
 
@@ -174,7 +200,7 @@ export const MyComponent: FC<IMyComponentProps> = ({ className, children, ... })
 \`\`\`
             `}</MarkdownRenderer>
 
-            <h1 className='article'>Иконки</h1>
+            <Headline>Иконки</Headline>
 
             <div>
                 <MarkdownRenderer>{`
@@ -225,6 +251,112 @@ export const MyComponent = ({ ... }) => {
                     <CopyFrame key={id} src={icon.jsx}>{icon.element}</CopyFrame>
                 ))}
             </FlowPanel>
+
+            <div>
+                <Headline>Компоненты</Headline>
+
+                <MarkdownRenderer>{`
+## UI
+
+Нижняя категория - кнопочки и прочее
+
+### Buttons
+
+#### AccentButton
+                `}</MarkdownRenderer>
+
+                <p>В принципе, это херня из прошлого, можете забить.</p>
+                <AccentButton>Я AccentButton</AccentButton>
+
+                <Pair left={<h4>ExButton</h4>}
+                      right={<StatusTag text='ЭНВЕЛОУП' type='success' className='flex-0-1'/>}/>
+
+                <p>Вот эта штука уже используется почти везде, построена на основе HBoxPanel и имеет ряд параметров</p>
+                <div className={'flex row center-left g10'}>
+                    {<ExButton>Я ExButton</ExButton>}
+                    <MarkdownRenderer>{`
+\`\`\`jsx
+<ExButton>Я ExButton</ExButton>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </div>
+                <div className={'flex row center-left g10'}>
+                    {<ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>}
+                    <MarkdownRenderer>{`
+\`\`\`jsx
+<ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </div>
+                <div className={'flex row center-left g10'}>
+                    {<ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>}
+                    <MarkdownRenderer>{`
+\`\`\`jsx
+<ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </div>
+                <div className={'flex row center-left g10'}>{
+                    <ExButton leftIcon={<Pizza className='icon-m'/>}
+                              rightIcon={<Pizza className='icon-m'/>} 
+                              gap='5px'>
+                        <Pizza className='icon-m'/>
+                        Пицца
+                        <Pizza className='icon-m'/>
+                    </ExButton>}
+                    <MarkdownRenderer>{`
+\`\`\`jsx
+<ExButton leftIcon={<Pizza className='icon-m'/>}
+          rightIcon={<Pizza className='icon-m'/>} 
+          gap='5px'>
+    <Pizza className='icon-m'/>
+    Пицца
+    <Pizza className='icon-m'/>
+</ExButton>
+\`\`\`
+
+К слову, если вы далаете что-то такое же длинное, предпочтительно структурировать именно вот так, чтобы оно было хоть как-то читаемо.
+                    `}</MarkdownRenderer>
+                </div>
+
+                <h4>NavSidebarButton</h4>
+                <p>Это кнопка из панели навигации слева</p>
+                <MarkdownRenderer>{`
+\`\`\`jsx
+<NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
+\`\`\`
+                `}</MarkdownRenderer>
+                <NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
+
+                <Pair left={<h4>RoundImageButton</h4>}
+                      right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
+                <Pair left={<h4>TagButton</h4>}
+                      right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
+                <Pair left={<h4>ToggleButton</h4>}
+                      right={<StatusTag text='Сомнительно' type='warning' className='flex-0-1'/>}/>
+
+                <MarkdownRenderer>{`
+Только сейчас заметил, что работает криво с текстом, но сейчас он используется только как иконка, так шо пойдет
+\`\`\`jsx
+<ToggleButton text={'Я ToggleButton'}
+              toggledText={'Я включенный ToggleButton'}
+              toggled
+              icon={<VisibilityOff/>}
+              toggledIcon={<Visibility/>}/>
+\`\`\`
+                `}</MarkdownRenderer>
+
+                <ToggleButton text={'Я ToggleButton'}
+                              toggledText={'Я включенный ToggleButton'}
+                              toggled
+                              icon={<VisibilityOff/>}
+                              toggledIcon={<Visibility/>}/>
+                
+            </div>
+
+            
         </BasePage>
     );
 };

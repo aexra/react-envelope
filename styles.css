@@ -270,6 +270,15 @@ h1.article {
   filter: var(--filter-black)
 }
 
+/* COLORS */
+
+.c-w {
+  color: white;
+}
+.c-b {
+  color: black;
+}
+
 /* BORDER-RADIUS */
 
 .r5 {
