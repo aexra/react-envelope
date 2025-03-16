@@ -107,7 +107,7 @@ export const SamplesPage = () => {
 ### Категории компонентов
 
 Все компоненты вы разбиваете на следующие категории (и каталоги в \`/components\`, соответственно) по их иерархии использования (каждый компонент может использовать компоненты только ниже себя по категории):
-1. **pages** - страницы, верхний уровень, они размеющаются в рутинге (см. ниже)
+1. **pages** - страницы, верхний уровень, они размеющаются в рутинге (см. рутинг)
 2. **widgets** - компоненты с бизнес-логикой, могут вызывать апи, иметь сложные принципы работы и т.д. и т.п.
 3. **dummies** - "карточки" - куски интерфейса, которые просто что-то показывают (например, карточка товара)
 4. **ui** - минимальные части интерфейса - кнопки, поля ввода, разделители и пр.
@@ -136,8 +136,8 @@ export const SamplesPage = () => {
 }
 \`\`\`
 
-> [!WARNING]
-> Если стилизуем цвета, если возможно, желательно использовать цвета глобальной палитры (см. ниже)
+> [!TIP]
+> Если стилизуем цвета, если возможно, желательно использовать цвета глобальной палитры (см. глобальные стили)
 
 #### JSX (JavaScript React)
 
@@ -146,7 +146,7 @@ import css from './MyComponent.module.css';
 
 export const MyComponent = ({ className, children, ... }) => {
     return (
-        <div className = \`\${className} \${css.myComponent}\`>
+        <div className = \`\${className} \${css.myComponent} ...\`>
             {children}
         </div>
     );  
@@ -154,6 +154,24 @@ export const MyComponent = ({ className, children, ... }) => {
 \`\`\`
 
 #### TSX (TypeScript React)
+
+\`\`\`tsx
+import css from './MyComponent.module.css';
+
+interface IMyComponentProps {
+    className: string;
+    children: React.ReactNode;
+    ...
+}
+
+export const MyComponent: FC<IMyComponentProps> = ({ className, children, ... }) => {
+    return (
+        <div className = \`\${className} \${css.myComponent} ...\`>
+            {children}
+        </div>
+    );  
+};
+\`\`\`
             `}</MarkdownRenderer>
 
             <h1 className='article'>Иконки</h1>
