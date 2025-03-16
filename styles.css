@@ -85,6 +85,11 @@ code {
   box-shadow: var(--panel-hover-shadow);
 }
 
+h1.article {
+  border-bottom: var(--header-border);
+  line-height: 50px;
+}
+
 /* LAYOUT */
 
 .flex {
