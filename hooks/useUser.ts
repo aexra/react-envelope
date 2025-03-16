@@ -6,7 +6,7 @@ import { useObjectLocalStorage } from "./useObjectLocalStorage";
 
 export const useUser = () => {
   const { auth, user, setUser: setUserObject, setAuth: setAuthObject } = useContext(AuthContext);
-  const { setItem } = useObjectLocalStorage();
+  const { setItem, removeItem } = useObjectLocalStorage();
 
   const setUser = (user: User) => {
     setUserObject(user);
@@ -15,6 +15,7 @@ export const useUser = () => {
   const remove = () => {
     setAuthObject(null);
     setUserObject(null);
+    removeItem('auth');
   };
 
   const setAuth = (auth: Auth) => {

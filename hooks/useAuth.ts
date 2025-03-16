@@ -27,8 +27,6 @@ export const useAuth = () => {
                 login: auth.login,
                 password: (savePassword ? auth.password : null)
             };
-
-            console.log(new_auth);
             
             if (savePreviousAccount && _auth) {
                 addAccount(_auth);
@@ -37,7 +35,7 @@ export const useAuth = () => {
             setAuth(new_auth);
             removeAccount(new_auth);
 
-            await refresh(false);
+            return await refresh(false);
         } catch (er) {
             throw(er);
         }
@@ -68,7 +66,6 @@ export const useAuth = () => {
         try {
             const mr = await me();
             setUser(mr.data);
-            console.log(_user);
             if (reload) window.location.reload();
         } catch (er) {
             console.log(er);

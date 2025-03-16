@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import LoginForm from '../../widgets/LoginForm/LoginForm';
 import BasePage from '../BasePage/BasePage';
@@ -15,6 +15,17 @@ export const AuthPage = () => {
     const navigate = useNavigate();
     const [isLogin, setLoginMode] = useState(true);
     const { auth, user, login, register } = useAuth();
+    const [hasLoggedIn, setHasLoggedIn] = useState(false);
+
+    // Side-effect after auth done
+    useEffect(() => {
+        if (hasLoggedIn && auth && user) {
+            if (user.middlename) toast.success(`Добро пожаловать, ${user.firstname} ${user.middlename}!`);
+            else toast.success(`Добро пожаловать, ${auth.login}!`);
+
+            navigate('/');
+        }
+    }, [hasLoggedIn, auth, user]);
 
     const handleLogin = async (e, data) => {
         try {
@@ -23,11 +34,8 @@ export const AuthPage = () => {
                 login: data.login,
                 password: data.password
             }, true, true);
-            
-            if (user.middlename) toast.success(`Добро пожаловать, ${user.firstname} ${user.middlename}!`);
-            else toast.success(`Добро пожаловать, ${auth.login}!`);
 
-            navigate('/');
+            setHasLoggedIn(true);
         } catch (er) {
             toast.error("Ошибка авторизации");
             console.log(er);
