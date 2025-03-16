@@ -469,6 +469,9 @@ export const MyComponent = ({ ... }) => {
                     `}</MarkdownRenderer>
                 </HBoxPanel>
 
+                <Pair left={<h4>TransparentTextBox</h4>}
+                      right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
             </div>
 
             
