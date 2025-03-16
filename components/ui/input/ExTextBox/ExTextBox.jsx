@@ -14,7 +14,7 @@ function ExTextBox({
     placeholder, 
     hint = null, 
     icon = null, 
-    isPassword = false, 
+    password = false, 
     textChanged,
     regex,
     inputRef,
@@ -25,9 +25,9 @@ function ExTextBox({
     borderless = false
 }) {
     const [isFocused, setFocus] = useState(false);
-    const [isPasswordVisible, setPasswordVisibility] = useState(isPassword);
+    const [isPasswordVisible, setPasswordVisibility] = useState(password);
     const [isValid, setValidState] = useState(true);
-    const [inputEmpty, setInputEmpty] = useState(text === null);
+    const [inputEmpty, setInputEmpty] = useState(text == null);
 
     var validationRegex;
 
@@ -70,12 +70,12 @@ function ExTextBox({
                 <TransparentTextBox className={css.input}
                                     onFocusChanged={handleFocusChange}
                                     onTextChanged={handleTextChange}
-                                    placeholder={isFocused ? placeholder : ""}
+                                    placeholder={isFocused || !hint ? placeholder : ""}
                                     isPassword={isPasswordVisible}
                                     ref={inputRef}
                                     text={text}
                                     readOnly={readOnly}/>
-                {isPassword ? <ToggleButton className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
+                {password ? <ToggleButton className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
                 icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
             </HBoxPanel>
         </VBoxPanel>

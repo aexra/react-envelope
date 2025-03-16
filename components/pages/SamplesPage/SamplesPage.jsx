@@ -14,6 +14,11 @@ import { Pair } from '../../layouts/Pair/Pair';
 import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarButton';
 import { StatusTag } from '../../ui/labels/StatusTag/StatusTag';
 import ToggleButton from '../../ui/buttons/ToggleButton/ToggleButton';
+import HDivider from '../../ui/dividers/HDivider/HDivider';
+import VDivider from '../../ui/dividers/VDivider/VDivider';
+import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
+import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
+import { useRef, useState } from 'react';
 
 export const SamplesPage = () => {
     const icons = [
@@ -56,6 +61,20 @@ export const SamplesPage = () => {
         { element: <Party />, jsx: "<Party />" },
         { element: <Parking />, jsx: "<Parking />" },
     ];
+
+    const sampleRef1 = useRef(null);
+    const sampleRef2 = useRef(null);
+    const sampleRef3 = useRef(null);
+    const sampleRef4 = useRef(null);
+    const sampleRef5 = useRef(null);
+    const sampleRef6 = useRef(null);
+
+    const [sampleState1, setSampleState1] = useState('');
+    const [sampleState2, setSampleState2] = useState('');
+    const [sampleState3, setSampleState3] = useState('');
+    const [sampleState4, setSampleState4] = useState('');
+    const [sampleState5, setSampleState5] = useState('');
+    const [sampleState6, setSampleState6] = useState('');
 
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
@@ -272,39 +291,40 @@ export const MyComponent = ({ ... }) => {
                       right={<StatusTag text='ЭНВЕЛОУП' type='success' className='flex-0-1'/>}/>
 
                 <p>Вот эта штука уже используется почти везде, построена на основе HBoxPanel и имеет ряд параметров</p>
-                <div className={'flex row center-left g10'}>
-                    {<ExButton>Я ExButton</ExButton>}
-                    <MarkdownRenderer>{`
+                <HBoxPanel valign='center' gap='20px'>
+                    {<ExButton className={css.buttonSample}>Я ExButton</ExButton>}
+                    <MarkdownRenderer className='flex-1'>{`
 \`\`\`jsx
 <ExButton>Я ExButton</ExButton>
 \`\`\`
                     `}</MarkdownRenderer>
-                </div>
-                <div className={'flex row center-left g10'}>
-                    {<ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>}
-                    <MarkdownRenderer>{`
+                </HBoxPanel>
+                <HBoxPanel valign='center' gap='20px'>
+                    {<ExButton leftIcon={<Pizza className='icon-m'/>} className={css.buttonSample}>Я ExButton с иконочкой через параметр</ExButton>}
+                    <MarkdownRenderer className='flex-1'>{`
 \`\`\`jsx
 <ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>
 \`\`\`
                     `}</MarkdownRenderer>
-                </div>
-                <div className={'flex row center-left g10'}>
-                    {<ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>}
-                    <MarkdownRenderer>{`
+                </HBoxPanel>
+                <HBoxPanel valign='center' gap='20px'>
+                    {<ExButton gap='5px' className={css.buttonSample}><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>}
+                    <MarkdownRenderer className='flex-1'>{`
 \`\`\`jsx
 <ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>
 \`\`\`
                     `}</MarkdownRenderer>
-                </div>
-                <div className={'flex row center-left g10'}>{
+                </HBoxPanel>
+                <HBoxPanel valign='center' gap='20px'>{
                     <ExButton leftIcon={<Pizza className='icon-m'/>}
                               rightIcon={<Pizza className='icon-m'/>} 
-                              gap='5px'>
+                              gap='5px'
+                              className={css.buttonSample}>
                         <Pizza className='icon-m'/>
                         Пицца
                         <Pizza className='icon-m'/>
                     </ExButton>}
-                    <MarkdownRenderer>{`
+                    <MarkdownRenderer className='flex-1'>{`
 \`\`\`jsx
 <ExButton leftIcon={<Pizza className='icon-m'/>}
           rightIcon={<Pizza className='icon-m'/>} 
@@ -317,7 +337,7 @@ export const MyComponent = ({ ... }) => {
 
 К слову, если вы далаете что-то такое же длинное, предпочтительно структурировать именно вот так, чтобы оно было хоть как-то читаемо.
                     `}</MarkdownRenderer>
-                </div>
+                </HBoxPanel>
 
                 <h4>NavSidebarButton</h4>
                 <p>Это кнопка из панели навигации слева</p>
@@ -353,7 +373,102 @@ export const MyComponent = ({ ... }) => {
                               toggled
                               icon={<VisibilityOff/>}
                               toggledIcon={<Visibility/>}/>
+
+                <h3>Dividers</h3>
+
+                Есть разделители вертикальные и горизонтальные:
+
+                <HDivider/>
+                <VDivider style={{height: '50px'}}/>
+
+                <p>{`Это соответственно <HDivider/> и <VDivider/>`}</p>
                 
+                <h3>Input</h3>
+
+                <Pair left={<h4>ExTextBox</h4>}
+                      right={<StatusTag text='ЭНВЕЛОУП' type='success' className='flex-0-1'/>}/>
+
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}
+                               placeholder='Плейсхолдер'
+                               icon={<Pizza/>}/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}
+           placeholder='Плейсхолдер'
+           icon={<Pizza/>}/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}
+                               hint='Дио'
+                               placeholder='А вот и нет, это я - Дио!'
+                               icon={<User/>}/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}
+           hint='Дио'
+           placeholder='А вот и нет, это я - Дио!'
+           icon={<User/>}/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}
+                               hint={'Знаешь regex("ENVELOPE")?'}
+                               placeholder='Не ENVELOPE'
+                               inputRef={sampleRef1}
+                               regex='ENVELOPE'/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}
+           hint={'Знаешь regex("ENVELOPE")?'}
+           placeholder='Не ENVELOPE'
+           inputRef={sampleRef1}
+           regex='ENVELOPE'/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}
+                               readOnly
+                               borderless
+                               text='Я только для чтения еще и без рамок'
+                               hint='Теперь это просто текст с подсказкой'/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}
+           readOnly
+           borderless
+           text='Я только для чтения еще и без рамок'
+           hint='Теперь это просто текст с подсказкой'/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                    <ExTextBox className={css.inputSample}
+                               password
+                               hint='Пароль'
+                               placeholder='Введите пароль'/>
+                    <MarkdownRenderer className={'flex-1'}>{`
+\`\`\`jsx
+<ExTextBox className={css.inputSample}
+           password
+           hint='Пароль'
+           placeholder='Введите пароль'/>
+\`\`\`
+                    `}</MarkdownRenderer>
+                </HBoxPanel>
+
             </div>
 
             

@@ -40,7 +40,7 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
                 <ExTextBox hint='Пароль' 
                            icon={userIcon}
                            inputRef={passwordRef}
-                           isPassword={true}
+                           password
                            regex="."
                            placeholder="Введите пароль"/>
                 <ExButton className={`dstu-accent-button`} onClick={handleLoginButtonClick}>ВОЙТИ</ExButton>

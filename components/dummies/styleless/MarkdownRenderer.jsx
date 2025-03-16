@@ -8,9 +8,9 @@ import rehypeHighlight from 'rehype-highlight';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/github-dark.css';
 
-export function MarkdownRenderer({ children: markdown }) {
+export function MarkdownRenderer({ className, children: markdown }) {
   return (
-    <div>
+    <div className={`${className}`}>
       <Markdown remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}>
         {markdown}

@@ -64,7 +64,7 @@ function RegisterForm({ onBackClick, onRegisterClick }) {
                 <ExTextBox hint='Пароль' 
                            icon={<User/>}
                            inputRef={passwordRef}
-                           isPassword={true}
+                           password
                            regex="."
                            placeholder="Введите пароль"/>
                 <FlowPanel gap='10px'>
