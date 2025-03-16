@@ -96,6 +96,9 @@ body.light {
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
     --dstu-accent-button-bk: var(--dstu-dark-blue);
     --dstu-accent-button-hover-bk: var(--dstu-light-blue);
+    --colorbutton-color: var(--accent-color);
+    --colorbutton-color-hover: var(--accent-color-hover);
+    --colorbutton-color-active: var(--accent-color-active);
 
     /* SIDEBAR */
     --sidebar-user-bk: #fff;
@@ -119,6 +122,8 @@ body.light {
 
     /* ACCENT */
     --accent-color: #333;
+    --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);
+    --accent-color-active: color-mix(in srgb, var(--accent-color) 50%, white 50%);
 
     /*            */
     /* FULL PROPS */
@@ -163,6 +168,9 @@ body.dark {
     --button-theme-toggle-hover-bk: rgba(0, 0, 0, 0);
     --dstu-accent-button-bk: var(--dstu-light-blue);
     --dstu-accent-button-hover-bk: var(--dstu-dark-blue);
+    --colorbutton-color: var(--accent-color);
+    --colorbutton-color-hover: var(--accent-color-hover);
+    --colorbutton-color-active: var(--accent-color-active);
 
     /* SIDEBAR */
     --sidebar-user-bk: #151b23;
@@ -186,6 +194,8 @@ body.dark {
 
     /* ACCENT */
     --accent-color: var(--font-color);
+    --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);
+    --accent-color-active: color-mix(in srgb, var(--accent-color) 50%, black 50%);
 
     /*            */
     /* FULL PROPS */

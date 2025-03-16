@@ -22,6 +22,16 @@ code {
 
 /* PALETTE PREFABS */
 
+.colorbutton {
+  color: var(--colorbutton-color) !important;
+}
+.colorbutton:hover {
+  color: var(--colorbutton-color-hover) !important;
+}
+.colorbutton:active {
+  color: var(--colorbutton-color-active) !important;
+}
+
 .textbutton {
   background: var(--textbutton-bk) !important;
 }

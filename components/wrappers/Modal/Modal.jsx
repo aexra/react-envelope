@@ -3,9 +3,8 @@ import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import css from './Modal.module.css';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
-import closeIcon from '../../../assets/images/close.png';
-import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
+import { Close } from '../../dummies/Icons';
 
 export const Modal = ({
     ref,
@@ -52,9 +51,8 @@ export const Modal = ({
                            valign='center'
                            className={`${css.headerContainer}`}>
                     <h3>{title}</h3>
-                    <RoundImageButton image={closeIcon}
-                                      className={`${css.crossCloseButton}`}
-                                      onClick={handleCloseRequest}/>
+                    <Close className={`${css.crossCloseButton} icon-m colorbutton r5`}
+                           onClick={handleCloseRequest}/>
                 </HBoxPanel>
                 <div className={`${bodyClassName} ${css.body}`}>
                     {children}
