@@ -7,6 +7,7 @@ import HDivider from '../../ui/dividers/HDivider/HDivider';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
+import { Markdown } from '../../widgets/text/Markdown';
 
 export const SamplesPage = () => {
     const icons = [
@@ -56,6 +57,7 @@ export const SamplesPage = () => {
                   footerContent={<DSTUFooter/>}
                   navSidebar={<DSTUNavSidebar/>}>
             <h1>Иконки</h1>
+            <Markdown>A</Markdown>
             <FlowPanel className={``}>
             {icons.map((icon, id) => (
                 <CopyFrame key={id} src={icon.jsx}>{icon.element}</CopyFrame>
