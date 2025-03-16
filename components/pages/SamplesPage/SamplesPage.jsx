@@ -50,21 +50,6 @@ export const SamplesPage = () => {
         { element: <Parking />, jsx: "<Parking />" },
     ];
 
-    const markdownContent = `
-# Заголовок
-
-Это пример Markdown с подсветкой синтаксиса.
-
-\`\`\`javascript
-function helloWorld() {
-  console.log('Hello, world!');
-}
-\`\`\`
-
-- Список
-- Список
-`;
-
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
                   bodyClassName={`h-full`}
@@ -73,9 +58,12 @@ function helloWorld() {
                     
             <h1 className='article'>Иконки</h1>
 
-            <MarkdownRenderer>
-                {markdownContent}
-            </MarkdownRenderer>
+            <MarkdownRenderer>{`
+
+\`\`\`js
+    console.log(a)
+\`\`\`
+            `}</MarkdownRenderer>
 
             <FlowPanel className={``}>
                 {icons.map((icon, id) => (

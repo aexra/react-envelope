@@ -86,7 +86,7 @@ code {
 }
 
 h1.article {
-  border-bottom: var(--header-border);
+  border-bottom: 1px solid var(--accent-color);
   line-height: 50px;
 }
 
