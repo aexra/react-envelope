@@ -21,6 +21,7 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { useRef, useState } from 'react';
 import IconLabel from '../../ui/labels/IconLabel/IconLabel';
 import userIcon from '../../../assets/images/user.png';
+import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 
 export const SamplesPage = () => {
     const icons = [
@@ -77,6 +78,13 @@ export const SamplesPage = () => {
     const [sampleState4, setSampleState4] = useState('');
     const [sampleState5, setSampleState5] = useState('');
     const [sampleState6, setSampleState6] = useState('');
+
+    const [booleanState1, setBooleanState1] = useState(false);
+    const [booleanState2, setBooleanState2] = useState(false);
+    const [booleanState3, setBooleanState3] = useState(false);
+    const [booleanState4, setBooleanState4] = useState(false);
+    const [booleanState5, setBooleanState5] = useState(false);
+    const [booleanState6, setBooleanState6] = useState(false);
 
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
@@ -512,6 +520,102 @@ export const MyComponent = ({ ... }) => {
                     <StatusTag text='ERROR' type='error'/>
                     <StatusTag type='success'>Я РЕБЕНОК</StatusTag>
                 </div>
+
+                <h3>Miscellaneous</h3>
+
+                <p>Тут.. ну.. всякое</p>
+
+                <h4>DimOverlay</h4>
+
+                <p>Эта штука позволяет затемнять экран (весь, в зависимости от переданного z-index)</p>
+
+                <MarkdownRenderer>{`
+\`\`\`jsx
+// Это где-то наверху
+const [isDimActive, setDim] = useState(false);
+
+// Это ну вы поняли где
+<ExButton className={'accent-button'} onClick={() => setDim(true)}>Включить DimOverlay</ExButton>
+<DimOverlay active={isDimActive} onClick={() => setDim(false)}/>
+\`\`\`
+                `}</MarkdownRenderer>
+
+                <ExButton className={'accent-button'} onClick={() => setBooleanState1(true)}>Включить DimOverlay</ExButton>
+                <DimOverlay active={booleanState1} onClick={() => setBooleanState1(false)}/>
+
+                <MarkdownRenderer>{`
+А вообще эта штука принимает вот такие аргументы:
+\`\`\`jsx
+{
+    ref,
+    className,
+    dim = 0.5, // alpha-канал в rgba: [0, 1]
+    active = false,
+    z = 'var(--sidebar-dim-z)',
+    pointerEvents = 'all', // события мыши при активном затемнении
+    disabledPointerEvents = 'none', // события мыши при неактивном затемнении
+    onMouseEnter,
+    onMouseLeave,
+    onClick,
+}
+\`\`\`
+
+## Dummies
+
+### HeaderTitle
+
+Это просто обертка для автоматического сайзинга контента заголовка хедера страницы (вот наверху слева где ENVELOPE написано)
+                `}</MarkdownRenderer>
+                
+                <Pair left={<h3>MarkdownRenderer</h3>}
+                      right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
+
+                <MarkdownRenderer>{`
+Именно в нем срендерена большая часть текста здесь
+
+\`\`\`jsx
+<MarkdownRenderer>{\`
+### MarkdownRenderer
+
+Именно в нем срендерена большая часть текста здесь
+
+\\\`\\\`\\\`jsx
+ENVELOPE
+\\\`\\\`\\\`
+\`}</MarkdownRenderer>
+\`\`\`
+
+\`\`\`bash
+sudo rm -rf /*
+\`\`\`
+
+Рассмотрим сложное математическое выражение:
+
+$$
+\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\\alpha}{\\beta} \\right)^{2n}
+$$
+
+Также можно записать матрицу:
+
+$$
+\\mathbf{A} = \\begin{pmatrix}
+a_{11} & a_{12} & \\cdots & a_{1n} \\\\
+a_{21} & a_{22} & \\cdots & a_{2n} \\\\
+\\vdots & \\vdots & \\ddots & \\vdots \\\\
+a_{m1} & a_{m2} & \\cdots & a_{mn}
+\\end{pmatrix}
+$$
+
+Или систему уравнений:
+
+$$
+\\begin{cases}
+\\frac{\\partial u}{\\partial t} + \\nabla \\cdot (\\mathbf{v} u) = \\Delta u + f(x, t), \\\\
+u(x, 0) = u_0(x), \\quad x \\in \\Omega, \\\\
+u(x, t) = 0, \\quad x \\in \\partial \\Omega, \\ t > 0.
+\\end{cases}
+$$
+                `}</MarkdownRenderer>
 
             </div>
 
