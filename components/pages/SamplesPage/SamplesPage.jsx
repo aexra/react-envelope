@@ -19,6 +19,8 @@ import VDivider from '../../ui/dividers/VDivider/VDivider';
 import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { useRef, useState } from 'react';
+import IconLabel from '../../ui/labels/IconLabel/IconLabel';
+import userIcon from '../../../assets/images/user.png';
 
 export const SamplesPage = () => {
     const icons = [
@@ -471,6 +473,45 @@ export const MyComponent = ({ ... }) => {
 
                 <Pair left={<h4>TransparentTextBox</h4>}
                       right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
+                <h3>Labels</h3>
+
+                <p>Это просто всякие заголовки разной стилизации.</p>
+
+                <h4>Headline</h4>
+                <Headline>Я Headline</Headline>
+
+                <Pair left={<h4>IconLabel</h4>}
+                      right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
+                <p>Это устаревший градиентный заголовок который сейчас используется только в форме авторизации/регистрации.</p>
+
+                <p>l</p>
+
+                <IconLabel text='IconLabel' src={userIcon}/>
+
+                <Pair left={<h4>StatusTag</h4>}
+                      right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
+
+                <MarkdownRenderer>{`
+\`\`\`jsx
+<StatusTag text='INFO' type='info'/>
+<StatusTag text='SUCCESS' type='success'/>
+<StatusTag text='WARNING' type='warning'/>
+<StatusTag text='ERROR' type='error'/>
+
+// Еще можно текст передавать в children
+<StatusTag type='success'>Я РЕБЕНОК</StatusTag>
+\`\`\`
+                `}</MarkdownRenderer>
+
+                <div className='flex row g10'>
+                    <StatusTag text='INFO' type='info'/>
+                    <StatusTag text='SUCCESS' type='success'/>
+                    <StatusTag text='WARNING' type='warning'/>
+                    <StatusTag text='ERROR' type='error'/>
+                    <StatusTag type='success'>Я РЕБЕНОК</StatusTag>
+                </div>
 
             </div>
 
