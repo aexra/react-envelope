@@ -9,16 +9,21 @@
 
 .callout.success {
     border: 2px solid var(--success-color);
+    background-color: rgb(1, 200, 81, 0.1);
 }
 .callout.warning {
     border: 2px solid var(--warning-color);
+    background-color: rgb(255, 187, 52, 0.1);
 }
 .callout.error {
     border: 2px solid var(--error-color);
+    background-color: rgb(255, 82, 82, 0.1);
 }
 .callout.tip {
     border: 2px solid var(--tip-color);
+    background-color: rgb(137, 51, 174, 0.1);
 }
 .callout.info {
     border: 2px solid var(--info-color);
+    background-color: rgb(51, 181, 229, 0.1);
 }

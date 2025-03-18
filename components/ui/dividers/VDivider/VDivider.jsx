@@ -1,8 +1,8 @@
 import css from './VDivider.module.css';
 
-function VDivider({ color = "var(--accent-color)", style, className, margin = '0 8px' }) {
+function VDivider({ color = "var(--accent-color)", style, thickness = '1px', className, margin = '0 8px' }) {
     const styles = {
-        borderRight: `1px solid ${color}`,
+        borderRight: `${thickness} solid ${color}`,
         margin: margin,
         ...style
     };

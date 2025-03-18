@@ -1,6 +1,7 @@
 .expander {
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 .expander.expanded > .header {
     border-radius: 10px 10px 0 0;
@@ -13,16 +14,22 @@
 
     border-radius: 10px;
 
-    border-bottom: 2px solid var(--border-color);
+    /* border-bottom: 2px solid var(--border-color); */
+
+    box-sizing: border-box;
 }
 
 .body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    box-sizing: border-box;
+}
+
+.expandButton {
+    transition: transform 0.3s ease;
 }
 
 .rotate {
     transform: rotate(180deg);
-    transition: transform 0.3s ease;
 }
