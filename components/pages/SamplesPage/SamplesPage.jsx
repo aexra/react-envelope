@@ -569,22 +569,22 @@ const [isDimActive, setDim] = useState(false);
 ## Widgets
                 `}</Markdown>
                 
-                <Pair left={<h3>MarkdownRenderer</h3>}
+                <Pair left={<h3>Markdown</h3>}
                       right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
 
                 <Markdown>{`
 Именно в нем срендерена большая часть текста здесь
 
 \`\`\`jsx
-<MarkdownRenderer>{\`
-### MarkdownRenderer
+<Markdown>{\`
+### Markdown
 
 Именно в нем срендерена большая часть текста здесь
 
 \\\`\\\`\\\`jsx
 ENVELOPE
 \\\`\\\`\\\`
-\`}</MarkdownRenderer>
+\`}</Markdown>
 \`\`\`
 
 \`\`\`bash
