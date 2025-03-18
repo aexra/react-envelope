@@ -1,7 +1,7 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
@@ -23,6 +23,8 @@ import IconLabel from '../../ui/labels/IconLabel/IconLabel';
 import userIcon from '../../../assets/images/user.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { IconFilePicker } from '../../ui/input/IconFilePicker/IconFilePicker';
+import { EditSelfModal } from '../../widgets/modals/EditSelfModal/EditSelfModal';
+import { Expander } from '../../wrappers/Expander/Expander';
 
 export const SamplesPage = () => {
     const icons = [
@@ -64,6 +66,7 @@ export const SamplesPage = () => {
         { element: <PizzaFilled />, jsx: "<PizzaFilled />" },
         { element: <Party />, jsx: "<Party />" },
         { element: <Parking />, jsx: "<Parking />" },
+        { element: <ExpandMore />, jsx: "<ExpandMore />" }
     ];
 
     const sampleRef1 = useRef(null);
@@ -683,14 +686,28 @@ $
 \`\`\`
                 `}</Markdown>
 
-            </div>
-            
-            <div className='start-self'>
-                <CopyFrame>Я CopyFrame без контента</CopyFrame>
-                <CopyFrame src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
-            </div>
+                <CopyFrame className={'start-self'}>Я CopyFrame без контента</CopyFrame>
+                <CopyFrame className={'start-self'} src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
 
+                <h3>LoginForm</h3>
+                <p>Найдете на странице авторизации</p>
 
+                <h3>RegisterForm</h3>
+                <p>Найдете там же</p>
+
+                <h3>Modals</h3>
+                <p>Все модалки используют wrapper <b>Modal</b> (см. Wrappers)</p>
+
+                <Pair left={<h4>EditSelfModal</h4>}
+                      right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
+                <Markdown>{`
+
+                `}</Markdown>
+                <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
+                <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
+
+                <Expander headerContent={'SHOW ENVELOPE'}>ENVELOPE</Expander>
+            </div>
 
         </BasePage>
     );
