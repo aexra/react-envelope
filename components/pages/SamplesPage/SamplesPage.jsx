@@ -462,14 +462,14 @@ export const MyComponent = ({ ... }) => {
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
-                               readOnly
+                               readonly
                                borderless
                                text='Я только для чтения еще и без рамок'
                                hint='Теперь это просто текст с подсказкой'/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
-           readOnly
+           readonly
            borderless
            text='Я только для чтения еще и без рамок'
            hint='Теперь это просто текст с подсказкой'/>

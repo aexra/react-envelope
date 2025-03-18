@@ -20,7 +20,7 @@ function ExTextBox({
     inputRef,
     onValidationStateChanged,
     text,
-    readOnly = false,
+    readonly = false,
     hintClassName,
     borderless = false
 }) {
@@ -74,7 +74,7 @@ function ExTextBox({
                                     isPassword={isPasswordVisible}
                                     ref={inputRef}
                                     text={text}
-                                    readOnly={readOnly}/>
+                                    readOnly={readonly}/>
                 {password ? <ToggleButton className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
                 icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
             </HBoxPanel>

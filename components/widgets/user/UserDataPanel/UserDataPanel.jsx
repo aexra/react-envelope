@@ -10,11 +10,11 @@ export const UserDataPanel = ({ ref, className, edit = false, onChangeClick }) =
     
     return (
         <VBoxPanel ref={ref} className={`${className} ${css.panel} panel pad20`} gap='10px'>
-            <Pair left={<ExTextBox borderless readOnly hintClassName={`${css.tbhint} uppercase bold`} hint={'Фамилия'} text={user?.lastname}/>}
+            <Pair left={<ExTextBox borderless readonly hintClassName={`${css.tbhint} uppercase bold`} hint={'Фамилия'} text={user?.lastname}/>}
                   right={edit && <ExButton className={`flex-0-1 center-self h-last`} onClick={onChangeClick}>Изменить</ExButton>}/>
-            <Pair left={<ExTextBox borderless readOnly hintClassName={`${css.tbhint} uppercase bold`} hint={'Имя'} text={user?.firstname}/>}
+            <Pair left={<ExTextBox borderless readonly hintClassName={`${css.tbhint} uppercase bold`} hint={'Имя'} text={user?.firstname}/>}
                   right={edit && <ExButton className={`flex-0-1 center-self h-last`} onClick={onChangeClick}>Изменить</ExButton>}/>
-            <Pair left={<ExTextBox borderless readOnly hintClassName={`${css.tbhint} uppercase bold`} hint={'Отчество'} text={user?.middlename}/>}
+            <Pair left={<ExTextBox borderless readonly hintClassName={`${css.tbhint} uppercase bold`} hint={'Отчество'} text={user?.middlename}/>}
                   right={edit && <ExButton className={`flex-0-1 center-self h-last`} onClick={onChangeClick}>Изменить</ExButton>}/>
         </VBoxPanel>
     );
