@@ -75,10 +75,7 @@ export const AuthPage = () => {
     };
 
     return (
-        <BasePage hasHeader={false}
-                  hasFooter={false}
-                  hasNavSidebar={false}
-                  className={css.page}>
+        <BasePage className={css.page}>
             <VBoxPanel className={css.container} halign='center' valign='center'>
                 {isLogin ? <VBoxPanel gap='15px'>
                     <LoginForm onRegisterClick={(e) => { setLoginMode(false) }}

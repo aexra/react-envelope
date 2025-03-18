@@ -1,19 +1,20 @@
 .page {
-    min-height: calc(100vh + var(--footer-min-height));
     background-color: var(--bk-color);
-
-    margin-top: 40px;
+    min-height: 100vh;
 }
 .pageSidebarMargin {
     margin-left: var(--sidebar-width);
 }
+.page.headered {
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+}
 .footerless {
-    min-height: 100vh;
+    
 }
 
 .body {
     padding: 0 20px 0 20px;
     max-width: 1280px;
     align-self: center;
-    padding-bottom: 40px
 }

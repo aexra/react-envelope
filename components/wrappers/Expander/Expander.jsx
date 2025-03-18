@@ -35,11 +35,13 @@ export const Expander = ({
     useEffect(() => {
         if (bodyRef.current) {
             const observer = new ResizeObserver((entries) => {
-                for (let entry of entries) {
-                    if (isExpanded) {
-                        setHeight(bodyRef.current.scrollHeight);
+                try {
+                    for (let entry of entries) {
+                        if (isExpanded) {
+                            setHeight(bodyRef.current.scrollHeight);
+                        }
                     }
-                }
+                } catch {}
             });
 
             observer.observe(bodyRef.current);

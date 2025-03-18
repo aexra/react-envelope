@@ -4,16 +4,16 @@ import css from './BasePage.module.css';
 
 function BasePage({ ref, className, style, children, bodyGap = '40px', bodyClassName, navSidebar, headered = false, headerContent, footerContent, bodyMargin = '40px' }) {
     return (
-        <VBoxPanel  className={`${className} ${css.page} ${!footerContent && css.footerless} ${navSidebar && css.pageSidebarMargin}`}
+        <VBoxPanel  className={`${className} ${css.page} ${!footerContent && css.footerless} ${navSidebar && css.pageSidebarMargin} ${(headerContent || headered) && css.headered}`}
                     style={{
                         ...style
                     }}
                     ref={ref}
                     gap={bodyMargin}>
             {navSidebar}
-            <div>{(headerContent || headered) && <Header style={{
+            {(headerContent || headered) && <div><Header style={{
                 width: navSidebar ? 'calc(100% - var(--sidebar-width))' : '100%'
-            }}>{headerContent}</Header>}</div>
+            }}>{headerContent}</Header></div>}
             <VBoxPanel className={`${css.body} ${bodyClassName}`}
                        gap={bodyGap}>
                 {children}

@@ -1,5 +1,5 @@
 .header {
-    height: 40px;
+    height: var(--header-height);
     background: var(--header-bk-color);
     padding: 0 10px;
 
