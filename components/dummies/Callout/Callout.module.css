@@ -1,3 +1,12 @@
 .callout {
     
 }
+
+.headerContent svg {
+    width: 20px;
+    height: 20px;
+}
+
+.callout.info {
+    border: 2px solid var(--info-color);
+}

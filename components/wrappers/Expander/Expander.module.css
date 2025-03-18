@@ -2,11 +2,18 @@
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
 }
+.expander.expanded > .header {
+    border-radius: 10px 10px 0 0;
+}
 
 .header {
     cursor: pointer;
     background: none;
     border: none;
+
+    border-radius: 10px;
+
+    border-bottom: 2px solid var(--border-color);
 }
 
 .body {

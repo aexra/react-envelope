@@ -35,13 +35,12 @@ export const Expander = ({
 
     return (
         <VBoxPanel ref={ref}
-                   className={`${className} ${css.expander} r10`}>
+                   className={`${className} ${css.expander} r10 ${isExpanded && css.expanded}`}>
             <ExButton className={`${css.header} textbutton pad5`}
                         onClick={() => setExpanded(!isExpanded)}>
-                <h3>{headerContent}</h3>
+                <h4 className='m-0'>{headerContent}</h4>
                 <ExpandMore className={`icon-g h-last ${isExpanded ? css.rotate : ''}`} />
             </ExButton>
-            <HDivider color='var(--border-color)' margin='0'/>
             <VBoxPanel className={`${css.body}`}
                        ref={bodyRef}
                        style={{ maxHeight: `${height}px`, overflow: 'hidden', transition: 'max-height 0.3s ease' }}>

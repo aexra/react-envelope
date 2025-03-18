@@ -25,6 +25,7 @@ import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { IconFilePicker } from '../../ui/input/IconFilePicker/IconFilePicker';
 import { EditSelfModal } from '../../widgets/modals/EditSelfModal/EditSelfModal';
 import { Expander } from '../../wrappers/Expander/Expander';
+import { Callout } from '../../dummies/Callout/Callout';
 
 export const SamplesPage = () => {
     const icons = [
@@ -706,7 +707,7 @@ $
                 <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
                 <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
 
-                <Expander headerContent={'SHOW ENVELOPE'}>
+                {/* <Expander headerContent={'SHOW ENVELOPE'}>
                     <Markdown>{`
 \`\`\`jsx
 // Это пример применения экспандера
@@ -717,7 +718,9 @@ $
 
                 <Expander headerContent={'SHOW ENVELOPE'}>
                     Габргура
-                </Expander>
+                </Expander> */}
+
+                <Callout icon={<Pizza/>} title={'ENVELOPE'}>Я тело колаута</Callout>
             </div>
 
         </BasePage>
