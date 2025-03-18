@@ -13,26 +13,25 @@ export const Expander = ({
     expanded = false
 }) => {
     const [isExpanded, setExpanded] = useState(expanded);
-
-    const componentRef = useRef(null);
     const [height, setHeight] = useState(0);
+    const bodyRef = useRef(null);
 
     useEffect(() => {
-        if (componentRef.current) {
-            const observer = new ResizeObserver(entries => {
-                for (let entry of entries) {
-                    setHeight(entry.contentRect.height);
-                }
-            });
-
-            observer.observe(componentRef.current);
-
-            return () => {
-                observer.disconnect();
-            };
+        if (isExpanded && bodyRef.current) {
+            // Устанавливаем высоту содержимого при раскрытии
+            setHeight(bodyRef.current.scrollHeight);
+        } else {
+            // Сбрасываем высоту при сворачивании
+            setHeight(0);
         }
-    }, []);
-    
+    }, [isExpanded]);
+
+    useEffect(() => {
+        if (expanded !== isExpanded) {
+            setExpanded(expanded);
+        }
+    }, [expanded]);
+
     return (
         <VBoxPanel ref={ref}
                    className={`${className} ${css.expander} r10 pad10`}>
@@ -40,11 +39,14 @@ export const Expander = ({
                        className={`${css.header}`}>
                 {headerContent}
                 <ExButton className={`${css.expandButton} textbutton h-last`}
-                          onClick={() => setExpanded(!isExpanded)}><ExpandMore className='icon-g'/></ExButton>
+                          onClick={() => setExpanded(!isExpanded)}>
+                    <ExpandMore className={`icon-g ${isExpanded ? css.rotate : ''}`} />
+                </ExButton>
             </HBoxPanel>
-            <VBoxPanel className={`${css.body} ${isExpanded && css.expanded}`}
-                       ref={componentRef}>
-                { children }
+            <VBoxPanel className={`${css.body}`}
+                       ref={bodyRef}
+                       style={{ maxHeight: `${height}px`, overflow: 'hidden', transition: 'max-height 0.3s ease' }}>
+                {children}
             </VBoxPanel>
         </VBoxPanel>
     );
