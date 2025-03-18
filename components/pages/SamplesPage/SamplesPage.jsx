@@ -608,11 +608,14 @@ const [isDimActive, setDim] = useState(false);
 Вы также можете создавать вложенные колауты, модифицировать содержимое хедера и задавать значение раскрытости по умолчанию
 
 \`\`\`jsx
-
+<Callout icon={<Pizza/>} title='ENVELOPE' type='success' expanded>
+    <p>Ниже будет вложенный колаут</p>
+    <Callout type='info' expanded>Меня вложили (╯°□°）╯︵ ┻━┻</Callout>
+</Callout>
 \`\`\`
                 `}</Markdown>
 
-                <Callout icon={<Pizza/>} title='Pizza' type='success' expanded>
+                <Callout icon={<Pizza/>} title='ENVELOPE' type='success' expanded>
                     <p>Ниже будет вложенный колаут</p>
                     <Callout type='info' expanded>Меня вложили (╯°□°）╯︵ ┻━┻</Callout>
                 </Callout>
