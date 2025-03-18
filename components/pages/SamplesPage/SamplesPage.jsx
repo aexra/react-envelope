@@ -818,6 +818,18 @@ const refresh = async (reload: boolean = true);
 - \`logout\` - удаляет текущего пользователя и отправляет его данные в \`accounts\`;
 - \`logoutAuth\` - удаляет auth из списка \`accounts\`;
 - \`refresh\` - проверяет токен и обновляет значение \`user\`.
+
+### useTheme
+
+Используется для управления темами - переключение сейчас реализовано только в кнопке в хедере.
+
+\`\`\`jsx
+const { theme, isLight, setTheme } = useTheme();
+
+// Из ThemeContext
+const [theme, setTheme] = useState('light');
+const [isLight, setIsLight] = useState(true);
+\`\`\`
                 `}</Markdown>
             </div>
 
