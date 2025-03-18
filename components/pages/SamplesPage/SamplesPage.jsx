@@ -751,7 +751,46 @@ $
                 <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
                 <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
 
-                
+                <Markdown>{`
+## Хуки
+
+Следующие хуки разработаны для внутренней работы приложения и не предназначены для использования:
+- useAccounts
+- useUser
+
+### useAuth
+
+Хук используемый чаще всего - ответственный за авторизацию пользователя. Именно через него выполняются все операции - регистрация, авторизация, смена аккаунта и пр., а главное - получение сведений о пользователе.
+
+\`\`\`jsx
+const { auth, user, accounts, register, login, logout, logoutAuth, switchAuth, refresh } = useAuth();
+
+// Вы можете импортировать только те вещи, которые вам нужны:
+const { auth, user, login, register } = useAuth();
+\`\`\`
+
+Что есть что здесь?
+
+Для начала, какие интерфейсы описывают используемые объекты:
+
+\`\`\`tsx
+// Auth.ts
+export interface Auth {
+    token: string;
+    login: string;
+    password?: string | null;
+}
+
+// User.ts
+export interface User {
+  id?: string;
+  firstname?: string;
+  lastname?: string;
+  middlename?: string;
+  roles?: string[];
+}
+\`\`\`
+                `}</Markdown>
             </div>
 
         </BasePage>

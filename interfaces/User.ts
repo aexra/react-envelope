@@ -1,7 +1,7 @@
 export interface User {
-  id?: string;
-  firstname?: string;
-  lastname?: string;
-  middlename?: string;
-  roles?: string[];
+    id?: string;
+    firstname?: string;
+    lastname?: string;
+    middlename?: string;
+    roles?: string[];
 }
