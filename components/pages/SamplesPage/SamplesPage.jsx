@@ -776,20 +776,48 @@ const { auth, user, login, register } = useAuth();
 \`\`\`tsx
 // Auth.ts
 export interface Auth {
+    // JWT токен авторизации, автоматически записывается в хедер каждого запроса к API
+    // Если в запросе возвращается ошибка 4** - выполняется попытка получить новый токен
+    // Если ошибка повторяется - auth становится null и пользователь
+    // переадресуется на страницу авторизации
     token: string;
+
+    // Логин пользователя, использованный при входе (регистрации)
     login: string;
+
+    // Если при входе пользователь согласился сохранить пароль, он будет здесь (нужно для смены аккаунтов и обновления токена)
     password?: string | null;
 }
 
 // User.ts
 export interface User {
-  id?: string;
-  firstname?: string;
-  lastname?: string;
-  middlename?: string;
-  roles?: string[];
+    id?: string;          // ID юзера в БД
+    firstname?: string;   // Имя
+    lastname?: string;    // Фамилия
+    middlename?: string;  // Отчество (если есть)
+    roles?: string[];     // Роли (клейм юзера о доступе)
 }
 \`\`\`
+
+А теперь можно и функции с полями посмотреть
+
+\`\`\`tsx
+const [auth, setAuth] = useState<Auth | null>(null);
+const [user, setUser] = useState<User | null>(null);
+const [accounts, setAccounts] = useState<Auth[] | null>([]);
+
+const register = async (auth: { login: string, password: string }, user: User, savePreviousAccount: boolean);
+const login = async (auth: { login: string, password: string }, savePassword: boolean = false, savePreviousAccount = true);
+const logout = async (savePreviousAccount: boolean = false);
+const logoutAuth = async (auth: Auth);
+const switchAuth = async (auth: Auth);
+const refresh = async (reload: boolean = true);
+\`\`\`
+
+Прим.: 
+- \`logout\` - удаляет текущего пользователя и отправляет его данные в \`accounts\`;
+- \`logoutAuth\` - удаляет auth из списка \`accounts\`;
+- \`refresh\` - проверяет токен и обновляет значение \`user\`.
                 `}</Markdown>
             </div>
 
