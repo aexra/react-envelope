@@ -6,7 +6,7 @@ import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
-import { MarkdownRenderer } from '../../dummies/styleless/MarkdownRenderer';
+import { Markdown } from '../../widgets/Markdown';
 import { Headline } from '../../ui/labels/Headline/Headline';
 import AccentButton from '../../ui/buttons/AccentButton/AccentButton';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
@@ -95,7 +95,7 @@ export const SamplesPage = () => {
             
             <h1 className='article'>Здравствуйте!</h1>
 
-            <MarkdownRenderer>{`
+            <Markdown>{`
 Данная страница призвана обеспечить пользователя всей доступной информацией по библиотеке \`react-envelope\`.
 
 Здесь вы найдете:
@@ -113,11 +113,11 @@ export const SamplesPage = () => {
 - Рутинг
 - Тосты
 - Глобальные стили
-            `}</MarkdownRenderer>
+            `}</Markdown>
 
             <Headline>Соглашения</Headline>
 
-            <MarkdownRenderer>{`
+            <Markdown>{`
 ## Структура проекта
 
 Это дефолтный проект реакта, но с гитхабным подмодулем [react-envelope](https://github.com/aexra/react-envelope), посему фактически проект состоит из двух частей:
@@ -227,12 +227,12 @@ export const MyComponent: FC<IMyComponentProps> = ({ className, children, ... })
     );  
 };
 \`\`\`
-            `}</MarkdownRenderer>
+            `}</Markdown>
 
             <Headline>Иконки</Headline>
 
             <div>
-                <MarkdownRenderer>{`
+                <Markdown>{`
 Библиотека компонентов (и не только) \`react-envelope\` предоставляет возможность использовать прямо в разметке иконки из файла \`/react-envelope/components/dummies/Icons.jsx\` следующим образом:
 \`\`\`jsx
 // Например, иконка Home
@@ -246,9 +246,9 @@ export const MyComponent = ({ ... }) => {
 }
 \`\`\`
 Результатом на экране будет это:
-            `}</MarkdownRenderer>
+            `}</Markdown>
                 <Home/>
-                <MarkdownRenderer>{`
+                <Markdown>{`
 Вы также можете изменять размер иконки заготовленными классами:
 \`\`\`jsx
 <Home className='icon-s'/>
@@ -262,17 +262,17 @@ export const MyComponent = ({ ... }) => {
     <Home className='icon-g'/>
 <FlowPanel/>
 \`\`\`
-                `}</MarkdownRenderer>
+                `}</Markdown>
             <FlowPanel gap='10px'>
                 <Home className='icon-s'/>
                 <Home className='icon-m'/>
                 <Home className='icon-l'/>
                 <Home className='icon-g'/>
             </FlowPanel>
-            <MarkdownRenderer>{`
+            <Markdown>{`
 Ниже представлены все доступные иконки (можно добавлять свои по аналогии).
 Вы можете нажать на иконку для копирования разметки.
-            `}</MarkdownRenderer>
+            `}</Markdown>
             </div>
 
             <FlowPanel className={``}>
@@ -284,7 +284,7 @@ export const MyComponent = ({ ... }) => {
             <div>
                 <Headline>Компоненты</Headline>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 ## UI
 
 Нижняя категория - кнопочки и прочее
@@ -292,7 +292,7 @@ export const MyComponent = ({ ... }) => {
 ### Buttons
 
 #### AccentButton
-                `}</MarkdownRenderer>
+                `}</Markdown>
 
                 <p>В принципе, это херня из прошлого, можете забить.</p>
                 <AccentButton>Я AccentButton</AccentButton>
@@ -303,27 +303,27 @@ export const MyComponent = ({ ... }) => {
                 <p>Вот эта штука уже используется почти везде, построена на основе HBoxPanel и имеет ряд параметров</p>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton className={css.buttonSample}>Я ExButton</ExButton>}
-                    <MarkdownRenderer className='flex-1'>{`
+                    <Markdown className='flex-1'>{`
 \`\`\`jsx
 <ExButton>Я ExButton</ExButton>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton leftIcon={<Pizza className='icon-m'/>} className={css.buttonSample}>Я ExButton с иконочкой через параметр</ExButton>}
-                    <MarkdownRenderer className='flex-1'>{`
+                    <Markdown className='flex-1'>{`
 \`\`\`jsx
 <ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton gap='5px' className={css.buttonSample}><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>}
-                    <MarkdownRenderer className='flex-1'>{`
+                    <Markdown className='flex-1'>{`
 \`\`\`jsx
 <ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>{
                     <ExButton leftIcon={<Pizza className='icon-m'/>}
@@ -334,7 +334,7 @@ export const MyComponent = ({ ... }) => {
                         Пицца
                         <Pizza className='icon-m'/>
                     </ExButton>}
-                    <MarkdownRenderer className='flex-1'>{`
+                    <Markdown className='flex-1'>{`
 \`\`\`jsx
 <ExButton leftIcon={<Pizza className='icon-m'/>}
           rightIcon={<Pizza className='icon-m'/>} 
@@ -346,16 +346,16 @@ export const MyComponent = ({ ... }) => {
 \`\`\`
 
 К слову, если вы далаете что-то такое же длинное, предпочтительно структурировать именно вот так, чтобы оно было хоть как-то читаемо.
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
 
                 <h4>NavSidebarButton</h4>
                 <p>Это кнопка из панели навигации слева</p>
-                <MarkdownRenderer>{`
+                <Markdown>{`
 \`\`\`jsx
 <NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
 \`\`\`
-                `}</MarkdownRenderer>
+                `}</Markdown>
                 <NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
 
                 <Pair left={<h4>RoundImageButton</h4>}
@@ -367,7 +367,7 @@ export const MyComponent = ({ ... }) => {
                 <Pair left={<h4>ToggleButton</h4>}
                       right={<StatusTag text='Сомнительно' type='warning' className='flex-0-1'/>}/>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 Только сейчас заметил, что работает криво с текстом, но сейчас он используется только как иконка, так шо пойдет
 \`\`\`jsx
 <ToggleButton text={'Я ToggleButton'}
@@ -376,7 +376,7 @@ export const MyComponent = ({ ... }) => {
               icon={<VisibilityOff/>}
               toggledIcon={<Visibility/>}/>
 \`\`\`
-                `}</MarkdownRenderer>
+                `}</Markdown>
 
                 <ToggleButton text={'Я ToggleButton'}
                               toggledText={'Я включенный ToggleButton'}
@@ -400,37 +400,37 @@ export const MyComponent = ({ ... }) => {
 
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
                                placeholder='Плейсхолдер'
                                icon={<Pizza/>}/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
            placeholder='Плейсхолдер'
            icon={<Pizza/>}/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
                                hint='Дио'
                                placeholder='А вот и нет, это я - Дио!'
                                icon={<User/>}/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
            hint='Дио'
            placeholder='А вот и нет, это я - Дио!'
            icon={<User/>}/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -438,7 +438,7 @@ export const MyComponent = ({ ... }) => {
                                placeholder='Не ENVELOPE'
                                inputRef={sampleRef1}
                                regex='ENVELOPE'/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
            hint={'Знаешь regex("ENVELOPE")?'}
@@ -446,7 +446,7 @@ export const MyComponent = ({ ... }) => {
            inputRef={sampleRef1}
            regex='ENVELOPE'/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -454,7 +454,7 @@ export const MyComponent = ({ ... }) => {
                                borderless
                                text='Я только для чтения еще и без рамок'
                                hint='Теперь это просто текст с подсказкой'/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
            readOnly
@@ -462,21 +462,21 @@ export const MyComponent = ({ ... }) => {
            text='Я только для чтения еще и без рамок'
            hint='Теперь это просто текст с подсказкой'/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
                                password
                                hint='Пароль'
                                placeholder='Введите пароль'/>
-                    <MarkdownRenderer className={'flex-1'}>{`
+                    <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
            password
            hint='Пароль'
            placeholder='Введите пароль'/>
 \`\`\`
-                    `}</MarkdownRenderer>
+                    `}</Markdown>
                 </HBoxPanel>
 
                 <Pair left={<h4>TransparentTextBox</h4>}
@@ -501,7 +501,7 @@ export const MyComponent = ({ ... }) => {
                 <Pair left={<h4>StatusTag</h4>}
                       right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 \`\`\`jsx
 <StatusTag text='INFO' type='info'/>
 <StatusTag text='SUCCESS' type='success'/>
@@ -511,7 +511,7 @@ export const MyComponent = ({ ... }) => {
 // Еще можно текст передавать в children
 <StatusTag type='success'>Я РЕБЕНОК</StatusTag>
 \`\`\`
-                `}</MarkdownRenderer>
+                `}</Markdown>
 
                 <div className='flex row g10'>
                     <StatusTag text='INFO' type='info'/>
@@ -529,7 +529,7 @@ export const MyComponent = ({ ... }) => {
 
                 <p>Эта штука позволяет затемнять экран (весь, в зависимости от переданного z-index)</p>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 \`\`\`jsx
 // Это где-то наверху
 const [isDimActive, setDim] = useState(false);
@@ -538,12 +538,12 @@ const [isDimActive, setDim] = useState(false);
 <ExButton className={'accent-button'} onClick={() => setDim(true)}>Включить DimOverlay</ExButton>
 <DimOverlay active={isDimActive} onClick={() => setDim(false)}/>
 \`\`\`
-                `}</MarkdownRenderer>
+                `}</Markdown>
 
                 <ExButton className={'accent-button'} onClick={() => setBooleanState1(true)}>Включить DimOverlay</ExButton>
                 <DimOverlay active={booleanState1} onClick={() => setBooleanState1(false)}/>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 А вообще эта штука принимает вот такие аргументы:
 \`\`\`jsx
 {
@@ -565,12 +565,14 @@ const [isDimActive, setDim] = useState(false);
 ### HeaderTitle
 
 Это просто обертка для автоматического сайзинга контента заголовка хедера страницы (вот наверху слева где ENVELOPE написано)
-                `}</MarkdownRenderer>
+
+## Widgets
+                `}</Markdown>
                 
                 <Pair left={<h3>MarkdownRenderer</h3>}
                       right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
 
-                <MarkdownRenderer>{`
+                <Markdown>{`
 Именно в нем срендерена большая часть текста здесь
 
 \`\`\`jsx
@@ -658,7 +660,7 @@ $$
 $
 (a+b)^2 = a^2 + 2ab + b^2
 $
-                `}</MarkdownRenderer>
+                `}</Markdown>
 
             </div>
 

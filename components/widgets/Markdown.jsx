@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Markdown from 'react-markdown';
+import { default as MD } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeRaw from 'rehype-raw';
@@ -8,13 +8,13 @@ import rehypeHighlight from 'rehype-highlight';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/github-dark.css';
 
-export function MarkdownRenderer({ className, children: markdown }) {
+export function Markdown({ className, children: markdown }) {
   return (
     <div className={`${className}`}>
-      <Markdown remarkPlugins={[remarkGfm, remarkMath]}
+      <MD remarkPlugins={[remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}>
         {markdown}
-      </Markdown>
+      </MD>
     </div>
   );
 }
