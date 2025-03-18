@@ -585,6 +585,40 @@ const [isDimActive, setDim] = useState(false);
 
 ## Dummies
 
+### Callout
+
+\`\`\`jsx
+<Callout>Информация</Callout>
+<Callout type='success'>Успех</Callout>
+<Callout type='warning'>Предупреждение</Callout>
+<Callout type='error'>Ошибка</Callout>
+<Callout type='bug'>Баг</Callout>
+<Callout type='tip'>Совет</Callout>
+\`\`\`
+                `}</Markdown>
+
+                <Callout>Информация</Callout>
+                <Callout type='success'>Успех</Callout>
+                <Callout type='warning'>Предупреждение</Callout>
+                <Callout type='error'>Ошибка</Callout>
+                <Callout type='bug'>Баг</Callout>
+                <Callout type='tip'>Совет</Callout>
+
+                <Markdown>{`
+Вы также можете создавать вложенные колауты, модифицировать содержимое хедера и задавать значение раскрытости по умолчанию
+
+\`\`\`jsx
+
+\`\`\`
+                `}</Markdown>
+
+                <Callout icon={<Pizza/>} title='Pizza' type='success' expanded>
+                    <p>Ниже будет вложенный колаут</p>
+                    <Callout type='info' expanded>Меня вложили (╯°□°）╯︵ ┻━┻</Callout>
+                </Callout>
+
+                <Markdown>{`
+
 ### HeaderTitle
 
 Это просто обертка для автоматического сайзинга контента заголовка хедера страницы (вот наверху слева где ENVELOPE написано)
@@ -714,25 +748,7 @@ $
                 <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
                 <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
 
-                {/* <Expander headerContent={'SHOW ENVELOPE'}>
-                    <Markdown>{`
-\`\`\`jsx
-// Это пример применения экспандера
-<Expander headerContent={'SHOW ENVELOPE'}>ENVELOPE</Expander>
-\`\`\`
-                    `}</Markdown>
-                </Expander>
-
-                <Expander headerContent={'SHOW ENVELOPE'}>
-                    Габргура
-                </Expander> */}
-
-                <Callout>Информация</Callout>
-                <Callout type='success'>Успех</Callout>
-                <Callout type='warning'>Предупреждение</Callout>
-                <Callout type='error'>Ошибка</Callout>
-                <Callout type='bug'>Баг</Callout>
-                <Callout type='tip'>Совет</Callout>
+                
             </div>
 
         </BasePage>

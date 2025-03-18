@@ -3,7 +3,15 @@ import { Expander } from '../../wrappers/Expander/Expander';
 import { Bug, Error, Info, Success, Tip, Warning } from '../Icons';
 import css from './Callout.module.css';
 
-export const Callout = ({ ref, className, icon, title, type = 'info', children }) => {
+export const Callout = ({
+    ref, 
+    className, 
+    icon, 
+    title, 
+    type = 'info',
+    expanded = false, 
+    children
+}) => {
     const getStyle = () => {
         switch (type) {
             case 'success':
@@ -84,7 +92,8 @@ export const Callout = ({ ref, className, icon, title, type = 'info', children }
         <Expander ref={ref}
                   className={`${className} ${css.callout} ${type && styleOptions.class}`}
                   headerContent={getHeaderContent()}
-                  dividerStyle={styleOptions.divider}>
+                  dividerStyle={styleOptions.divider}
+                  expanded={expanded}>
             { children }
         </Expander>
     );

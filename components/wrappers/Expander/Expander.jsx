@@ -16,6 +16,7 @@ export const Expander = ({
     const [isExpanded, setExpanded] = useState(expanded);
     const [height, setHeight] = useState(0);
     const bodyRef = useRef(null);
+    const observerRef = useRef(null);
 
     useEffect(() => {
         if (isExpanded && bodyRef.current) {
@@ -30,6 +31,27 @@ export const Expander = ({
             setExpanded(expanded);
         }
     }, [expanded]);
+
+    useEffect(() => {
+        if (bodyRef.current) {
+            const observer = new ResizeObserver((entries) => {
+                for (let entry of entries) {
+                    if (isExpanded) {
+                        setHeight(bodyRef.current.scrollHeight);
+                    }
+                }
+            });
+
+            observer.observe(bodyRef.current);
+            observerRef.current = observer;
+
+            return () => {
+                if (observerRef.current) {
+                    observerRef.current.disconnect();
+                }
+            };
+        }
+    }, [isExpanded]);
 
     return (
         <VBoxPanel ref={ref}
