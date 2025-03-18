@@ -11,4 +11,5 @@
     cursor: pointer;
 
     padding: 0;
+    color: var(--font-color);
 }
