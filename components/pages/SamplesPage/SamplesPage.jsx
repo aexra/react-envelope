@@ -589,6 +589,43 @@ ENVELOPE
 sudo rm -rf /*
 \`\`\`
 
+А еще можно так:
+
+\`\`\`latex
+Рассмотрим сложное математическое выражение:
+
+\$\$
+\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\\alpha}{\\beta} \\right)^{2n}
+\$\$
+
+Также можно записать матрицу:
+
+$$
+\\mathbf{A} = \\begin{pmatrix}
+a_{11} & a_{12} & \\cdots & a_{1n} \\\\
+a_{21} & a_{22} & \\cdots & a_{2n} \\\\
+\\vdots & \\vdots & \\ddots & \\vdots \\\\
+a_{m1} & a_{m2} & \\cdots & a_{mn}
+\\end{pmatrix}
+$$
+
+Или систему уравнений:
+
+$$
+\\begin{cases}
+\\frac{\\partial u}{\\partial t} + \\nabla \\cdot (\\mathbf{v} u) = \\Delta u + f(x, t), \\\\
+u(x, 0) = u_0(x), \\quad x \\in \\Omega, \\\\
+u(x, t) = 0, \\quad x \\in \\partial \\Omega, \\ t > 0.
+\\end{cases}
+$$
+
+А вот так оно не будет отцентровано:
+
+$
+(a+b)^2 = a^2 + 2ab + b^2
+$
+\`\`\`
+
 Рассмотрим сложное математическое выражение:
 
 $$
@@ -615,6 +652,12 @@ u(x, 0) = u_0(x), \\quad x \\in \\Omega, \\\\
 u(x, t) = 0, \\quad x \\in \\partial \\Omega, \\ t > 0.
 \\end{cases}
 $$
+
+А вот так оно не будет отцентровано:
+
+$
+(a+b)^2 = a^2 + 2ab + b^2
+$
                 `}</MarkdownRenderer>
 
             </div>
