@@ -1,12 +1,12 @@
 import css from './IconFilePicker.module.css';
-import defaultUserIcon from '../../../assets/images/user-b.png';
-import selectImageIcon from '../../../assets/images/edit.png';
 import { useEffect, useRef, useState } from 'react';
-import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
-import { Pencil, UserFilled } from '../../dummies/Icons';
+import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
+import { Pencil, UserFilled } from '../../../dummies/Icons';
 
-export const IconFilePicker = ({ ref, className, onFilePicked, icon, readOnly = false }) => {
-    const [imageSource, setImageSource] = useState(icon ? icon : defaultUserIcon);
+const defaultUserIcon = <UserFilled/>;
+
+export const IconFilePicker = ({ ref, className, onFilePicked, src, readOnly = false }) => {
+    const [imageSource, setImageSource] = useState(src);
     const [isEmpty, setIsEmpty] = useState(true);
     const inputRef = useRef(null);
 
@@ -15,10 +15,10 @@ export const IconFilePicker = ({ ref, className, onFilePicked, icon, readOnly = 
     };
 
     useEffect(() => {
-        if (imageSource == defaultUserIcon) {
-            setIsEmpty(true);
-        } else {
+        if (imageSource) {
             setIsEmpty(false);
+        } else {
+            setIsEmpty(true);
         }
     }, [imageSource])
 
@@ -43,7 +43,7 @@ export const IconFilePicker = ({ ref, className, onFilePicked, icon, readOnly = 
                    className={`${className} ${css.container} round`}
                    halign='center'
                    valign='center'>
-            <UserFilled className={`${css.image} ${!isEmpty && css.setIcon}`}/>
+            {isEmpty ? <UserFilled className={`${css.image} ${!isEmpty && css.setIcon}`}/> : <img src={imageSource} className={`${css.image} ${!isEmpty && css.setIcon}`}/>}
             { !readOnly &&
                 <div className={`${css.addImageContainer}`} onClick={handleEditClick}>
                     <Pencil className={`${css.addImage} white`}/>

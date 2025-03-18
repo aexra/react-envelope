@@ -22,6 +22,7 @@ import { useRef, useState } from 'react';
 import IconLabel from '../../ui/labels/IconLabel/IconLabel';
 import userIcon from '../../../assets/images/user.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
+import { IconFilePicker } from '../../ui/input/IconFilePicker/IconFilePicker';
 
 export const SamplesPage = () => {
     const icons = [
@@ -281,7 +282,7 @@ export const MyComponent = ({ ... }) => {
                 ))}
             </FlowPanel>
 
-            <div>
+            <div className='flex column h-stretch'>
                 <Headline>Компоненты</Headline>
 
                 <Markdown>{`
@@ -482,6 +483,17 @@ export const MyComponent = ({ ... }) => {
                 <Pair left={<h4>TransparentTextBox</h4>}
                       right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
 
+                <Pair left={<h4>IconFilePicker</h4>}
+                      right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>
+
+                <Markdown>{`
+\`\`\`jsx
+<IconFilePicker/>
+\`\`\`
+                `}</Markdown>
+
+                <IconFilePicker className={'start-self'}/>
+
                 <h3>Labels</h3>
 
                 <p>Это просто всякие заголовки разной стилизации.</p>
@@ -660,11 +672,26 @@ $$
 $
 (a+b)^2 = a^2 + 2ab + b^2
 $
+
+### CopyFrame
+
+Если вам надо чо-то скопировать юзеру в буфер обмена одним кликом (например как иконки выше)
+
+\`\`\`jsx
+<CopyFrame>Я CopyFrame без контента</CopyFrame>
+<CopyFrame src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
+\`\`\`
                 `}</Markdown>
 
             </div>
-
             
+            <div className='start-self'>
+                <CopyFrame>Я CopyFrame без контента</CopyFrame>
+                <CopyFrame src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
+            </div>
+
+
+
         </BasePage>
     );
 };

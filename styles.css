@@ -119,46 +119,57 @@ h1.article {
 }
 
 /* COLUMN ALIGNMENTS */
-.flex.col.top-left {
+.flex.col.top-left,
+.flex.column.top-left {
   justify-content: flex-start;
   align-items: flex-start;
 }
-.flex.col.top-center {
+.flex.col.top-center,
+.flex.column.top-center {
   justify-content: flex-start;
   align-items: center;
 }
-.flex.col.top-right {
+.flex.col.top-right,
+.flex.column.top-right {
   justify-content: flex-start;
   align-items: flex-end;
 }
-.flex.col.center-left {
+.flex.col.center-left,
+.flex.column.center-left {
   justify-content: center;
   align-items: flex-start;
 }
-.flex.col.center {
+.flex.col.center,
+.flex.column.center {
   justify-content: center;
   align-items: center;
 }
-.flex.col.center-right {
+.flex.col.center-right,
+.flex.column.center-right {
   justify-content: center;
   align-items: flex-end;
 }
-.flex.col.bottom-left {
+.flex.col.bottom-left,
+.flex.column.bottom-left {
   justify-content: flex-end;
   align-items: flex-start;
 }
-.flex.col.bottom-center {
+.flex.col.bottom-center,
+.flex.column.bottom-center {
   justify-content: flex-end;
   align-items: center;
 }
-.flex.col.bottom-right {
+.flex.col.bottom-right,
+.flex.column.bottom-right {
   justify-content: flex-end;
   align-items: flex-end;
 }
-.flex.col.h-stretch {
+.flex.col.h-stretch,
+.flex.column.h-stretch {
   align-items: stretch;
 }
-.flex.col.v-stretch {
+.flex.col.v-stretch,
+.flex.column.v-stretch {
   justify-content: stretch;
 }
 

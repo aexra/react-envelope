@@ -3,7 +3,7 @@ import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 import css from './UserGeneralPanel.module.css';
 import { EditSelfModal } from '../../modals/EditSelfModal/EditSelfModal';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
-import { IconFilePicker } from '../../IconFilePicker/IconFilePicker';
+import { IconFilePicker } from '../../../ui/input/IconFilePicker/IconFilePicker';
 import { useAuth } from '../../../../hooks/useAuth';
 import ExButton from '../../../ui/buttons/ExButton/ExButton';
 import HDivider from '../../../ui/dividers/HDivider/HDivider';

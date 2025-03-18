@@ -1,6 +1,6 @@
 .container {
-    min-width: 100px;
-    min-height: 100px;
+    width: 100px;
+    height: 100px;
 
     box-shadow: var(--panel-shadow);
 
@@ -17,6 +17,8 @@
 
 .image {
     opacity: 0.4;
+
+    object-fit: contain;
 }
 .setIcon {
     opacity: 1;
