@@ -7,6 +7,7 @@ body {
 
     /* RESULT STATES PALETTE */
     --info-color: #33b5e5;
+    --tip-color: #8933ae;
     --success-color: #01c851;
     --warning-color: #ffbb34;
     --error-color: #ff5252;

@@ -3,10 +3,22 @@
 }
 
 .headerContent svg {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
+.callout.success {
+    border: 2px solid var(--success-color);
+}
+.callout.warning {
+    border: 2px solid var(--warning-color);
+}
+.callout.error {
+    border: 2px solid var(--error-color);
+}
+.callout.tip {
+    border: 2px solid var(--tip-color);
+}
 .callout.info {
     border: 2px solid var(--info-color);
 }

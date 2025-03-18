@@ -1,5 +1,6 @@
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { Expander } from '../../wrappers/Expander/Expander';
+import { Error, Info, Success, Tip, Warning } from '../Icons';
 import css from './Callout.module.css';
 
 export const Callout = ({ ref, className, icon, title, type = 'info', children }) => {
@@ -12,17 +13,17 @@ export const Callout = ({ ref, className, icon, title, type = 'info', children }
 
         switch (type) {
             case 'success':
-                return css.success;
+                return <Success/>;
             case 'warning':
-                return css.warning;
+                return <Warning/>;
             case 'error':
-                return css.error;
+                return <Error/>;
             case 'tip':
-                return css.tip;
+                return <Tip/>;
             case 'bug':
-                return css.bug;
+                return <Error/>;
             default:
-                return css.info;
+                return <Info/>;
         }
     };
     
@@ -48,7 +49,7 @@ export const Callout = ({ ref, className, icon, title, type = 'info', children }
             case 'tip':
                 return css.tip;
             case 'bug':
-                return css.bug;
+                return css.error;
             default:
                 return css.info;
         }

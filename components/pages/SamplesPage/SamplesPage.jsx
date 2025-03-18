@@ -1,7 +1,7 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore, Info, Success, Warning, Exclamation, Tip, Error, Bug } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
@@ -67,7 +67,14 @@ export const SamplesPage = () => {
         { element: <PizzaFilled />, jsx: "<PizzaFilled />" },
         { element: <Party />, jsx: "<Party />" },
         { element: <Parking />, jsx: "<Parking />" },
-        { element: <ExpandMore />, jsx: "<ExpandMore />" }
+        { element: <ExpandMore />, jsx: "<ExpandMore />" },
+        { element: <Info />, jsx: "<Info />" },
+        { element: <Success />, jsx: "<Success />" },
+        { element: <Warning />, jsx: "<Warning />," },
+        { element: <Error />, jsx: "<Error />" },
+        { element: <Exclamation />, jsx: "<Exclamation />" },
+        { element: <Tip />, jsx: "<Tip />" },
+        { element: <Bug />, jsx: "<Bug />" },
     ];
 
     const sampleRef1 = useRef(null);
@@ -720,7 +727,12 @@ $
                     Габргура
                 </Expander> */}
 
-                <Callout icon={<Pizza/>} title={'ENVELOPE'}>Я тело колаута</Callout>
+                <Callout>Информация</Callout>
+                <Callout type='success'>Успех</Callout>
+                <Callout type='warning'>Предупреждение</Callout>
+                <Callout type='error'>Ошибка</Callout>
+                <Callout type='bug'>Баг</Callout>
+                <Callout type='tip'>Совет</Callout>
             </div>
 
         </BasePage>
