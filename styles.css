@@ -27,6 +27,9 @@ p {
 a {
   color: var(--accent-color);
 }
+a:hover {
+  color: var(--tip-color);
+}
   
 @font-face {
     font-family: "Montserrat";
