@@ -56,7 +56,7 @@ export const Expander = ({
     return (
         <VBoxPanel ref={ref}
                    className={`${className} ${css.expander} r10 ${isExpanded && css.expanded}`}>
-            <ExButton className={`${css.header} textbutton`}
+            <ExButton className={`${css.header} textbutton r0`}
                         onClick={() => setExpanded(!isExpanded)}>
                 <h4 className='m-0'>{headerContent}</h4>
                 <ExpandMore className={`icon-g h-last ${css.expandButton} ${isExpanded && css.rotate}`} />
