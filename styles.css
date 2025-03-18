@@ -272,6 +272,16 @@ h1.article {
   margin-top: auto;
 }
 
+.m-0 {
+  margin: 0;
+}
+.m-5 {
+  margin: 5px;
+}
+.m-10 {
+  margin: 10px;
+}
+
 /* FILTERS */
 
 .white {

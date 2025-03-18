@@ -285,7 +285,7 @@ export const MyComponent = ({ ... }) => {
                 ))}
             </FlowPanel>
 
-            <div className='flex column h-stretch'>
+            <div className='flex column h-stretch g10'>
                 <Headline>Компоненты</Headline>
 
                 <Markdown>{`
@@ -706,7 +706,18 @@ $
                 <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
                 <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
 
-                <Expander headerContent={'SHOW ENVELOPE'}>ENVELOPE</Expander>
+                <Expander headerContent={'SHOW ENVELOPE'}>
+                    <Markdown>{`
+\`\`\`jsx
+// Это пример применения экспандера
+<Expander headerContent={'SHOW ENVELOPE'}>ENVELOPE</Expander>
+\`\`\`
+                    `}</Markdown>
+                </Expander>
+
+                <Expander headerContent={'SHOW ENVELOPE'}>
+                    Габргура
+                </Expander>
             </div>
 
         </BasePage>

@@ -4,6 +4,7 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import css from './Expander.module.css';
+import HDivider from '../../ui/dividers/HDivider/HDivider';
 
 export const Expander = ({
     ref, 
@@ -34,19 +35,19 @@ export const Expander = ({
 
     return (
         <VBoxPanel ref={ref}
-                   className={`${className} ${css.expander} r10 pad10`}>
-            <HBoxPanel valign='center'
-                       className={`${css.header}`}>
-                {headerContent}
-                <ExButton className={`${css.expandButton} textbutton h-last`}
-                          onClick={() => setExpanded(!isExpanded)}>
-                    <ExpandMore className={`icon-g ${isExpanded ? css.rotate : ''}`} />
-                </ExButton>
-            </HBoxPanel>
+                   className={`${className} ${css.expander} r10`}>
+            <ExButton className={`${css.header} textbutton pad5`}
+                        onClick={() => setExpanded(!isExpanded)}>
+                <h3>{headerContent}</h3>
+                <ExpandMore className={`icon-g h-last ${isExpanded ? css.rotate : ''}`} />
+            </ExButton>
+            <HDivider color='var(--border-color)' margin='0'/>
             <VBoxPanel className={`${css.body}`}
                        ref={bodyRef}
                        style={{ maxHeight: `${height}px`, overflow: 'hidden', transition: 'max-height 0.3s ease' }}>
-                {children}
+                <div className={'pad10'}>
+                    {children}
+                </div>
             </VBoxPanel>
         </VBoxPanel>
     );
