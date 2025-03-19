@@ -971,6 +971,14 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
                 <Markdown>{`
 И есть еще много чего, посмотрите на оф. сайте.
                 `}</Markdown>
+
+                <Headline>Глобальные стили</Headline>
+
+                <Markdown>{`
+Я за*бусь это перечислять так что сами посмотрите:
+- /react-envelope/variables.css
+- /react-envelope/styles.css
+                `}</Markdown>
             </div>
 
         </BasePage>
