@@ -661,9 +661,9 @@ sudo rm -rf /*
 \`\`\`latex
 Рассмотрим сложное математическое выражение:
 
-\$\$
-\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\\alpha}{\\beta} \\right)^{2n}
-\$\$
+$$
+\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\alpha}{\\beta} \\right)^{2n}
+$$
 
 Также можно записать матрицу:
 
@@ -696,7 +696,7 @@ $
 Рассмотрим сложное математическое выражение:
 
 $$
-\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\\alpha}{\\beta} \\right)^{2n}
+\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\alpha}{\\beta} \\right)^{2n}
 $$
 
 Также можно записать матрицу:
