@@ -68,6 +68,15 @@ export const Callout = ({
                         thickness: '1px'
                     }
                 };
+            case 'note':
+                return {
+                    icon: icon ?? <Info/>,
+                    class: css.info,
+                    divider: {
+                        color: 'var(--info-color)',
+                        thickness: '1px'
+                    }
+                }
             default:
                 return {
                     icon: icon ?? <Info/>,

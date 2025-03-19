@@ -26,8 +26,12 @@ import { IconFilePicker } from '../../ui/input/IconFilePicker/IconFilePicker';
 import { EditSelfModal } from '../../widgets/modals/EditSelfModal/EditSelfModal';
 import { Expander } from '../../wrappers/Expander/Expander';
 import { Callout } from '../../dummies/Callout/Callout';
+import toast from 'react-hot-toast';
+import { useAuth } from '../../../hooks/useAuth';
 
 export const SamplesPage = () => {
+    const { auth, refresh } = useAuth();
+    
     const icons = [
         { element: <Moon />, jsx: "<Moon />" },
         { element: <Sun />, jsx: "<Sun />" },
@@ -603,6 +607,7 @@ const [isDimActive, setDim] = useState(false);
                 <Callout type='error'>Ошибка</Callout>
                 <Callout type='bug'>Баг</Callout>
                 <Callout type='tip'>Совет</Callout>
+                <Callout type='important'>Важно</Callout>
 
                 <Markdown>{`
 Вы также можете создавать вложенные колауты, модифицировать содержимое хедера и задавать значение раскрытости по умолчанию
@@ -751,9 +756,9 @@ $
                 <ExButton className={'start-self accent-button'} onClick={() => setBooleanState2(true)}>Открыть модалку</ExButton>
                 <EditSelfModal isEnabled={booleanState2} onCloseRequested={() => setBooleanState2(false)}/>
 
-                <Markdown>{`
-## Хуки
+                <Headline>Хуки</Headline>
 
+                <Markdown>{`
 Следующие хуки разработаны для внутренней работы приложения и не предназначены для использования:
 - useAccounts
 - useUser
@@ -858,6 +863,113 @@ const removeItem = (key: string);
 Является обреткой \`useLocalStorage\` и делает все ровно то же самое, только перед тем как вызвать \`localStorage.*\` приводит переданное значение к строке (JSON.stringify(...)) и парсит из строки в объект при получении (JSON.parse(...)).
 
 Активно применяется в системе авторизации.
+                `}</Markdown>
+
+                <Headline>Рутинг</Headline>
+
+                <Markdown>{`
+Для рутинга мы используем пакет [react-router-dom](https://reactrouter.com/6.30.0/start/tutorial).
+
+Почитайте документацию как им пользоваться.
+
+Сейчас данный проект предоставляет готовый роутер \`/src/components/utils/Router.jsx\`:
+\`\`\`jsx
+// src/components/utils/Router.jsx
+export const Router = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<SamplesPage/>}/>
+                <Route path="/login" element={<AuthPage/>}/>
+
+                <Route element={<PrivateRoute roles='dev'/>}>
+                    <Route path="/_lab" element={<DevExpPage/>}/>
+                </Route>
+
+                <Route path="/profile" element={<PrivateRoute/>}>
+                    <Route path="settings" element={<UserSettingsPage/>}/>
+                </Route>
+
+                <Route path="/lab">
+                    <Route path="5" element={<Lab5/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
+};
+\`\`\`
+                `}</Markdown>
+
+                <Callout type='note' expanded>
+                    Т.е. <b>Router</b> располагается в директории проекта а не подмодуля <b>react-envelope</b>, то его можно и <b>нужно</b> свободно редактировать под каждый проект.
+                </Callout>
+
+                <Callout type='important' expanded>
+                    react-router-dom не содержит определения <b>PrivateRoute</b> и он должен быть реализован в каждом проекте вручную самостоятельно.
+                </Callout>
+
+                <Markdown>{`
+Наша реализация будет выглядеть как-то так:
+\`\`\`jsx
+// src/react-envelope/utils/PrivateRoute.tsx
+const access = (auth: Auth | null, user: User | null, roles: string | null) => {
+    if (auth) {
+        if (roles) {
+            if (user && user.roles) return checkRoles(user, roles);
+            else return false;
+        }
+        else return true;
+    }
+};
+
+const checkRoles = (user: User, roles: string) => {
+    const rolesList = roles.split(" ");
+    rolesList.forEach((r: string) => {
+        if (!user.roles?.includes(r)) return false;
+    });
+    return true;
+};
+
+interface IPrivateRouteProps {
+    roles: string | null;
+}
+
+export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
+    const { auth, user } = useAuth();
+
+    return (
+        access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>
+    );
+};
+\`\`\`
+
+Обобщая - если юзер авторизован и рут не требует наличия определенных ролей, его пропускает, если требует ролей - проводится проверка на роли.
+Если система юзера не пропустила, его перенаправит в окно авторизации (по хорошему это заменить на окно 403 но руки еще не дошли).
+                `}</Markdown>
+
+                <Headline>Тосты</Headline>
+
+                <Markdown>{`
+Мы используем систему тостов [react-hot-toasts](https://react-hot-toast.com/).
+
+Ознакомьтесь с их докухой.
+
+А вот дефолтычи:
+                `}</Markdown>
+
+                <ExButton type={'success'} className={'start-self'} onClick={() => toast.success('ENVELOPE')}>Success</ExButton>
+                <ExButton type={'error'} className={'start-self'} onClick={() => toast.error('Понятно да?')}>Error</ExButton>
+                <ExButton type={'tip'} className={'start-self'} onClick={() => toast.promise(
+                    refresh(),
+                    {
+                        loading: 'Обновляю...',
+                        success: 'Данные обновлены!',
+                        error: 'Ошибка получения данных (скорее всего вы не авторизованы)'
+                    }
+                )}>Promise</ExButton>
+
+                <Markdown>{`
+И есть еще много чего, посмотрите на оф. сайте.
                 `}</Markdown>
             </div>
 

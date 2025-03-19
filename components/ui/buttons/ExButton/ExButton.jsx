@@ -11,11 +11,19 @@ function ExButton({
     hAlign = 'center',
     vAlign = 'center',
     gap = '5px',
-    iconClassName = 'icon-m'
+    type
 }) {
+    const styles = {
+        'info': css.info,
+        'success': css.success,
+        'warning': css.warning,
+        'error': css.error,
+        'tip': css.tip
+    };
+
     return (
         <button ref={ref}
-                className={`${className} ${css.button} padh20`}
+                className={`${className} ${css.button} ${type && styles[type]} padh20`}
                 onClick={onClick}>
             <HBoxPanel gap={gap}
                        halign={hAlign}

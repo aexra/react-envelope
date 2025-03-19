@@ -24,3 +24,49 @@
 .button:active {
     background-color: var(--ex-button-active-bk);
 }
+
+.button.info {
+    background-color: var(--info-color);
+}
+.button.info:hover {
+    background-color: var(--info-hover-color);
+}
+.button.info:active {
+    background-color: var(--info-active-color);
+}
+.button.success {
+    background-color: var(--success-color);
+}
+.button.success:hover {
+    background-color: var(--success-hover-color);
+}
+.button.success:active {
+    background-color: var(--success-active-color);
+}
+.button.warning {
+    background-color: var(--warning-color);
+}
+.button.warning:hover {
+    background-color: var(--warning-hover-color);
+}
+.button.warning:active {
+    background-color: var(--warning-active-color);
+}
+.button.error {
+    background-color: var(--error-color);
+}
+.button.error:hover {
+    background-color: var(--error-hover-color);
+}
+.button.error:active {
+    background-color: var(--error-active-color);
+}
+.button.tip {
+    background-color: var(--tip-color);
+}
+.button.tip:hover {
+    background-color: var(--tip-hover-color);
+}
+.button.tip:active {
+    background-color: var(--tip-active-color);
+}

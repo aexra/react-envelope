@@ -2,6 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { Auth } from "../interfaces/Auth";
 import { User } from "../interfaces/User";
+import { FC } from "react";
 
 const access = (auth: Auth | null, user: User | null, roles: string | null) => {
     if (auth) {
@@ -25,10 +26,10 @@ interface IPrivateRouteProps {
     roles: string | null;
 }
 
-export const PrivateRoute = (props: IPrivateRouteProps) => {
+export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
     const { auth, user } = useAuth();
 
     return (
-        access(auth, user, props.roles) ? <Outlet/> : <Navigate to='/login'/>
+        access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>
     );
 };
