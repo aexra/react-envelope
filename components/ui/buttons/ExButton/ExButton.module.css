@@ -27,6 +27,7 @@
 
 .button.info {
     background-color: var(--info-color);
+    color: #fff;
 }
 .button.info:hover {
     background-color: var(--info-hover-color);
@@ -36,6 +37,7 @@
 }
 .button.success {
     background-color: var(--success-color);
+    color: #fff;
 }
 .button.success:hover {
     background-color: var(--success-hover-color);
@@ -45,6 +47,7 @@
 }
 .button.warning {
     background-color: var(--warning-color);
+    color: #fff;
 }
 .button.warning:hover {
     background-color: var(--warning-hover-color);
@@ -54,6 +57,7 @@
 }
 .button.error {
     background-color: var(--error-color);
+    color: #fff;
 }
 .button.error:hover {
     background-color: var(--error-hover-color);
@@ -63,6 +67,7 @@
 }
 .button.tip {
     background-color: var(--tip-color);
+    color: #fff;
 }
 .button.tip:hover {
     background-color: var(--tip-hover-color);

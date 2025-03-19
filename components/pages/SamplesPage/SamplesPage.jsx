@@ -959,7 +959,7 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
 
                 <ExButton type={'success'} className={'start-self'} onClick={() => toast.success('ENVELOPE')}>Success</ExButton>
                 <ExButton type={'error'} className={'start-self'} onClick={() => toast.error('Понятно да?')}>Error</ExButton>
-                <ExButton type={'tip'} className={'start-self'} onClick={() => toast.promise(
+                <ExButton type={'info'} className={'start-self'} onClick={() => toast.promise(
                     refresh(),
                     {
                         loading: 'Обновляю...',
