@@ -818,6 +818,14 @@ const refresh = async (reload: boolean = true);
 - \`logout\` - удаляет текущего пользователя и отправляет его данные в \`accounts\`;
 - \`logoutAuth\` - удаляет auth из списка \`accounts\`;
 - \`refresh\` - проверяет токен и обновляет значение \`user\`.
+                `}</Markdown>
+
+                <Callout expanded type='important'>
+                    <b>auth</b> и <b>accounts</b> хранятся в контексте <b>AuthContext</b> и <b>AccountsContext</b> соответственно, и в <b>localStorage</b> (с использованием хука <b>useObjectLocalStorage</b>).<br/>
+                    <b>user</b> же хранится только в <b>AuthContext</b> и обновляется при каждом обновлении страницы (навигации, F5 и прочее) вызовом API <b>/me</b>.
+                </Callout>
+
+                <Markdown>{`
 
 ### useTheme
 
@@ -830,6 +838,26 @@ const { theme, isLight, setTheme } = useTheme();
 const [theme, setTheme] = useState('light');
 const [isLight, setIsLight] = useState(true);
 \`\`\`
+
+### useLocalStorage
+
+Не более обертки дефолтных методов:
+
+\`\`\`tsx
+// Собственно, угадайте кто что делает
+const { getItem, setItem, removeItem } = useLocalStorage();
+
+// Эневлоуп
+const setItem = (key: string, value: string);
+const getItem = (key: string);
+const removeItem = (key: string);
+\`\`\`
+
+### useObjectLocalStorage
+
+Является обреткой \`useLocalStorage\` и делает все ровно то же самое, только перед тем как вызвать \`localStorage.*\` приводит переданное значение к строке (JSON.stringify(...)) и парсит из строки в объект при получении (JSON.parse(...)).
+
+Активно применяется в системе авторизации.
                 `}</Markdown>
             </div>
 

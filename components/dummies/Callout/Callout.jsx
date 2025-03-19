@@ -50,6 +50,15 @@ export const Callout = ({
                         thickness: '1px'
                     }
                 };
+            case 'important':
+                return {
+                    icon: icon ?? <Warning/>,
+                    class: css.tip,
+                    divider: {
+                        color: 'var(--tip-color)',
+                        thickness: '1px'
+                    }
+                }
             case 'bug':
                 return {
                     icon: icon ?? <Bug/>,
