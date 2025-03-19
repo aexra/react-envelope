@@ -903,7 +903,7 @@ export const Router = () => {
                 `}</Markdown>
 
                 <Callout type='note' expanded>
-                    Т.е. <b>Router</b> располагается в директории проекта а не подмодуля <b>react-envelope</b>, то его можно и <b>нужно</b> свободно редактировать под каждый проект.
+                    Т.к. <b>Router</b> располагается в директории проекта а не подмодуля <b>react-envelope</b>, то его можно и <b>нужно</b> свободно редактировать под каждый проект.
                 </Callout>
 
                 <Callout type='important' expanded>
@@ -922,6 +922,7 @@ const access = (auth: Auth | null, user: User | null, roles: string | null) => {
         }
         else return true;
     }
+    return false;
 };
 
 const checkRoles = (user: User, roles: string) => {
@@ -937,10 +938,10 @@ interface IPrivateRouteProps {
 }
 
 export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
-    const { auth, user } = useAuth();
+    const { auth, user, isLoading } = useAuth();
 
     return (
-        access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>
+        !isLoading && (access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>)
     );
 };
 \`\`\`
