@@ -7,6 +7,7 @@ import { me } from "../api/user";
 interface IAuthContext {
   user: User | null;
   auth: Auth | null;
+  isLoading: boolean;
   setUser: (user: User | null) => void;
   setAuth: (auth: Auth | null) => void;
 }
@@ -14,6 +15,7 @@ interface IAuthContext {
 export const AuthContext = createContext<IAuthContext>({
   user: null,
   auth: null,
+  isLoading: true,
   setUser: () => {},
   setAuth: () => {},
 });
@@ -21,6 +23,7 @@ export const AuthContext = createContext<IAuthContext>({
 export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [auth, setAuth] = useState<Auth | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { getItem, removeItem } = useObjectLocalStorage();
   
@@ -47,10 +50,19 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
     }
   }, []);
 
+  useEffect(() => {
+    if (auth && user) {
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+    }
+  }, [auth, user]);
+
   return (
     <AuthContext.Provider value={{
       user,
       auth,
+      isLoading,
       setUser,
       setAuth
     }}>

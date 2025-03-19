@@ -4,9 +4,10 @@ import { useAccounts } from './useAccounts';
 import { useUser } from './useUser';
 import { login as _login, register as _register } from '../api/auth';
 import { User } from '../interfaces/User';
+import { useState } from 'react';
 
 export const useAuth = () => {
-    const { auth: _auth, user: _user, setAuth, setUser, remove } = useUser();
+    const { auth: _auth, user: _user, isLoading, setAuth, setUser, remove } = useUser();
     const { accounts, addAccount, removeAccount } = useAccounts();
 
     const register = async (auth: { login: string, password: string }, user: User, savePreviousAccount: boolean) => {
@@ -74,5 +75,5 @@ export const useAuth = () => {
         }
     };
 
-    return { auth: _auth, user: _user, accounts, register, login, logout, logoutAuth, switchAuth, refresh }
+    return { auth: _auth, user: _user, isLoading, accounts, register, login, logout, logoutAuth, switchAuth, refresh }
 };

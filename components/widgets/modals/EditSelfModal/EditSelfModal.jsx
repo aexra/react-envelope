@@ -29,7 +29,7 @@ export const EditSelfModal = ({
     const handleUpdate = async () => {
         try {
             if (vs1 && vs2 && vs3) {
-                await update({
+                await update(user.id, {
                     lastname: lnValue,
                     firstname: fnValue,
                     middlename: mnValue

@@ -12,6 +12,7 @@ const access = (auth: Auth | null, user: User | null, roles: string | null) => {
         }
         else return true;
     }
+    return false;
 };
 
 const checkRoles = (user: User, roles: string) => {
@@ -27,9 +28,9 @@ interface IPrivateRouteProps {
 }
 
 export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
-    const { auth, user } = useAuth();
+    const { auth, user, isLoading } = useAuth();
 
     return (
-        access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>
+        !isLoading && (access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>)
     );
 };
