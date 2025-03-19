@@ -23,7 +23,7 @@ export const AuthContext = createContext<IAuthContext>({
 export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [auth, setAuth] = useState<Auth | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { getItem, removeItem } = useObjectLocalStorage();
   

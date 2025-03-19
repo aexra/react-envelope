@@ -768,7 +768,7 @@ $
 Хук используемый чаще всего - ответственный за авторизацию пользователя. Именно через него выполняются все операции - регистрация, авторизация, смена аккаунта и пр., а главное - получение сведений о пользователе.
 
 \`\`\`jsx
-const { auth, user, accounts, register, login, logout, logoutAuth, switchAuth, refresh } = useAuth();
+const { isLoading, auth, user, accounts, register, login, logout, logoutAuth, switchAuth, refresh } = useAuth();
 
 // Вы можете импортировать только те вещи, которые вам нужны:
 const { auth, user, login, register } = useAuth();
@@ -807,6 +807,7 @@ export interface User {
 А теперь можно и функции с полями посмотреть
 
 \`\`\`tsx
+const [isLoading, setIsLoading] = useState<boolean>(true);
 const [auth, setAuth] = useState<Auth | null>(null);
 const [user, setUser] = useState<User | null>(null);
 const [accounts, setAccounts] = useState<Auth[] | null>([]);
@@ -820,6 +821,7 @@ const refresh = async (reload: boolean = true);
 \`\`\`
 
 Прим.: 
+- \`isLoading\` - указывает на то, загружен ли auth **и** user: при первой загрузке приложения, состояния \`auth\` и \`user\` еще не заполнены значениями, и во избежание ошибок \`isLoading\` создан для проверки этого факта (прим. \`auth\` может быть null если пользователь не авторизован или если данные об этом еще не загрузились, следовательно проверка \`auth != null\` даст неоднозначный ответ).
 - \`logout\` - удаляет текущего пользователя и отправляет его данные в \`accounts\`;
 - \`logoutAuth\` - удаляет auth из списка \`accounts\`;
 - \`refresh\` - проверяет токен и обновляет значение \`user\`.
