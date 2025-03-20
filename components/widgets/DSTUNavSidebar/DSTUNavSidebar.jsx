@@ -8,13 +8,33 @@ import dstu from '../../../assets/images/dstu-w.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { useAuth } from '../../../hooks/useAuth';
 import { Code, Pizza } from '../../dummies/Icons';
+import { useNavigation } from '../../../hooks/useNavigation';
 
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
     const { isLoading, auth, user } = useAuth();
+    const { routes } = useNavigation();
     
     const handleHover = (e) => {
         setDimming(e);
+    };
+
+    const applyPermissions = (route, i) => {
+        if (route.permissions) {
+            if (!user.roles) return null;
+            
+            const perms = route.permissions.split(" ");
+            perms.forEach(p => {
+                if (!user.roles.includes(p)) return null;
+            });
+        }
+        
+        return <NavSidebarButton text={route.name}
+                                 icon={route.icon ?? (route.iconElement && <route.iconElement/>)}
+                                 to={route.path}
+                                 className={route.class}
+                                 iconClassName={route.iconClass}
+                                 key={i}/>
     };
 
     return (
@@ -32,9 +52,9 @@ function DSTUNavSidebar({ ref, className, children }) {
                 </HBoxPanel>
                 <HDivider color='var(--dstu-blue)' margin='0 0 5px 0'/>
                 <VBoxPanel>
-                    <NavSidebarButton text='ENVELOPE' to='/' icon={<Pizza/>}/>
+                    {!isLoading && routes?.map((r, i) => (applyPermissions(r, i)))}
                     {children}
-                    {(!isLoading && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
+                    {/* {(!isLoading && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>} */}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>

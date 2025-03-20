@@ -26,14 +26,3 @@
     height: 80px;
     align-self: stretch;
 }
-
-.debug {
-    background-color: #000 !important;
-    color: #008000 !important;
-}
-.debug:hover {
-    background-color: #111 !important;
-}
-.debugIcon {
-    filter: brightness(0) saturate(100%) invert(22%) sepia(100%) saturate(3216%) hue-rotate(96deg) brightness(96%) contrast(108%) !important;
-}
