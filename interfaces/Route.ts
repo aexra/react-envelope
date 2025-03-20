@@ -1,9 +1,6 @@
 export interface Route {
     name: string;
-    path: string;
+    to: string;
     permissions?: string;
-    icon?: any;
-    iconElement?: any;
-    class?: string;
-    iconClass?: string;
+    props?: any;
 }

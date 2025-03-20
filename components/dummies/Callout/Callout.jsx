@@ -10,6 +10,7 @@ export const Callout = ({
     title, 
     type = 'info',
     expanded = false, 
+    readonly = false,
     children
 }) => {
     const getStyle = () => {
@@ -111,7 +112,8 @@ export const Callout = ({
                   className={`${className} ${css.callout} ${type && styleOptions.class}`}
                   headerContent={getHeaderContent()}
                   dividerStyle={styleOptions.divider}
-                  expanded={expanded}>
+                  expanded={expanded}
+                  readonly={readonly}>
             { children }
         </Expander>
     );

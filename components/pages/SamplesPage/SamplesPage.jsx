@@ -627,6 +627,20 @@ const [isDimActive, setDim] = useState(false);
                     <Callout type='info' expanded>Меня вложили (╯°□°）╯︵ ┻━┻</Callout>
                 </Callout>
 
+                <p>А еще можно убрать сворачивание и это будет просто красивая плашечка:</p>
+
+                <Markdown>{`
+\`\`\`jsx
+<Callout type='tip' readonly>
+    Этот только для чтения
+</Callout>
+\`\`\`
+                `}</Markdown>
+
+                <Callout type='tip' readonly>
+                    Этот только для чтения
+                </Callout>
+
                 <Markdown>{`
 
 ### HeaderTitle
@@ -829,7 +843,7 @@ const refresh = async (reload: boolean = true);
 - \`refresh\` - проверяет токен и обновляет значение \`user\`.
                 `}</Markdown>
 
-                <Callout expanded type='important'>
+                <Callout type='important' readonly>
                     <b>auth</b> и <b>accounts</b> хранятся в контексте <b>AuthContext</b> и <b>AccountsContext</b> соответственно, и в <b>localStorage</b> (с использованием хука <b>useObjectLocalStorage</b>).<br/>
                     <b>user</b> же хранится только в <b>AuthContext</b> и обновляется при каждом обновлении страницы (навигации, F5 и прочее) вызовом API <b>/me</b>.
                 </Callout>
@@ -867,6 +881,10 @@ const removeItem = (key: string);
 Является обреткой \`useLocalStorage\` и делает все ровно то же самое, только перед тем как вызвать \`localStorage.*\` приводит переданное значение к строке (JSON.stringify(...)) и парсит из строки в объект при получении (JSON.parse(...)).
 
 Активно применяется в системе авторизации.
+
+### useNavigation
+
+См. рутинг.
                 `}</Markdown>
 
                 <Headline>Рутинг</Headline>
@@ -902,13 +920,17 @@ export const Router = () => {
     );
 };
 \`\`\`
+
+Это обеспечивает возможность перемещаться по страницам, указанным в качестве \`element\`, но это лишь то, что работает под капотом - вам все еще нужно разместить (если, конечно, нужно) кнопки для навигации по этим самым страницам, а в процессе еще и проверить, доступна ли такая то кнопка такому то пользователю.
+
+
                 `}</Markdown>
 
-                <Callout type='note' expanded>
+                <Callout type='note' readonly>
                     Т.к. <b>Router</b> располагается в директории проекта а не подмодуля <b>react-envelope</b>, то его можно и <b>нужно</b> свободно редактировать под каждый проект.
                 </Callout>
 
-                <Callout type='important' expanded>
+                <Callout type='important' readonly>
                     react-router-dom не содержит определения <b>PrivateRoute</b> и он должен быть реализован в каждом проекте вручную самостоятельно.
                 </Callout>
 

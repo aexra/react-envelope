@@ -6,7 +6,7 @@ export const NavSidebarButton = ({
     ref,
     className,
     icon,
-    text,
+    name,
     onClick,
     to,
     iconClassName
@@ -28,7 +28,7 @@ export const NavSidebarButton = ({
             <div className={`icon-m flex center`}>
                 {icon}
             </div>
-            <span>{text}</span>
+            <span>{name}</span>
         </ExButton>
     );
 };

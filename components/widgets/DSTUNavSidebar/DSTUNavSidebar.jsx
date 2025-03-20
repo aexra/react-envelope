@@ -13,28 +13,10 @@ import { useNavigation } from '../../../hooks/useNavigation';
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
     const { isLoading, auth, user } = useAuth();
-    const { routes } = useNavigation();
+    const { routes, navlinks } = useNavigation();
     
     const handleHover = (e) => {
         setDimming(e);
-    };
-
-    const applyPermissions = (route, i) => {
-        if (route.permissions) {
-            if (!user.roles) return null;
-            
-            const perms = route.permissions.split(" ");
-            perms.forEach(p => {
-                if (!user.roles.includes(p)) return null;
-            });
-        }
-        
-        return <NavSidebarButton text={route.name}
-                                 icon={route.icon ?? (route.iconElement && <route.iconElement/>)}
-                                 to={route.path}
-                                 className={route.class}
-                                 iconClassName={route.iconClass}
-                                 key={i}/>
     };
 
     return (
@@ -52,7 +34,7 @@ function DSTUNavSidebar({ ref, className, children }) {
                 </HBoxPanel>
                 <HDivider color='var(--dstu-blue)' margin='0 0 5px 0'/>
                 <VBoxPanel>
-                    {!isLoading && routes?.map((r, i) => (applyPermissions(r, i)))}
+                    {navlinks(NavSidebarButton)}
                     {children}
                 </VBoxPanel>
             </VBoxPanel>

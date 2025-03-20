@@ -11,9 +11,10 @@ export const Expander = ({
     headerContent, 
     children,
     dividerStyle,
-    expanded = false
+    expanded = false,
+    readonly = false
 }) => {
-    const [isExpanded, setExpanded] = useState(expanded);
+    const [isExpanded, setExpanded] = useState(expanded || readonly);
     const [height, setHeight] = useState(0);
     const bodyRef = useRef(null);
     const observerRef = useRef(null);
@@ -27,10 +28,10 @@ export const Expander = ({
     }, [isExpanded]);
 
     useEffect(() => {
-        if (expanded !== isExpanded) {
-            setExpanded(expanded);
+        if ((expanded || readonly) !== isExpanded) {
+            setExpanded(expanded || readonly);
         }
-    }, [expanded]);
+    }, [expanded, readonly]);
 
     useEffect(() => {
         if (bodyRef.current) {
@@ -58,11 +59,14 @@ export const Expander = ({
     return (
         <VBoxPanel ref={ref}
                    className={`${className} ${css.expander} r10 ${isExpanded && css.expanded}`}>
+            {readonly ? <div className={`${css.readonly} flex row center-left pad5 padh20`}>
+                <h4 className='m-0'>{headerContent}</h4>
+            </div> :
             <ExButton className={`${css.header} textbutton r0`}
                         onClick={() => setExpanded(!isExpanded)}>
                 <h4 className='m-0'>{headerContent}</h4>
                 <ExpandMore className={`icon-g h-last ${css.expandButton} ${isExpanded && css.rotate}`} />
-            </ExButton>
+            </ExButton> }
             <VBoxPanel className={`${css.body}`}
                        ref={bodyRef}
                        style={{ maxHeight: `${height}px` }}>
