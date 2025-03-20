@@ -11,7 +11,7 @@ import { Code, Pizza } from '../../dummies/Icons';
 
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
-    const { auth, user } = useAuth();
+    const { isLoading, auth, user } = useAuth();
     
     const handleHover = (e) => {
         setDimming(e);
@@ -34,7 +34,7 @@ function DSTUNavSidebar({ ref, className, children }) {
                 <VBoxPanel>
                     <NavSidebarButton text='ENVELOPE' to='/' icon={<Pizza/>}/>
                     {children}
-                    {(auth && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
+                    {(!isLoading && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>
