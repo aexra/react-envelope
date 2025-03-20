@@ -921,9 +921,129 @@ export const Router = () => {
 };
 \`\`\`
 
-Это обеспечивает возможность перемещаться по страницам, указанным в качестве \`element\`, но это лишь то, что работает под капотом - вам все еще нужно разместить (если, конечно, нужно) кнопки для навигации по этим самым страницам, а в процессе еще и проверить, доступна ли такая то кнопка такому то пользователю.
+Это обеспечивает возможность перемещаться по страницам, указанным в качестве \`element\`, но это лишь то, что работает под капотом - вам все еще нужно разместить (если, конечно, нужно) кнопки для навигации по этим самым страницам, а в процессе еще и проверить, доступна ли такая то кнопка такому то пользователю.<br/><br/>
+Для упрощения этой цели был разработан ряд приколюх.<br/><br/>
+Во-первых, это хук **useNavigation**:
 
+\`\`\`tsx
+export const useNavigation = () => {
+    const { routes, setRoutes } = useContext(NavigationContext);
+    const { isLoading, user } = useAuth();
 
+    const add = (...new_routes: Route[]) => {
+        setRoutes([...routes, ...new_routes]);
+    };
+
+    const remove = (route: Route) => {
+        setRoutes(routes.filter(r => r != route));
+    };
+
+    const clear = () => {
+        setRoutes([]);
+    };
+
+    const navlinks = (Component: React.ElementType = NavLink) => {
+        if (isLoading || !routes) return null;
+
+        return routes.map((route, i) => {
+            const { permissions, children, props, ...mainRouteProps } = route;
+
+            if (permissions) {
+                if (!user?.roles) return null;
+
+                const perms = permissions.split(" ");
+                const hasPermission = perms.every(p => user?.roles?.includes(p));
+                if (!hasPermission) return null;
+            }
+
+            return (
+                <Component key={i}
+                           {...mainRouteProps}
+                           {...props}>
+                    {children}
+                </Component>
+            );
+        });
+    };
+
+    return { routes, add, remove, clear, navlinks };
+};
+\`\`\`
+
+Если не вдаваться в детали, чо тут происходит: 
+1. \`const { routes, add, remove, clear, navlinks } = useNavigation();\` - эта темка конфигурирует весь набор кнопочек, которые вы захотите расположить в глобальной системе навигации (ну, потому что контекст на котором оно работает имеет одно состояние).
+2. Главная фича здесь - navlinks. Она проверит все руты которые вы сконфигурировали, посмотрит на права юзера и отобразит только доступные ему кнопки, которые, к слову, также полностью конфигурируются.
+
+Как это работает?
+
+С применением этой штуки ваш роутер будет выглядеть теперь как-то так (ну или можете где-то еще это конфигурировать, желательно около корня приложения):
+
+\`\`\`jsx
+export const Router = () => {
+    const { routes, add } = useNavigation();
+
+    useEffect(() => {
+        add({
+            name: 'ENVELOPE',
+            to: '/',
+            props: {
+                icon: <Pizza/>
+            }
+        }, {
+            name: 'Экспериментальная',
+            to: '/_lab',
+            permissions: 'dev',
+            props: {
+                icon: <Code/>,
+                className: 'debug'
+            }
+        });
+    }, [])
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<SamplesPage/>}/>
+                <Route path="/login" element={<AuthPage/>}/>
+
+                <Route element={<PrivateRoute roles='dev'/>}>
+                    <Route path="/_lab" element={<DevExpPage/>}/>
+                </Route>
+
+                <Route path="/profile" element={<PrivateRoute/>}>
+                    <Route path="settings" element={<UserSettingsPage/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
+};
+\`\`\`
+
+Методы используют руты такого вида:
+
+\`\`\`ts
+export interface Route {
+    name: string;
+    to: string;
+    permissions?: string;
+    props?: any;
+    children?: React.ReactNode;
+}
+\`\`\`
+
+А использовать это вы будете так:
+
+\`\`\`jsx
+const { navlinks } = useNavigation();
+
+// Вернет компоненты NavLink для каждого доступного рута
+return navlinks();
+
+// Вернет компоненты NavSidebarButton для каждого доступного рута
+return navlinks(NavSidebarButton);
+\`\`\`
+
+Соответственно, в зависимости от того, какие кнопки вы юзаете - так вы и должны конфигурировать \`routes\` в \`useNavigation\`. Пример роутера выше написан для \`NavSidebarButton\` - кнопок что в панели навигации слева на этой странице.
                 `}</Markdown>
 
                 <Callout type='note' readonly>

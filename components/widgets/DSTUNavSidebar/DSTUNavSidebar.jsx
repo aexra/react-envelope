@@ -12,8 +12,7 @@ import { useNavigation } from '../../../hooks/useNavigation';
 
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
-    const { isLoading, auth, user } = useAuth();
-    const { routes, navlinks } = useNavigation();
+    const { navlinks } = useNavigation();
     
     const handleHover = (e) => {
         setDimming(e);

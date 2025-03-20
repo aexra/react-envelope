@@ -24,7 +24,7 @@ export const useNavigation = () => {
         if (isLoading || !routes) return null;
 
         return routes.map((route, i) => {
-            const { permissions, props, ...mainRouteProps } = route;
+            const { permissions, children, props, ...mainRouteProps } = route;
 
             if (permissions) {
                 if (!user?.roles) return null;
@@ -37,7 +37,9 @@ export const useNavigation = () => {
             return (
                 <Component key={i}
                            {...mainRouteProps}
-                           {...props}/>
+                           {...props}>
+                    {children}
+                </Component>
             );
         });
     };

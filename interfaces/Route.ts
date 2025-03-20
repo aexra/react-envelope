@@ -3,4 +3,5 @@ export interface Route {
     to: string;
     permissions?: string;
     props?: any;
+    children?: React.ReactNode;
 }
