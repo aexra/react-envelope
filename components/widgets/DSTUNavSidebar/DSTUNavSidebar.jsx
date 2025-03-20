@@ -34,9 +34,6 @@ function DSTUNavSidebar({ ref, className, children }) {
                 <VBoxPanel>
                     <NavSidebarButton text='ENVELOPE' to='/' icon={<Pizza/>}/>
                     {children}
-                    <NavSidebarButton text={'Лабораторная работа №5'}
-                                      icon={<ExperimentOutlined/>}
-                                      to='/lab/5'/>
                     {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>
