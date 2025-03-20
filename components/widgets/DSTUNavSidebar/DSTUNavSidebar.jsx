@@ -54,7 +54,6 @@ function DSTUNavSidebar({ ref, className, children }) {
                 <VBoxPanel>
                     {!isLoading && routes?.map((r, i) => (applyPermissions(r, i)))}
                     {children}
-                    {/* {(!isLoading && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>} */}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>
