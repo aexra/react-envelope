@@ -1,7 +1,7 @@
 import css from './SamplesPage.module.css';
 import BasePage from '../BasePage/BasePage';
 import DSTUFooter from '../../widgets/DSTUFooter/DSTUFooter';
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore, Info, Success, Warning, Exclamation, Tip, Error, Bug, Save } from '../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore, Info, Success, Warning, Exclamation, Tip, Error, Bug, Save, Reload } from '../../dummies/Icons';
 import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
@@ -79,7 +79,8 @@ export const SamplesPage = () => {
         { element: <Exclamation />, jsx: "<Exclamation />" },
         { element: <Tip />, jsx: "<Tip />" },
         { element: <Bug />, jsx: "<Bug />" },
-        { element: <Save />, jsx: "<Save />" }
+        { element: <Save />, jsx: "<Save />" },
+        { element: <Reload />, jsx: "<Reload />" }
     ];
 
     const sampleRef1 = useRef(null);
