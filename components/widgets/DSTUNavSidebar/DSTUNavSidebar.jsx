@@ -7,11 +7,11 @@ import { NavSidebarButton } from '../../ui/buttons/NavSidebarButton/NavSidebarBu
 import dstu from '../../../assets/images/dstu-w.png';
 import { DimOverlay } from '../../ui/misc/DimOverlay/DimOverlay';
 import { useAuth } from '../../../hooks/useAuth';
-import { Code, ExperimentOutlined, Pizza } from '../../dummies/Icons';
+import { Code, Pizza } from '../../dummies/Icons';
 
 function DSTUNavSidebar({ ref, className, children }) {    
     const [isDimming, setDimming] = useState(false);
-    const { auth } = useAuth();
+    const { auth, user } = useAuth();
     
     const handleHover = (e) => {
         setDimming(e);
@@ -34,7 +34,7 @@ function DSTUNavSidebar({ ref, className, children }) {
                 <VBoxPanel>
                     <NavSidebarButton text='ENVELOPE' to='/' icon={<Pizza/>}/>
                     {children}
-                    {auth && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
+                    {(auth && user.roles?.includes('dev')) && <NavSidebarButton text='Экспериментальная' to='/_lab' icon={<Code/>} className={css.debug} iconClassName={css.debugIcon}/>}
                 </VBoxPanel>
             </VBoxPanel>
             <DimOverlay active={isDimming}/>
