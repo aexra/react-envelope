@@ -6,7 +6,7 @@ import { useAuth } from "./useAuth";
 
 export const useNavigation = () => {
     const { routes, setRoutes } = useContext(NavigationContext);
-    const { isLoading, user } = useAuth();
+    const { user } = useAuth();
 
     const add = (...new_routes: Route[]) => {
         setRoutes([...routes, ...new_routes]);
@@ -21,7 +21,7 @@ export const useNavigation = () => {
     };
 
     const navlinks = (Component: React.ElementType = NavLink) => {
-        if (isLoading || !routes) return null;
+        if (!routes) return null;
 
         return routes.map((route, i) => {
             const { permissions, children, props, ...mainRouteProps } = route;
