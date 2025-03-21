@@ -24,11 +24,12 @@ export const useNavigation = () => {
         if (!routes) return null;
 
         return routes.map((route, i) => {
-            const { permissions, children, props, ...mainRouteProps } = route;
+            const { permissions, requireAuth, children, props, ...mainRouteProps } = route;
+
+            if (requireAuth && !user) return null;
 
             if (permissions) {
-                if (!user?.roles) return null;
-
+                if (!user || !user?.roles) return null;
                 const perms = permissions.split(" ");
                 const hasPermission = perms.every(p => user?.roles?.includes(p));
                 if (!hasPermission) return null;

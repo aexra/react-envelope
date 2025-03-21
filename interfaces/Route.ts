@@ -4,4 +4,5 @@ export interface Route {
     permissions?: string;
     props?: any;
     children?: React.ReactNode;
+    requireAuth?: boolean;
 }
