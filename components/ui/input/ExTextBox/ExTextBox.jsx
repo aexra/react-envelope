@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import TransparentTextBox from '../TransparentTextBox/TransparentTextBox';
@@ -35,9 +35,18 @@ function ExTextBox({
         validationRegex = new RegExp(regex);
     }
 
+    useEffect(() => {
+        if (text != '') {
+            setInputEmpty(false);
+        } else {
+            setInputEmpty(true);
+        }
+    }, [text])
+
     const handleFocusChange = (e) => {
         setFocus(e);
         if (!e && inputRef) validate(inputRef.current.value);
+        if (!e && text) validate(text);
     };
 
     const handleTextChange = (e) => {
