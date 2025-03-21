@@ -482,6 +482,7 @@ h1.article {
 
 input {
   background-color: transparent;
+  color: var(--font-color);
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
