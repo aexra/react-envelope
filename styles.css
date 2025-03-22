@@ -454,7 +454,7 @@ h1.article {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   height: 6px;
 
   border-radius: 15px;
@@ -463,7 +463,7 @@ h1.article {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background: rgba(0,0,0,0);
 }
 ::-webkit-scrollbar-thumb:hover{
