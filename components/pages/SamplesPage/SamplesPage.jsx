@@ -430,7 +430,11 @@ export const MyComponent = ({ ... }) => {
                 <Pair left={<h4>ExTextBox</h4>}
                       right={<StatusTag text='ЭНВЕЛОУП' type='success' className='flex-0-1'/>}/>
 
+                <input type='text'/>
+                <input type='password'/>
+
                 <HBoxPanel gap={'20px'} valign='center'>
+
                     <ExTextBox className={css.inputSample}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
@@ -454,7 +458,8 @@ export const MyComponent = ({ ... }) => {
                     <ExTextBox className={css.inputSample}
                                hint='Дио'
                                placeholder='А вот и нет, это я - Дио!'
-                               icon={<User/>}/>
+                               icon={<User/>}
+                               text={sampleState2}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
@@ -469,7 +474,8 @@ export const MyComponent = ({ ... }) => {
                                hint={'Знаешь regex("ENVELOPE")?'}
                                placeholder='Не ENVELOPE'
                                inputRef={sampleRef1}
-                               regex='ENVELOPE'/>
+                               regex='ENVELOPE'
+                               text={sampleState3}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
@@ -500,7 +506,8 @@ export const MyComponent = ({ ... }) => {
                     <ExTextBox className={css.inputSample}
                                password
                                hint='Пароль'
-                               placeholder='Введите пароль'/>
+                               placeholder='Введите пароль'
+                               text={sampleState4}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
