@@ -1144,9 +1144,60 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
 
                 <Markdown>{`
 Я за*бусь это перечислять так что сами посмотрите:
-- /react-envelope/variables.css
-- /react-envelope/styles.css
+- \`/react-envelope/variables.css\` - CSS-переменные: цвета, размеры и пр.
+- \`/react-envelope/styles.css\` - готовые классы стилей или определенных атрибутов
+
+А вообще вот немного того что часто используется:
                 `}</Markdown>
+
+                <h3>Кнопки</h3>
+
+                <Pair left={<ExButton className={'textbutton'}>ENVELOPE</ExButton>}
+                      right={<Markdown>{`\`\`\`jsx\n <ExButton className={'textbutton'}>ENVELOPE</ExButton>`}</Markdown>}/>
+
+                <Pair left={<ExButton className={'colorbutton'}>ENVELOPE</ExButton>}
+                      right={<Markdown>{`\`\`\`jsx\n// Это стиль ExButton по умолчанию\n<ExButton className={'colorbutton'}>ENVELOPE</ExButton>`}</Markdown>}/>
+
+                <Pair left={<ExButton className={'accent-button'}>ENVELOPE</ExButton>}
+                      right={<Markdown>{`\`\`\`jsx\n// Использует акцентные цвета приложения\n<ExButton className={'accent-button'}>ENVELOPE</ExButton>`}</Markdown>}/>
+
+                <Pair left={<ExButton className={'dstu-accent-button'}>ENVELOPE</ExButton>}
+                      right={<Markdown>{`\`\`\`jsx\n// Использует акцентные цвета ДГТУ\n<ExButton className={'dstu-accent-button'}>ENVELOPE</ExButton>`}</Markdown>}/>
+
+                <h3>Панели</h3>
+                
+                <Pair left={<div className='panel'>Bombordiro Crocodilo</div>}
+                      right={<Markdown>{`\`\`\`jsx\n<div className='panel'>Bombordiro Crocodilo</div>`}</Markdown>}/>
+
+                <h3>Скролл, flex</h3>
+
+                <Pair left={<div className='panel y-scroll flex col g5' style={{width: '180px', height: '100px'}}>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                    <span>Bombordiro Crocodilo</span>
+                </div>}
+                      right={<Markdown>{`
+\`\`\`jsx
+<div className='panel y-scroll flex col g5' style={{width: '180px', height: '100px'}}
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+    <span>Bombordiro Crocodilo</span>
+</div>
+\`\`\`
+                    `}</Markdown>}/>
+
+                    <p>Всё я устал.</p>
+
             </div>
 
         </BasePage>
