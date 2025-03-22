@@ -108,6 +108,10 @@ h1.article {
   line-height: 50px;
 }
 
+.none {
+  display: none;
+}
+
 /* LAYOUT */
 
 .flex {

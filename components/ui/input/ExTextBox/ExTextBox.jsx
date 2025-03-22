@@ -41,6 +41,8 @@ function ExTextBox({
         } else {
             setInputEmpty(true);
         }
+
+        validate(text);
     }, [text])
 
     const handleFocusChange = (e) => {
