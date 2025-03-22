@@ -71,6 +71,7 @@ body.light {
 
     /* BACKGROUND */
     --bk-color: #fefefe;
+    --body-bk-color: #f8f8f8;
     --header-bk-color: var(--dstu-light-blue);
     --panel-bk: #fff;
 
@@ -148,6 +149,7 @@ body.dark {
 
     /* BACKGROUND */
     --bk-color: #242424;
+    --body-bk-color: #262626;
     --header-bk-color: #1e1f22;
     --panel-bk: #333;
     

@@ -28,6 +28,9 @@ import { Expander } from '../../wrappers/Expander/Expander';
 import { Callout } from '../../dummies/Callout/Callout';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../../hooks/useAuth';
+import { useTheme } from '../../../hooks/useTheme';
+import defaultBackgroundLight from '../../../assets/images/envelope-background-light.png';
+import defaultBackgroundDark from '../../../assets/images/envelope-background-dark.png';
 
 export const SamplesPage = () => {
     const { auth, refresh } = useAuth();
@@ -104,12 +107,23 @@ export const SamplesPage = () => {
     const [booleanState5, setBooleanState5] = useState(false);
     const [booleanState6, setBooleanState6] = useState(false);
 
+    const { isLight } = useTheme();
+
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
                   bodyClassName={`h-full`}
                   footerContent={<DSTUFooter/>}
                   navSidebar={<DSTUNavSidebar/>}
-                  bodyGap='10px'>
+                  bodyGap='10px'
+                  style={{
+                    backgroundRepeat: 'no-repeat',
+                    backgroundAttachment: 'fixed',
+                    backgroundImage: `url(${isLight ? defaultBackgroundLight : defaultBackgroundDark})`
+                  }}
+                  bodyStyle={{
+                    backgroundColor: `var(--body-bk-color)`,
+                    boxShadow: `0 0 10px rgba(0, 0, 0, 0.5)`
+                  }}>
             
             <h1 className='article'>Здравствуйте!</h1>
 
