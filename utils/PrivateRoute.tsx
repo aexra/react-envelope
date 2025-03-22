@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { Auth } from "../interfaces/Auth";
-import { User } from "../interfaces/User";
+import { Auth } from "../../interfaces/Auth";
+import { User } from "../../interfaces/User";
 import { FC } from "react";
 
 const access = (auth: Auth | null, user: User | null, roles: string | null) => {

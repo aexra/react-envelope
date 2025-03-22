@@ -5,7 +5,7 @@ import { Modal } from '../../../wrappers/Modal/Modal';
 import { IconFilePicker } from '../../../ui/input/IconFilePicker/IconFilePicker';
 import css from './EditSelfModal.module.css';
 import { useEffect, useRef, useState } from 'react';
-import { update } from '../../../../api/user';
+import { update } from '../../../../../api/user';
 import { useAuth } from '../../../../hooks/useAuth';
 import { User } from '../../../dummies/Icons';
 import toast from 'react-hot-toast';

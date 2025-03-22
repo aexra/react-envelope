@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
-import { Auth } from "../interfaces/Auth";
+import { Auth } from "../../interfaces/Auth";
 
 interface IAccountsContext {
   accounts: Auth[] | null;

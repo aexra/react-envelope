@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useObjectLocalStorage } from "./useObjectLocalStorage";
 import { AccountsContext } from "../contexts/AccountsContext";
-import { Auth } from "../interfaces/Auth";
+import { Auth } from "../../interfaces/Auth";
 
 export const useAccounts = () => {
     const { accounts, setAccounts: setAccountsObject } = useContext(AccountsContext);

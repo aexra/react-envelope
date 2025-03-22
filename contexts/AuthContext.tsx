@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
-import { User } from "../interfaces/User";
+import { User } from "../../interfaces/User";
 import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
-import { Auth } from "../interfaces/Auth";
-import { me } from "../api/user";
+import { Auth } from "../../interfaces/Auth";
+import { me } from "../../api/user";
 
 interface IAuthContext {
   user: User | null;
