@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
 import css from './Console.module.css';
-import TransparentTextBox from '../../ui/input/TransparentTextBox/TransparentTextBox';
+import TransparentTextBox from '../../ui/input/text/TransparentTextBox/TransparentTextBox';
 
 export const Console = ({ ref, className, onSubmit }) => {
     const [prompts, setPrompts] = useState([]);

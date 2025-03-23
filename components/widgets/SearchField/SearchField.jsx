@@ -2,7 +2,7 @@ import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import css from './SearchField.module.css';
 import filtervec from '../../../assets/vectors/Filters.svg';
 import RoundImageButton from '../../ui/buttons/RoundImageButton/RoundImageButton';
-import TransparentTextBox from '../../ui/input/TransparentTextBox/TransparentTextBox';
+import TransparentTextBox from '../../ui/input/text/TransparentTextBox/TransparentTextBox';
 import { useState } from 'react';
 
 function SearchField({ ref, className, style, onSubmit, onFilterOpen }) {

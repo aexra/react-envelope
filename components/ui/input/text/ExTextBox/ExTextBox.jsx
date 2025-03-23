@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
-import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
+import HBoxPanel from '../../../../layouts/HBoxPanel/HBoxPanel';
+import VBoxPanel from '../../../../layouts/VBoxPanel/VBoxPanel';
 import TransparentTextBox from '../TransparentTextBox/TransparentTextBox';
 import css from './ExTextBox.module.css';
-import ToggleButton from '../../buttons/ToggleButton/ToggleButton';
-import visible0 from '../../../../assets/images/visible0.png';
-import visible1 from '../../../../assets/images/visible2.png';
-import { Visibility, VisibilityOff } from '../../../dummies/Icons';
+import ToggleButton from '../../../buttons/ToggleButton/ToggleButton';
+import visible0 from '../../../../../assets/images/visible0.png';
+import visible1 from '../../../../../assets/images/visible2.png';
+import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
 
 function ExTextBox({
     ref, 

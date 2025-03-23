@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
-import LoginForm from '../../widgets/LoginForm/LoginForm';
+import LoginForm from '../../widgets/forms/LoginForm/LoginForm';
 import BasePage from '../BasePage/BasePage';
 import css from './AuthPage.module.css';
-import RegisterForm from '../../widgets/RegisterForm/RegisterForm';
+import RegisterForm from '../../widgets/forms/RegisterForm/RegisterForm';
 import { useNavigate } from 'react-router-dom';
 import TagButton from '../../ui/buttons/TagButton/TagButton';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';

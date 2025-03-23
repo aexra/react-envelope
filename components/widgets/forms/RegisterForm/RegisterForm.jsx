@@ -1,13 +1,9 @@
 import FlowPanel from '../../../layouts/FlowPanel/FlowPanel';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import TagButton from '../../../ui/buttons/TagButton/TagButton';
-import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
-import IconLabel from '../../../ui/labels/IconLabel/IconLabel';
+import ExTextBox from '../../../ui/input/text/ExTextBox/ExTextBox';
 import css from './RegisterForm.module.css';
-import userIcon from '../../../assets/images/user.png';
 import { useRef } from 'react';
-import identityIcon from '../../../assets/images/id-card.png';
-import emailIcon from '../../../assets/images/email.png';
 import { Email, User, UserFilled } from '../../../dummies/Icons';
 import { DSTULabeledForm } from '../../DSTULabeledForm/DSTULabeledForm';
 

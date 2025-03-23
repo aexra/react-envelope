@@ -1,14 +1,13 @@
 import css from './LoginForm.module.css';
-import userIcon from '../../../assets/images/user.png';
 
-import VBoxPanel from '../../layouts/VBoxPanel/VBoxPanel';
-import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
-import ExButton from '../../ui/buttons/ExButton/ExButton';
-import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
-import TagButton from '../../ui/buttons/TagButton/TagButton';
+import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
+import ExTextBox from '../../../ui/input/text/ExTextBox/ExTextBox';
+import ExButton from '../../../ui/buttons/ExButton/ExButton';
+import FlowPanel from '../../../layouts/FlowPanel/FlowPanel';
+import TagButton from '../../../ui/buttons/TagButton/TagButton';
 import { useRef } from 'react';
-import { DSTULabeledForm } from '../DSTULabeledForm/DSTULabeledForm';
-import { UserFilled } from '../../dummies/Icons';
+import { DSTULabeledForm } from '../../DSTULabeledForm/DSTULabeledForm';
+import { UserFilled } from '../../../dummies/Icons';
 
 function LoginForm({ onRegisterClick, onLoginClick }) {
     const usernameRef = useRef(null);
@@ -38,7 +37,7 @@ function LoginForm({ onRegisterClick, onLoginClick }) {
                            regex="."
                            placeholder="Введите логин"/>
                 <ExTextBox hint='Пароль' 
-                           icon={userIcon}
+                           icon={<UserFilled/>}
                            inputRef={passwordRef}
                            password
                            regex="."

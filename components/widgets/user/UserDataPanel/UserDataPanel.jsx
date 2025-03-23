@@ -2,7 +2,7 @@ import { useAuth } from '../../../../hooks/useAuth';
 import { Pair } from '../../../layouts/Pair/Pair';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import ExButton from '../../../ui/buttons/ExButton/ExButton';
-import ExTextBox from '../../../ui/input/ExTextBox/ExTextBox';
+import ExTextBox from '../../../ui/input/text/ExTextBox/ExTextBox';
 import css from './UserDataPanel.module.css';
 
 export const UserDataPanel = ({ ref, className, edit = false, onChangeClick }) => {

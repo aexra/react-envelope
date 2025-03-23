@@ -1,6 +1,6 @@
 import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
-import ExTextBox from '../../../ui/input/ExTextBox/ExTextBox';
+import ExTextBox from '../../../ui/input/text/ExTextBox/ExTextBox';
 import { Modal } from '../../../wrappers/Modal/Modal';
 import { IconFilePicker } from '../../../ui/input/IconFilePicker/IconFilePicker';
 import css from './EditSelfModal.module.css';

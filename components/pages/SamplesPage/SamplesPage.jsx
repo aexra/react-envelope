@@ -16,7 +16,7 @@ import { StatusTag } from '../../ui/labels/StatusTag/StatusTag';
 import ToggleButton from '../../ui/buttons/ToggleButton/ToggleButton';
 import HDivider from '../../ui/dividers/HDivider/HDivider';
 import VDivider from '../../ui/dividers/VDivider/VDivider';
-import ExTextBox from '../../ui/input/ExTextBox/ExTextBox';
+import ExTextBox from '../../ui/input/text/ExTextBox/ExTextBox';
 import HBoxPanel from '../../layouts/HBoxPanel/HBoxPanel';
 import { useRef, useState } from 'react';
 import IconLabel from '../../ui/labels/IconLabel/IconLabel';
