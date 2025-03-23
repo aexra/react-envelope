@@ -10,6 +10,8 @@
     --shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     
     --transition-duration: 0.2s;
+
+    box-sizing: border-box;
 }
 .container svg {
     width: 20px;
@@ -33,6 +35,10 @@
     color: var(--error-color);
 }
 
+.container.colorBox {
+    background-color: var(--highlight-light);
+}
+
 .label {
     position: absolute;
     font-size: small;
@@ -42,7 +48,7 @@
 .label.inline {
     top: -10px;
     left: 15px;
-
+    
     padding: 0 3px;
 }
 .label.above {
@@ -53,10 +59,10 @@
 .input {
     height: 100%;
     width: 100%;
-
+    
     outline: none;
     border: none;
-
+    
     font-family: inherit;
 }
 
@@ -76,4 +82,18 @@
 }
 .container.underline {
     border-bottom: var(--border);
+}
+.container.borderFocusOnly {
+    border: 1px solid transparent;
+}
+.container.borderFocusOnly.focused {
+    border: var(--border);
+    box-shadow: var(--shadow);
+}
+
+.borderless {
+    border: none !important;
+}
+.shadowless {
+    box-shadow: none !important;
 }

@@ -6,7 +6,9 @@ import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
 // value - внешнее состояние
 // defaultValue - начальное значение состояния текста, если не используется value
 // borderType: { none, full, fullr, underline }
+// borderBehaviour: { default, focus }
 // labelType: { inline, above }
+// type: { default, color }
 export const TextBox = ({
     ref,
     className,
@@ -14,7 +16,9 @@ export const TextBox = ({
     defaultValue = '',
     onChange,
     borderType,
+    borderBehaviour,
     labelType = 'inline',
+    type,
     placeholder,
     label,
     readonly = false,
@@ -22,14 +26,18 @@ export const TextBox = ({
     labelProps,
     password = false,
     icon,
-    regex
+    regex,
+    borderless = false,
+    shadowless = false
 }) => {
     const [_isFocused, _setIsFocused] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
     const [_error, _setError] = useState(false);
     const [_visible, _setVisible] = useState(false);
     const [bt, setBt] = useState('');
+    const [bh, setBH] = useState('');
     const [lt, setLt] = useState('');
+    const [t, setT] = useState('');
 
     const formedLabelBackground = labelBackground ?? (labelType === 'inline' ? 'var(--body-bk-color)' : 'transparent');
 
@@ -84,8 +92,30 @@ export const TextBox = ({
         setLt(mapLabelType(labelType));
     }, [labelType]);
 
+    useEffect(() => {
+        const mapType = (t) => {
+            switch (t) {
+                case 'color': return css.colorBox;
+                default: return undefined;
+            }
+        }
+
+        setT(mapType(type));
+    }, [type]);
+
+    useEffect(() => {
+        const mapBH = (bh) => {
+            switch (bh) {
+                case 'focus': return css.borderFocusOnly;
+                default: return undefined;
+            }
+        };
+
+        setBH(mapBH(borderBehaviour));
+    }, [borderBehaviour]);
+
     return (
-        <div className={`${css.container} ${className} ${bt} ${_error && css.error} ${_isFocused && css.focused} flex row g5`} ref={ref}>
+        <div className={`${css.container} ${className} ${bt} ${t} ${bh} ${_error && css.error} ${_isFocused && css.focused} ${borderless && css.borderless} ${shadowless && css.shadowless} flex row g5`} ref={ref}>
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
             <input type={password && !_visible ? 'password' : "text"}
                    value={value ?? _value}
