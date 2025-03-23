@@ -535,7 +535,8 @@ export const MyComponent = ({ ... }) => {
                          placeholder='Enter username'
                          borderType='fullr'
                          labelType='above'
-                         value={sampleState1}/>
+                         value={sampleState1}
+                         onChange={setSampleState1}/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>
