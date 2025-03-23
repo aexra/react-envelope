@@ -9,6 +9,8 @@
     position: fixed;
     top: 0;
     box-sizing: border-box;
+
+    z-index: var(--header-z);
 }
 
 .header > :first-child {

@@ -62,6 +62,8 @@ body {
     --modal-z4: 2003;
     --modal-z5: 2004;
     --modal-dim-offset: -500;
+
+    --header-z: 1000;
 }
 
 body.light {
