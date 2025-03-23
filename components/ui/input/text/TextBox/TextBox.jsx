@@ -1,14 +1,10 @@
-import { useState } from 'react';
+import { use, useCallback, useEffect, useState } from 'react';
 import css from './TextBox.module.css';
 
 // value - внешнее состояние
 // defaultValue - начальное значение состояния текста, если не используется value
-// borderType: {
-//   none,
-//   full,
-//   fullr,
-//   underline
-// }
+// borderType: { none, full, fullr, underline }
+// labelType: { inline, above }
 export const TextBox = ({
     ref,
     className,
@@ -16,37 +12,53 @@ export const TextBox = ({
     defaultValue = '',
     onChange,
     borderType,
+    labelType = 'inline',
     placeholder,
     label,
-    readonly = false
+    readonly = false,
+    labelBackground
 }) => {
-    const [_value, _setValue] = useState(defaultValue);
     const [_isFocused, _setIsFocused] = useState(false);
+    const [_value, _setValue] = useState(defaultValue);
+    const [bt, setBt] = useState('');
+    const [lt, setLt] = useState('');
 
-    const handleChange = (e) => {
-        if (value) {
-            if (onChange) {
-                onChange(e.target.value);
+    const formedLabelBackground = labelBackground ?? (labelType === 'inline' ? 'var(--body-bk-color)' : 'transparent');
+
+    const handleChange = useCallback((e) => {
+        if (!value) _setValue(e.target.value);
+        if (onChange) { onChange(e.target.value); }
+    }, [onChange]);
+
+    useEffect(() => {
+        const mapBorderType = (bt) => {
+            switch (bt) {
+                case 'none': return css.none;
+                case 'full': return css.full;
+                case 'fullr': return css.fullr;
+                case 'underline': return css.underline;
+                default: return undefined;
             }
-        }
-        else {
-            _setValue(e.target.value);
-        }
-    };
+        };
 
-    const mapBorderType = (bt) => {
-        switch (borderType) {
-            case 'none': return css.none;
-            case 'full': return css.full;
-            case 'fullr': return css.fullr;
-            case 'underline': return css.underline;
-            default: return undefined;
-        }
-    };
+        setBt(mapBorderType(borderType));
+    }, [borderType]);
+
+    useEffect(() => {
+        const mapLabelType = (lt) => {
+            switch (lt) {
+                case 'inline': return css.inline;
+                case 'above': return css.above;
+                default: return undefined;
+            }
+        };
+
+        setLt(mapLabelType(labelType));
+    }, [labelType]);
 
     return (
-        <div className={`${css.container} ${className} ${mapBorderType(borderType)} ${_isFocused && css.focused}`} ref={ref}>
-            {label && <span className={css.label}>{label}</span>}
+        <div className={`${css.container} ${className} ${bt} ${_isFocused && css.focused}`} ref={ref}>
+            {/* {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}}>{label}</span>} */}
             <input type="text"
                    value={value ?? _value}
                    onChange={handleChange}

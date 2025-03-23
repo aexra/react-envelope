@@ -476,7 +476,8 @@ export const MyComponent = ({ ... }) => {
                                placeholder='Не ENVELOPE'
                                inputRef={sampleRef1}
                                regex='ENVELOPE'
-                               text={sampleState3}/>
+                               text={sampleState3}
+                               textChanged={setSampleState3}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
@@ -508,7 +509,8 @@ export const MyComponent = ({ ... }) => {
                                password
                                hint='Пароль'
                                placeholder='Введите пароль'
-                               text={sampleState4}/>
+                               text={sampleState4}
+                               textChanged={setSampleState4}/>
                     <Markdown className={'flex-1'}>{`
 \`\`\`jsx
 <ExTextBox className={css.inputSample}
@@ -529,9 +531,11 @@ export const MyComponent = ({ ... }) => {
 
                 `}</Markdown>
 
-                <TextBox 
-                         placeholder={'Enter username'}
-                         borderType={'fullr'}/>
+                <TextBox label='Username'
+                         placeholder='Enter username'
+                         borderType='fullr'
+                         labelType='above'
+                         value={sampleState1}/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>

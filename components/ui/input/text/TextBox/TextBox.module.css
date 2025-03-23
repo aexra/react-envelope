@@ -4,23 +4,39 @@
 
     padding: 10px;
 
-    transition: all 0.2s ease;
+    transition: all var(--transition-duration) ease;
 
     --border: 1px solid var(--disabled-accent-color);
     --border-focus: 1px solid var(--accent-color);
     --shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     --shadow-focus: 0 0 3px rgba(0, 0, 0, 0.5);
+    --transition-duration: 0.2s;
 }
 .container:hover {
-    background-color: var(--highlight-light);
+    /* background-color: var(--highlight-light); */
 }
 .container.focused:hover {
-    background-color: transparent;
+    /* background-color: transparent; */
+}
+.container.focused .label {
+    color: var(--accent-color);
 }
 
 .label {
     position: absolute;
+    font-size: small;
+    color: var(--disabled-accent-color);
+    transition: all var(--transition-duration) ease;
+}
+.label.inline {
     top: -10px;
+    left: 15px;
+
+    padding: 0 3px;
+}
+.label.above {
+    top: -20px;
+    left: 0px;
 }
 
 .input {
