@@ -17,19 +17,39 @@ export const TextBox = ({
     label,
     readonly = false,
     labelBackground,
-    labelProps
+    labelProps,
+    password = false,
+    icon,
+    regex
 }) => {
     const [_isFocused, _setIsFocused] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
+    const [_error, _setError] = useState(false);
     const [bt, setBt] = useState('');
     const [lt, setLt] = useState('');
 
     const formedLabelBackground = labelBackground ?? (labelType === 'inline' ? 'var(--body-bk-color)' : 'transparent');
 
+    var regexp = undefined;
+    if (regex) regexp = RegExp(regex);
+
+    const validate = (e) => {
+        if (regexp) _setError(!regexp.test(e));
+    };
+
     const handleChange = useCallback((e) => {
         if (!value) _setValue(e.target.value);
         if (onChange) { onChange(e.target.value); }
+        validate(e.target.value);
     }, [onChange]);
+
+    const handleFocus = useCallback((e) => {
+        _setIsFocused(e);
+        if (!e) {
+            if (value) validate(value);
+            else validate(_value);
+        }
+    });
 
     useEffect(() => {
         const mapBorderType = (bt) => {
@@ -58,16 +78,17 @@ export const TextBox = ({
     }, [labelType]);
 
     return (
-        <div className={`${css.container} ${className} ${bt} ${_isFocused && css.focused}`} ref={ref}>
+        <div className={`${css.container} ${className} ${bt} ${_error && css.error} ${_isFocused && css.focused} flex row g5`} ref={ref}>
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
-            <input type="text"
+            <input type={password ? 'password' : "text"}
                    value={value ?? _value}
                    onChange={handleChange}
                    placeholder={placeholder}
                    className={`${css.input}`}
                    readOnly={readonly}
-                   onFocus={() => _setIsFocused(true)}
-                   onBlur={() => _setIsFocused(false)}/>
+                   onFocus={() => handleFocus(true)}
+                   onBlur={() => handleFocus(false)}/>
+            {icon}
         </div>
     );
 }; 

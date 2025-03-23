@@ -7,19 +7,30 @@
     transition: all var(--transition-duration) ease;
 
     --border: 1px solid var(--disabled-accent-color);
-    --border-focus: 1px solid var(--accent-color);
     --shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-    --shadow-focus: 0 0 3px rgba(0, 0, 0, 0.5);
+    
     --transition-duration: 0.2s;
 }
-.container:hover {
-    /* background-color: var(--highlight-light); */
+.container svg {
+    width: 20px;
+    height: 20px;
+    color: var(--disabled-accent-color);
+    transform: scale(1.3);
 }
-.container.focused:hover {
-    /* background-color: transparent; */
+.container.focused {
+    --border: 1px solid var(--accent-color);
+    --shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
-.container.focused .label {
+.container.error {
+    --border: 1px solid var(--error-color);
+}
+.container.focused .label,
+.container.focused svg {
     color: var(--accent-color);
+}
+.container.error .label,
+.container.error svg {
+    color: var(--error-color);
 }
 
 .label {
@@ -58,22 +69,11 @@
     border: var(--border);
     box-shadow: var(--shadow);
 }
-.container.full.focused {
-    border: var(--border-focus);
-    box-shadow: var(--shadow-focus)
-}
 .container.fullr {
     border-radius: 8px;
     border: var(--border);
     box-shadow: var(--shadow);
 }
-.container.fullr.focused {
-    border: var(--border-focus);
-    box-shadow: var(--shadow-focus)
-}
 .container.underline {
     border-bottom: var(--border);
-}
-.container.underline.focused {
-    border-bottom: var(--border-focus);
 }
