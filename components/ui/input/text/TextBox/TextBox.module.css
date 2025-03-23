@@ -1,0 +1,63 @@
+.container {
+    position: relative;
+    width: 200px;
+
+    padding: 10px;
+
+    transition: all 0.2s ease;
+
+    --border: 1px solid var(--disabled-accent-color);
+    --border-focus: 1px solid var(--accent-color);
+    --shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    --shadow-focus: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.container:hover {
+    background-color: var(--highlight-light);
+}
+.container.focused:hover {
+    background-color: transparent;
+}
+
+.label {
+    position: absolute;
+    top: -10px;
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    font-family: inherit;
+}
+
+/* BORDER TYPES */
+
+.container.none {
+    border: 0;
+}
+.container.full {
+    border: var(--border);
+    box-shadow: var(--shadow);
+}
+.container.full.focused {
+    border: var(--border-focus);
+    box-shadow: var(--shadow-focus)
+}
+.container.fullr {
+    border-radius: 8px;
+    border: var(--border);
+    box-shadow: var(--shadow);
+}
+.container.fullr.focused {
+    border: var(--border-focus);
+    box-shadow: var(--shadow-focus)
+}
+.container.underline {
+    border-bottom: var(--border);
+}
+.container.underline.focused {
+    border-bottom: var(--border-focus);
+}

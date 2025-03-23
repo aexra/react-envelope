@@ -31,6 +31,7 @@ import { useAuth } from '../../../hooks/useAuth';
 import { useTheme } from '../../../hooks/useTheme';
 import defaultBackgroundLight from '../../../assets/images/envelope-background-light.png';
 import defaultBackgroundDark from '../../../assets/images/envelope-background-dark.png';
+import { TextBox } from '../../ui/input/text/TextBox/TextBox';
 
 export const SamplesPage = () => {
     const { auth, refresh } = useAuth();
@@ -520,6 +521,17 @@ export const MyComponent = ({ ... }) => {
 
                 <Pair left={<h4>TransparentTextBox</h4>}
                       right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
+
+                <Pair left={<h4>TextBox</h4>}
+                      right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
+
+                <Markdown>{`
+
+                `}</Markdown>
+
+                <TextBox 
+                         placeholder={'Enter username'}
+                         borderType={'fullr'}/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>
