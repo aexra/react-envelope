@@ -6,7 +6,7 @@ import FlowPanel from '../../layouts/FlowPanel/FlowPanel';
 import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
 import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 import { CopyFrame } from '../../widgets/CopyFrame/CopyFrame';
-import { Markdown } from '../../widgets/Markdown';
+import { CodeBlock, Markdown } from '../../widgets/Markdown';
 import { Headline } from '../../ui/labels/Headline/Headline';
 import AccentButton from '../../ui/buttons/AccentButton/AccentButton';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
@@ -86,6 +86,26 @@ export const SamplesPage = () => {
         { element: <Save />, jsx: "<Save />" },
         { element: <Reload />, jsx: "<Reload />" }
     ];
+
+    const CsCode =
+  `
+  using System;
+  using Alias = AnotherNamespace.SomeClass;
+  namespace MyNamespace
+  {
+      class Program
+      {
+          static void Main()
+          {
+              AnotherNamespace.SomeClass obj1 = new AnotherNamespace.SomeClass();
+              Alias obj2 = new Alias(); // Using the alias
+          }
+      }
+  }
+  `
+  const JsCode =
+  `const greetings ='Hello Folks';
+  console.log(greetings);`
 
     const sampleRef1 = useRef(null);
     const sampleRef2 = useRef(null);
@@ -1220,6 +1240,14 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
                     <p>Всё я устал.</p>
 
             </div>
+
+            <CodeBlock lang={'python'}>
+                {`print('Hello, world!')`}
+            </CodeBlock>
+
+            <CodeBlock lang={'jsx'}>
+                {`console.log('Hello, world!')\nconsole.log()`}
+            </CodeBlock>
 
         </BasePage>
     );
