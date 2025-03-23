@@ -1,5 +1,7 @@
 import { use, useCallback, useEffect, useState } from 'react';
 import css from './TextBox.module.css';
+import ToggleButton from '../../../buttons/ToggleButton/ToggleButton';
+import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
 
 // value - внешнее состояние
 // defaultValue - начальное значение состояния текста, если не используется value
@@ -25,6 +27,7 @@ export const TextBox = ({
     const [_isFocused, _setIsFocused] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
     const [_error, _setError] = useState(false);
+    const [_visible, _setVisible] = useState(false);
     const [bt, setBt] = useState('');
     const [lt, setLt] = useState('');
 
@@ -49,6 +52,10 @@ export const TextBox = ({
             if (value) validate(value);
             else validate(_value);
         }
+    });
+
+    const handleVisibility = useCallback((e) => {
+        _setVisible(!_visible);
     });
 
     useEffect(() => {
@@ -80,7 +87,7 @@ export const TextBox = ({
     return (
         <div className={`${css.container} ${className} ${bt} ${_error && css.error} ${_isFocused && css.focused} flex row g5`} ref={ref}>
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
-            <input type={password ? 'password' : "text"}
+            <input type={password && !_visible ? 'password' : "text"}
                    value={value ?? _value}
                    onChange={handleChange}
                    placeholder={placeholder}
@@ -88,6 +95,9 @@ export const TextBox = ({
                    readOnly={readonly}
                    onFocus={() => handleFocus(true)}
                    onBlur={() => handleFocus(false)}/>
+            {password && (icon ?? <ToggleButton icon={<VisibilityOff/>}
+                          toggledIcon={<Visibility/>}
+                          onToggle={handleVisibility}/>)}
             {icon}
         </div>
     );

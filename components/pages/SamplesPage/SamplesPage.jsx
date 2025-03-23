@@ -522,7 +522,7 @@ export const MyComponent = ({ ... }) => {
                 <TextBox label='Username' placeholder='Enter username' borderType='fullr' labelType='inline'/>
                 <TextBox label='RegExp' placeholder='Enter ENVELOPE' borderType='full' labelType='inline' icon={<User/>} regex={'ENVELOPE'}/>
                 <TextBox label='Username' placeholder='Enter username' borderType='underline' labelType='above' labelProps={{style: {top: '-8px'}}}/>
-                <TextBox label='Username' placeholder='Enter username' borderType='fullr' labelType='inline' password/>
+                <TextBox label='Password' placeholder='Enter password' borderType='fullr' labelType='inline' password/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>
