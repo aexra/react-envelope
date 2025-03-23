@@ -237,20 +237,21 @@ export const SamplesPage = () => {
 Примем за написание компонентов структуру следующего вида:
 
 #### CSS
+`}</Markdown>
 
-\`\`\`css
-.myComponent {
+<CodeBlock lang={'css'}>{
+`.myComponent {
     ...
-}
-\`\`\`
+}`}</CodeBlock>
 
-> [!TIP]
-> Если стилизуем цвета, если возможно, желательно использовать цвета глобальной палитры (см. глобальные стили)
+<Callout type='tip' readonly>Если стилизуем цвета, если возможно, желательно использовать цвета глобальной палитры (см. глобальные стили)</Callout>
 
+<Markdown>{`
 #### JSX (JavaScript React)
+`}</Markdown>
 
-\`\`\`jsx
-import css from './MyComponent.module.css';
+<CodeBlock lang={'jsx'}>{
+`import css from './MyComponent.module.css';
 
 export const MyComponent = ({ className, children, ... }) => {
     return (
@@ -258,13 +259,14 @@ export const MyComponent = ({ className, children, ... }) => {
             {children}
         </div>
     );  
-};
-\`\`\`
+};`}</CodeBlock>
 
+<Markdown>{`
 #### TSX (TypeScript React)
+            `}</Markdown>
 
-\`\`\`tsx
-import css from './MyComponent.module.css';
+            <CodeBlock lang={'tsx'}>{
+`import css from './MyComponent.module.css';
 
 interface IMyComponentProps {
     className: string;
@@ -278,17 +280,17 @@ export const MyComponent: FC<IMyComponentProps> = ({ className, children, ... })
             {children}
         </div>
     );  
-};
-\`\`\`
-            `}</Markdown>
+};`}</CodeBlock>
 
             <Headline>Иконки</Headline>
 
             <div>
                 <Markdown>{`
 Библиотека компонентов (и не только) \`react-envelope\` предоставляет возможность использовать прямо в разметке иконки из файла \`/react-envelope/components/dummies/Icons.jsx\` следующим образом:
-\`\`\`jsx
-// Например, иконка Home
+`}</Markdown>
+
+<CodeBlock lang={'jsx'}>{
+`// Например, иконка Home
 import { Home } from '../../dummies/Icons'; // Примерное расположение
 
 // Ваш компонент
@@ -296,26 +298,31 @@ export const MyComponent = ({ ... }) => {
     return (
         <Home/>
     );    
-}
-\`\`\`
+}`}</CodeBlock>
+
+<Markdown>{`
 Результатом на экране будет это:
             `}</Markdown>
                 <Home/>
                 <Markdown>{`
 Вы также можете изменять размер иконки заготовленными классами:
-\`\`\`jsx
-<Home className='icon-s'/>
-\`\`\`
+`}</Markdown>
+
+<CodeBlock lang={'css'}>{
+`<Home className='icon-s'/>`}</CodeBlock>
+
+<Markdown>{`
 Доступные классы можно найти в \`/react-envelope/styles.css\`, вот некоторые из них:
-\`\`\`jsx
-<FlowPanel gap='10px'>
+`}</Markdown>
+
+<CodeBlock lang={'css'}>{
+`<FlowPanel gap='10px'>
     <Home className='icon-s'/>
     <Home className='icon-m'/>
     <Home className='icon-l'/>
     <Home className='icon-g'/>
-<FlowPanel/>
-\`\`\`
-                `}</Markdown>
+<FlowPanel/>`}</CodeBlock>
+
             <FlowPanel gap='10px'>
                 <Home className='icon-s'/>
                 <Home className='icon-m'/>
@@ -356,27 +363,15 @@ export const MyComponent = ({ ... }) => {
                 <p>Вот эта штука уже используется почти везде, построена на основе HBoxPanel и имеет ряд параметров</p>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton className={css.buttonSample}>Я ExButton</ExButton>}
-                    <Markdown className='flex-1'>{`
-\`\`\`jsx
-<ExButton>Я ExButton</ExButton>
-\`\`\`
-                    `}</Markdown>
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExButton>Я ExButton</ExButton>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton leftIcon={<Pizza className='icon-m'/>} className={css.buttonSample}>Я ExButton с иконочкой через параметр</ExButton>}
-                    <Markdown className='flex-1'>{`
-\`\`\`jsx
-<ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>
-\`\`\`
-                    `}</Markdown>
+                    <CodeBlock lang={'jsx'} className='flex-1'>{`<ExButton leftIcon={<Pizza className='icon-m'/>}>Я ExButton с иконочкой через параметр</ExButton>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>
                     {<ExButton gap='5px' className={css.buttonSample}><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>}
-                    <Markdown className='flex-1'>{`
-\`\`\`jsx
-<ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>
-\`\`\`
-                    `}</Markdown>
+                    <CodeBlock lang={'jsx'} className='flex-1'>{`<ExButton gap='5px'><Pizza className='icon-m'/>Я ExButton с иконочкой через детей</ExButton>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel valign='center' gap='20px'>{
                     <ExButton leftIcon={<Pizza className='icon-m'/>}
@@ -387,29 +382,21 @@ export const MyComponent = ({ ... }) => {
                         Пицца
                         <Pizza className='icon-m'/>
                     </ExButton>}
-                    <Markdown className='flex-1'>{`
-\`\`\`jsx
-<ExButton leftIcon={<Pizza className='icon-m'/>}
+                    <CodeBlock lang={'jsx'} className='flex-1'>{`<ExButton leftIcon={<Pizza className='icon-m'/>}
           rightIcon={<Pizza className='icon-m'/>} 
           gap='5px'>
     <Pizza className='icon-m'/>
     Пицца
     <Pizza className='icon-m'/>
-</ExButton>
-\`\`\`
-
-К слову, если вы далаете что-то такое же длинное, предпочтительно структурировать именно вот так, чтобы оно было хоть как-то читаемо.
-                    `}</Markdown>
+</ExButton>`}</CodeBlock>
                 </HBoxPanel>
+
+                <Callout type='tip' readonly>К слову, если вы далаете что-то такое же длинное, предпочтительно структурировать именно вот так, чтобы оно было хоть как-то читаемо.</Callout>
 
                 <h4>NavSidebarButton</h4>
                 <p>Это кнопка из панели навигации слева</p>
-                <Markdown>{`
-\`\`\`jsx
-<NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
-\`\`\`
-                `}</Markdown>
-                <NavSidebarButton text={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
+                <CodeBlock lang={'jsx'}>{`<NavSidebarButton name={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>`}</CodeBlock>
+                <NavSidebarButton name={'На страницу с примерами'} icon={<Pizza/>} to={'/'}/>
 
                 <Pair left={<h4>RoundImageButton</h4>}
                       right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
@@ -421,15 +408,13 @@ export const MyComponent = ({ ... }) => {
                       right={<StatusTag text='Сомнительно' type='warning' className='flex-0-1'/>}/>
 
                 <Markdown>{`
-Только сейчас заметил, что работает криво с текстом, но сейчас он используется только как иконка, так шо пойдет
-\`\`\`jsx
-<ToggleButton text={'Я ToggleButton'}
+Только сейчас заметил, что работает криво с текстом, но сейчас он используется только как иконка, так шо пойдет`}</Markdown>
+
+                <CodeBlock lang={'jsx'}>{`<ToggleButton text={'Я ToggleButton'}
               toggledText={'Я включенный ToggleButton'}
               toggled
               icon={<VisibilityOff/>}
-              toggledIcon={<Visibility/>}/>
-\`\`\`
-                `}</Markdown>
+              toggledIcon={<Visibility/>}/>`}</CodeBlock>
 
                 <ToggleButton text={'Я ToggleButton'}
                               toggledText={'Я включенный ToggleButton'}
@@ -457,23 +442,15 @@ export const MyComponent = ({ ... }) => {
                 <HBoxPanel gap={'20px'} valign='center'>
 
                     <ExTextBox className={css.inputSample}/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}/>
-\`\`\`
-                    `}</Markdown>
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}/>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
                                placeholder='Плейсхолдер'
                                icon={<Pizza/>}/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
            placeholder='Плейсхолдер'
-           icon={<Pizza/>}/>
-\`\`\`
-                    `}</Markdown>
+           icon={<Pizza/>}/>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -481,14 +458,10 @@ export const MyComponent = ({ ... }) => {
                                placeholder='А вот и нет, это я - Дио!'
                                icon={<User/>}
                                text={sampleState2}/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
            hint='Дио'
            placeholder='А вот и нет, это я - Дио!'
-           icon={<User/>}/>
-\`\`\`
-                    `}</Markdown>
+           icon={<User/>}/>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -498,15 +471,11 @@ export const MyComponent = ({ ... }) => {
                                regex='ENVELOPE'
                                text={sampleState3}
                                textChanged={setSampleState3}/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
            hint={'Знаешь regex("ENVELOPE")?'}
            placeholder='Не ENVELOPE'
            inputRef={sampleRef1}
-           regex='ENVELOPE'/>
-\`\`\`
-                    `}</Markdown>
+           regex='ENVELOPE'/>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -514,15 +483,11 @@ export const MyComponent = ({ ... }) => {
                                borderless
                                text='Я только для чтения еще и без рамок'
                                hint='Теперь это просто текст с подсказкой'/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
            readonly
            borderless
            text='Я только для чтения еще и без рамок'
-           hint='Теперь это просто текст с подсказкой'/>
-\`\`\`
-                    `}</Markdown>
+           hint='Теперь это просто текст с подсказкой'/>`}</CodeBlock>
                 </HBoxPanel>
                 <HBoxPanel gap={'20px'} valign='center'>
                     <ExTextBox className={css.inputSample}
@@ -531,14 +496,10 @@ export const MyComponent = ({ ... }) => {
                                placeholder='Введите пароль'
                                text={sampleState4}
                                textChanged={setSampleState4}/>
-                    <Markdown className={'flex-1'}>{`
-\`\`\`jsx
-<ExTextBox className={css.inputSample}
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
            password
            hint='Пароль'
-           placeholder='Введите пароль'/>
-\`\`\`
-                    `}</Markdown>
+           placeholder='Введите пароль'/>`}</CodeBlock>
                 </HBoxPanel>
 
                 <Pair left={<h4>TransparentTextBox</h4>}
@@ -588,17 +549,13 @@ export const MyComponent = ({ ... }) => {
                 <Pair left={<h4>StatusTag</h4>}
                       right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
 
-                <Markdown>{`
-\`\`\`jsx
-<StatusTag text='INFO' type='info'/>
+                <CodeBlock lang={'jsx'}>{`<StatusTag text='INFO' type='info'/>
 <StatusTag text='SUCCESS' type='success'/>
 <StatusTag text='WARNING' type='warning'/>
 <StatusTag text='ERROR' type='error'/>
 
 // Еще можно текст передавать в children
-<StatusTag type='success'>Я РЕБЕНОК</StatusTag>
-\`\`\`
-                `}</Markdown>
+<StatusTag type='success'>Я РЕБЕНОК</StatusTag>`}</CodeBlock>
 
                 <div className='flex row g10'>
                     <StatusTag text='INFO' type='info'/>
@@ -616,24 +573,22 @@ export const MyComponent = ({ ... }) => {
 
                 <p>Эта штука позволяет затемнять экран (весь, в зависимости от переданного z-index)</p>
 
-                <Markdown>{`
-\`\`\`jsx
-// Это где-то наверху
+                <CodeBlock lang={'jsx'}>{`// Это где-то наверху
 const [isDimActive, setDim] = useState(false);
 
 // Это ну вы поняли где
 <ExButton className={'accent-button'} onClick={() => setDim(true)}>Включить DimOverlay</ExButton>
-<DimOverlay active={isDimActive} onClick={() => setDim(false)}/>
-\`\`\`
-                `}</Markdown>
+<DimOverlay active={isDimActive} onClick={() => setDim(false)}/>`}</CodeBlock>
 
                 <ExButton className={'accent-button'} onClick={() => setBooleanState1(true)}>Включить DimOverlay</ExButton>
                 <DimOverlay active={booleanState1} onClick={() => setBooleanState1(false)}/>
 
                 <Markdown>{`
 А вообще эта штука принимает вот такие аргументы:
-\`\`\`jsx
-{
+`}</Markdown>
+
+<CodeBlock lang={'jsx'}>{
+`{
     ref,
     className,
     dim = 0.5, // alpha-канал в rgba: [0, 1]
@@ -644,21 +599,22 @@ const [isDimActive, setDim] = useState(false);
     onMouseEnter,
     onMouseLeave,
     onClick,
-}
-\`\`\`
+}`}</CodeBlock>
 
+<Markdown>{`
 ## Dummies
 
 ### Callout
-
-\`\`\`jsx
-<Callout>Информация</Callout>
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`<Callout>Информация</Callout>
 <Callout type='success'>Успех</Callout>
 <Callout type='warning'>Предупреждение</Callout>
 <Callout type='error'>Ошибка</Callout>
 <Callout type='bug'>Баг</Callout>
 <Callout type='tip'>Совет</Callout>
-\`\`\`
+<Callout type='important'>Важно</Callout>`}</CodeBlock>
+<Markdown>{`
                 `}</Markdown>
 
                 <Callout>Информация</Callout>
@@ -671,14 +627,12 @@ const [isDimActive, setDim] = useState(false);
 
                 <Markdown>{`
 Вы также можете создавать вложенные колауты, модифицировать содержимое хедера и задавать значение раскрытости по умолчанию
+                `}</Markdown>
 
-\`\`\`jsx
-<Callout icon={<Pizza/>} title='ENVELOPE' type='success' expanded>
+                <CodeBlock lang={'jsx'}>{`<Callout icon={<Pizza/>} title='ENVELOPE' type='success' expanded>
     <p>Ниже будет вложенный колаут</p>
     <Callout type='info' expanded>Меня вложили (╯°□°）╯︵ ┻━┻</Callout>
-</Callout>
-\`\`\`
-                `}</Markdown>
+</Callout>`}</CodeBlock>
 
                 <Callout icon={<Pizza/>} title='ENVELOPE' type='success' expanded>
                     <p>Ниже будет вложенный колаут</p>
@@ -687,13 +641,9 @@ const [isDimActive, setDim] = useState(false);
 
                 <p>А еще можно убрать сворачивание и это будет просто красивая плашечка:</p>
 
-                <Markdown>{`
-\`\`\`jsx
-<Callout type='tip' readonly>
+                <CodeBlock lang={'jsx'}>{`<Callout type='tip' readonly>
     Этот только для чтения
-</Callout>
-\`\`\`
-                `}</Markdown>
+</Callout>`}</CodeBlock>
 
                 <Callout type='tip' readonly>
                     Этот только для чтения
@@ -712,27 +662,44 @@ const [isDimActive, setDim] = useState(false);
                       right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
 
                 <Markdown>{`
-Именно в нем срендерена большая часть текста здесь
+Поддерживает классическую разметку разметку .md
 
-\`\`\`jsx
-<Markdown>{\`
-### Markdown
+А еще поддерживает вот это:
+                `}</Markdown>
 
-Именно в нем срендерена большая часть текста здесь
+<CodeBlock lang={'latex'}>{`Рассмотрим сложное математическое выражение:
 
-\\\`\\\`\\\`jsx
-ENVELOPE
-\\\`\\\`\\\`
-\`}</Markdown>
-\`\`\`
+$$
+\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\alpha}{\\beta} \\right)^{2n}
+$$
 
-\`\`\`bash
-sudo rm -rf /*
-\`\`\`
+Также можно записать матрицу:
 
-А еще можно так:
+$$
+\\mathbf{A} = \\begin{pmatrix}
+a_{11} & a_{12} & \\cdots & a_{1n} \\\\
+a_{21} & a_{22} & \\cdots & a_{2n} \\\\
+\\vdots & \\vdots & \\ddots & \\vdots \\\\
+a_{m1} & a_{m2} & \\cdots & a_{mn}
+\\end{pmatrix}
+$$
 
-\`\`\`latex
+Или систему уравнений:
+
+$$
+\\begin{cases}
+\\frac{\\partial u}{\\partial t} + \\nabla \\cdot (\\mathbf{v} u) = \\Delta u + f(x, t), \\\\
+u(x, 0) = u_0(x), \\quad x \\in \\Omega, \\\\
+u(x, t) = 0, \\quad x \\in \\partial \\Omega, \\ t > 0.
+\\end{cases}
+$$
+
+А вот так оно не будет отцентровано:
+
+$
+(a+b)^2 = a^2 + 2ab + b^2
+$`}</CodeBlock>
+<Markdown>{`
 Рассмотрим сложное математическое выражение:
 
 $$
@@ -765,50 +732,24 @@ $$
 $
 (a+b)^2 = a^2 + 2ab + b^2
 $
-\`\`\`
+`}</Markdown>
+                <Pair left={<h3>CodeBlock</h3>}
+                      right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>
 
-Рассмотрим сложное математическое выражение:
+                <CodeBlock lang={'jsx'}>{`// Понятно да?
+<Pair left={<h3>CodeBlock</h3>}
+      right={<StatusTag text={'ENVELOPE'} type={'success'} className={'flex-0-1'}/>}/>`}</CodeBlock>
 
-$$
-\\int_{0}^{\\infty} \\frac{e^{-x^2} \\cdot \\sin(\\alpha x)}{x^2 + \\beta^2} \\, dx = \\frac{\\pi}{2} \\cdot \\frac{e^{-\\alpha \\beta}}{\\beta} \\cdot \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} \\left( \\frac{\\alpha}{\\beta} \\right)^{2n}
-$$
+                <CodeBlock lang={'jsx'}>{`// Так применять\n<CodeBlock lang={'py'}>{\`print('Hello, world!')\`}</CodeBlock>`}</CodeBlock>
 
-Также можно записать матрицу:
-
-$$
-\\mathbf{A} = \\begin{pmatrix}
-a_{11} & a_{12} & \\cdots & a_{1n} \\\\
-a_{21} & a_{22} & \\cdots & a_{2n} \\\\
-\\vdots & \\vdots & \\ddots & \\vdots \\\\
-a_{m1} & a_{m2} & \\cdots & a_{mn}
-\\end{pmatrix}
-$$
-
-Или систему уравнений:
-
-$$
-\\begin{cases}
-\\frac{\\partial u}{\\partial t} + \\nabla \\cdot (\\mathbf{v} u) = \\Delta u + f(x, t), \\\\
-u(x, 0) = u_0(x), \\quad x \\in \\Omega, \\\\
-u(x, t) = 0, \\quad x \\in \\partial \\Omega, \\ t > 0.
-\\end{cases}
-$$
-
-А вот так оно не будет отцентровано:
-
-$
-(a+b)^2 = a^2 + 2ab + b^2
-$
-
+                <Markdown>{`
 ### CopyFrame
 
 Если вам надо чо-то скопировать юзеру в буфер обмена одним кликом (например как иконки выше)
-
-\`\`\`jsx
-<CopyFrame>Я CopyFrame без контента</CopyFrame>
-<CopyFrame src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
-\`\`\`
                 `}</Markdown>
+
+                <CodeBlock lang={'jsx'}>{`<CopyFrame>Я CopyFrame без контента</CopyFrame>
+<CopyFrame src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>`}</CodeBlock>
 
                 <CopyFrame className={'start-self'}>Я CopyFrame без контента</CopyFrame>
                 <CopyFrame className={'start-self'} src={'ENVELOPE'}>Я CopyFrame с контентом</CopyFrame>
@@ -841,19 +782,21 @@ $
 
 Хук используемый чаще всего - ответственный за авторизацию пользователя. Именно через него выполняются все операции - регистрация, авторизация, смена аккаунта и пр., а главное - получение сведений о пользователе.
 
-\`\`\`jsx
-const { isLoading, auth, user, accounts, register, login, logout, logoutAuth, switchAuth, refresh } = useAuth();
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`const { isLoading, auth, user, accounts, register, login, logout, logoutAuth, switchAuth, refresh } = useAuth();
 
 // Вы можете импортировать только те вещи, которые вам нужны:
-const { auth, user, login, register } = useAuth();
-\`\`\`
+const { auth, user, login, register } = useAuth();`}</CodeBlock>
+<Markdown>{`
 
 Что есть что здесь?
 
 Для начала, какие интерфейсы описывают используемые объекты:
 
-\`\`\`tsx
-// Auth.ts
+`}</Markdown>
+<CodeBlock lang={'ts'}>{
+`// Auth.ts
 export interface Auth {
     // JWT токен авторизации, автоматически записывается в хедер каждого запроса к API
     // Если в запросе возвращается ошибка 4** - выполняется попытка получить новый токен
@@ -875,13 +818,12 @@ export interface User {
     lastname?: string;    // Фамилия
     middlename?: string;  // Отчество (если есть)
     roles?: string[];     // Роли (клейм юзера о доступе)
-}
-\`\`\`
-
+}`}</CodeBlock>
+<Markdown>{`
 А теперь можно и функции с полями посмотреть
-
-\`\`\`tsx
-const [isLoading, setIsLoading] = useState<boolean>(true);
+`}</Markdown>
+<CodeBlock lang={'tsx'}>{
+`const [isLoading, setIsLoading] = useState<boolean>(true);
 const [auth, setAuth] = useState<Auth | null>(null);
 const [user, setUser] = useState<User | null>(null);
 const [accounts, setAccounts] = useState<Auth[] | null>([]);
@@ -891,8 +833,8 @@ const login = async (auth: { login: string, password: string }, savePassword: bo
 const logout = async (savePreviousAccount: boolean = false);
 const logoutAuth = async (auth: Auth);
 const switchAuth = async (auth: Auth);
-const refresh = async (reload: boolean = true);
-\`\`\`
+const refresh = async (reload: boolean = true);`}</CodeBlock>
+<Markdown>{`
 
 Прим.: 
 - \`isLoading\` - указывает на то, загружен ли auth **и** user: при первой загрузке приложения, состояния \`auth\` и \`user\` еще не заполнены значениями, и во избежание ошибок \`isLoading\` создан для проверки этого факта (прим. \`auth\` может быть null если пользователь не авторизован или если данные об этом еще не загрузились, следовательно проверка \`auth != null\` даст неоднозначный ответ).
@@ -911,28 +853,28 @@ const refresh = async (reload: boolean = true);
 ### useTheme
 
 Используется для управления темами - переключение сейчас реализовано только в кнопке в хедере.
-
-\`\`\`jsx
-const { theme, isLight, setTheme } = useTheme();
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`const { theme, isLight, setTheme } = useTheme();
 
 // Из ThemeContext
 const [theme, setTheme] = useState('light');
-const [isLight, setIsLight] = useState(true);
-\`\`\`
+const [isLight, setIsLight] = useState(true);`}</CodeBlock>
+<Markdown>{`
 
 ### useLocalStorage
 
 Не более обертки дефолтных методов:
-
-\`\`\`tsx
-// Собственно, угадайте кто что делает
+`}</Markdown>
+<CodeBlock lang={'tsx'}>{
+`// Собственно, угадайте кто что делает
 const { getItem, setItem, removeItem } = useLocalStorage();
 
 // Эневлоуп
 const setItem = (key: string, value: string);
 const getItem = (key: string);
-const removeItem = (key: string);
-\`\`\`
+const removeItem = (key: string);`}</CodeBlock>
+<Markdown>{`
 
 ### useObjectLocalStorage
 
@@ -953,8 +895,9 @@ const removeItem = (key: string);
 Почитайте документацию как им пользоваться.
 
 Сейчас данный проект предоставляет готовый роутер \`/src/components/utils/Router.jsx\`:
-\`\`\`jsx
-// src/components/utils/Router.jsx
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`// src/components/utils/Router.jsx
 export const Router = () => {
     return (
         <BrowserRouter>
@@ -976,15 +919,15 @@ export const Router = () => {
             </Routes>
         </BrowserRouter>
     );
-};
-\`\`\`
+};`}</CodeBlock>
+<Markdown>{`
 
 Это обеспечивает возможность перемещаться по страницам, указанным в качестве \`element\`, но это лишь то, что работает под капотом - вам все еще нужно разместить (если, конечно, нужно) кнопки для навигации по этим самым страницам, а в процессе еще и проверить, доступна ли такая то кнопка такому то пользователю.<br/><br/>
 Для упрощения этой цели был разработан ряд приколюх.<br/><br/>
 Во-первых, это хук **useNavigation**:
-
-\`\`\`tsx
-export const useNavigation = () => {
+`}</Markdown>
+<CodeBlock lang={'tsx'}>{
+`export const useNavigation = () => {
     const { routes, setRoutes } = useContext(NavigationContext);
     const { isLoading, user } = useAuth();
 
@@ -1025,8 +968,8 @@ export const useNavigation = () => {
     };
 
     return { routes, add, remove, clear, navlinks };
-};
-\`\`\`
+};`}</CodeBlock>
+<Markdown>{`
 
 Если не вдаваться в детали, чо тут происходит: 
 1. \`const { routes, add, remove, clear, navlinks } = useNavigation();\` - эта темка конфигурирует весь набор кнопочек, которые вы захотите расположить в глобальной системе навигации (ну, потому что контекст на котором оно работает имеет одно состояние).
@@ -1035,9 +978,9 @@ export const useNavigation = () => {
 Как это работает?
 
 С применением этой штуки ваш роутер будет выглядеть теперь как-то так (ну или можете где-то еще это конфигурировать, желательно около корня приложения):
-
-\`\`\`jsx
-export const Router = () => {
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`export const Router = () => {
     const { routes, add } = useNavigation();
 
     useEffect(() => {
@@ -1074,32 +1017,32 @@ export const Router = () => {
             </Routes>
         </BrowserRouter>
     );
-};
-\`\`\`
+};`}</CodeBlock>
+<Markdown>{`
 
 Методы используют руты такого вида:
-
-\`\`\`ts
-export interface Route {
+`}</Markdown>
+<CodeBlock lang={'ts'}>{
+`export interface Route {
     name: string;
     to: string;
     permissions?: string;
     props?: any;
     children?: React.ReactNode;
-}
-\`\`\`
+}`}</CodeBlock>
+<Markdown>{`
 
 А использовать это вы будете так:
-
-\`\`\`jsx
-const { navlinks } = useNavigation();
+`}</Markdown>
+<CodeBlock lang={'jsx'}>{
+`const { navlinks } = useNavigation();
 
 // Вернет компоненты NavLink для каждого доступного рута
 return navlinks();
 
 // Вернет компоненты NavSidebarButton для каждого доступного рута
-return navlinks(NavSidebarButton);
-\`\`\`
+return navlinks(NavSidebarButton);`}</CodeBlock>
+<Markdown>{`
 
 Соответственно, в зависимости от того, какие кнопки вы юзаете - так вы и должны конфигурировать \`routes\` в \`useNavigation\`. Пример роутера выше написан для \`NavSidebarButton\` - кнопок что в панели навигации слева на этой странице.
                 `}</Markdown>
@@ -1114,8 +1057,9 @@ return navlinks(NavSidebarButton);
 
                 <Markdown>{`
 Наша реализация будет выглядеть как-то так:
-\`\`\`jsx
-// src/react-envelope/utils/PrivateRoute.tsx
+`}</Markdown>
+<CodeBlock lang={'tsx'}>{
+`// src/react-envelope/utils/PrivateRoute.tsx
 const access = (auth: Auth | null, user: User | null, roles: string | null) => {
     if (auth) {
         if (roles) {
@@ -1145,8 +1089,8 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
     return (
         !isLoading && (access(auth, user, roles) ? <Outlet/> : <Navigate to='/login'/>)
     );
-};
-\`\`\`
+};`}</CodeBlock>
+<Markdown>{`
 
 Обобщая - если юзер авторизован и рут не требует наличия определенных ролей, его пропускает, если требует ролей - проводится проверка на роли.
 Если система юзера не пропустила, его перенаправит в окно авторизации (по хорошему это заменить на окно 403 но руки еще не дошли).
@@ -1218,9 +1162,7 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
                     <span>Bombordiro Crocodilo</span>
                     <span>Bombordiro Crocodilo</span>
                 </div>}
-                      right={<Markdown>{`
-\`\`\`jsx
-<div className='panel y-scroll flex col g5' style={{width: '180px', height: '100px'}}
+                      right={<CodeBlock lang={'jsx'}>{`<div className='panel y-scroll flex col g5' style={{width: '180px', height: '100px'}}
     <span>Bombordiro Crocodilo</span>
     <span>Bombordiro Crocodilo</span>
     <span>Bombordiro Crocodilo</span>
@@ -1233,21 +1175,11 @@ export const PrivateRoute: FC<IPrivateRouteProps> = ({ roles }) => {
     bom krok
     new bom krok
     ne rabotaet ok rabotaet
-</div>
-\`\`\`
-                    `}</Markdown>}/>
+</div>`}</CodeBlock>}/>
 
                     <p>Всё я устал.</p>
 
             </div>
-
-            <CodeBlock lang={'python'}>
-                {`print('Hello, world!')`}
-            </CodeBlock>
-
-            <CodeBlock lang={'jsx'}>
-                {`console.log('Hello, world!')\nconsole.log()`}
-            </CodeBlock>
 
         </BasePage>
     );

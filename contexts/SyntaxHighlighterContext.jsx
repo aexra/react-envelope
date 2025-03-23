@@ -10,6 +10,7 @@ import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import ts from 'react-syntax-highlighter/dist/esm/languages/prism/typescript';
 import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
+import latex from 'react-syntax-highlighter/dist/esm/languages/prism/latex';
 
 SyntaxHighlighter.registerLanguage('js', js);
 SyntaxHighlighter.registerLanguage('javascript', js);
@@ -21,6 +22,8 @@ SyntaxHighlighter.registerLanguage('tsx', tsx);
 
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('py', python);
+
+SyntaxHighlighter.registerLanguage('latex', latex);
 
 export const SyntaxHighlighterContext = createContext();
 
