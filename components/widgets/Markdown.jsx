@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { default as MD } from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
@@ -12,12 +12,12 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { useInView } from 'react-intersection-observer';
 import { useTheme } from '../../hooks/useTheme';
 
-export const CodeBlock = ({ className, children, lang, hideLineNumbers = false, ...props }) => {
+export const CodeBlock = memo(function CodeBlock({ className, children, lang, hideLineNumbers = false, ...props }) {
     const { code } = useTheme();
 
     const { ref, inView } = useInView({
         triggerOnce: false,
-        rootMargin: '200px',
+        rootMargin: '200px'
     });
     
     return (
@@ -27,7 +27,7 @@ export const CodeBlock = ({ className, children, lang, hideLineNumbers = false, 
             </SyntaxHighlighter>}
         </div>
     );
-};
+});
 
 export function Markdown({ className, children: content }) {
     return (

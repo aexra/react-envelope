@@ -16,7 +16,8 @@ export const TextBox = ({
     placeholder,
     label,
     readonly = false,
-    labelBackground
+    labelBackground,
+    labelProps
 }) => {
     const [_isFocused, _setIsFocused] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
@@ -58,7 +59,7 @@ export const TextBox = ({
 
     return (
         <div className={`${css.container} ${className} ${bt} ${_isFocused && css.focused}`} ref={ref}>
-            {/* {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}}>{label}</span>} */}
+            {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
             <input type="text"
                    value={value ?? _value}
                    onChange={handleChange}
