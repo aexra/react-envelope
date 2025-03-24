@@ -85,6 +85,17 @@ a:hover {
   background-color: var(--dstu-accent-button-hover-bk) !important;
 }
 
+.linkbutton {
+  background-color: transparent !important;
+  color: var(--accent-color) !important;
+}
+.linkbutton:hover {
+  color: var(--tip-color) !important;
+}
+.linkbutton:active {
+
+}
+
 .fixed1280 {
   width: 1280px;
 }
