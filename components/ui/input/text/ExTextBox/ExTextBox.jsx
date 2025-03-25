@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import HBoxPanel from '../../../../layouts/HBoxPanel/HBoxPanel';
 import VBoxPanel from '../../../../layouts/VBoxPanel/VBoxPanel';
-import TransparentTextBox from '../TransparentTextBox/TransparentTextBox';
 import css from './ExTextBox.module.css';
 import ToggleButton from '../../../buttons/ToggleButton/ToggleButton';
-import visible0 from '../../../../../assets/images/visible0.png';
-import visible1 from '../../../../../assets/images/visible2.png';
 import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
 
 function ExTextBox({
@@ -16,13 +13,15 @@ function ExTextBox({
     icon = null, 
     password = false, 
     textChanged,
+    onSubmit,
     regex,
     inputRef,
     onValidationStateChanged,
     text,
     readonly = false,
     hintClassName,
-    borderless = false
+    borderless = false,
+    wrap = false
 }) {
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(password);
@@ -45,27 +44,33 @@ function ExTextBox({
         validate(text);
     }, [text])
 
-    const handleFocusChange = (e) => {
-        setFocus(e);
-        if (!e && inputRef) validate(inputRef.current.value);
-        if (!e && text) validate(text);
+    const handleFocusChange = (focused) => {
+        setFocus(focused);
+        if (!focused && inputRef) validate(inputRef.current.value);
+        if (!focused && text) validate(text);
     };
 
-    const handleTextChange = (e) => {
-        validate(e);
+    const handleTextChange = (value) => {
+        validate(value);
 
-        if (e != "") {
+        if (value != "") {
             setInputEmpty(false);
         } else {
             setInputEmpty(true);
         }
 
-        if (textChanged) textChanged(e);
+        if (textChanged) textChanged(value);
     };
 
-    const validate = (e) => {
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && onSubmit) {
+            onSubmit(e.target.value);
+        }
+    };
+
+    const validate = (value) => {
         if (validationRegex) {
-            var result = validationRegex.test(e);
+            var result = validationRegex.test(value);
             if (result != isValid) {
                 setValidState(result);
                 if (onValidationStateChanged) onValidationStateChanged(result);
@@ -78,16 +83,35 @@ function ExTextBox({
             {hint && <span className={`${hintClassName} ${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
             <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
             <HBoxPanel gap='5px' valign='center'>
-                <TransparentTextBox className={css.input}
-                                    onFocusChanged={handleFocusChange}
-                                    onTextChanged={handleTextChange}
-                                    placeholder={isFocused || !hint ? placeholder : ""}
-                                    isPassword={isPasswordVisible}
-                                    ref={inputRef}
-                                    text={text}
-                                    readOnly={readonly}/>
-                {password ? <ToggleButton className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} icon={<VisibilityOff/>} toggledIcon={<Visibility/>} onToggle={setPasswordVisibility}/> : 
-                icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>}
+                {readonly ? (
+                    <span className={`${css.input}`}>{text}</span>
+                ) : (
+                    <input
+                        ref={inputRef}
+                        className={`${css.input} flex row flex-1`}
+                        onKeyDown={handleKeyDown}
+                        onFocus={() => handleFocusChange(true)}
+                        onBlur={() => handleFocusChange(false)}
+                        onChange={(e) => handleTextChange(e.target.value)}
+                        placeholder={isFocused || !hint ? placeholder : ""}
+                        type={isPasswordVisible ? "password" : "text"}
+                        value={text}
+                        readOnly={readonly}
+                        style={{
+                            whiteSpace: wrap ? 'normal' : 'nowrap'
+                        }}
+                    />
+                )}
+                {password ? (
+                    <ToggleButton 
+                        className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} 
+                        icon={<VisibilityOff/>} 
+                        toggledIcon={<Visibility/>} 
+                        onToggle={setPasswordVisibility}
+                    />
+                ) : (
+                    icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>
+                )}
             </HBoxPanel>
         </VBoxPanel>
     );
