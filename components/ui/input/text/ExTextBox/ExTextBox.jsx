@@ -136,7 +136,7 @@ const ExTextBox = ({
                     <span style={{color: 'var(--accent-color)'}}>/</span>
                     <span style={{color: 'var(--accent-color)'}}>{limit}</span>
                 </HBoxPanel> :
-                <span style={{color: 'var(--accent-color)'}} className='h-last'>{text.length}</span>
+                (count && <span style={{color: 'var(--accent-color)'}} className='h-last'>{text.length}</span>)
             }
         </>
     );
