@@ -5,7 +5,7 @@ import css from './ExTextBox.module.css';
 import ToggleButton from '../../../buttons/ToggleButton/ToggleButton';
 import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
 
-function ExTextBox({
+const ExTextBox = ({
     ref, 
     className, 
     placeholder, 
@@ -21,8 +21,10 @@ function ExTextBox({
     readonly = false,
     hintClassName,
     borderless = false,
-    wrap = false
-}) {
+    wrap = false,
+    count = false,
+    limit = null
+}) => {
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(password);
     const [isValid, setValidState] = useState(true);
@@ -79,41 +81,64 @@ function ExTextBox({
     };
 
     return (
-        <VBoxPanel ref={ref} className={`${className} ${css.box} ${borderless && css.borderless} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
-            {hint && <span className={`${hintClassName} ${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
-            <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
-            <HBoxPanel gap='5px' valign='center'>
-                {readonly ? (
-                    <span className={`${css.input}`}>{text}</span>
-                ) : (
-                    <input
-                        ref={inputRef}
-                        className={`${css.input} flex row flex-1`}
-                        onKeyDown={handleKeyDown}
-                        onFocus={() => handleFocusChange(true)}
-                        onBlur={() => handleFocusChange(false)}
-                        onChange={(e) => handleTextChange(e.target.value)}
-                        placeholder={isFocused || !hint ? placeholder : ""}
-                        type={isPasswordVisible ? "password" : "text"}
-                        value={text}
-                        readOnly={readonly}
-                        style={{
-                            whiteSpace: wrap ? 'normal' : 'nowrap'
-                        }}
-                    />
-                )}
-                {password ? (
-                    <ToggleButton 
-                        className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} 
-                        icon={<VisibilityOff/>} 
-                        toggledIcon={<Visibility/>} 
-                        onToggle={setPasswordVisibility}
-                    />
-                ) : (
-                    icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>
-                )}
-            </HBoxPanel>
-        </VBoxPanel>
+        <>
+            <VBoxPanel ref={ref} className={`${className} ${css.box} ${borderless && css.borderless} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
+                {hint && <span className={`${hintClassName} ${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
+                <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
+                <HBoxPanel gap='5px' valign='center'>
+                    {readonly ? (
+                        <span className={`${css.input}`}>{text}</span>
+                    ) : (
+                        wrap ? 
+                        <textarea
+                            ref={inputRef}
+                            className={`${css.textarea} ${wrap ? css.wrap : ''}`}
+                            onKeyDown={handleKeyDown}
+                            onFocus={() => handleFocusChange(true)}
+                            onBlur={() => handleFocusChange(false)}
+                            onChange={(e) => handleTextChange(e.target.value)}
+                            placeholder={isFocused || !hint ? placeholder : ""}
+                            type={isPasswordVisible ? "password" : "text"}
+                            value={text}
+                            readOnly={readonly}
+                        /> :
+                        <input
+                            ref={inputRef}
+                            className={`${css.input} ${wrap ? css.wrap : ''}`}
+                            onKeyDown={handleKeyDown}
+                            onFocus={() => handleFocusChange(true)}
+                            onBlur={() => handleFocusChange(false)}
+                            onChange={(e) => handleTextChange(e.target.value)}
+                            placeholder={isFocused || !hint ? placeholder : ""}
+                            type={isPasswordVisible ? "password" : "text"}
+                            value={text}
+                            readOnly={readonly}
+                        />
+                    )}
+                    {password ? (
+                        <ToggleButton 
+                            className={`${!isValid && css.error} ${isFocused && css.highlightedIcon} ${css.icon}`} 
+                            icon={<VisibilityOff/>} 
+                            toggledIcon={<Visibility/>} 
+                            onToggle={setPasswordVisibility}
+                        />
+                    ) : (
+                        icon && <div className={`${css.icon} ${!isValid && css.error} ${isFocused && css.highlightedIcon}`}>{icon}</div>
+                    )}
+                </HBoxPanel>
+            </VBoxPanel>
+            { limit ? 
+                <HBoxPanel className='h-last g5'>
+                    <span style={{
+                        color: text.length > limit ? 'var(--error-color)' : 'var(--accent-color)',
+                        transition: 'all 0.2s ease'
+                    }}>{text.length}</span>
+                    <span style={{color: 'var(--accent-color)'}}>/</span>
+                    <span style={{color: 'var(--accent-color)'}}>{limit}</span>
+                </HBoxPanel> :
+                <span style={{color: 'var(--accent-color)'}} className='h-last'>{text.length}</span>
+            }
+        </>
     );
 }
 
