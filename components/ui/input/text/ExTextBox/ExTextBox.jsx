@@ -23,7 +23,8 @@ const ExTextBox = ({
     borderless = false,
     wrap = false,
     count = false,
-    limit = null
+    limit = null,
+    strictLimit = false
 }) => {
     const [isFocused, setFocus] = useState(false);
     const [isPasswordVisible, setPasswordVisibility] = useState(password);
@@ -53,15 +54,17 @@ const ExTextBox = ({
     };
 
     const handleTextChange = (value) => {
-        validate(value);
+        const processedValue = strictLimit && limit ? value.slice(0, limit) : value;
+        
+        validate(processedValue);
 
-        if (value != "") {
+        if (processedValue !== "") {
             setInputEmpty(false);
         } else {
             setInputEmpty(true);
         }
 
-        if (textChanged) textChanged(value);
+        if (textChanged) textChanged(processedValue);
     };
 
     const handleKeyDown = (e) => {
@@ -101,6 +104,7 @@ const ExTextBox = ({
                             type={isPasswordVisible ? "password" : "text"}
                             value={text}
                             readOnly={readonly}
+                            maxLength={strictLimit ? limit : undefined}
                         /> :
                         <input
                             ref={inputRef}
@@ -113,6 +117,7 @@ const ExTextBox = ({
                             type={isPasswordVisible ? "password" : "text"}
                             value={text}
                             readOnly={readonly}
+                            maxLength={strictLimit ? limit : undefined}
                         />
                     )}
                     {password ? (
@@ -128,7 +133,7 @@ const ExTextBox = ({
                 </HBoxPanel>
             </VBoxPanel>
             { limit ? 
-                <HBoxPanel className='h-last g5'>
+                <HBoxPanel className='h-last' gap={'5px'}>
                     <span style={{
                         color: text.length > limit ? 'var(--error-color)' : 'var(--accent-color)',
                         transition: 'all 0.2s ease'
