@@ -135,13 +135,14 @@ const ExTextBox = ({
             { limit ? 
                 <HBoxPanel className='h-last' gap={'5px'}>
                     <span style={{
-                        color: text.length > limit ? 'var(--error-color)' : 'var(--accent-color)',
-                        transition: 'all 0.2s ease'
+                        color: text.length > limit ? 'var(--error-color)' : isFocused || text.length > limit ? 'var(--accent-color)' : 'var(--hint-color)',
+                        transition: 'all 0.2s ease',
+                        fontWeight: text.length > limit ? 'bold' : 'normal'
                     }}>{text.length}</span>
-                    <span style={{color: 'var(--accent-color)'}}>/</span>
-                    <span style={{color: 'var(--accent-color)'}}>{limit}</span>
+                    <span style={{color: isFocused || text.length > limit ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>/</span>
+                    <span style={{color: isFocused || text.length > limit ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>{limit}</span>
                 </HBoxPanel> :
-                (count && <span style={{color: 'var(--accent-color)'}} className='h-last'>{text.length}</span>)
+                (count && <span style={{color: isFocused ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}} className='h-last'>{text.length}</span>)
             }
         </>
     );
