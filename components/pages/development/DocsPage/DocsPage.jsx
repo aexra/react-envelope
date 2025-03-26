@@ -5,7 +5,7 @@ import css from './DocsPage.module.css';
 export const DocsPage = () => {
     return (
         <PageBase title={<span>Тайтл</span>}
-                  endheader={<span>Ендхедер</span>}
+                  endtitle={<span>Ендтайтл</span>}
                   header={<span>Хедер</span>}>
             <UserGeneralPanel/>
             <UserGeneralPanel/>
