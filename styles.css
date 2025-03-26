@@ -334,6 +334,12 @@ h1.article {
   color: black;
 }
 
+/* BOX-SIZING */
+
+.bb {
+  box-sizing: border-box;
+}
+
 /* BORDER-RADIUS */
 
 .r5 {

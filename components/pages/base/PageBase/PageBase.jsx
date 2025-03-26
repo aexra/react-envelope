@@ -10,31 +10,31 @@ export const PageBase = ({
 }) => {
     return (
         <div className={`${css.page} flex row top-center rel`}>
-            <div className={`${css.body}`}>
+            <div className={`${css.body} flex col g20 bb`}>
                 {children}
             </div>
             
             <div className={`${css.overlay} fixed h-full v-full flex col top-center`}>
                 <header className={`${css.header} flex row h-full`}>
-                    <div className={`${css.headerTitle}`}>
+                    <div className={`${css.headerTitle} flex row center-right bb`}>
                         {title}
                     </div>
-                    <div className={`${css.headerContent} h-full`}>
+                    <div className={`${css.headerContent} h-full flex row center-left bb`}>
                         {header}
                     </div>
-                    <div className={`${css.headerEndtitle}`}>
+                    <div className={`${css.headerEndtitle} flex row center-left bb`}>
                         {endtitle}
                     </div>
                 </header>
                 <div className={`${css.boder} flex row h-full v-full rel`}>
-                    <nav className={`${css.navigation}`}>
+                    <nav className={`${css.navigation} flex col top-right pad20 bb`}>
                         {navigation}
                     </nav>
 
                     <div className={`${css.boderBodyMask} h-full`}></div>
                     
-                    <div className={`${css.contents}`}>
-                        
+                    <div className={`${css.contents} flex col top-right pad20 bb`}>
+
                     </div>
                 </div>
             </div>

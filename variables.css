@@ -157,7 +157,7 @@ body.dark {
 
     /* BACKGROUND */
     --bk-color: #1b1b1b;
-    --body-bk-color: #292929;
+    --body-bk-color: #222222;
     --header-bk-color: #1e1f22;
     --panel-bk: #333;
     
@@ -174,7 +174,7 @@ body.dark {
     --tip-active-color: #5c1c77;
     
     /* BORDER */
-    --border-color: #3d444d;
+    --border-color: #2c2c2c;
     
     /* BUTTONS */
     --ex-button-bk: #4e5058;
