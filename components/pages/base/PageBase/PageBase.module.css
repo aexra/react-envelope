@@ -68,7 +68,8 @@
 
 .navigation > :first-child,
 .contents > :first-child {
-    min-width: 280px;
+    max-width: 280px;
+    width: 100%;
 }
 
 .navigation,
