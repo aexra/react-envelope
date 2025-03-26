@@ -9,25 +9,18 @@ export const PageBase = ({
     children
 }) => {
     return (
-        <div className={`${css.page} flex col top-center rel`}>
-            <div className={`${css.body} flex col g10 flex-1`}>
+        <div className={`${css.page} flex row top-center rel`}>
+            {/* <header>
+
+            </header> */}
+            <nav className={`${css.navigation} fixed`}>
+                {navigation}
+            </nav>
+            <div className={`${css.body}`}>
                 {children}
-                {footer}
             </div>
-            <div className={`${css.overlay} fixed`}>
-                <div className={`${css.header} h-full`}>
-                    <div className={`${css.headercontainer} h-full rel`}>
-                        <div className={`${css.headertitle} abs v-full flex row center`}>
-                            {title}
-                        </div>
-                        <div className={`${css.headerbody} v-full flex row center-left`}>
-                            {header}
-                        </div>
-                        <div className={`${css.endheader} abs v-full flex row center`}>
-                            {endheader}
-                        </div>
-                    </div>
-                </div>
+            <div className={`${css.contents} fixed`}>
+
             </div>
         </div>
     );
