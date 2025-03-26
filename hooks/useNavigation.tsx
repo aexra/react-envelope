@@ -20,10 +20,10 @@ export const useNavigation = () => {
         setRoutes([]);
     };
 
-    const navlinks = (Component: React.ElementType = NavLink) => {
-        if (!routes) return null;
+    const navlinks = (Component: React.ElementType = NavLink, rs: Route[] | null = routes) => {
+        if (!rs) return null;
 
-        return routes.map((route, i) => {
+        return rs.map((route, i) => {
             const { permissions, requireAuth, children, props, ...mainRouteProps } = route;
 
             if (requireAuth && !user) return null;
