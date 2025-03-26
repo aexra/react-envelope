@@ -131,12 +131,12 @@ export const TextBox = ({
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
             {(limit || count) && <HBoxPanel gap={'5px'} className={css.counter} style={{background: formedLabelBackground}}>
                 <span style={{
-                    color: !count && (value && value.length > limit || _value && _value.length > limit) ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--hint-color)',
+                    color: !count && (value && value.length > limit || _value && _value.length > limit) ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
                     transition: 'all 0.2s ease',
                     fontWeight: !count && (value && value.length > limit || _value && _value.length > limit) ? 'bold' : 'normal'
                 }}>{value?.length ?? _value.length}</span>
-                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>/</span>}
-                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>{limit}</span>}
+                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--disabled-accent-color)', transition: 'all 0.2s ease'}}>/</span>}
+                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--disabled-accent-color)', transition: 'all 0.2s ease'}}>{limit}</span>}
             </HBoxPanel>}
             {wrap ? 
             <textarea type={password && !_visible ? 'password' : "text"}

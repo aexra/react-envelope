@@ -43,7 +43,7 @@
     position: absolute;
     font-size: small;
     color: var(--disabled-accent-color);
-    transition: all var(--transition-duration) ease;
+    transition: color var(--transition-duration) ease;
 }
 .label.inline {
     top: -10px;

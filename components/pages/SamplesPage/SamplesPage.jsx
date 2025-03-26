@@ -32,6 +32,8 @@ import { useTheme } from '../../../hooks/useTheme';
 import defaultBackgroundLight from '../../../assets/images/envelope-background-light.png';
 import defaultBackgroundDark from '../../../assets/images/envelope-background-dark.png';
 import { TextBox } from '../../ui/input/text/TextBox/TextBox';
+import { ExTextBoxSample } from './samples/ExTextBoxSample';
+import { TextBoxSample } from './samples/TextBoxSample';
 
 export const SamplesPage = () => {
     const { auth, refresh } = useAuth();
@@ -438,151 +440,12 @@ export const MyComponent = ({ ... }) => {
                 
                 <h3>Input</h3>
 
-                <Pair left={<h4>ExTextBox</h4>}
-                      right={<StatusTag text='ЭНВЕЛОУП' type='success' className='flex-0-1'/>}/>
-
-                <input type='text'/>
-                <input type='password'/>
-
-                <HBoxPanel gap={'20px'} valign='center'>
-
-                    <ExTextBox className={css.inputSample}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                    <ExTextBox className={css.inputSample}
-                               placeholder='Плейсхолдер'
-                               icon={<Pizza/>}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           placeholder='Плейсхолдер'
-           icon={<Pizza/>}/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                    <ExTextBox className={css.inputSample}
-                               hint='Дио'
-                               placeholder='А вот и нет, это я - Дио!'
-                               icon={<User/>}
-                               text={sampleState2}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           hint='Дио'
-           placeholder='А вот и нет, это я - Дио!'
-           icon={<User/>}/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                    <ExTextBox className={css.inputSample}
-                               hint={'Знаешь regex("ENVELOPE")?'}
-                               placeholder='Не ENVELOPE'
-                               inputRef={sampleRef1}
-                               regex='ENVELOPE'
-                               text={sampleState3}
-                               textChanged={setSampleState3}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           hint={'Знаешь regex("ENVELOPE")?'}
-           placeholder='Не ENVELOPE'
-           inputRef={sampleRef1}
-           regex='ENVELOPE'/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                    <ExTextBox className={css.inputSample}
-                               readonly
-                               borderless
-                               text='Я только для чтения еще и без рамок'
-                               hint='Теперь это просто текст с подсказкой'/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           readonly
-           borderless
-           text='Я только для чтения еще и без рамок'
-           hint='Теперь это просто текст с подсказкой'/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                    <ExTextBox className={css.inputSample}
-                               password
-                               hint='Пароль'
-                               placeholder='Введите пароль'
-                               text={sampleState4}
-                               textChanged={setSampleState4}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           password
-           hint='Пароль'
-           placeholder='Введите пароль'/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                <ExTextBox className={css.inputSample}
-                               hint='TextArea с лимитом'
-                               placeholder='Введите длинный текст'
-                               text={sampleState5}
-                               textChanged={setSampleState5}
-                               wrap
-                               limit={30}/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           hint='TextArea с лимитом'
-           placeholder='Введите длинный текст'
-           text={sampleState5}
-           textChanged={setSampleState5}
-           wrap
-           limit={30}/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                <ExTextBox className={css.inputSample}
-                               hint='TextArea со строгим лимитом'
-                               placeholder='Введите длинный текст'
-                               text={sampleState7}
-                               textChanged={setSampleState7}
-                               wrap
-                               limit={10}
-                               strictLimit/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           hint='TextArea со строгим лимитом'
-           placeholder='Введите длинный текст'
-           text={sampleState7}
-           textChanged={setSampleState7}
-           wrap
-           limit={10}
-           strictLimit/>`}</CodeBlock>
-                </HBoxPanel>
-                <HBoxPanel gap={'20px'} valign='center'>
-                <ExTextBox className={css.inputSample}
-                               hint='TextArea с простым счетчиком'
-                               placeholder='Введите длинный текст'
-                               text={sampleState8}
-                               textChanged={setSampleState8}
-                               wrap
-                               count/>
-                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
-           hint='TextArea с простым счетчиком'
-           placeholder='Введите длинный текст'
-           text={sampleState8}
-           textChanged={setSampleState8}
-           wrap
-           count/>`}</CodeBlock>
-                </HBoxPanel>
+                <ExTextBoxSample/>
 
                 <Pair left={<h4>TransparentTextBox</h4>}
                       right={<StatusTag text='DEPRECATED' type='error' className='flex-0-1'/>}/>
 
-                <Pair left={<h4>TextBox</h4>}
-                      right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
-
-                <Markdown>{`
-
-                `}</Markdown>
-
-                <TextBox label='Username'
-                         placeholder='Enter username'
-                         borderType='fullr'
-                         labelType='above'
-                         value={sampleState1}
-                         onChange={setSampleState1}/>
-
-                <TextBox label='Username' placeholder='Enter username' borderType='fullr' labelType='inline'/>
-                <TextBox label='RegExp' placeholder='Enter ENVELOPE' borderType='full' labelType='inline' icon={<User/>} regex={'ENVELOPE'}/>
-                <TextBox label='Username' placeholder='Enter username' borderType='underline' labelType='above' labelProps={{style: {top: '-8px'}}}/>
-                <TextBox label='Password' placeholder='Enter password' borderType='fullr' labelType='inline' password/>
-                <TextBox placeholder='Enter username' type='color' borderType={'fullr'} borderBehaviour={'focus'}/>
-                <TextBox label='Details' placeholder='Enter details' borderType='fullr' labelType='inline' wrap/>
-                <TextBox label='Details count' placeholder='Enter details' borderType='fullr' labelType='inline' wrap count/>
-                <TextBox label='Details limit' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10}/>
-                <TextBox label='Details limit strict' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10} strictLimit/>
+                <TextBoxSample/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>
