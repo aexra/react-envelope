@@ -24,11 +24,11 @@ export const PageBase = ({
                     <div className={`${css.headerTitle} flex row center-right bb`}>
                         {title}
                     </div>
-                    <div className={`${css.headerContent} h-full flex row center-left bb`}>
+                    <div className={`${css.headerContent} flex row center-left bb flex-1`}>
                         {header}
-                    </div>
-                    <div className={`${css.headerEndtitle} flex row center-left bb`}>
-                        {endtitle}
+                        <div className={`${css.headerEndtitle} flex row center-left bb h-last`}>
+                            {endtitle}
+                        </div>
                     </div>
                 </header>
                 <div className={`${css.boder} flex row h-full v-full rel`}>

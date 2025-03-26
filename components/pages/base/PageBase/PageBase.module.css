@@ -32,15 +32,10 @@
     padding-right: 30px;
 }
 .headerContent {
-    max-width: var(--body-width);
-
     padding-left: 60px;
 }
 .headerEndtitle {
-    width: calc((100% - var(--body-width)) / 2);
-    right: 0;
-
-    padding-left: 30px;
+    padding-right: 20px;
 }
 
 .boder {

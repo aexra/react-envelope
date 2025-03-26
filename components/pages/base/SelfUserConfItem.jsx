@@ -18,6 +18,7 @@ export const SelfUserConfItem = ({
                 <HBoxPanel gap={'5px'} valign="center">
                     <span>{user?.lastname}</span>
                     <span>{user?.firstname}</span>
+                    {user?.middlename && <span>{user?.middlename}</span>}
                 </HBoxPanel>
                 <User className={`icon-m pointer`}
                         onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
