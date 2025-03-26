@@ -3,5 +3,6 @@
 }
 
 .panel {
-    background-color: var(--dropdown-bk);
+    background-color: var(--panel-bk);
+    border: 1px solid var(--accent-color);
 }

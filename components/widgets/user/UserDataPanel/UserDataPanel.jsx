@@ -9,7 +9,7 @@ export const UserDataPanel = ({ ref, className, edit = false, onChangeClick }) =
     const { auth, user } = useAuth();
     
     return (
-        <VBoxPanel ref={ref} className={`${className} ${css.panel} panel pad20`} gap='10px'>
+        <VBoxPanel ref={ref} className={`${className} ${css.panel} r10 pad20`} gap='10px'>
             <Pair left={<ExTextBox borderless readonly hintClassName={`${css.tbhint} uppercase bold`} hint={'Фамилия'} text={user?.lastname}/>}
                   right={edit && <ExButton className={`flex-0-1 center-self h-last`} onClick={onChangeClick}>Изменить</ExButton>}/>
             <Pair left={<ExTextBox borderless readonly hintClassName={`${css.tbhint} uppercase bold`} hint={'Имя'} text={user?.firstname}/>}

@@ -12,7 +12,7 @@ import { UserDataPanel } from '../UserDataPanel/UserDataPanel';
 export const UserGeneralPanel = ({
     ref,
     className,
-    canEdit = false
+    edit = false
 }) => {
     const [isEditUserModalActive, setIEUMA] = useState(false);
     const { auth } = useAuth();
@@ -27,14 +27,14 @@ export const UserGeneralPanel = ({
             <HBoxPanel className={``} valign='center' gap='50px'>
                 <IconFilePicker readOnly className={`${css.avatar}`}/>
                 <h1>{auth?.login}</h1>
-                <ExButton className={`dstu-accent-button h-last ${css.globalEdit}`}
-                          onClick={handleUserEdit}>Редактировать профиль пользователя</ExButton>
+                {edit && <ExButton className={`accent-button h-last ${css.globalEdit}`}
+                          onClick={handleUserEdit}>Редактировать профиль пользователя</ExButton>}
             </HBoxPanel>
 
             <HDivider/>
 
             <HBoxPanel gap='20px'>
-                <UserDataPanel edit className={`flex-1`} onChangeClick={handleUserEdit}/>
+                <UserDataPanel edit={edit} className={`flex-1`} onChangeClick={handleUserEdit}/>
                 <VBoxPanel className={`flex-1`}>
 
                 </VBoxPanel>

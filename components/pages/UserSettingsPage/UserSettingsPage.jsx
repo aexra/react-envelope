@@ -10,7 +10,7 @@ export const UserSettingsPage = () => {
         <BasePage headerContent={<HeaderTitle text='Настройки профиля' icon={<Settings/>}/>}
                   navSidebar={<DSTUNavSidebar/>}>
             <h1>Основная информация</h1>
-            <UserGeneralPanel/>
+            <UserGeneralPanel edit/>
         </BasePage>
     );
 };
