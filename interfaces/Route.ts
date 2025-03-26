@@ -3,6 +3,6 @@ export interface Route {
     to: string;
     permissions?: string;
     props?: any;
-    children?: React.ReactNode;
+    children?: Route[];
     requireAuth?: boolean;
 }

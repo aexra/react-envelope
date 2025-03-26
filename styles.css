@@ -300,6 +300,22 @@ h1.article {
   margin: 10px;
 }
 
+/* POSITION */
+
+.rel,
+.relative {
+  position: relative;
+}
+
+.abs,
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
 /* FILTERS */
 
 .white {
