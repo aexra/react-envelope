@@ -8,8 +8,7 @@ import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 export const UserSettingsPage = () => {
     return (
         <BasePage headerContent={<HeaderTitle text='Настройки профиля' icon={<Settings/>}/>}
-                  navSidebar={<DSTUNavSidebar/>}
-                  bodyClassName={`h-full`}>
+                  navSidebar={<DSTUNavSidebar/>}>
             <h1>Основная информация</h1>
             <UserGeneralPanel/>
         </BasePage>

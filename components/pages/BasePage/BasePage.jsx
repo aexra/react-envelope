@@ -23,10 +23,12 @@ function BasePage({
                         ...style
                     }}
                     ref={ref}
-                    gap={bodyMargin}>
+                    gap={bodyMargin}
+                    halign='center'>
             {navSidebar}
             {(headerContent || headered) && <div><Header style={{
-                width: navSidebar ? 'calc(100% - var(--sidebar-width))' : '100%'
+                width: navSidebar ? 'calc(100% - var(--sidebar-width))' : '100%',
+                left: navSidebar ? 'var(--sidebar-width)' :'0px'
             }}>{headerContent}</Header></div>}
             <VBoxPanel className={`${css.body} ${bodyClassName}`}
                        gap={bodyGap}

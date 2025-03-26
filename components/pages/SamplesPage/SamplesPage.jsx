@@ -139,7 +139,6 @@ export const SamplesPage = () => {
 
     return (
         <BasePage headerContent={<HeaderTitle text='ENVELOPE' icon={<Pizza/>}/>}
-                  bodyClassName={`h-full`}
                   footerContent={<DSTUFooter/>}
                   navSidebar={<DSTUNavSidebar/>}
                   bodyGap='10px'

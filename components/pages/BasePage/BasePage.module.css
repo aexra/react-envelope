@@ -1,6 +1,8 @@
 .page {
     background-color: var(--bk-color);
     min-height: 100vh;
+
+    box-sizing: border-box;
 }
 
 .pageSidebarMargin {
@@ -17,5 +19,8 @@
 
 .body {
     max-width: 1280px;
-    align-self: center;
+    width: 100%;
+    flex: 1;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
