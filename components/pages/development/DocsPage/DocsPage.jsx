@@ -6,8 +6,7 @@ export const DocsPage = () => {
     return (
         <PageBase title={<span>Тайтл</span>}
                   endtitle={<span>Ендтайтл</span>}
-                  header={<span>Хедер</span>}
-                  navigation={<span>Навигасьон</span>}>
+                  header={<span>Хедер</span>}>
             <UserGeneralPanel edit/>
             <UserGeneralPanel edit/>
             <UserGeneralPanel edit/>

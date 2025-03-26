@@ -57,12 +57,16 @@
 .contents {
     width: calc((100% - var(--body-width)) / 2);
     right: 0;
-
+    
     border-left: 1px solid var(--border-color);
-
+    
     background-color: var(--bk-color);
 }
 
+.navigation > :first-child,
+.contents > :first-child {
+    min-width: 245px;
+}
 
 .body {
     max-width: var(--body-width);

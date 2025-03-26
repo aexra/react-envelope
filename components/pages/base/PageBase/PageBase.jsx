@@ -1,3 +1,4 @@
+import { NavPanel } from '../NavPanel/NavPanel';
 import css from './PageBase.module.css';
 
 export const PageBase = ({
@@ -5,13 +6,14 @@ export const PageBase = ({
     header,
     endtitle,
     footer,
-    navigation,
+    navigation = <NavPanel/>,
     children
 }) => {
     return (
         <div className={`${css.page} flex row top-center rel`}>
             <div className={`${css.body} flex col g20 bb`}>
                 {children}
+                {footer}
             </div>
             
             <div className={`${css.overlay} fixed h-full v-full flex col top-center`}>
