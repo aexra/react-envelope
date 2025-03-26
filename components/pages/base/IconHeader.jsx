@@ -13,8 +13,8 @@ export const IconHeader = ({
 
     return (
         <div className={`${className} flex row g10 center`}>
-            <h3>{_text}</h3>
             <div className="icon-m">{_icon}</div>
+            <h3>{_text}</h3>
         </div>
     );
 };
