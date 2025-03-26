@@ -579,6 +579,10 @@ export const MyComponent = ({ ... }) => {
                 <TextBox label='Username' placeholder='Enter username' borderType='underline' labelType='above' labelProps={{style: {top: '-8px'}}}/>
                 <TextBox label='Password' placeholder='Enter password' borderType='fullr' labelType='inline' password/>
                 <TextBox placeholder='Enter username' type='color' borderType={'fullr'} borderBehaviour={'focus'}/>
+                <TextBox label='Details' placeholder='Enter details' borderType='fullr' labelType='inline' wrap/>
+                <TextBox label='Details count' placeholder='Enter details' borderType='fullr' labelType='inline' wrap count/>
+                <TextBox label='Details limit' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10}/>
+                <TextBox label='Details limit strict' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10} strictLimit/>
 
                 <Pair left={<h4>IconFilePicker</h4>}
                       right={<StatusTag text='WORK IN PROGRESS' type='warning' className='flex-0-1'/>}/>

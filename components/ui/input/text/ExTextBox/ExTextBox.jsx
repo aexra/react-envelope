@@ -135,7 +135,7 @@ const ExTextBox = ({
             { limit ? 
                 <HBoxPanel className='h-last' gap={'5px'}>
                     <span style={{
-                        color: text.length > limit ? 'var(--error-color)' : isFocused || text.length > limit ? 'var(--accent-color)' : 'var(--hint-color)',
+                        color: text.length > limit ? 'var(--error-color)' : isFocused ? 'var(--accent-color)' : 'var(--hint-color)',
                         transition: 'all 0.2s ease',
                         fontWeight: text.length > limit ? 'bold' : 'normal'
                     }}>{text.length}</span>

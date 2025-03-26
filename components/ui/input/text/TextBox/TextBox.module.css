@@ -56,6 +56,15 @@
     left: 0px;
 }
 
+.counter {
+    position: absolute;
+    font-size: small;
+
+    bottom: -8px;
+    right: 15px;
+    padding: 0 3px;
+}
+
 .input {
     height: 100%;
     width: 100%;

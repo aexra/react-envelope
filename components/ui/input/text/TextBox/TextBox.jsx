@@ -2,6 +2,7 @@ import { use, useCallback, useEffect, useState } from 'react';
 import css from './TextBox.module.css';
 import ToggleButton from '../../../buttons/ToggleButton/ToggleButton';
 import { Visibility, VisibilityOff } from '../../../../dummies/Icons';
+import HBoxPanel from '../../../../layouts/HBoxPanel/HBoxPanel';
 
 // value - внешнее состояние
 // defaultValue - начальное значение состояния текста, если не используется value
@@ -28,7 +29,11 @@ export const TextBox = ({
     icon,
     regex,
     borderless = false,
-    shadowless = false
+    shadowless = false,
+    wrap = false,
+    limit = null,
+    strictLimit = false,
+    count = false
 }) => {
     const [_isFocused, _setIsFocused] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
@@ -49,9 +54,16 @@ export const TextBox = ({
     };
 
     const handleChange = useCallback((e) => {
-        if (!value) _setValue(e.target.value);
-        if (onChange) { onChange(e.target.value); }
-        validate(e.target.value);
+        let processedValue = e.target.value;
+    
+        // Применяем strictLimit если нужно
+        if (strictLimit && limit && processedValue.length > limit) {
+            processedValue = processedValue.slice(0, limit);
+        }
+    
+        if (!value) _setValue(processedValue);
+        if (onChange) { onChange(processedValue); }
+        validate(processedValue);
     }, [onChange]);
 
     const handleFocus = useCallback((e) => {
@@ -117,6 +129,24 @@ export const TextBox = ({
     return (
         <div className={`${css.container} ${className} ${bt} ${t} ${bh} ${_error && css.error} ${_isFocused && css.focused} ${borderless && css.borderless} ${shadowless && css.shadowless} flex row g5`} ref={ref}>
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
+            {(limit || count) && <HBoxPanel gap={'5px'} className={css.counter} style={{background: formedLabelBackground}}>
+                <span style={{
+                    color: !count && (value && value.length > limit || _value && _value.length > limit) ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--hint-color)',
+                    transition: 'all 0.2s ease',
+                    fontWeight: !count && (value && value.length > limit || _value && _value.length > limit) ? 'bold' : 'normal'
+                }}>{value?.length ?? _value.length}</span>
+                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>/</span>}
+                {limit && <span style={{color: _isFocused || (value && value.length > limit || _value && _value.length > limit) ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}}>{limit}</span>}
+            </HBoxPanel>}
+            {wrap ? 
+            <textarea type={password && !_visible ? 'password' : "text"}
+                      value={value ?? _value}
+                      onChange={handleChange}
+                      placeholder={placeholder}
+                      className={`${css.input}`}
+                      readOnly={readonly}
+                      onFocus={() => handleFocus(true)}
+                      onBlur={() => handleFocus(false)}/> : 
             <input type={password && !_visible ? 'password' : "text"}
                    value={value ?? _value}
                    onChange={handleChange}
@@ -124,7 +154,7 @@ export const TextBox = ({
                    className={`${css.input}`}
                    readOnly={readonly}
                    onFocus={() => handleFocus(true)}
-                   onBlur={() => handleFocus(false)}/>
+                   onBlur={() => handleFocus(false)}/>}
             {password && (icon ?? <ToggleButton icon={<VisibilityOff/>}
                           toggledIcon={<Visibility/>}
                           onToggle={handleVisibility}/>)}
