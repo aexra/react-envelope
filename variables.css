@@ -73,7 +73,7 @@ body.light {
 
     /* BACKGROUND */
     --bk-color: #fefefe;
-    --body-bk-color: #f8f8f8;
+    --body-bk-color: #f8f9fc;
     --header-bk-color: var(--dstu-light-blue);
     --panel-bk: #fff;
 
