@@ -14,6 +14,8 @@
 
     min-width: 160px;
     min-height: 40px;
+
+    max-width: 100%;
 }
 .container svg {
     width: 20px;
