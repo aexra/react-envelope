@@ -11,6 +11,7 @@ export const PageBase = ({
     children
 }) => {
     const [contents, setContents] = useState([]);
+    const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
     return (
         <div className={`${css.page} flex row top-center rel`}>
@@ -32,7 +33,11 @@ export const PageBase = ({
                     </div>
                 </header>
                 <div className={`${css.boder} flex row h-full v-full rel`}>
-                    <nav className={`${css.navigation} flex col top-right bb`}>
+                    <button className={css.mobileMenuButton} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
+                        Меню
+                    </button>
+
+                    <nav className={`${css.navigation} flex col top-right bb ${mobileNavOpen ? css.navigationOpen : ''}`}>
                         {navigation}
                     </nav>
 

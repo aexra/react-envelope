@@ -89,7 +89,6 @@
 }
 
 @media (max-width: 960px) {
-    .navigation,
     .head {
         display: none;
     }
@@ -108,5 +107,34 @@
         min-width: unset;
         max-width: unset;
         width: unset;
+    }
+}
+
+.mobileMenuButton {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .mobileMenuButton {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+    }
+    
+    .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        background-color: var(--bk-color);
+    }
+    
+    .navigationOpen {
+        transform: translateX(0);
     }
 }
