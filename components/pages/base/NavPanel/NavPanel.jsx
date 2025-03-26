@@ -12,7 +12,7 @@ export const NavPanel = ({
     const [query, setQuery] = useState('');
 
     return (
-        <div className={`${className} flex col g10 v-full`}>
+        <div className={`${className} flex col g5 v-full`}>
             <TextBox value={query}
                      onChange={(e) => setQuery(e)}
                      placeholder={'Фильтр'}

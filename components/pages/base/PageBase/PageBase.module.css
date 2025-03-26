@@ -13,6 +13,7 @@
 
 .overlay {
     top: 0;
+    pointer-events: none;
 }
 
 .header {
@@ -21,6 +22,8 @@
     border-bottom: 1px solid var(--border-color);
 
     background-color: var(--bk-color);
+
+    pointer-events: all;
 }
 .headerTitle {
     width: calc((100% - var(--body-width)) / 2);
@@ -41,7 +44,7 @@
 }
 
 .boder {
-    
+
 }
 .navigation {
     width: calc((100% - var(--body-width)) / 2);
@@ -66,6 +69,11 @@
 .navigation > :first-child,
 .contents > :first-child {
     min-width: 280px;
+}
+
+.navigation,
+.contents {
+    pointer-events: all;
 }
 
 .body {
