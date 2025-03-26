@@ -28,7 +28,7 @@ export const NavSidebarButton = ({
             <div className={`icon-m flex center`}>
                 {icon}
             </div>
-            <span>{name}</span>
+            <span className='nowrap'>{name}</span>
         </ExButton>
     );
 };

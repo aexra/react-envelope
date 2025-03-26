@@ -391,6 +391,13 @@ h1.article {
   color: #333 !important;
 }
 
+.wrap {
+  text-wrap: wrap;
+}
+.nowrap {
+  text-wrap: nowrap;
+}
+
 /* SIZES */
 
 .rect5 {
