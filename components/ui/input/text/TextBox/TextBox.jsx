@@ -143,7 +143,7 @@ export const TextBox = ({
                       value={value ?? _value}
                       onChange={handleChange}
                       placeholder={placeholder}
-                      className={`${css.input}`}
+                      className={`${css.textarea}`}
                       readOnly={readonly}
                       onFocus={() => handleFocus(true)}
                       onBlur={() => handleFocus(false)}/> : 

@@ -1,4 +1,5 @@
 import { User } from '../../../dummies/Icons';
+import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import { Pair } from '../../../layouts/Pair/Pair';
 import { TextBox } from '../../../ui/input/text/TextBox/TextBox';
 import { StatusTag } from '../../../ui/labels/StatusTag/StatusTag';
@@ -6,7 +7,7 @@ import css from './styles.module.css';
 
 export const TextBoxSample = () => {
     return (
-        <>
+        <VBoxPanel gap={'15px'} halign='start'>
             <Pair left={<h4>TextBox</h4>}
                   right={<StatusTag text='ENVELOPE' type='success' className='flex-0-1'/>}/>
             
@@ -20,6 +21,6 @@ export const TextBoxSample = () => {
             <TextBox label='Details count' placeholder='Enter details' borderType='fullr' labelType='inline' wrap count/>
             <TextBox label='Details limit' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10}/>
             <TextBox label='Details limit strict' placeholder='Enter details' borderType='fullr' labelType='inline' wrap limit={10} strictLimit/>
-        </>
+        </VBoxPanel>
     );
 };

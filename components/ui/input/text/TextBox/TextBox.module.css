@@ -1,6 +1,5 @@
 .container {
     position: relative;
-    width: 200px;
 
     padding: 10px;
 
@@ -12,6 +11,9 @@
     --transition-duration: 0.2s;
 
     box-sizing: border-box;
+
+    min-width: 160px;
+    min-height: 40px;
 }
 .container svg {
     width: 20px;
@@ -73,6 +75,21 @@
     border: none;
     
     font-family: inherit;
+
+    min-width: 150px;
+    min-height: 20px;
+}
+.textarea {
+    height: 100%;
+    width: 100%;
+    
+    outline: none;
+    border: none;
+    
+    font-family: inherit;
+
+    min-width: 165px;
+    min-height: 20px;
 }
 
 /* BORDER TYPES */
