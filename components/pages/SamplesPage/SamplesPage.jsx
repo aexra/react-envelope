@@ -120,6 +120,11 @@ export const SamplesPage = () => {
     const [sampleState4, setSampleState4] = useState('');
     const [sampleState5, setSampleState5] = useState('');
     const [sampleState6, setSampleState6] = useState('');
+    const [sampleState7, setSampleState7] = useState('');
+    const [sampleState8, setSampleState8] = useState('');
+    const [sampleState9, setSampleState9] = useState('');
+    const [sampleState10, setSampleState10] = useState('');
+    const [sampleState11, setSampleState11] = useState('');
 
     const [booleanState1, setBooleanState1] = useState(false);
     const [booleanState2, setBooleanState2] = useState(false);
@@ -500,6 +505,56 @@ export const MyComponent = ({ ... }) => {
            password
            hint='Пароль'
            placeholder='Введите пароль'/>`}</CodeBlock>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                <ExTextBox className={css.inputSample}
+                               hint='TextArea с лимитом'
+                               placeholder='Введите длинный текст'
+                               text={sampleState5}
+                               textChanged={setSampleState5}
+                               wrap
+                               limit={30}/>
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
+           hint='TextArea с лимитом'
+           placeholder='Введите длинный текст'
+           text={sampleState5}
+           textChanged={setSampleState5}
+           wrap
+           limit={30}/>`}</CodeBlock>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                <ExTextBox className={css.inputSample}
+                               hint='TextArea со строгим лимитом'
+                               placeholder='Введите длинный текст'
+                               text={sampleState7}
+                               textChanged={setSampleState7}
+                               wrap
+                               limit={10}
+                               strictLimit/>
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
+           hint='TextArea со строгим лимитом'
+           placeholder='Введите длинный текст'
+           text={sampleState7}
+           textChanged={setSampleState7}
+           wrap
+           limit={10}
+           strictLimit/>`}</CodeBlock>
+                </HBoxPanel>
+                <HBoxPanel gap={'20px'} valign='center'>
+                <ExTextBox className={css.inputSample}
+                               hint='TextArea с простым счетчиком'
+                               placeholder='Введите длинный текст'
+                               text={sampleState8}
+                               textChanged={setSampleState8}
+                               wrap
+                               count/>
+                    <CodeBlock lang={'jsx'} className={'flex-1'}>{`<ExTextBox className={css.inputSample}
+           hint='TextArea с простым счетчиком'
+           placeholder='Введите длинный текст'
+           text={sampleState8}
+           textChanged={setSampleState8}
+           wrap
+           count/>`}</CodeBlock>
                 </HBoxPanel>
 
                 <Pair left={<h4>TransparentTextBox</h4>}

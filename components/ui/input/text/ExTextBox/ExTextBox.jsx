@@ -84,7 +84,7 @@ const ExTextBox = ({
     };
 
     return (
-        <>
+        <VBoxPanel>
             <VBoxPanel ref={ref} className={`${className} ${css.box} ${borderless && css.borderless} ${!isValid && css.error} ${isFocused && css.highlightedBox}`} gap='0px'>
                 {hint && <span className={`${hintClassName} ${inputEmpty && !isFocused && css.hintOverlap} ${!isValid && css.error} ${isFocused && css.highlightedHint} ${css.hint}`}>{hint}</span>}
                 <div className={`${!isValid && css.error} ${css.expander} ${isFocused && css.highlightedExpander}`}></div>
@@ -144,7 +144,7 @@ const ExTextBox = ({
                 </HBoxPanel> :
                 (count && <span style={{color: isFocused ? 'var(--accent-color)' : 'var(--hint-color)', transition: 'all 0.2s ease'}} className='h-last'>{text.length}</span>)
             }
-        </>
+        </VBoxPanel>
     );
 }
 

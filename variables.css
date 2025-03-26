@@ -217,7 +217,7 @@ body.dark {
     --code-font-color: #fff;
     
     /* ACCENT */
-    --accent-color: var(--dstu-light-blue);
+    --accent-color: var(--dstu-blue);
     --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);
     --accent-color-active: color-mix(in srgb, var(--accent-color) 50%, black 50%);
     --disabled-accent-color: rgb(68, 68, 68);
