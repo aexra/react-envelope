@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import css from './NavButton.module.css';
 
 export const NavButton = ({
@@ -7,13 +7,11 @@ export const NavButton = ({
     name,
     to
 }) => {
-    // const navigate = useNavigate();
-    
     return (
         <NavLink to={to}
                  className={({ isActive, isPending }) => `
                     ${isPending ? css.btn : isActive ? css.active : css.btn} ${css.btn}
-                    flex row g5 center-left
+                    flex row g5 center-left ${className}
                  `}>
             {icon}
             <span className={`${css.title}`}>{name}</span>
