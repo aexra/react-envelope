@@ -1,5 +1,5 @@
 .page {
-    --body-width: 1340px;
+    --body-width: 1280px;
     --header-hight: 60px;
 
     --navigation-bk-color: var(--body-bk-color);
@@ -65,7 +65,7 @@
 
 .navigation > :first-child,
 .contents > :first-child {
-    min-width: 245px;
+    min-width: 280px;
 }
 
 .body {

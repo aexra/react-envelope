@@ -13,7 +13,7 @@
     box-sizing: border-box;
 
     min-width: 160px;
-    min-height: 40px;
+    min-height: 35px;
 
     max-width: 100%;
 }
@@ -79,7 +79,7 @@
     font-family: inherit;
 
     min-width: 150px;
-    min-height: 20px;
+    min-height: 10px;
 }
 .textarea {
     height: 100%;
@@ -91,7 +91,7 @@
     font-family: inherit;
 
     min-width: 165px;
-    min-height: 20px;
+    min-height: 10px;
 }
 
 /* BORDER TYPES */
@@ -104,7 +104,7 @@
     box-shadow: var(--shadow);
 }
 .container.fullr {
-    border-radius: 8px;
+    border-radius: 5px;
     border: var(--border);
     box-shadow: var(--shadow);
 }

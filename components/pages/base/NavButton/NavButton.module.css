@@ -1,24 +1,32 @@
 .btn {
-    transition: all 0.15s ease-in;
+    transition: all 0.12s ease-in;
 
     background: none;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
 
     outline: 0;
     border: 0;
 
-    height: 30px;
+    height: 35px;
 
     color: var(--font-color);
+
+    padding: 5px 0 5px 20px;
 }
 .btn:hover {
     color: var(--accent-color);
 }
 
 .btn svg {
-    width: 20px;
+    width: 16px;
 }
 
 .title {
     font-family: inherit;
+}
+
+.selected {
+    background-color: var(--button-bk);
+    color: var(--accent-color);
+    border-right: 1px solid var(--accent-color);
 }

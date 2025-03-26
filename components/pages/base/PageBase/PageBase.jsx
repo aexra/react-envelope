@@ -29,13 +29,13 @@ export const PageBase = ({
                     </div>
                 </header>
                 <div className={`${css.boder} flex row h-full v-full rel`}>
-                    <nav className={`${css.navigation} flex col top-right pad20 bb`}>
+                    <nav className={`${css.navigation} flex col top-right bb`}>
                         {navigation}
                     </nav>
 
                     <div className={`${css.boderBodyMask} h-full`}></div>
                     
-                    <div className={`${css.contents} flex col top-right pad20 bb`}>
+                    <div className={`${css.contents} flex col top-right bb`}>
 
                     </div>
                 </div>

@@ -10,7 +10,7 @@ export const NavButton = ({
     const navigate = useNavigate();
     
     return (
-        <button className={`flex row center-left g10 ${css.btn} ${className}`} onClick={() => navigate(to)}>
+        <button className={`flex row center-left g10 bb pointer ${css.btn} ${className}`} onClick={() => navigate(to)}>
             {icon}
             <span className={`${css.title}`}>{name}</span>
         </button>

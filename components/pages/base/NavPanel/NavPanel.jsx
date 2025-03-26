@@ -15,10 +15,11 @@ export const NavPanel = ({
         <div className={`${className} flex col g10 v-full`}>
             <TextBox value={query}
                      onChange={(e) => setQuery(e)}
-                     placeholder={'Введите запрос'}
-                     label={'Поиск'}
+                     placeholder={'Фильтр'}
                      borderType={'fullr'}
-                     className={css.filter}/>
+                     type={'color'}
+                     className={`${css.filter} end-self`}
+                     borderless shadowless/>
             {navlinks(NavButton)}
         </div>
     );
