@@ -25,7 +25,7 @@ export const PageBase = ({
                         {title}
                     </div>
                     <div className={`${css.headerContent} flex row center-left bb flex-1`}>
-                        {header}
+                        <div className={`${css.head}`}>{header}</div>
                         <div className={`${css.headerEndtitle} flex row center-left bb h-last`}>
                             {endtitle}
                         </div>

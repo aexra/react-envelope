@@ -1,4 +1,5 @@
 import { Pizza } from '../../dummies/Icons';
+import css from './base.module.css';
 
 export const IconTitle = ({
     className,
@@ -8,7 +9,7 @@ export const IconTitle = ({
     return (
         <div className={`${className} flex row g20 center`}>
             <h2>{text}</h2>
-            <div className='icon-l'>{icon}</div>
+            <div className={`icon-l ${css.h960}`}>{icon}</div>
         </div>
     );
 };

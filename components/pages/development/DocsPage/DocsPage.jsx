@@ -10,11 +10,7 @@ export const DocsPage = () => {
         <PageBase title={<IconTitle/>}
                   endtitle={<ThemeAuthEndtitle/>}
                   header={<IconHeader/>}>
-            <UserGeneralPanel edit/>
-            <UserGeneralPanel edit/>
-            <UserGeneralPanel edit/>
-            <UserGeneralPanel edit/>
-            <UserGeneralPanel edit/>
+            
         </PageBase>
     );
 };

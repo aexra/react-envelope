@@ -1,0 +1,14 @@
+@media (max-width: 960px) {
+    .h960 {
+        display: none !important;
+    }
+    .login {
+        padding: 0;
+    }
+    .flex10 {
+        gap: 10px !important;
+    }
+    .flex0 {
+        gap: 5px !important;
+    }
+}

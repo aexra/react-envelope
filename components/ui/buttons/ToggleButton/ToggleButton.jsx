@@ -24,14 +24,14 @@ function ToggleButton({
                 className={`${className} ${css.button}`}
                 onClick={handleToggle}>
                 {isToggled ? 
-                    <HBoxPanel gap='5px' valign='center'>
+                    <HBoxPanel gap={text && icon ? '5px' : '0px'} valign='center'>
                         <span>{toggledText ? toggledText : text}</span>
                         <div className={`${css.icon} flex row center`}>
                             {icon && (toggledIcon ?? icon)}
                         </div>
                     </HBoxPanel>
                  :
-                    <HBoxPanel gap='5px' valign='center'>
+                    <HBoxPanel gap={text && icon ? '5px' : '0px'} valign='center'>
                         <span>{text}</span>
                         <div className={`${css.icon} flex row center`}>
                             {icon}
