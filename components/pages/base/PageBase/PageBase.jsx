@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavPanel } from '../NavPanel/NavPanel';
 import css from './PageBase.module.css';
+import { Close, Menu } from '../../../dummies/Icons';
 
 export const PageBase = ({
     title,
@@ -33,11 +34,12 @@ export const PageBase = ({
                     </div>
                 </header>
                 <div className={`flex row h-full v-full rel`}>
-                    <button className={css.mobileMenuButton} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
-                        Меню
+                    <button className={`${css.mobileMenuButton} pointer`} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
+                        <Menu className='icon-m'/>
                     </button>
 
-                    <nav className={`${css.navigation} flex col top-right bb ${mobileNavOpen ? css.navigationOpen : ''}`}>
+                    <nav className={`${css.navigation} flex col rel top-right bb ${mobileNavOpen ? css.navigationOpen : ''}`}>
+                        <Close className={`icon-m abs pointer ${css.closeNav}`} onClick={() => setMobileNavOpen(!mobileNavOpen)}/>
                         {navigation}
                     </nav>
 
