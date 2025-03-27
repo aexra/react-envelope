@@ -79,10 +79,6 @@
     justify-content: center;
 }
 
-.contentsMenuButton {
-    right: 25px;
-    top: calc(var(--header-height) + 20px);
-}
 
 .menuButton {
     display: none;
@@ -90,23 +86,41 @@
     align-items: center;
     width: 30px;
     height: 30px;
-
+    
     transition: color 0.12s ease-in;
-}
-.menuButton svg {
-    width: 30px;
-    height: 30px;
-    user-select: none;
 }
 .menuButton:hover {
     color: var(--accent-color);
+}
+
+.contentsMenuButton {
+    right: 25px;
+    top: calc(var(--header-height) + 20px);
+}
+.contentsMenuButton svg {
+    width: 30px;
+    height: 30px;
+}
+
+.navMenuButton {
+    left: 10px;
+    top: 5px;
+}
+.navMenuButton svg {
+    width: 20px;
+    height: 20px;
+}
+
+.open {
+    --sidebar-width: 285px;
 }
 
 @media (max-width: 1550px) {
     .overlay > .content > .contents,
     .contentWrapper > .fixer.r {
         position: fixed;
-        height: 100%;
+        height: calc(100% - var(--header-height));
+        border-bottom: 2px solid var(--accent-color);
         left: calc(100% + var(--sidebar-width));
     }
 
@@ -122,9 +136,18 @@
 @media (max-width: 1160px) {
     .overlay > .content > .nav,
     .contentWrapper > .fixer.l {
-        width: 0;
-        padding-left: 0;
-        padding-right: 0;
+        position: fixed;
+        height: calc(100% - var(--header-height));
+        border-bottom: 2px solid var(--accent-color);
+        right: calc(100% + var(--sidebar-width));
+    }
+
+    .overlay > .content > .nav.open {
+        right: calc(100% - var(--sidebar-width));
+    }
+
+    .navMenuButton {
+        display: flex;
     }
 }
 

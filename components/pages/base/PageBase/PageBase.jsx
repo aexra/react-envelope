@@ -14,7 +14,7 @@ export const PageBase = ({
     gap = '10px'
 }) => {
     const [contents, setContents] = useState([]);
-    const [mobileNavOpen, setMobileNavOpen] = useState(false);
+    const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
 
     return (
@@ -32,7 +32,7 @@ export const PageBase = ({
                     </div>
                 </div>
                 <div className={`${css.content} flex-1 flex row`}>
-                    <nav className={`${css.nav} flex col top-right`}>
+                    <nav className={`${css.nav} ${navOpen && css.open} flex col top-right bb`}>
                         { navigation }
                     </nav>
                     <div className={`${css.body} flex`}>
@@ -53,6 +53,9 @@ export const PageBase = ({
             </div>
             <div className={`${css.contentsMenuButton} ${css.menuButton} fixed pointer`} onClick={() => setMobileContentsOpen(!contentsOpen)}>
                 {contentsOpen ? <Close style={{width: '20px', height: '20px'}}/> : <MenuAlt/>}
+            </div>
+            <div className={`${css.navMenuButton} ${css.menuButton} fixed pointer`} onClick={() => setMobileNavOpen(!navOpen)}>
+                {navOpen ? <Close style={{width: '20px', height: '20px'}}/> : <Menu/>}
             </div>
         </div>
     );
