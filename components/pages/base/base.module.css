@@ -1,3 +1,8 @@
+.title {
+    padding: 0 30px 0 0;
+    border-right: 1px solid var(--border-color);
+}
+
 @media (max-width: 960px) {
     .h960 {
         display: none !important;
@@ -10,5 +15,9 @@
     }
     .flex0 {
         gap: 5px !important;
+    }
+    .title {
+        padding: 0;
+        border: 0;
     }
 }

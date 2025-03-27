@@ -32,7 +32,7 @@ export const PageBase = ({
                         </div>
                     </div>
                 </header>
-                <div className={`${css.boder} flex row h-full v-full rel`}>
+                <div className={`flex row h-full v-full rel`}>
                     <button className={css.mobileMenuButton} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
                         Меню
                     </button>

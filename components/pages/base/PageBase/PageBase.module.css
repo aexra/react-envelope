@@ -12,6 +12,12 @@
     border-bottom: 1px solid var(--border-color);
     background-color: var(--bk-color);
     padding: 0 20px;
+
+    pointer-events: all;
+}
+
+.overlay {
+    pointer-events: none;
 }
 
 .headerTitle {
@@ -45,6 +51,7 @@
     max-width: 280px;
     border-right: 1px solid var(--border-color);
     background-color: var(--navigation-bk-color);
+    pointer-events: all;
 }
 
 .navigation > :first-child,
@@ -67,6 +74,11 @@
     padding: 20px;
     border-left: 1px solid var(--border-color);
     background-color: var(--bk-color);
+    pointer-events: all;
+}
+
+.boderBodyMask {
+    
 }
 
 @media (max-width: 1600px) {
