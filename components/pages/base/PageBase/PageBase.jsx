@@ -39,7 +39,7 @@ export const PageBase = ({
                     </button>
 
                     <nav className={`${css.navigation} flex col rel top-right bb ${mobileNavOpen ? css.navigationOpen : ''}`}>
-                        <Close className={`icon-m abs pointer ${css.closeNav}`} onClick={() => setMobileNavOpen(!mobileNavOpen)}/>
+                        {mobileNavOpen && <Close className={`icon-m abs pointer ${css.closeNav}`} onClick={() => setMobileNavOpen(!mobileNavOpen)}/>}
                         {navigation}
                     </nav>
 

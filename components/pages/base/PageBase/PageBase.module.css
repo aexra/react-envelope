@@ -64,7 +64,9 @@
     width: 100%;
     max-width: var(--body-width);
     padding: 40px 60px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+
+    margin-top: var(--header-height);
 }
 
 .contents {
