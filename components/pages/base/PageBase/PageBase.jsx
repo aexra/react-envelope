@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavPanel } from '../NavPanel/NavPanel';
 import css from './PageBase.module.css';
-import { Close, Menu } from '../../../dummies/Icons';
+import { Close, Menu, MenuAlt } from '../../../dummies/Icons';
 
 export const PageBase = ({
     title,
@@ -15,6 +15,7 @@ export const PageBase = ({
 }) => {
     const [contents, setContents] = useState([]);
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
+    const [contentsOpen, setMobileContentsOpen] = useState(false);
 
     return (
         <div className={`${css.page} flex col top-center`}>
@@ -37,7 +38,7 @@ export const PageBase = ({
                     <div className={`${css.body} flex`}>
 
                     </div>
-                    <div className={`${css.contents} flex col top-left bb`}>
+                    <div className={`${css.contents} ${contentsOpen && css.open} flex col top-left bb`}>
                         <span>Contents</span>
                         <p>Здесь будет содержание страницы</p>
                     </div>
@@ -49,6 +50,9 @@ export const PageBase = ({
                     { children }
                 </div>
                 <div className={`${css.fixer} ${css.r}`}></div>
+            </div>
+            <div className={`${css.contentsMenuButton} fixed pointer`} onClick={() => setMobileContentsOpen(!contentsOpen)}>
+                {contentsOpen ? <Close style={{width: '20px', height: '20px'}}/> : <MenuAlt/>}
             </div>
         </div>
     );
