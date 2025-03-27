@@ -1,4 +1,4 @@
-import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore, Info, Success, Warning, Exclamation, Tip, Error, Bug, Save, Reload } from '../../../dummies/Icons';
+import { Close, Code, Email, Home, Logout, Moon, Visibility, Sun, Swap, User, UserAdd, UserFilled, VisibilityOff, HomeFilled, SettingsHorizontal, SettingsVertical, SettingsOutline, LogoutThick, SettingsSharp, SettingsSolid, SettingsFilled, Settings, ExperimentOutlined, Add, Bin, Remove, RefreshOutline, Edit, Pencil, PaperPlane, Palette, Package, Pin, Phone, Pizza, Party, Parking, PizzaFilled, ExpandMore, Info, Success, Warning, Exclamation, Tip, Error, Bug, Save, Reload, Menu, MenuAlt } from '../../../dummies/Icons';
 import FlowPanel from '../../../layouts/FlowPanel/FlowPanel';
 import { Headline } from '../../../ui/labels/Headline/Headline';
 import { CopyFrame } from '../../../widgets/CopyFrame/CopyFrame';
@@ -59,7 +59,9 @@ export const DocsPage = () => {
         { element: <Tip />, jsx: "<Tip />" },
         { element: <Bug />, jsx: "<Bug />" },
         { element: <Save />, jsx: "<Save />" },
-        { element: <Reload />, jsx: "<Reload />" }
+        { element: <Reload />, jsx: "<Reload />" },
+        { element: <Menu />, jsx: "<Menu />" },
+        { element: <MenuAlt />, jsx: "<MenuAlt />" },
     ];
     
     return (
