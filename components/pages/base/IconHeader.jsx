@@ -1,4 +1,5 @@
 import { useNavigation } from "../../../hooks/useNavigation";
+import css from './base.module.css';
 
 export const IconHeader = ({
     className,
@@ -12,7 +13,7 @@ export const IconHeader = ({
     const _icon = icon ?? foundRoute?.props?.icon ?? '[[NOT FOUND]]';
 
     return (
-        <div className={`${className} flex row g10 center`}>
+        <div className={`${className} ${css.header} flex row g10 center`}>
             <div className="icon-m">{_icon}</div>
             <h3>{_text}</h3>
         </div>

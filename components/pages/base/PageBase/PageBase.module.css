@@ -47,6 +47,8 @@
     padding: 30px 50px;
     min-width: 0;
     max-width: var(--body-width);
+
+    transition: padding 0.2s ease;
 }
 
 .overlay > .content > .contents {
@@ -63,6 +65,8 @@
 .contentWrapper > .fixer {
     flex: 0 0 auto;
     width: var(--sidebar-width);
+
+    transition: all 0.2s ease;
 }
 
 .contentWrapper {
@@ -71,4 +75,42 @@
     margin-top: var(--header-height);
 
     justify-content: center;
+}
+
+@media (max-width: 1550px) {
+    .overlay > .content > .contents,
+    .contentWrapper > .fixer.r {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 1160px) {
+    .overlay > .content > .nav,
+    .contentWrapper > .fixer.l {
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 960px) {
+    .page {
+        --header-height: 40px;
+    }
+    .contentWrapper > .content {
+        padding: 10px 20px;
+    }
+    .overlay > .header > .headerContent {
+        justify-content: center;
+        padding: 0;
+    }
+    .overlay > .header > .headerContent > .endtitle {
+        position: fixed;
+        right: 10px;
+    }
+    .overlay > .header > .title {
+        display: none;
+    }
 }

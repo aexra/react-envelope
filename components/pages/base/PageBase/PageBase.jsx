@@ -44,11 +44,11 @@ export const PageBase = ({
                 </div>
             </div>
             <div className={`${css.contentWrapper} flex row flex-1`}>
-                <div className={`${css.fixer}`}></div>
+                <div className={`${css.fixer} ${css.l}`}></div>
                 <div className={`${css.content} flex col`} style={{gap: gap}}>
                     { children }
                 </div>
-                <div className={`${css.fixer}`}></div>
+                <div className={`${css.fixer} ${css.r}`}></div>
             </div>
         </div>
     );
