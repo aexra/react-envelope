@@ -9,49 +9,36 @@ export const PageBase = ({
     endtitle,
     footer,
     navigation = <NavPanel/>,
-    children
+    children,
+    less = false
 }) => {
     const [contents, setContents] = useState([]);
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
     return (
-        <div className={`${css.page} flex row top-center rel`}>
-            <div className={`${css.body} flex col g20 bb`}>
-                {children}
-                {footer}
-            </div>
-            
-            <div className={`${css.overlay} fixed h-full v-full flex col top-center`}>
-                <header className={`${css.header} flex row h-full`}>
-                    <div className={`${css.headerTitle} flex row center-right bb`}>
-                        {title}
-                    </div>
-                    <div className={`${css.headerContent} flex row center-left bb flex-1`}>
-                        <div className={`${css.head}`}>{header}</div>
-                        <div className={`${css.headerEndtitle} flex row center-left bb h-last`}>
-                            {endtitle}
-                        </div>
-                    </div>
-                </header>
-                <div className={`flex row h-full v-full rel`}>
-                    <button className={`${css.mobileMenuButton} pointer`} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
-                        <Menu className='icon-m'/>
-                    </button>
+        <div className={`${css.page} flex col top-center`}>
+            <div className={`${css.overlay} flex col fixed`}>
+                <div className={`${css.header}`}>
 
-                    <nav className={`${css.navigation} flex col rel top-right bb ${mobileNavOpen ? css.navigationOpen : ''}`}>
-                        {mobileNavOpen && <Close className={`icon-m abs pointer ${css.closeNav}`} onClick={() => setMobileNavOpen(!mobileNavOpen)}/>}
-                        {navigation}
+                </div>
+                <div className={`${css.content} flex-1 flex row`}>
+                    <nav className={`${css.nav} flex col top-right`}>
+                        { navigation }
                     </nav>
+                    <div className={`${css.body} flex`}>
 
-                    <div className={`${css.boderBodyMask} h-full`}></div>
-                    
-                    <div className={`${css.contents} flex col top-left bb`} style={{paddingLeft: '20px'}}>
-                        {contents && <div>
-                            <h5 style={{color: 'var(--disabled-accent-color)'}}>Contents</h5>
-                            <p style={{color: 'var(--disabled-accent-color)'}}>Здесь будет содержание</p>
-                        </div>}
+                    </div>
+                    <div className={`${css.contents} flex col top-left`}>
+
                     </div>
                 </div>
+            </div>
+            <div className={`${css.contentWrapper} flex row flex-1`}>
+                <div className={`${css.fixer}`}></div>
+                <div className={`${css.content} flex col`}>
+                    { children }
+                </div>
+                <div className={`${css.fixer}`}></div>
             </div>
         </div>
     );
