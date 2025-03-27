@@ -84,19 +84,22 @@
     top: calc(var(--header-height) + 20px);
 }
 
-.contentsMenuButton,
-.navMenuButton {
+.menuButton {
     display: none;
     justify-content: center;
     align-items: center;
     width: 30px;
     height: 30px;
+
+    transition: color 0.12s ease-in;
 }
-.contentsMenuButton svg,
-.navMenuButton svg {
+.menuButton svg {
     width: 30px;
     height: 30px;
     user-select: none;
+}
+.menuButton:hover {
+    color: var(--accent-color);
 }
 
 @media (max-width: 1550px) {

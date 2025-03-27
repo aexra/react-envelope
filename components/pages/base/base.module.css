@@ -3,6 +3,13 @@
     border-right: 1px solid var(--border-color);
 }
 
+.userIcon {
+    transition: color 0.12s ease-in;
+}
+.userIcon:hover {
+    color: var(--accent-color);
+}
+
 @media (max-width: 960px) {
     .h960 {
         display: none !important;

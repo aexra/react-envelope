@@ -51,7 +51,7 @@ export const PageBase = ({
                 </div>
                 <div className={`${css.fixer} ${css.r}`}></div>
             </div>
-            <div className={`${css.contentsMenuButton} fixed pointer`} onClick={() => setMobileContentsOpen(!contentsOpen)}>
+            <div className={`${css.contentsMenuButton} ${css.menuButton} fixed pointer`} onClick={() => setMobileContentsOpen(!contentsOpen)}>
                 {contentsOpen ? <Close style={{width: '20px', height: '20px'}}/> : <MenuAlt/>}
             </div>
         </div>

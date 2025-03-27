@@ -23,7 +23,7 @@ export const SelfUserConfItem = ({
                     <span>{user?.firstname}</span>
                     {user?.middlename && <span>{user?.middlename}</span>}
                 </HBoxPanel>
-                <User className={`icon-m pointer`}
+                <User className={`icon-m pointer ${css.userIcon}`}
                         onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
                         color='#fff'/>
             </div> :
