@@ -24,6 +24,14 @@
     pointer-events: all;
 }
 
+.overlay > .header > .title {
+    width: var(--sidebar-width);
+}
+
+.overlay > .header > .headerContent {
+    padding: 0 10px 0 50px;
+}
+
 .overlay > .content {
     justify-content: center;
 }
@@ -44,6 +52,10 @@
 .overlay > .content > .contents {
     border-left: 1px solid var(--border-color);
     pointer-events: all;
+
+    color: var(--border-color);
+
+    padding: 20px;
 }
 
 .overlay > .content > .nav,

@@ -10,7 +10,8 @@ export const PageBase = ({
     footer,
     navigation = <NavPanel/>,
     children,
-    less = false
+    less = false,
+    gap = '10px'
 }) => {
     const [contents, setContents] = useState([]);
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -18,8 +19,16 @@ export const PageBase = ({
     return (
         <div className={`${css.page} flex col top-center`}>
             <div className={`${css.overlay} flex col fixed`}>
-                <div className={`${css.header}`}>
-
+                <div className={`${css.header} flex row center-left`}>
+                    <div className={`${css.title}`}>
+                        { title }
+                    </div>
+                    <div className={`${css.headerContent} flex row center-left g20 flex-1`}>
+                        { header }
+                        <div className={`${css.endtitle} flex row h-last`}>
+                            { endtitle }
+                        </div>
+                    </div>
                 </div>
                 <div className={`${css.content} flex-1 flex row`}>
                     <nav className={`${css.nav} flex col top-right`}>
@@ -28,14 +37,15 @@ export const PageBase = ({
                     <div className={`${css.body} flex`}>
 
                     </div>
-                    <div className={`${css.contents} flex col top-left`}>
-
+                    <div className={`${css.contents} flex col top-left bb`}>
+                        <span>Contents</span>
+                        <p>Здесь будет содержание страницы</p>
                     </div>
                 </div>
             </div>
             <div className={`${css.contentWrapper} flex row flex-1`}>
                 <div className={`${css.fixer}`}></div>
-                <div className={`${css.content} flex col`}>
+                <div className={`${css.content} flex col`} style={{gap: gap}}>
                     { children }
                 </div>
                 <div className={`${css.fixer}`}></div>
