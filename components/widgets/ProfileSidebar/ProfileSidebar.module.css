@@ -1,5 +1,5 @@
 .profileSidebar {
-    background-color: var(--sidebar-user-bk);
+    background-color: var(--bk-color);
     border-radius: 10px 0 0 10px;
     color: var(--font-color);
 }
