@@ -21,8 +21,6 @@ export const PageBase = ({
     less = false,
     gap = '10px'
 }) => {
-    useAutoHeadings();
-
     const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
 

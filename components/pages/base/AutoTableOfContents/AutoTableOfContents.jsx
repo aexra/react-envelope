@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import css from './AutoTableOfContents.module.css';
+import { useAutoHeadings } from '../../../../hooks/useAutoHeadings';
 
 export const AutoTableOfContents = () => {
+    useAutoHeadings();
     const [headings, setHeadings] = useState([]);
 
     useEffect(() => {
@@ -19,7 +21,7 @@ export const AutoTableOfContents = () => {
     }, []);
 
     return (
-        <nav className="toc">
+        <nav className={css.toc}>
             <ul>
                 {headings.map((heading) => (
                 <li 
