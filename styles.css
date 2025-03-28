@@ -26,10 +26,15 @@ p {
 
 a {
   color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: underline;
 }
 a:hover {
-  color: var(--tip-color);
+  color: var(--accent-color-hover);
 }
+a:active {
+  color: var(--accent-color-active);
+} 
   
 @font-face {
     font-family: "Montserrat";
@@ -39,6 +44,10 @@ a:hover {
 }
 
 /* PALETTE PREFABS */
+
+accent {
+  color: var(--accent-color);
+}
 
 .colorbutton {
   color: var(--colorbutton-color) !important;

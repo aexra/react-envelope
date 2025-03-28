@@ -104,7 +104,7 @@ body.light {
     --dstu-accent-button-bk: var(--dstu-dark-blue);
     --dstu-accent-button-hover-bk: var(--dstu-light-blue);
     --colorbutton-color: var(--font-color);
-    --colorbutton-color-hover: color-mix(in srgb, var(--colorbutton-color) 50%, grey 50%);
+    --colorbutton-color-hover: color-mix(in srgb, var(--colorbutton-color) 75%, white 25%);
     --colorbutton-color-active: color-mix(in srgb, var(--colorbutton-color) 50%, white 50%);
 
     /* HIGHLIGHT */
@@ -133,7 +133,7 @@ body.light {
 
     /* ACCENT */
     --accent-color: var(--dstu-dark-blue);
-    --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);
+    --accent-color-hover: color-mix(in srgb, var(--accent-color) 75%, white 25%);
     --accent-color-active: color-mix(in srgb, var(--accent-color) 50%, white 50%);
     --disabled-accent-color: rgb(204, 204, 204);
     --disabled-accent-color-hover: color-mix(in srgb, var(--disabled-accent-color) 50%, grey 50%);
@@ -189,7 +189,7 @@ body.dark {
     --dstu-accent-button-bk: var(--dstu-light-blue);
     --dstu-accent-button-hover-bk: var(--dstu-dark-blue);
     --colorbutton-color: var(--font-color);
-    --colorbutton-color-hover: color-mix(in srgb, var(--colorbutton-color) 50%, grey 50%);
+    --colorbutton-color-hover: color-mix(in srgb, var(--colorbutton-color) 75%, black 25%);
     --colorbutton-color-active: color-mix(in srgb, var(--colorbutton-color) 50%, black 50%);
     
     /* HIGHLIGHT */
@@ -218,7 +218,7 @@ body.dark {
     
     /* ACCENT */
     --accent-color: orangered;
-    --accent-color-hover: color-mix(in srgb, var(--accent-color) 50%, grey 50%);
+    --accent-color-hover: color-mix(in srgb, var(--accent-color) 75%, black 25%);
     --accent-color-active: color-mix(in srgb, var(--accent-color) 50%, black 50%);
     --disabled-accent-color: rgb(68, 68, 68);
     --disabled-accent-color-hover: color-mix(in srgb, var(--disabled-accent-color) 50%, grey 50%);

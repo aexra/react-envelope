@@ -5,12 +5,13 @@ import { Close, Menu, MenuAlt } from '../../../dummies/Icons';
 import { IconTitle } from '../IconTitle';
 import { ThemeAuthEndtitle } from '../ThemeAuthEndtitle';
 import { IconHeader } from '../IconHeader';
+import { Footer } from '../Footer/Footer';
 
 export const PageBase = ({
     title = <IconTitle/>,
     header = <IconHeader/>,
     endtitle = <ThemeAuthEndtitle/>,
-    footer,
+    footer = <Footer/>,
     navigation = <NavPanel/>,
     children,
     less = false,
