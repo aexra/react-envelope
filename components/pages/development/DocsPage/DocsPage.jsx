@@ -11,120 +11,106 @@ import { ThemeAuthEndtitle } from '../../base/ThemeAuthEndtitle';
 import css from './DocsPage.module.css';
 
 export const DocsPage = () => {
-    const icons = [
-        { element: <Moon />, jsx: "<Moon />" },
-        { element: <Sun />, jsx: "<Sun />" },
-        { element: <User />, jsx: "<User />" },
-        { element: <UserFilled />, jsx: "<UserFilled />" },
-        { element: <UserAdd />, jsx: "<UserAdd />" },
-        { element: <Home />, jsx: "<Home />" },
-        { element: <HomeFilled />, jsx: "<HomeFilled />" },
-        { element: <Code />, jsx: "<Code />" },
-        { element: <Swap />, jsx: "<Swap />" },
-        { element: <Close />, jsx: "<Close />" },
-        { element: <Logout />, jsx: "<Logout />" },
-        { element: <LogoutThick />, jsx: "<LogoutThick />" },
-        { element: <Email />, jsx: "<Email />" },
-        { element: <Visibility />, jsx: "<Visibility />" },
-        { element: <VisibilityOff />, jsx: "<VisibilityOff />" },
-        { element: <SettingsHorizontal />, jsx: "<SettingsHorizontal />" },
-        { element: <SettingsVertical />, jsx: "<SettingsVertical />" },
-        { element: <SettingsOutline />, jsx: "<SettingsOutline />" },
-        { element: <SettingsSolid />, jsx: "<SettingsSolid />" },
-        { element: <SettingsSharp />, jsx: "<SettingsSharp />" },
-        { element: <Settings />, jsx: "<Settings />" },
-        { element: <SettingsFilled />, jsx: "<SettingsFilled />" },
-        { element: <ExperimentOutlined />, jsx: "<ExperimentOutlined />" },
-        { element: <Add />, jsx: "<Add />" },
-        { element: <Remove />, jsx: "<Remove />" },
-        { element: <Bin />, jsx: "<Bin />" },
-        { element: <RefreshOutline />, jsx: "<RefreshOutline />" },
-        { element: <Edit />, jsx: "<Edit />" },
-        { element: <Pencil />, jsx: "<Pencil />" },
-        { element: <PaperPlane />, jsx: "<PaperPlane />" },
-        { element: <Palette />, jsx: "<Palette />" },
-        { element: <Package />, jsx: "<Package />" },
-        { element: <Pin />, jsx: "<Pin />" },
-        { element: <Phone />, jsx: "<Phone />" },
-        { element: <Pizza />, jsx: "<Pizza />" },
-        { element: <PizzaFilled />, jsx: "<PizzaFilled />" },
-        { element: <Party />, jsx: "<Party />" },
-        { element: <Parking />, jsx: "<Parking />" },
-        { element: <ExpandMore />, jsx: "<ExpandMore />" },
-        { element: <Info />, jsx: "<Info />" },
-        { element: <Success />, jsx: "<Success />" },
-        { element: <Warning />, jsx: "<Warning />" },
-        { element: <Error />, jsx: "<Error />" },
-        { element: <Exclamation />, jsx: "<Exclamation />" },
-        { element: <Tip />, jsx: "<Tip />" },
-        { element: <Bug />, jsx: "<Bug />" },
-        { element: <Save />, jsx: "<Save />" },
-        { element: <Reload />, jsx: "<Reload />" },
-        { element: <Menu />, jsx: "<Menu />" },
-        { element: <MenuAlt />, jsx: "<MenuAlt />" },
-    ];
-    
     return (
-        <PageBase title={<IconTitle/>}
-                  endtitle={<ThemeAuthEndtitle/>}
-                  header={<IconHeader/>}>
+        <PageBase>
 
-    <Headline>Иконки</Headline>
+            <Headline>ENVELOPE PAGE 2.0</Headline>
 
-    <Markdown>{`
-Библиотека компонентов (и не только) \`react-envelope\` предоставляет возможность использовать прямо в разметке иконки из файла \`/react-envelope/components/dummies/Icons.jsx\` следующим образом:
-`}</Markdown>
+            <p>Обновление добавляет ряд новых компонентов и способов взаимодействия с ними.
+                В первую очередь, оно полностью перерабытвает подход к написанию страниц.</p>
 
-<CodeBlock lang={'jsx'}>{
-`// Например, иконка Home
-import { Home } from '../../dummies/Icons'; // Примерное расположение
+            <h2>Основное применение</h2>
 
-// Ваш компонент
-export const MyComponent = ({ ... }) => {
-return (
-<Home/>
-);    
+            Классический способ создать новую страницу такого формата выглядит следующим образом.
+
+            <CodeBlock lang='jsx'>{`// Здесь "..." обозначает смотря где вы находитесь
+import { PageBase } from '.../base/PageBase/PageBase';
+
+export const MyPage = () => {
+    return (
+        <PageBase>
+            Ваш контент
+        </PageBase>
+    );
 }`}</CodeBlock>
 
-<Markdown>{`
-Результатом на экране будет это:
-`}</Markdown>
-    <Home/>
-    <Markdown>{`
-Вы также можете изменять размер иконки заготовленными классами:
-`}</Markdown>
+            <p>Таким образом, все что изменится от того, что вы сейчас видите - это контент страницы (та часть страницы где вы это читаете). Все остальное <u>по умолчанию</u> шаблонное.</p>
+    
+            <p>Полный перечень параметров, передываемых новой странице:</p>
 
-<CodeBlock lang={'css'}>{
-`<Home className='icon-s'/>`}</CodeBlock>
+            <CodeBlock lang='jsx'>{`export const PageBase = ({
+    title = <IconTitle/>,
+    header = <IconHeader/>,
+    endtitle = <ThemeAuthEndtitle/>,
+    footer, // дефолтный в процессе создания, а так можно вставить любой
+    navigation = <NavPanel/>,
+    less = false, // пока не используется, предназначен для дефолтного сворачивания боковых панелей
+    gap = '10px' // расстояние между каждым отдельным компонентом в контенте
+    children,
+}) => { ... }`}</CodeBlock>
 
-<Markdown>{`
-Доступные классы можно найти в \`/react-envelope/styles.css\`, вот некоторые из них:
-`}</Markdown>
+            <Markdown>{`
+Как вы могли заметить, некоторые поля имеют свои дефолтные значения. Что есть что?<br/>Формально эта страница поделена на 6 частей: 
+- В хедере:
+  - *title* - заголовок
+  - *header* - пространство после него 
+  - *endtitle* - конец хедера
+- Под хедером:
+  - *navigation* - панель с навигацией слева
+  - *children* - собственно контент страницы
+  - ~~*contents*~~ - список заголовков на странице для быстрого перехода (сейчас в разработке и будет автоматическим, его не нужно будет передавать в компонент страницы)
+            `}</Markdown>
 
-<CodeBlock lang={'css'}>{
-`<FlowPanel gap='10px'>
-<Home className='icon-s'/>
-<Home className='icon-m'/>
-<Home className='icon-l'/>
-<Home className='icon-g'/>
-<FlowPanel/>`}</CodeBlock>
+            <p>А теперь о том, какие компоненты использованы на странице по дефолту.</p>
 
-<FlowPanel gap='10px'>
-    <Home className='icon-s'/>
-    <Home className='icon-m'/>
-    <Home className='icon-l'/>
-    <Home className='icon-g'/>
-</FlowPanel>
-<Markdown>{`
-Ниже представлены все доступные иконки (можно добавлять свои по аналогии).
-Вы можете нажать на иконку для копирования разметки.
-`}</Markdown>
+            <h3>IconTitle</h3>
 
-<FlowPanel className={``}>
-    {icons.map((icon, id) => (
-        <CopyFrame key={id} src={icon.jsx}>{icon.element}</CopyFrame>
-    ))}
-</FlowPanel>
+            <CodeBlock lang='jsx'>{`export const IconTitle = ({
+    className,
+    text = 'ENVELOPE',
+    icon = <Pizza/>
+}) => { ... }`}</CodeBlock>
+
+            <h3>IconHeader</h3>
+
+            <p>Если явно не задан текст и иконка (оба сразу), будет использовано название и иконка текущей страницы (используется конфиг <i>useNavigation</i>, так что страница <b><u>должна</u></b> быть указана в конфиге в <i>Router</i>).</p>
+
+            <CodeBlock lang='jsx'>{`export const IconHeader = ({
+    className,
+    text,
+    icon
+}) => { ... }`}</CodeBlock>
+
+            <h3>ThemeAuthEndtitle</h3>
+
+            <p>Ничего особенного, просто панелька с темой, юзером и юзерсайдбаром из страницы прошлого поколения.</p>
+
+            <h3>NavPanel</h3>
+
+            <p>Собирает панель навигации из кнопок (по умолчанию <i>NavButton</i> - это композиция <i>NavLink</i> из `react-router-dom`) по конфигурации <i>useNavigation</i>.
+            В теории можно свободно писать свою навигацию на основе <i>NavPanel</i>, только учесть, что ваша кнопка должна иметь такие поля:</p>
+
+            <CodeBlock lang='jsx'>{`export const MyNavButton = ({
+    className, // класс, применяемый к кнопке
+    icon,      // иконка страницы
+    name,      // имя страницы
+    to         // адрес страницы
+}) => { ... }`}</CodeBlock>
+
+            <p>И тогда создание кастомной нав. панели:</p>
+
+            <CodeBlock lang='jsx'>{`<NavPanel button={MyNavButton}/>`}</CodeBlock>
+
+            <p>Или сразу в странице:</p>
+
+            <CodeBlock lang='jsx'>{`export const MyPage = () => {
+    return (
+        <PageBase navigation=<NavPanel button={MyNavButton}/>>
+            Ваш контент
+        </PageBase>
+    );
+}`}</CodeBlock>
+
         </PageBase>
     );
 };

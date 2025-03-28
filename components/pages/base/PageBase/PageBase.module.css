@@ -55,7 +55,7 @@
     border-left: 1px solid var(--border-color);
     pointer-events: all;
 
-    color: var(--border-color);
+    color: var(--panel-bk);
 
     padding: 20px;
 }

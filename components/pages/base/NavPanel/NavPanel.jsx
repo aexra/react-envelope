@@ -5,7 +5,8 @@ import css from './NavPanel.module.css';
 import { NavButton } from '../NavButton/NavButton';
 
 export const NavPanel = ({
-    className
+    className,
+    button = NavButton
 }) => {
     const { routes, navlinks } = useNavigation();
 
@@ -13,11 +14,11 @@ export const NavPanel = ({
     const [links, setLinks] = useState([]);
 
     useEffect(() => {
-        setLinks(navlinks(NavButton));
+        setLinks(navlinks(button));
     }, [routes]);
 
     useEffect(() => {
-        setLinks(navlinks(NavButton, routes.filter(r => r.name.toLowerCase().startsWith(query.toLowerCase()))));
+        setLinks(navlinks(button, routes.filter(r => r.name.toLowerCase().startsWith(query.toLowerCase()))));
     }, [query]);
 
     return (

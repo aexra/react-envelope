@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { NavPanel } from '../NavPanel/NavPanel';
 import css from './PageBase.module.css';
 import { Close, Menu, MenuAlt } from '../../../dummies/Icons';
+import { IconTitle } from '../IconTitle';
+import { ThemeAuthEndtitle } from '../ThemeAuthEndtitle';
+import { IconHeader } from '../IconHeader';
 
 export const PageBase = ({
-    title,
-    header,
-    endtitle,
+    title = <IconTitle/>,
+    header = <IconHeader/>,
+    endtitle = <ThemeAuthEndtitle/>,
     footer,
     navigation = <NavPanel/>,
     children,
@@ -48,6 +51,7 @@ export const PageBase = ({
                 <div className={`${css.fixer} ${css.l}`}></div>
                 <div className={`${css.content} flex col`} style={{gap: gap}}>
                     { children }
+                    { footer }
                 </div>
                 <div className={`${css.fixer} ${css.r}`}></div>
             </div>
