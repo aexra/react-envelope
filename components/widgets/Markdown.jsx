@@ -16,7 +16,7 @@ export const CodeBlock = memo(function CodeBlock({ className, children, lang, hi
     const { code } = useTheme();
 
     const { ref, inView } = useInView({
-        triggerOnce: false,
+        triggerOnce: true,
         rootMargin: '200px'
     });
     
