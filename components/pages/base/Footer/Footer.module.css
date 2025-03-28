@@ -3,7 +3,7 @@
 
     padding: 20px;
 
-    margin: 0 -30px;
+    margin: auto -30px 0 -30px;
 }
 
 .powered {
@@ -27,6 +27,6 @@
 
 @media (max-width: 960px) {
     .foo {
-        margin: 0 -20px;
+        margin: auto -20px 0 -20px;
     }
 }
