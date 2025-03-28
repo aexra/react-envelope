@@ -42,7 +42,7 @@ export const MyPage = () => {
     title = <IconTitle/>,
     header = <IconHeader/>,
     endtitle = <ThemeAuthEndtitle/>,
-    footer, // дефолтный в процессе создания, а так можно вставить любой
+    footer = <Footer/>,
     navigation = <NavPanel/>,
     less = false, // пока не используется, предназначен для дефолтного сворачивания боковых панелей
     gap = '10px' // расстояние между каждым отдельным компонентом в контенте
@@ -84,6 +84,17 @@ export const MyPage = () => {
             <h3>ThemeAuthEndtitle</h3>
 
             <p>Ничего особенного, просто панелька с темой, юзером и юзерсайдбаром из страницы прошлого поколения.</p>
+
+            <h3>Footer</h3>
+
+            <p>Отображает список определенных навлинков.</p>
+
+            <p><i>Footer</i> принимает следующие параметры:</p>
+
+            <CodeBlock lang='jsx'>{`export const Footer = ({
+    routes,                 // Руты интерфейса Route (как в useNavigation и Router)
+    navLink = FooterNavLink // Обертка NavLink как в навигации (см. ниже)
+}) => { ... }`}</CodeBlock>
 
             <h3>NavPanel</h3>
 
