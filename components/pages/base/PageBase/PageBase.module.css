@@ -66,7 +66,7 @@
     flex: 0 0 auto;
     width: var(--sidebar-width);
 
-    transition: all 0.4s ease-out;
+    transition: left 0.4s ease-out, right 0.4s ease-out;
 
     background-color: var(--bk-color);
 }
