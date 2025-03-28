@@ -1,3 +1,32 @@
 .foo {
-    
+    background-color: var(--body-bk-color);
+
+    padding: 20px;
+
+    margin: 0 -30px;
+}
+
+.powered {
+    color: var(--caption-font-color);
+    font-weight: bold;
+}
+
+.navlink {
+    text-decoration: none;
+    font-weight: bold;
+
+    color: var(--font-color);
+}
+.navlink:hover {
+    color: var(--accent-color);
+}
+
+.active {
+    color: var(--accent-color);
+}
+
+@media (max-width: 960px) {
+    .foo {
+        margin: 0 -20px;
+    }
 }
