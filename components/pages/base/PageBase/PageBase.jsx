@@ -7,6 +7,8 @@ import { ThemeAuthEndtitle } from '../ThemeAuthEndtitle';
 import { IconHeader } from '../IconHeader';
 import { Footer } from '../Footer/Footer';
 import { DimOverlay } from '../../../ui/misc/DimOverlay/DimOverlay';
+import { AutoTableOfContents } from '../AutoTableOfContents/AutoTableOfContents';
+import { useAutoHeadings } from '../../../../hooks/useAutoHeadings';
 
 export const PageBase = ({
     title = <IconTitle/>,
@@ -14,11 +16,13 @@ export const PageBase = ({
     endtitle = <ThemeAuthEndtitle/>,
     footer = <Footer/>,
     navigation = <NavPanel/>,
+    contents = <AutoTableOfContents/>,
     children,
     less = false,
     gap = '10px'
 }) => {
-    const [contents, setContents] = useState([]);
+    useAutoHeadings();
+
     const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
 
@@ -45,7 +49,7 @@ export const PageBase = ({
                     </div>
                     <div className={`${css.contents} ${contentsOpen && css.open} flex col top-left bb`}>
                         <span>Contents</span>
-                        <p>Здесь будет содержание страницы</p>
+                        {contents}
                     </div>
                 </div>
             </div>

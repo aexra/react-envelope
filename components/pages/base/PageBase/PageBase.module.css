@@ -8,6 +8,10 @@
     background-color: var(--bk-color);
 }
 
+:target {
+    scroll-margin-top: calc(var(--header-height) + 30px);
+}
+
 .overlay {
     height: 100%;
     width: 100%;
