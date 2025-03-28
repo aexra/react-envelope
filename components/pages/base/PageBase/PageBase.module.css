@@ -13,6 +13,8 @@
     width: 100%;
 
     pointer-events: none;
+
+    z-index: 501;
 }
 
 .overlay > .header {
@@ -55,7 +57,7 @@
     border-left: 1px solid var(--border-color);
     pointer-events: all;
 
-    color: var(--panel-bk);
+    color: var(--caption-font-color);
 
     padding: 20px;
 }
@@ -88,6 +90,8 @@
     height: 30px;
     
     transition: color 0.12s ease-in;
+
+    z-index: 502;
 }
 .menuButton:hover {
     color: var(--accent-color);

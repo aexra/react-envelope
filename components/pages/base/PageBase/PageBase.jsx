@@ -6,6 +6,7 @@ import { IconTitle } from '../IconTitle';
 import { ThemeAuthEndtitle } from '../ThemeAuthEndtitle';
 import { IconHeader } from '../IconHeader';
 import { Footer } from '../Footer/Footer';
+import { DimOverlay } from '../../../ui/misc/DimOverlay/DimOverlay';
 
 export const PageBase = ({
     title = <IconTitle/>,
@@ -62,6 +63,8 @@ export const PageBase = ({
             <div className={`${css.navMenuButton} ${css.menuButton} fixed pointer`} onClick={() => setMobileNavOpen(!navOpen)}>
                 {navOpen ? <Close style={{width: '20px', height: '20px'}}/> : <Menu/>}
             </div>
+            <DimOverlay active={navOpen} onClick={() => setMobileNavOpen(false)}/>
+            <DimOverlay active={contentsOpen}  onClick={() => setMobileContentsOpen(false)}/>
         </div>
     );
 };
