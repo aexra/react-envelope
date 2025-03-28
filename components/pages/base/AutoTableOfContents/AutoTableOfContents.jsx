@@ -20,17 +20,16 @@ export const AutoTableOfContents = () => {
 
     return (
         <nav className="toc">
-        <h2>Содержание</h2>
-        <ul>
-            {headings.map((heading) => (
-            <li 
-                key={heading.id} 
-                style={{ marginLeft: `${(heading.level - 1) * 15}px` }}
-            >
-                <a href={`#${heading.id}`}>{heading.text}</a>
-            </li>
-            ))}
-        </ul>
+            <ul>
+                {headings.map((heading) => (
+                <li 
+                    key={heading.id} 
+                    style={{ marginLeft: `${(heading.level - 1) * 15}px` }}
+                >
+                    <a href={`#${heading.id}`}>{heading.text}</a>
+                </li>
+                ))}
+            </ul>
         </nav>
     );
 };

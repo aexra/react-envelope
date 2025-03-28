@@ -15,7 +15,7 @@ export const IconHeader = ({
     return (
         <div className={`${className} ${css.header} flex row g10 center`}>
             <div className="icon-m">{_icon}</div>
-            <h3>{_text}</h3>
+            <span className={`h2`}>{_text}</span>
         </div>
     );
 };

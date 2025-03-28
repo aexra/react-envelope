@@ -112,7 +112,7 @@
 
 .navMenuButton {
     left: 10px;
-    top: 5px;
+    top: 15px;
 }
 .navMenuButton svg {
     width: 20px;
@@ -176,5 +176,9 @@
     }
     .overlay > .header > .title {
         display: none;
+    }
+
+    .navMenuButton {
+        top: 5px;
     }
 }
