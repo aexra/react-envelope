@@ -37,6 +37,7 @@ export const TextBox = ({
     min = 0
 }) => {
     const [_isFocused, _setIsFocused] = useState(false);
+    const [_hasBlurred, _setHasBlurred] = useState(false);
     const [_value, _setValue] = useState(defaultValue);
     const [_error, _setError] = useState(false);
     const [_visible, _setVisible] = useState(false);
@@ -46,6 +47,13 @@ export const TextBox = ({
     const [t, setT] = useState('');
 
     const formedLabelBackground = labelBackground ?? (labelType === 'inline' ? 'var(--body-bk-color)' : 'transparent');
+
+    const shouldShowError = _hasBlurred && (
+        value?.length < min || 
+        value?.length > limit || 
+        _value?.length < min || 
+        _value?.length > limit
+    );
 
     var regexp = undefined;
     if (regex) regexp = RegExp(regex);
@@ -69,6 +77,7 @@ export const TextBox = ({
     const handleFocus = useCallback((e) => {
         _setIsFocused(e);
         if (!e) {
+            _setHasBlurred(true);
             if (value) validate(value);
             else validate(_value);
         }
@@ -131,30 +140,15 @@ export const TextBox = ({
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
             {(limit || min || count) && <HBoxPanel gap={'5px'} className={css.counter} style={{background: formedLabelBackground}}>
                     <span style={{
-                        color: (!count && (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit))
-                        ? 'var(--error-color)'
-                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
-                        transition: 'all 0.2s ease',
-                        fontWeight: (!count && (value?.length > limit || _value?.length > limit)) ? 'bold' : 'normal'
-                    }}>
+                        color: shouldShowError 
+                            ? 'var(--error-color)' 
+                            : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)'
+                        }}>
                         {value?.length ?? _value.length}
                     </span>
 
-                    {limit && <span style={{
-                        color: (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit)
-                        ? 'var(--error-color)'
-                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
-                        transition: 'all 0.2s ease'
-                    }}>/</span>}
-
-                    {limit && <span style={{
-                        color: (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit)
-                        ? 'var(--error-color)'
-                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
-                        transition: 'all 0.2s ease'
-                    }}>
-                        {limit}
-                    </span>}
+                    {limit && <span style={{ color: shouldShowError ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)' }}>/</span>}
+                    {limit && <span style={{ color: shouldShowError ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)' }}>{limit}</span>}
                 </HBoxPanel>}
             {wrap ? 
             <textarea type={password && !_visible ? 'password' : "text"}
