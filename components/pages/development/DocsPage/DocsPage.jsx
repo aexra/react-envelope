@@ -44,6 +44,7 @@ export const MyPage = () => {
     endtitle = <ThemeAuthEndtitle/>,
     footer = <Footer/>,
     navigation = <NavPanel/>,
+    contents = <AutoTableOfContents/>,
     less = false, // пока не используется, предназначен для дефолтного сворачивания боковых панелей
     gap = '10px' // расстояние между каждым отдельным компонентом в контенте
     children,
