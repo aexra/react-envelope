@@ -17,10 +17,94 @@ export const DevExpPage = () => {
                 <Pivot.Keys>
                     <span>Марина</span>
                     <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
                 </Pivot.Keys>
                 <Pivot.Items>
                     <span>Антонова</span>
                     <span>Bebebe</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
+                    <span>Aboba</span>
                 </Pivot.Items>
             </Pivot>
         </PageBase>

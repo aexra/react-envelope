@@ -19,7 +19,7 @@ export const Pivot = ({
 
     return (
         <div className={`${css.pivot} flex col g5`}>
-            <div className={`${css.keys} flex row g5`}>
+            <div className={`${css.keys} flex row g5 x-scroll smaller-scroll-thumb`}>
                 {React.Children.map(keys, (key, index) => (
                     <button 
                         key={index}

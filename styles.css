@@ -525,11 +525,9 @@ h1.article {
 ::-webkit-scrollbar {
   width: 8px;
   height: 6px;
-
-  border-radius: 15px;
 }
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  background: var(--bk-color);
 }
 ::-webkit-scrollbar-thumb{
   /* border-radius: 10px; */
@@ -539,14 +537,19 @@ h1.article {
   background: rgba(0,0,0,0.4);
 }
 ::-webkit-scrollbar-thumb:active{
-  background: rgba(0,0,0,.9);
+  background: var(--bk-color);
 }
 
 *:hover::-webkit-scrollbar {
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--bk-color);
 }
 *:hover::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--accent-color);
+}
+
+.smaller-scroll-thumb::-webkit-scrollbar {
+  width: 2px !important;
+  height: 2px !important;
 }
 
 textarea {
