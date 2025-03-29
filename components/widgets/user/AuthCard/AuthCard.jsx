@@ -3,7 +3,7 @@ import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import css from './AuthCard.module.css';
 import { Pivot } from '../../../wrappers/Pivot/Pivot';
 import { TextBox } from '../../../ui/input/text/TextBox/TextBox';
-import { Email } from '../../../dummies/Icons';
+import { Email, User } from '../../../dummies/Icons';
 import ExButton from '../../../ui/buttons/ExButton/ExButton';
 import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 
@@ -63,21 +63,21 @@ const RegisterForm = ({ onRegister }) => {
             <TextBox borderType={'fullr'}
                      label={'Имя'}
                      placeholder={'Введите имя'}
-                     icon={<Email/>}
+                     icon={<User/>}
                      regex={/./}
                      value={fn}
                      onChange={setFN}/>
             <TextBox borderType={'fullr'}
                      label={'Фамилия'}
                      placeholder={'Введите фамилию'}
-                     icon={<Email/>}
+                     icon={<User/>}
                      regex={/./}
                      value={ln}
                      onChange={setLN}/>
             <TextBox borderType={'fullr'}
                      label={'Отчество'}
                      placeholder={'Введите отчество'}
-                     icon={<Email/>}
+                     icon={<User/>}
                      value={mn}
                      onChange={setMN}/>
             <TextBox borderType={'fullr'}

@@ -3,8 +3,6 @@
 
     padding: 10px;
 
-    transition: all var(--transition-duration) ease;
-
     --border: 1px solid var(--disabled-accent-color);
     --shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     
@@ -24,6 +22,7 @@
     transform: scale(1.3);
 }
 .container.focused {
+    transition: all var(--transition-duration) ease;
     --border: 1px solid var(--accent-color);
     --shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
@@ -32,10 +31,12 @@
 }
 .container.focused .label,
 .container.focused svg {
+    transition: all var(--transition-duration) ease;
     color: var(--accent-color);
 }
 .container.error .label,
 .container.error svg {
+    transition: all var(--transition-duration) ease;
     color: var(--error-color);
 }
 
