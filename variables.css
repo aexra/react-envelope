@@ -34,6 +34,9 @@ body {
     --h1-font-size: 24px;
     --h2-font-size: 18px;
 
+    --body-font-size: 16px;
+    --caption-font-size: 12px;
+
     /* SHITCODE */
 
     --accent-background-color: #77c0c6;

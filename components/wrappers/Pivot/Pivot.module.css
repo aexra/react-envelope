@@ -1,0 +1,21 @@
+.pivot {
+    border-radius: 5px;
+}
+
+.key {
+    border: 0;
+    color: var(--font-color);
+    font-size: var(--body-font-size);
+
+    font-family: inherit;
+
+    padding: 5px 10px;
+
+    border-radius: 5px 5px 0 0;
+
+    border-bottom: 1px solid transparent;
+}
+
+.selected {
+    border-bottom: 1px solid var(--accent-color);
+}
