@@ -101,7 +101,7 @@ export const AuthCard = ({
 }) => {
     return (
         <VBoxPanel className={`${css.card} ${className} bb`} gap={'30px'} halign='center'>
-            <h2 style={{margin: '0'}}>ENVELOPE</h2>
+            <span style={{margin: '0', fontSize: 'var(--h1-font-size)', fontWeight: 'bold'}}>ENVELOPE</span>
             <Pivot keysProps={{className: 'flex row g20'}} contentProps={{style: {
                 margin: '30px 0 0 0',
                 alignSelf: 'stretch'
