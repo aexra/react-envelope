@@ -534,10 +534,10 @@ h1.article {
   background: rgba(0,0,0,0);
 }
 ::-webkit-scrollbar-thumb:hover{
-  background: rgba(0,0,0,0.4);
+  background: var(--accent-color-hover);
 }
 ::-webkit-scrollbar-thumb:active{
-  background: var(--bk-color);
+  background: var(--accent-color-active);
 }
 
 *:hover::-webkit-scrollbar {
