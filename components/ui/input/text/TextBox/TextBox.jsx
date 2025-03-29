@@ -56,7 +56,6 @@ export const TextBox = ({
     const handleChange = useCallback((e) => {
         let processedValue = e.target.value;
     
-        // Применяем strictLimit если нужно
         if (strictLimit && limit && processedValue.length > limit) {
             processedValue = processedValue.slice(0, limit);
         }

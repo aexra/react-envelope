@@ -3,6 +3,8 @@ import css from './Pivot.module.css';
 
 export const Pivot = ({
     className,
+    keysProps,
+    contentProps,
     children
 }) => {
     const [selected, select] = useState(0);
@@ -18,8 +20,8 @@ export const Pivot = ({
     const items = itemsElement?.props.children || [];
 
     return (
-        <div className={`${css.pivot} flex col g5`}>
-            <div className={`${css.keys} flex row g5 x-scroll smaller-scroll-thumb`}>
+        <div className={`${css.pivot} ${className} flex col g5`}>
+            <div className={`${css.keys} flex row g5 x-scroll smaller-scroll-thumb`} {...keysProps}>
                 {React.Children.map(keys, (key, index) => (
                     <button 
                         key={index}
@@ -30,7 +32,7 @@ export const Pivot = ({
                     </button>
                 ))}
             </div>
-            <div className={`${css.content}`}>
+            <div className={`${css.content}`} {...contentProps}>
                 {items[selected]}
             </div>
         </div>

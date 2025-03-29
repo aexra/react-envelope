@@ -2,11 +2,15 @@
     --card-width: 400px;
     --card-height: 500px;
 
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: var(--body-bk-color);
 
     max-width: var(--card-width);
     max-height: var(--card-height);
 
     width: 100%;
-    height: 100%;
+    height: auto;
+
+    border-radius: 10px;
+
+    padding: 40px 60px;
 }
