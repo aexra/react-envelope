@@ -49,7 +49,8 @@ export const MyPage = () => {
     footer = <Footer/>,
     navigation = <NavPanel/>,
     contents = <AutoTableOfContents/>,
-    less = false, // пока не используется, предназначен для дефолтного сворачивания боковых панелей
+    less = false, // предназначен для сворачивания боковых панелей сразу
+    fullSize = false, // если установлен less, этот параметр раздует боди на всю ширину экрана
     gap = '10px' // расстояние между каждым отдельным компонентом в контенте
     children,
 }) => { ... }`}</CodeBlock>
