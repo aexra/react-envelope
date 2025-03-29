@@ -67,6 +67,7 @@ export const PageBase = ({
             </div>
             <DimOverlay active={navOpen} onClick={() => setMobileNavOpen(false)}/>
             <DimOverlay active={contentsOpen}  onClick={() => setMobileContentsOpen(false)}/>
+            {/* <span>Powered by <a href="https://github.com/aexra">aexra</a></span> */}
         </div>
     );
 };
