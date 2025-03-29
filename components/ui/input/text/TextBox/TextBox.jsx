@@ -130,14 +130,32 @@ export const TextBox = ({
         <div className={`${css.container} ${className} ${bt} ${t} ${bh} ${_error && css.error} ${_isFocused && css.focused} ${borderless && css.borderless} ${shadowless && css.shadowless} flex row g5`} ref={ref}>
             {label && <span className={`${css.label} ${lt} r5`} style={{background: formedLabelBackground}} {...labelProps}>{label}</span>}
             {(limit || min || count) && <HBoxPanel gap={'5px'} className={css.counter} style={{background: formedLabelBackground}}>
-                <span style={{
-                    color: !count && (value && (value.length > limit || value.length < min) || _value && (_value.length > limit || _value.length < min)) ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
-                    transition: 'all 0.2s ease',
-                    fontWeight: !count && (value && value.length > limit || _value && _value.length > limit) ? 'bold' : 'normal'
-                }}>{value?.length ?? _value.length}</span>
-                {limit && <span style={{color: _isFocused ? (value && (value.length > limit || value.length < min) || _value && (_value.length > limit || _value.length < min)) ? 'var(--error-color)' : 'var(--accent-color)' : 'var(--disabled-accent-color)', transition: 'all 0.2s ease'}}>/</span>}
-                {limit && <span style={{color: _isFocused ? (value && (value.length > limit || value.length < min) || _value && (_value.length > limit || _value.length < min)) ? 'var(--error-color)' : 'var(--accent-color)' : 'var(--disabled-accent-color)', transition: 'all 0.2s ease'}}>{limit}</span>}
-            </HBoxPanel>}
+                    <span style={{
+                        color: (!count && (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit))
+                        ? 'var(--error-color)'
+                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
+                        transition: 'all 0.2s ease',
+                        fontWeight: (!count && (value?.length > limit || _value?.length > limit)) ? 'bold' : 'normal'
+                    }}>
+                        {value?.length ?? _value.length}
+                    </span>
+
+                    {limit && <span style={{
+                        color: (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit)
+                        ? 'var(--error-color)'
+                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
+                        transition: 'all 0.2s ease'
+                    }}>/</span>}
+
+                    {limit && <span style={{
+                        color: (value?.length < min || value?.length > limit || _value?.length < min || _value?.length > limit)
+                        ? 'var(--error-color)'
+                        : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)',
+                        transition: 'all 0.2s ease'
+                    }}>
+                        {limit}
+                    </span>}
+                </HBoxPanel>}
             {wrap ? 
             <textarea type={password && !_visible ? 'password' : "text"}
                       value={value ?? _value}
