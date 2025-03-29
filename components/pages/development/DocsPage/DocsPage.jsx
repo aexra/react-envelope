@@ -4,6 +4,7 @@ import { Headline } from '../../../ui/labels/Headline/Headline';
 import { CopyFrame } from '../../../widgets/CopyFrame/CopyFrame';
 import { CodeBlock, Markdown } from '../../../widgets/Markdown';
 import { UserGeneralPanel } from '../../../widgets/user/UserGeneralPanel/UserGeneralPanel';
+import { Footer } from '../../base/Footer/Footer';
 import { IconHeader } from '../../base/IconHeader';
 import { IconTitle } from '../../base/IconTitle';
 import { PageBase } from '../../base/PageBase/PageBase';
@@ -12,7 +13,10 @@ import css from './DocsPage.module.css';
 
 export const DocsPage = () => {
     return (
-        <PageBase>
+        <PageBase footer={<Footer routes={[{
+            name: 'OLD ENVELOPE DOCS',
+            to: '/_lab/old'
+        }]}/>}>
 
             <Headline>ENVELOPE PAGE 2.0</Headline>
 

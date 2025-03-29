@@ -1,22 +1,11 @@
 import { useEffect, useState } from 'react';
 import css from './Footer.module.css';
 import { useNavigation } from '../../../../hooks/useNavigation';
-import { NavLink } from 'react-router-dom';
-
-const FooterNavLink = ({
-    name,
-    to
-}) => {
-    return (
-        <NavLink to={to} className={({ isActive, isPending }) => `
-            ${isPending ? '' : isActive ? css.active : ''} ${css.navlink}
-            `}>{name}</NavLink>
-    );
-};
+import { SimpleNavLink } from '../SimpleNavLink';
 
 export const Footer = ({
     routes,
-    navLink = FooterNavLink
+    navLink = SimpleNavLink
 }) => {
     const [links, setLinks] = useState([]);
     const { navlinks } = useNavigation();
