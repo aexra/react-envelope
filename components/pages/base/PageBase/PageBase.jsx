@@ -19,13 +19,14 @@ export const PageBase = ({
     contents = <AutoTableOfContents/>,
     children,
     less = false,
+    fullSize = false,
     gap = '10px'
 }) => {
     const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
 
     return (
-        <div className={`${css.page} flex col top-center`}>
+        <div className={`${css.page} ${less && css.less} ${less && fullSize && css.max} flex col top-center`}>
             <div className={`${css.overlay} flex col fixed`}>
                 <div className={`${css.header} flex row center-left`}>
                     <div className={`${css.title}`}>

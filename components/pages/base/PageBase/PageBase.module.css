@@ -8,6 +8,10 @@
     background-color: var(--bk-color);
 }
 
+.page.max {
+    --body-width: 100vw;
+}
+
 :target {
     scroll-margin-top: calc(var(--header-height) + 30px);
 }
@@ -121,6 +125,31 @@
 
 .open {
     --sidebar-width: 285px;
+}
+
+.less .overlay > .content > .contents,
+.less .contentWrapper > .fixer.r {
+    position: fixed;
+    height: calc(100% - var(--header-height));
+    border-bottom: 2px solid var(--accent-color);
+    left: calc(100% + var(--sidebar-width));
+}
+.less .overlay > .content > .nav,
+.less .contentWrapper > .fixer.l {
+    position: fixed;
+    height: calc(100% - var(--header-height));
+    border-bottom: 2px solid var(--accent-color);
+    right: calc(100% + var(--sidebar-width));
+}
+.less .contentsMenuButton,
+.less .navMenuButton {
+    display: flex;
+}
+.less .overlay > .content > .contents.open {
+    left: calc(100% - var(--sidebar-width));
+}
+.less .overlay > .content > .nav.open {
+    right: calc(100% - var(--sidebar-width));
 }
 
 @media (max-width: 1550px) {
