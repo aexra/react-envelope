@@ -16,7 +16,7 @@ export const DocsPage = () => {
         <PageBase footer={<Footer routes={[{
             name: 'OLD ENVELOPE DOCS',
             to: '/_lab/old'
-        }]}/>} less>
+        }]}/>}>
 
             <Headline>ENVELOPE PAGE 2.0</Headline>
 
