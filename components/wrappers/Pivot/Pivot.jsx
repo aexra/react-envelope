@@ -25,7 +25,7 @@ export const Pivot = ({
                 {React.Children.map(keys, (key, index) => (
                     <button 
                         key={index}
-                        className={`${css.key} textbutton pointer ${index == selected && css.selected}`}
+                        className={`${css.key} pointer ${index == selected && css.selected}`}
                         onClick={() => select(index)}
                     >
                         {key}
