@@ -1,0 +1,17 @@
+.switch {
+    background-color: var(--body-bk-color);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.item {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.item:hover {
+    background-color: var(--highlight-light);
+}
+
+.item.selected {
+    background-color: var(--accent-color);
+}
