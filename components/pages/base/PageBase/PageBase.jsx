@@ -8,7 +8,6 @@ import { IconHeader } from '../IconHeader';
 import { Footer } from '../Footer/Footer';
 import { DimOverlay } from '../../../ui/misc/DimOverlay/DimOverlay';
 import { AutoTableOfContents } from '../AutoTableOfContents/AutoTableOfContents';
-import { useAutoHeadings } from '../../../../hooks/useAutoHeadings';
 
 export const PageBase = ({
     title = <IconTitle/>,
@@ -20,7 +19,8 @@ export const PageBase = ({
     children,
     less = false,
     fullSize = false,
-    gap = '10px'
+    gap = '10px',
+    contentProps
 }) => {
     const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
@@ -54,7 +54,7 @@ export const PageBase = ({
             </div>
             <div className={`${css.contentWrapper} flex row flex-1`}>
                 <div className={`${css.fixer} ${css.l}`}></div>
-                <div className={`${css.content} flex col`} style={{gap: gap}}>
+                <div className={`${css.content} flex col`} style={{gap: gap}} {...contentProps}>
                     { children }
                     { footer }
                 </div>

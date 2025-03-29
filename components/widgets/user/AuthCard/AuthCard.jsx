@@ -97,10 +97,11 @@ const RegisterForm = ({ onRegister }) => {
 export const AuthCard = ({
     className,
     onLogin,
-    onRegister
+    onRegister,
+    ...props
 }) => {
     return (
-        <VBoxPanel className={`${css.card} ${className} bb`} gap={'30px'} halign='center'>
+        <VBoxPanel className={`${css.card} ${className} bb`} gap={'30px'} halign='center' {...props}>
             <span style={{margin: '0', fontSize: 'var(--h1-font-size)', fontWeight: 'bold'}}>ENVELOPE</span>
             <Pivot keysProps={{className: 'flex row g20'}} contentProps={{style: {
                 margin: '30px 0 0 0',

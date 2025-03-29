@@ -27,7 +27,7 @@ export const SelfUserConfItem = ({
                         onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
                         color='#fff'/>
             </div> :
-            <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/login')}>Войти</ExButton>}
+            <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth')}>Войти</ExButton>}
             <ProfileSidebar active={isProfileSidebarShown}
                             onMinimized={() => setProfileSidebarVisibility(false)}/>
         </>
