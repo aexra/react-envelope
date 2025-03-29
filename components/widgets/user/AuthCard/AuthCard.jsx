@@ -39,7 +39,57 @@ const LoginForm = ({ onLogin }) => {
                 />
                 <label htmlFor="saveAccount">Сохранить аккаунт?</label>
             </HBoxPanel>
-            <ExButton className={'accent-button'} onClick={() => onLogin(email, password, save)}>SIGN IN</ExButton>
+            <ExButton className={'accent-button'} onClick={() => onLogin({email, password, save})}>ВОЙТИ</ExButton>
+        </VBoxPanel>
+    );
+};
+
+const RegisterForm = ({ onRegister }) => {
+    const [email, setEmail] = useState('');
+    const [fn, setFN] = useState('');
+    const [ln, setLN] = useState('');
+    const [mn, setMN] = useState('');
+    const [password, setPassword] = useState('');
+    
+    return (
+        <VBoxPanel gap={'20px'}>
+            <TextBox borderType={'fullr'}
+                     label={'E-mail'}
+                     placeholder={'Введите почту'}
+                     icon={<Email/>}
+                     regex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
+                     value={email}
+                     onChange={setEmail}/>
+            <TextBox borderType={'fullr'}
+                     label={'Имя'}
+                     placeholder={'Введите имя'}
+                     icon={<Email/>}
+                     regex={/./}
+                     value={fn}
+                     onChange={setFN}/>
+            <TextBox borderType={'fullr'}
+                     label={'Фамилия'}
+                     placeholder={'Введите фамилию'}
+                     icon={<Email/>}
+                     regex={/./}
+                     value={ln}
+                     onChange={setLN}/>
+            <TextBox borderType={'fullr'}
+                     label={'Отчество'}
+                     placeholder={'Введите отчество'}
+                     icon={<Email/>}
+                     value={mn}
+                     onChange={setMN}/>
+            <TextBox borderType={'fullr'}
+                     label={'Пароль'}
+                     placeholder={'Введите пароль'}
+                     password
+                     regex={/^.{6,}$/}
+                     limit={'16'}
+                     strictLimit
+                     value={password}
+                     onChange={setPassword}/>
+            <ExButton className={'accent-button'} onClick={() => onRegister({email, fn, ln, mn, password})}>ЗАРЕГИСТРИРОВАТЬСЯ</ExButton>
         </VBoxPanel>
     );
 };
@@ -49,12 +99,6 @@ export const AuthCard = ({
     onLogin,
     onRegister
 }) => {
-    const [isLoginForm, setIsLoginForm] = useState();
-    
-    const handleLogin = (email, password, save) => {
-        console.log(email, password, save);
-    };
-
     return (
         <VBoxPanel className={`${css.card} ${className} bb`} gap={'30px'} halign='center'>
             <h2 style={{margin: '0'}}>ENVELOPE</h2>
@@ -67,10 +111,8 @@ export const AuthCard = ({
                     <span>РЕГИСТРАЦИЯ</span>
                 </Pivot.Keys>
                 <Pivot.Items>
-                    <LoginForm onLogin={handleLogin}/>
-                    <VBoxPanel gap={'20px'}>
-
-                    </VBoxPanel>
+                    <LoginForm onLogin={onLogin}/>
+                    <RegisterForm onRegister={onRegister}/>
                 </Pivot.Items>
             </Pivot>
         </VBoxPanel>
