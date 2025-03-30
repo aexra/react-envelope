@@ -3,6 +3,7 @@ import { User } from "../../interfaces/User";
 import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
 import { Auth } from "../../interfaces/Auth";
 import { me } from "../../api/user";
+import { getavatar } from "../../api/image";
 
 interface IAuthContext {
   user: User | null;
@@ -34,6 +35,19 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
       
         if (mr.data) {
           setUser(mr.data);
+        }
+
+        if (mr.data.avatarId) {
+          try {
+            const ar = await getavatar(mr.data.avatarId);
+
+            if (ar.data) {
+              setUser({
+                ...mr.data,
+                avatar: ar.data
+              })
+            }
+          } catch {}
         }
       } catch (er) {
         removeItem('auth')

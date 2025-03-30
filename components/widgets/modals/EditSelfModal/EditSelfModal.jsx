@@ -5,7 +5,7 @@ import { Modal } from '../../../wrappers/Modal/Modal';
 import { IconFilePicker } from '../../../ui/input/IconFilePicker/IconFilePicker';
 import css from './EditSelfModal.module.css';
 import { useEffect, useRef, useState } from 'react';
-import { update } from '../../../../../api/user';
+import { updateself, updateavatarself } from '../../../../../api/user';
 import { useAuth } from '../../../../hooks/useAuth';
 import { User } from '../../../dummies/Icons';
 import toast from 'react-hot-toast';
@@ -21,6 +21,7 @@ export const EditSelfModal = ({
     const [lnValue, setlnValue] = useState();
     const [fnValue, setfnValue] = useState();
     const [mnValue, setmnValue] = useState();
+    const [icon, setIcon] = useState();
 
     const [vs1, setvs1] = useState(true);
     const [vs2, setvs2] = useState(true);
@@ -29,11 +30,14 @@ export const EditSelfModal = ({
     const handleUpdate = async () => {
         try {
             if (vs1 && vs2 && vs3) {
-                await update(user.id, {
+                await updateself(auth, {
+                    ...user,
                     lastname: lnValue,
                     firstname: fnValue,
                     middlename: mnValue
                 });
+
+                await updateavatarself(icon);
 
                 onCloseRequested();
                 
@@ -47,6 +51,10 @@ export const EditSelfModal = ({
             toast.error(`Ошибка сети`);
             console.log(ex);
         }
+    };
+
+    const handleIconPicked = (file) => {
+        setIcon(file);
     };
 
     const setDefault = () => {
@@ -74,7 +82,7 @@ export const EditSelfModal = ({
                 <HBoxPanel gap='10px'
                             halign='center'
                             valign='stretch'>
-                    <IconFilePicker className={css.iconPicker}/>
+                    <IconFilePicker className={css.iconPicker} onFilePicked={handleIconPicked}/>
                 </HBoxPanel>
                 <VBoxPanel gap='15px'
                            padding='10px'
