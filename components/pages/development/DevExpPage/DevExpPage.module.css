@@ -1,0 +1,19 @@
+.slide {
+    opacity: 0.5;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.s1 {
+    background-color: red;   
+}
+.s2 {
+    background-color: green;   
+}
+.s3 {
+    background-color: blue;   
+}
+.s4 {
+    background-color: yellowgreen;   
+}
