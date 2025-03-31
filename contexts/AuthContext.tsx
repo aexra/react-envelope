@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const mr = await me();
+        const mr = await me(); console.log(mr.data.avatarId);
       
         if (mr.data) {
           setUser(mr.data);

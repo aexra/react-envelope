@@ -37,6 +37,8 @@ export const EditSelfModal = ({
                     middlename: mnValue
                 });
 
+                console.log(icon);
+
                 if (icon) await updateavatarself(icon);
 
                 onCloseRequested();
