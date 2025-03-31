@@ -40,7 +40,11 @@ const LoginForm = ({ onLogin }) => {
                 />
                 <label htmlFor="saveAccount">Сохранить аккаунт?</label>
             </HBoxPanel>
-            <ExButton className={'accent-button'} onClick={() => onLogin({email, password, save})}>ВОЙТИ</ExButton>
+            <ExButton className={'accent-button'} onClick={() => onLogin({
+                login: email,
+                password: password, 
+                save: save
+            })}>ВОЙТИ</ExButton>
         </VBoxPanel>
     );
 };
@@ -91,7 +95,13 @@ const RegisterForm = ({ onRegister }) => {
                      strictLimit
                      value={password}
                      onChange={setPassword}/>
-            <ExButton className={'accent-button'} onClick={() => onRegister({email, fn, ln, mn, password})}>ЗАРЕГИСТРИРОВАТЬСЯ</ExButton>
+            <ExButton className={'accent-button'} onClick={() => onRegister({
+                login: email, 
+                firstname: fn, 
+                lastname: ln, 
+                middlename: mn, 
+                password: password
+            })}>ЗАРЕГИСТРИРОВАТЬСЯ</ExButton>
         </VBoxPanel>
     );
 };
@@ -100,6 +110,8 @@ export const AuthCard = ({
     className,
     onLogin,
     onRegister,
+    selectedFrame,
+    onSelect,
     ...props
 }) => {
     return (
@@ -108,7 +120,9 @@ export const AuthCard = ({
             <Pivot keysProps={{className: 'flex row g20'}} contentProps={{style: {
                 margin: '30px 0 0 0',
                 alignSelf: 'stretch'
-            }}} className={'center stretch-self'}>
+            }}} className={'center stretch-self'}
+                value={selectedFrame}
+                onChange={onSelect}>
                 <Pivot.Keys>
                     <span>ВХОД</span>
                     <span>РЕГИСТРАЦИЯ</span>

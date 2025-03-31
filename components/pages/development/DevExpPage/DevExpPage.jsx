@@ -7,28 +7,29 @@ import { Home, Package, Pizza, User } from '../../../dummies/Icons';
 
 export const DevExpPage = () => {
     const handleClick = async () => {
-        // const lr = await login();
-        const rr = await register({
-            login: 'defdXs@yandex.ru',
-            password: 'abobabebebe'
-        }, {
-            firstname: 'Никита',
-            lastname: 'Фомин',
-            middlename: 'Алексеевич'
-        });
+        // const lr = await login("defdXs@yandex.ru", "abobabebebe");
+        // console.log(lr);
 
-        console.log(rr);
+        // const rr = await register({
+        //     login: 'defdXs@yandex.ru',
+        //     password: 'abobabebebe'
+        // }, {
+        //     firstname: 'Никита',
+        //     lastname: 'Фомин',
+        //     middlename: 'Алексеевич'
+        // });
+        // console.log(rr);
     };
     
     return (
         <PageBase>
-            {/* <ExButton onClick={handleClick} className={'accent-button'}>Test me</ExButton> */}
-            <LargeSlider loopMode='reverse' loop>
+            <ExButton onClick={handleClick} className={'accent-button'}>Test me</ExButton>
+            {/* <LargeSlider loopMode='reverse' loop>
                 <div className={`${css.slide} ${css.s1}`}></div>
                 <div className={`${css.slide} ${css.s2}`}></div>
                 <div className={`${css.slide} ${css.s3}`}></div>
                 <div className={`${css.slide} ${css.s4}`}></div>
-            </LargeSlider>
+            </LargeSlider> */}
         </PageBase>
     );
 };

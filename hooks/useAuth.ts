@@ -10,7 +10,7 @@ export const useAuth = () => {
     const { auth: _auth, user: _user, isLoading, setAuth, setUser, remove } = useUser();
     const { accounts, addAccount, removeAccount } = useAccounts();
 
-    const register = async (auth: { login: string, password: string }, user: User, savePreviousAccount: boolean) => {
+    const register = async (auth: { login: string, password: string }, user: User) => {
         const response = await _register(auth, user);
         return response;
     };

@@ -5,7 +5,7 @@ import HBoxPanel from "../../layouts/HBoxPanel/HBoxPanel";
 import ExButton from "../../ui/buttons/ExButton/ExButton";
 import { ProfileSidebar } from "../../widgets/ProfileSidebar/ProfileSidebar";
 import css from './base.module.css';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const SelfUserConfItem = ({
     className
@@ -13,6 +13,7 @@ export const SelfUserConfItem = ({
     const { auth, user } = useAuth();
     const [isProfileSidebarShown, setProfileSidebarVisibility] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <>
@@ -27,7 +28,7 @@ export const SelfUserConfItem = ({
                         onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
                         color='#fff'/>
             </div> :
-            <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth')}>Войти</ExButton>}
+            <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth', { state: { from: location.pathname } })}>Войти</ExButton>}
             <ProfileSidebar active={isProfileSidebarShown}
                             onMinimized={() => setProfileSidebarVisibility(false)}/>
         </>
