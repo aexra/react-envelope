@@ -17,12 +17,12 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
 
     const handleLogout = () => {
         logout(true);
-        navigate('/login');
+        navigate('/user/auth');
     };
     
     const handleAccountSwitch = (e) => {
         if (e === accounts.length) {
-            navigate('/login');
+            navigate('/user/auth');
         } else if (e < accounts.length) {
             switchAuth(accounts.filter(a => a.login !== auth?.login)[e]);
         }
