@@ -7,7 +7,7 @@
     outline: 0;
     border: 0;
 
-    height: 20px;
+    min-height: 20px;
     width: 260px;
 
     color: var(--font-color);
@@ -23,6 +23,7 @@
 
 .btn svg {
     width: 16px;
+    height: 16px;
 }
 
 .title {
