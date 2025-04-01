@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export const useAutoHeadings = () => {
-    useEffect(() => {
+    const refresh = () => {
         const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
         
         headings.forEach(heading => {
@@ -12,5 +12,7 @@ export const useAutoHeadings = () => {
                 .replace(/^-+|-+$/g, '');
             }
         });
-    }, []);
+    };
+
+    return { refresh };
 };

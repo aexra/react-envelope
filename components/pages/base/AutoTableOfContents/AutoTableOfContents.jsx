@@ -7,9 +7,11 @@ import { ExpandMore } from '../../../dummies/Icons';
 export const AutoTableOfContents = ({
     scrollToTopButtonVisibilityConditionPercent = 20
 }) => {
-    useAutoHeadings();
+    const { refresh } = useAutoHeadings();
     const [headings, setHeadings] = useState([]);
     const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+
+    refresh();
 
     const handleScroll = () => {
         const scrollPosition = window.scrollY || document.documentElement.scrollTop;
