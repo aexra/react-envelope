@@ -20,7 +20,8 @@ export const PageBase = ({
     less = false,
     fullSize = false,
     gap = '10px',
-    contentProps
+    contentProps,
+    contentClassName,
 }) => {
     const [navOpen, setMobileNavOpen] = useState(false);
     const [contentsOpen, setMobileContentsOpen] = useState(false);
@@ -54,7 +55,7 @@ export const PageBase = ({
             </div>
             <div className={`${css.contentWrapper} flex row flex-1`}>
                 <div className={`${css.fixer} ${css.l}`}></div>
-                <div className={`${css.content} flex col`} style={{gap: gap}} {...contentProps}>
+                <div className={`${css.content} ${contentClassName} flex col`} style={{gap: gap}} {...contentProps}>
                     { children }
                     { footer }
                 </div>
