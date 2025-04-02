@@ -52,6 +52,9 @@ a:active {
 accent {
   color: var(--accent-color);
 }
+.accent {
+  color: var(--accent-color);
+}
 
 .colorbutton {
   color: var(--colorbutton-color) !important;
