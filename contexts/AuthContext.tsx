@@ -6,81 +6,68 @@ import { me } from "../../api/user";
 import { getavatar } from "../../api/image";
 
 interface IAuthContext {
-  user: User | null;
-  auth: Auth | null;
-  isLoading: boolean;
-  setUser: (user: User | null) => void;
-  setAuth: (auth: Auth | null) => void;
+    user: User | null;
+    auth: Auth | null;
+    isLoading: boolean;
+    setUser: (user: User | null) => void;
+    setAuth: (auth: Auth | null) => void;
 }
 
 export const AuthContext = createContext<IAuthContext>({
-  user: null,
-  auth: null,
-  isLoading: true,
-  setUser: () => {},
-  setAuth: () => {},
+    user: null,
+    auth: null,
+    isLoading: true,
+    setUser: () => { },
+    setAuth: () => { },
 });
 
-export const AuthProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [auth, setAuth] = useState<Auth | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [user, setUser] = useState<User | null>(null);
+    const [auth, setAuth] = useState<Auth | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const { getItem, removeItem } = useObjectLocalStorage();
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const mr = await me();
-      
-        if (mr.data) {
-          setUser(mr.data);
-        }
+    const { getItem, removeItem } = useObjectLocalStorage();
 
-        if (mr.data.avatarId) {
-          try {
-            const ar = await getavatar(mr.data.avatarId);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const mr = await me();
 
-            if (ar.data) {
-              setUser({
-                ...mr.data,
-                avatar: ar.data
-              })
+                if (mr.data) {
+                    setUser(mr.data);
+                }
+            } catch (er) {
+                removeItem('auth')
+                setAuth(null);
+                setUser(null);
             }
-          } catch {}
+        };
+
+        const auth = getItem("auth");
+
+        if (auth) {
+            setAuth(auth);
+            fetchData();
         }
-      } catch (er) {
-        removeItem('auth')
-        setAuth(null);
-        setUser(null);
-      }
-    };
+    }, []);
 
-    const auth = getItem("auth");
+    useEffect(() => {
+        if (auth && user) {
+            setIsLoading(false);
+        } else {
+            setIsLoading(true);
+        }
+    }, [auth, user]);
 
-    if (auth) {
-      setAuth(auth);
-      fetchData();
-    }
-  }, []);
-
-  useEffect(() => {
-    if (auth && user) {
-      setIsLoading(false);
-    } else {
-      setIsLoading(true);
-    }
-  }, [auth, user]);
-
-  return (
-    <AuthContext.Provider value={{
-      user,
-      auth,
-      isLoading,
-      setUser,
-      setAuth
-    }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={{
+            user,
+            auth,
+            isLoading,
+            setUser,
+            setAuth
+        }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };

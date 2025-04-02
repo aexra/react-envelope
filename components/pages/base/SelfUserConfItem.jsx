@@ -6,6 +6,7 @@ import ExButton from "../../ui/buttons/ExButton/ExButton";
 import { ProfileSidebar } from "../../widgets/ProfileSidebar/ProfileSidebar";
 import css from './base.module.css';
 import { useLocation, useNavigate } from "react-router-dom";
+import { Avatar } from "./Avatar";
 
 export const SelfUserConfItem = ({
     className
@@ -17,20 +18,22 @@ export const SelfUserConfItem = ({
 
     return (
         <>
-            {user ? 
-            <div className={`flex row center g20 ${className}`}>
-                <HBoxPanel gap={'5px'} valign="center" className={`${css.h960}`}>
-                    <span>{user?.lastname}</span>
-                    <span>{user?.firstname}</span>
-                    {user?.middlename && <span>{user?.middlename}</span>}
-                </HBoxPanel>
-                <User className={`icon-m pointer ${css.userIcon}`}
-                        onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
-                        color='#fff'/>
-            </div> :
-            <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth', { state: { from: location.pathname } })}>Войти</ExButton>}
+            {user ?
+                <div className={`flex row center g20 ${className}`}>
+                    <HBoxPanel gap={'5px'} valign="center" className={`${css.h960}`}>
+                        <span>{user?.lastname}</span>
+                        <span>{user?.firstname}</span>
+                        {user?.middlename && <span>{user?.middlename}</span>}
+                    </HBoxPanel>
+                    {user.avatarId ? <Avatar className={'icon-l r100 pointer'} onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}/> :
+                        <User className={`icon-m pointer ${css.userIcon}`}
+                            onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
+                            color='#fff' />
+                    }
+                </div> :
+                <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth', { state: { from: location.pathname } })}>Войти</ExButton>}
             <ProfileSidebar active={isProfileSidebarShown}
-                            onMinimized={() => setProfileSidebarVisibility(false)}/>
+                onMinimized={() => setProfileSidebarVisibility(false)} />
         </>
     );
 };

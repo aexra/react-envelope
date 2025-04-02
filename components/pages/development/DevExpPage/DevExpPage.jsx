@@ -4,21 +4,13 @@ import ExButton from '../../../ui/buttons/ExButton/ExButton';
 import { login, register } from '../../../../../api/auth';
 import { LargeSlider } from '../../../wrappers/sliders/LargeSlider/LargeSlider';
 import { Home, Package, Pizza, User } from '../../../dummies/Icons';
+import { useAuth } from '../../../../hooks/useAuth';
 
 export const DevExpPage = () => {
+    const { user } = useAuth();
+    
     const handleClick = async () => {
-        // const lr = await login("defdXs@yandex.ru", "abobabebebe");
-        // console.log(lr);
-
-        // const rr = await register({
-        //     login: 'defdXs@yandex.ru',
-        //     password: 'abobabebebe'
-        // }, {
-        //     firstname: 'Никита',
-        //     lastname: 'Фомин',
-        //     middlename: 'Алексеевич'
-        // });
-        // console.log(rr);
+        console.log(user);
     };
     
     return (
