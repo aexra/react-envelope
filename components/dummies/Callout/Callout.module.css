@@ -27,3 +27,7 @@
     border: 2px solid var(--info-color);
     background-color: rgb(51, 181, 229, 0.1);
 }
+.callout.grey {
+    border: 2px solid var(--border-color);
+    background-color: var(--body-bk-color);
+}

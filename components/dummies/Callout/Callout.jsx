@@ -4,12 +4,12 @@ import { Bug, Error, Info, Success, Tip, Warning } from '../Icons';
 import css from './Callout.module.css';
 
 export const Callout = ({
-    ref, 
-    className, 
-    icon, 
-    title, 
+    ref,
+    className,
+    icon,
+    title,
     type = 'info',
-    expanded = false, 
+    expanded = false,
     readonly = false,
     children
 }) => {
@@ -17,7 +17,7 @@ export const Callout = ({
         switch (type) {
             case 'success':
                 return {
-                    icon: icon ?? <Success/>,
+                    icon: icon ?? <Success />,
                     class: css.success,
                     divider: {
                         color: 'var(--success-color)',
@@ -26,7 +26,7 @@ export const Callout = ({
                 };
             case 'warning':
                 return {
-                    icon: icon ?? <Warning/>,
+                    icon: icon ?? <Warning />,
                     class: css.warning,
                     divider: {
                         color: 'var(--warning-color)',
@@ -35,7 +35,7 @@ export const Callout = ({
                 };
             case 'error':
                 return {
-                    icon: icon ?? <Error/>,
+                    icon: icon ?? <Error />,
                     class: css.error,
                     divider: {
                         color: 'var(--error-color)',
@@ -44,7 +44,7 @@ export const Callout = ({
                 };
             case 'tip':
                 return {
-                    icon: icon ?? <Tip/>,
+                    icon: icon ?? <Tip />,
                     class: css.tip,
                     divider: {
                         color: 'var(--tip-color)',
@@ -53,7 +53,7 @@ export const Callout = ({
                 };
             case 'important':
                 return {
-                    icon: icon ?? <Warning/>,
+                    icon: icon ?? <Warning />,
                     class: css.tip,
                     divider: {
                         color: 'var(--tip-color)',
@@ -62,7 +62,7 @@ export const Callout = ({
                 }
             case 'bug':
                 return {
-                    icon: icon ?? <Bug/>,
+                    icon: icon ?? <Bug />,
                     class: css.error,
                     divider: {
                         color: 'var(--error-color)',
@@ -71,16 +71,25 @@ export const Callout = ({
                 };
             case 'note':
                 return {
-                    icon: icon ?? <Info/>,
+                    icon: icon ?? <Info />,
                     class: css.info,
                     divider: {
                         color: 'var(--info-color)',
                         thickness: '1px'
                     }
                 }
+            case 'grey':
+                return {
+                    icon: icon ?? null,
+                    class: css.grey,
+                    divider: {
+                        color: 'var(--border-color)',
+                        thickness: '1px'
+                    }
+                }
             default:
                 return {
-                    icon: icon ?? <Info/>,
+                    icon: icon ?? <Info />,
                     class: css.info,
                     divider: {
                         color: 'var(--info-color)',
@@ -89,32 +98,32 @@ export const Callout = ({
                 };
         }
     };
-    
+
     const styleOptions = getStyle();
 
     const getTitle = () => {
         return title ?? type.toUpperCase();
     };
-    
+
     const getHeaderContent = () => {
         return (
             <HBoxPanel className={css.headerContent}
-                       valign='center'
-                       gap={'10px'}>
+                valign='center'
+                gap={'10px'}>
                 {styleOptions.icon}
                 <h4 className='m-0'>{getTitle()}</h4>
             </HBoxPanel>
         );
     };
-    
+
     return (
         <Expander ref={ref}
-                  className={`${className} ${css.callout} ${type && styleOptions.class}`}
-                  headerContent={getHeaderContent()}
-                  dividerStyle={styleOptions.divider}
-                  expanded={expanded}
-                  readonly={readonly}>
-            { children }
+            className={`${className} ${css.callout} ${type && styleOptions.class}`}
+            headerContent={getHeaderContent()}
+            dividerStyle={styleOptions.divider}
+            expanded={expanded}
+            readonly={readonly}>
+            {children}
         </Expander>
     );
 };
