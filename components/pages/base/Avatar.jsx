@@ -9,6 +9,7 @@ export const Avatar = ({
     const { user } = useAuth();
 
     return (
-        user?.avatarId ? <img className={`${className}`} src={url(user.avatarId)} alt="Avatar" {...props} /> : <User className={`${className}`} />
+        user?.avatarId ? <img className={`${className}`} src={url(user.avatarId)} alt="Avatar" {...props} /> : 
+        <User className={`${className}`} {...props} />
     );
 };
