@@ -25,11 +25,7 @@ export const SelfUserConfItem = ({
                         <span>{user?.firstname}</span>
                         {user?.middlename && <span>{user?.middlename}</span>}
                     </HBoxPanel>
-                    {user.avatarId ? <Avatar className={'icon-l r100 pointer'} onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}/> :
-                        <User className={`icon-m pointer ${css.userIcon}`}
-                            onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}
-                            color='#fff' />
-                    }
+                    <Avatar className={'icon-l r100 pointer'} onClick={() => setProfileSidebarVisibility(!isProfileSidebarShown)}/>
                 </div> :
                 <ExButton className={`textbutton ${className} ${css.login}`} onClick={() => navigate('/user/auth', { state: { from: location.pathname } })}>Войти</ExButton>}
             <ProfileSidebar active={isProfileSidebarShown}

@@ -41,11 +41,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                 padding='10px'>
                 <HBoxPanel gap='5px'
                     valign='center'>
-                    {user.avatarId ? <Avatar className={'icon-g r100'}/> :
-                        <User className={`icon-l round pad5`} style={{
-                            border: '2px solid var(--font-color)',
-                            marginRight: '5px'
-                        }} />}
+                    <Avatar className={'icon-g r100'}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
                         <span className={`${css.name} caption`}>{user?.firstname} {user?.lastname}</span>

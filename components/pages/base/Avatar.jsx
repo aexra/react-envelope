@@ -1,5 +1,6 @@
 import { url } from "../../../../api/image";
 import { useAuth } from "../../../hooks/useAuth";
+import { User } from "../../dummies/Icons";
 
 export const Avatar = ({
     className,
@@ -8,6 +9,6 @@ export const Avatar = ({
     const { user } = useAuth();
 
     return (
-        <img className={`${className}`} src={url(user.avatarId)} alt="Avatar" {...props}/>
+        user?.avatarId ? <img className={`${className}`} src={url(user.avatarId)} alt="Avatar" {...props} /> : <User className={`${className}`} />
     );
 };
