@@ -18,3 +18,8 @@ span.name {
     background: none;
     height: 30px;
 }
+
+.taglink {
+    text-decoration: none;
+    margin-left: 10px;
+}

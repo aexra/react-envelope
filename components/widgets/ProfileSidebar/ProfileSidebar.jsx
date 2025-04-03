@@ -8,7 +8,6 @@ import { SmallUserItem } from '../../dummies/SmallUserItem/SmallUserItem';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
-import { useTheme } from '../../../hooks/useTheme';
 import { Close, Logout, Settings, Swap, User, UserAdd } from '../../dummies/Icons';
 import { Avatar } from '../../pages/base/Avatar';
 
@@ -29,6 +28,10 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
         }
     };
 
+    const handleProfileClick = () => {
+        navigate(`/profile/${user.tag}`);
+    };
+
     return (
         <Sidebar className={`${css.profileSidebar} ${className} ${css.profileSidebar}`}
             ref={ref}
@@ -40,7 +43,9 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
             <VBoxPanel gap='10px'
                 padding='10px'>
                 <HBoxPanel gap='5px'
-                    valign='center'>
+                    valign='center'
+                    className={'pointer'}
+                    onClick={handleProfileClick}>
                     <Avatar className={'icon-g r100'}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
@@ -68,11 +73,13 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                     <Close className={`icon-s textbutton pad5 r5`} onClick={onMinimized} />
                 </HBoxPanel>
 
+                <a className={css.taglink}>@{user?.tag}</a>
+
                 <HDivider />
 
                 <ExButton className={`textbutton`}
                     hAlign='start'
-                    onClick={() => navigate('/profile/settings')}
+                    onClick={() => navigate('/user/settings')}
                     gap='10px'><Settings className='icon-m' /> Настройки</ExButton>
 
                 <HDivider />
