@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import css from './AuthCard.module.css';
 import { Pivot } from '../../../wrappers/Pivot/Pivot';
@@ -8,19 +8,19 @@ import ExButton from '../../../ui/buttons/ExButton/ExButton';
 import HBoxPanel from '../../../layouts/HBoxPanel/HBoxPanel';
 
 const LoginForm = ({ onLogin }) => {
-    const [email, setEmail] = useState('');
+    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [save, setSave] = useState(false);
 
     return (
         <VBoxPanel gap={'20px'}>
             <TextBox borderType={'fullr'}
-                     label={'E-mail'}
-                     placeholder={'Введите почту'}
-                     icon={<Email/>}
-                     regex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
-                     value={email}
-                     onChange={setEmail}/>
+                     label={'Имя пользователя'}
+                     placeholder={'Введите логин'}
+                     icon={<User/>}
+                     regex={/./}
+                     value={login}
+                     onChange={setLogin}/>
             <TextBox borderType={'fullr'}
                      label={'Пароль'}
                      placeholder={'Введите пароль'}
@@ -41,7 +41,7 @@ const LoginForm = ({ onLogin }) => {
                 <label htmlFor="saveAccount">Сохранить аккаунт?</label>
             </HBoxPanel>
             <ExButton className={'accent-button'} onClick={() => onLogin({
-                login: email,
+                login: login,
                 password: password, 
                 save: save
             })}>ВОЙТИ</ExButton>
@@ -54,10 +54,18 @@ const RegisterForm = ({ onRegister }) => {
     const [fn, setFN] = useState('');
     const [ln, setLN] = useState('');
     const [mn, setMN] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
     return (
         <VBoxPanel gap={'20px'}>
+            <TextBox borderType={'fullr'}
+                     label={'Имя пользователя'}
+                     placeholder={'Введите логин'}
+                     icon={<User/>}
+                     regex={/./}
+                     value={username}
+                     onChange={setUsername}/>
             <TextBox borderType={'fullr'}
                      label={'E-mail'}
                      placeholder={'Введите почту'}
@@ -96,11 +104,12 @@ const RegisterForm = ({ onRegister }) => {
                      value={password}
                      onChange={setPassword}/>
             <ExButton className={'accent-button'} onClick={() => onRegister({
-                login: email, 
+                login: username,
+                email: email, 
+                password: password,
                 firstname: fn, 
                 lastname: ln, 
                 middlename: mn, 
-                password: password
             })}>ЗАРЕГИСТРИРОВАТЬСЯ</ExButton>
         </VBoxPanel>
     );

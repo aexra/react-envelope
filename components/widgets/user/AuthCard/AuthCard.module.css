@@ -1,6 +1,6 @@
 .card {
     --card-width: 400px;
-    --card-height: 560px;
+    --card-height: 600px;
 
     background-color: var(--body-bk-color);
 
