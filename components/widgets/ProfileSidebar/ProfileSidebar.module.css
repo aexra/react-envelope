@@ -2,6 +2,7 @@
     background-color: var(--bk-color);
     border-radius: 10px 0 0 10px;
     color: var(--font-color);
+    z-index: var(--sidebar-z);
 }
 
 span.name {

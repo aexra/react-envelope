@@ -12,6 +12,7 @@ import { Close, Logout, Settings, Swap, User, UserAdd } from '../../dummies/Icon
 import { Avatar } from '../../pages/base/Avatar';
 import { useClipboard } from '../../../hooks/useClipboard';
 import toast from 'react-hot-toast';
+import { createPortal } from 'react-dom';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
         navigate(`/profile/${user.tag}`);
     };
 
-    return (
+    return createPortal(
         <Sidebar className={`${css.profileSidebar} ${className} ${css.profileSidebar}`}
             ref={ref}
             side={1}
@@ -46,10 +47,8 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
             <VBoxPanel gap='10px'
                 padding='10px'>
                 <HBoxPanel gap='5px'
-                    valign='center'
-                    className={'pointer'}
-                    onClick={handleProfileClick}>
-                    <Avatar className={'icon-g r100'}/>
+                    valign='center'>
+                    <Avatar className={'icon-g r100 pointer'} onClick={handleProfileClick}/>
                     <VBoxPanel gap='5px'>
                         <span className='title'>{auth?.login}</span>
                         <span className={`${css.name} caption`}>{user?.firstname} {user?.lastname}</span>
@@ -93,6 +92,6 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                     onClick={handleLogout}
                     gap='10px'><Logout className='icon-m' /> Выйти</ExButton>
             </VBoxPanel>
-        </Sidebar>
+        </Sidebar>, document.getElementById("modal-root")
     );
 }
