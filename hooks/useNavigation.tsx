@@ -1,4 +1,4 @@
-import { ReactElement, useContext } from "react";
+import { ReactElement, useContext, useEffect } from "react";
 import { NavigationContext } from "../contexts/NavigationContext";
 import { Route } from "../interfaces/Route";
 import { NavLink } from "react-router-dom";
@@ -44,6 +44,10 @@ export const useNavigation = () => {
             );
         });
     };
+
+    useEffect(() => {
+        setRoutes(routes);
+    }, [user]);
 
     return { routes, add, remove, clear, navlinks };
 };
