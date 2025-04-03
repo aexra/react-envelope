@@ -3,19 +3,21 @@ import { useNavigation } from '../../../../hooks/useNavigation';
 import { TextBox } from '../../../ui/input/text/TextBox/TextBox';
 import css from './NavPanel.module.css';
 import { NavButton } from '../NavButton/NavButton';
+import { useAuth } from '../../../../hooks/useAuth';
 
 export const NavPanel = ({
     className,
     button = NavButton
 }) => {
     const { routes, navlinks } = useNavigation();
+    const { user } = useAuth();
 
     const [query, setQuery] = useState('');
     const [links, setLinks] = useState([]);
 
     useEffect(() => {
         setLinks(navlinks(button));
-    }, [routes]);
+    }, [routes, user]);
 
     useEffect(() => {
         setLinks(navlinks(button, routes.filter(r => r.name.toLowerCase().startsWith(query.toLowerCase()))));

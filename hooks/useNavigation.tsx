@@ -45,9 +45,5 @@ export const useNavigation = () => {
         });
     };
 
-    useEffect(() => {
-        setRoutes(routes);
-    }, [user]);
-
     return { routes, add, remove, clear, navlinks };
 };
