@@ -10,10 +10,13 @@ import { useAuth } from '../../../hooks/useAuth';
 import ExButton from '../../ui/buttons/ExButton/ExButton';
 import { Close, Logout, Settings, Swap, User, UserAdd } from '../../dummies/Icons';
 import { Avatar } from '../../pages/base/Avatar';
+import { useClipboard } from '../../../hooks/useClipboard';
+import toast from 'react-hot-toast';
 
 export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
     const navigate = useNavigate();
     const { auth, user, accounts, logout, switchAuth } = useAuth();
+    const { copy } = useClipboard();
 
     const handleLogout = () => {
         logout(true);
@@ -73,7 +76,7 @@ export const ProfileSidebar = ({ ref, className, active, onMinimized }) => {
                     <Close className={`icon-s textbutton pad5 r5`} onClick={onMinimized} />
                 </HBoxPanel>
 
-                <a className={css.taglink}>@{user?.tag}</a>
+                <a className={css.taglink} onClick={() => copy(`${user?.tag}`, () => toast.success('Скопировано!'))}>@{user?.tag}</a>
 
                 <HDivider />
 
