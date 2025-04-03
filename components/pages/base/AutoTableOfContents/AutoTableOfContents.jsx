@@ -30,8 +30,6 @@ export const AutoTableOfContents = ({
             document.querySelectorAll('h1, h2, h3, h4, h5, h6')
         );
 
-        console.log(headingElements.map(h => h.id));
-
         const headingData = headingElements.map((heading) => ({
             id: heading.id,
             text: heading.textContent,
