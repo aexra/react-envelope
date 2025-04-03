@@ -9,7 +9,8 @@ export const useAutoHeadings = () => {
             heading.id = heading.textContent
                 .toLowerCase()
                 .replace(/[^\w\u0400-\u04FF]+/g, '-')
-                .replace(/^-+|-+$/g, '');
+                .replace(/^-+|-+$/g, '')
+                .replace(/\s+/g, '-');
             }
         });
     };

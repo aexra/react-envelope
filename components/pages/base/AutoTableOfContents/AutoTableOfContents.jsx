@@ -11,8 +11,6 @@ export const AutoTableOfContents = ({
     const [headings, setHeadings] = useState([]);
     const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
 
-    refresh();
-
     const handleScroll = () => {
         const scrollPosition = window.scrollY || document.documentElement.scrollTop;
         const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -26,12 +24,16 @@ export const AutoTableOfContents = ({
     };
 
     useEffect(() => {
+        refresh();
+
         const headingElements = Array.from(
             document.querySelectorAll('h1, h2, h3, h4, h5, h6')
         );
 
+        console.log(headingElements.map(h => h.id));
+
         const headingData = headingElements.map((heading) => ({
-            id: heading.id || heading.textContent.toLowerCase().replace(/\s+/g, '-'),
+            id: heading.id,
             text: heading.textContent,
             level: parseInt(heading.tagName.substring(1)),
         }));
