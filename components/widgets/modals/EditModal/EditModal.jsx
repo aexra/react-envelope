@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ExTextBox from '../../../ui/input/ExTextBox/ExTextBox';
+import ExTextBox from '../../../ui/input/text/ExTextBox/ExTextBox';
 import { Modal } from '../../../wrappers/Modal/Modal';
 import VBoxPanel from '../../../layouts/VBoxPanel/VBoxPanel';
 import css from './EditModal.module.css';
