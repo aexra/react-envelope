@@ -5,7 +5,7 @@ import { Modal } from '../../../wrappers/Modal/Modal';
 import { IconFilePicker } from '../../../ui/input/IconFilePicker/IconFilePicker';
 import css from './EditSelfModal.module.css';
 import { useEffect, useRef, useState } from 'react';
-import { updateself, updateavatarself } from '../../../../../api/user';
+import { update, updateavatar } from '../../../../../api/user';
 import { useAuth } from '../../../../hooks/useAuth';
 import { User } from '../../../dummies/Icons';
 import toast from 'react-hot-toast';
@@ -30,7 +30,7 @@ export const EditSelfModal = ({
     const handleUpdate = async () => {
         try {
             if (vs1 && vs2 && vs3) {
-                await updateself(auth, {
+                await update(auth, {
                     ...user,
                     lastname: lnValue,
                     firstname: fnValue,
@@ -39,7 +39,7 @@ export const EditSelfModal = ({
 
                 console.log(icon);
 
-                if (icon) await updateavatarself(icon);
+                if (icon) await updateavatar(icon);
 
                 onCloseRequested();
                 
