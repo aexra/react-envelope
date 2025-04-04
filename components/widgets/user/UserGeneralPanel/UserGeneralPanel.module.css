@@ -1,6 +1,13 @@
 .panel {
     padding: 30px;
     box-sizing: border-box;
+
+    background-color: var(--body-bk-color);
+}
+
+.title {
+    font-size: var(--display-font-size);
+    font-weight: bold;
 }
 
 .avatar {

@@ -3,6 +3,5 @@
 }
 
 .panel {
-    background-color: var(--panel-bk);
     border: 1px solid var(--accent-color);
 }

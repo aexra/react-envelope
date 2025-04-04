@@ -1,16 +1,14 @@
-import DSTUNavSidebar from '../../widgets/DSTUNavSidebar/DSTUNavSidebar';
-import BasePage from '../BasePage/BasePage';
 import css from './UserSettingsPage.module.css';
 import { UserGeneralPanel } from '../../widgets/user/UserGeneralPanel/UserGeneralPanel';
+import { PageBase } from '../base/PageBase/PageBase';
+import { IconHeader } from '../base/IconHeader';
 import { Settings } from '../../dummies/Icons';
-import { HeaderTitle } from '../../dummies/styleless/HeaderTitle';
 
 export const UserSettingsPage = () => {
     return (
-        <BasePage headerContent={<HeaderTitle text='Настройки профиля' icon={<Settings/>}/>}
-                  navSidebar={<DSTUNavSidebar/>}>
+        <PageBase header={<IconHeader text={'Настройки'} icon={<Settings/>}/>}>
             <h1>Основная информация</h1>
             <UserGeneralPanel edit/>
-        </BasePage>
+        </PageBase>
     );
 };

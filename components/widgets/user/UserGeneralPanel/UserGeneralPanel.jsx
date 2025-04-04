@@ -23,10 +23,10 @@ export const UserGeneralPanel = ({
 
     return (
         <VBoxPanel ref={ref}
-                   className={`${className} ${css.panel} panel h-full`} gap='20px'>
+                   className={`${className} ${css.panel} h-full r10`} gap='20px'>
             <HBoxPanel className={``} valign='center' gap='50px'>
                 <IconFilePicker readOnly className={`${css.avatar}`}/>
-                <h1>{auth?.login}</h1>
+                <span className={css.title}>{auth?.login}</span>
                 {edit && <ExButton className={`accent-button h-last ${css.globalEdit}`}
                           onClick={handleUserEdit}>Редактировать профиль пользователя</ExButton>}
             </HBoxPanel>
