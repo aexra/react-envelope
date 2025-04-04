@@ -64,6 +64,7 @@ const RegisterForm = ({ onRegister }) => {
                      placeholder={'Введите логин'}
                      icon={<User/>}
                      regex={/./}
+                     name={'nickname'}
                      value={username}
                      onChange={setUsername}/>
             <TextBox borderType={'fullr'}
@@ -71,6 +72,7 @@ const RegisterForm = ({ onRegister }) => {
                      placeholder={'Введите почту'}
                      icon={<Email/>}
                      regex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
+                     name={'email'}
                      value={email}
                      onChange={setEmail}/>
             <TextBox borderType={'fullr'}
@@ -78,6 +80,7 @@ const RegisterForm = ({ onRegister }) => {
                      placeholder={'Введите фамилию'}
                      icon={<User/>}
                      regex={/./}
+                     name={'family-name'}
                      value={ln}
                      onChange={setLN}/>
             <TextBox borderType={'fullr'}
@@ -85,12 +88,14 @@ const RegisterForm = ({ onRegister }) => {
                      placeholder={'Введите имя'}
                      icon={<User/>}
                      regex={/./}
+                     name={'given-name'}
                      value={fn}
                      onChange={setFN}/>
             <TextBox borderType={'fullr'}
                      label={'Отчество'}
                      placeholder={'Введите отчество'}
                      icon={<User/>}
+                     name={'additional-name'}
                      value={mn}
                      onChange={setMN}/>
             <TextBox borderType={'fullr'}

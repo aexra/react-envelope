@@ -12,6 +12,7 @@ import HBoxPanel from '../../../../layouts/HBoxPanel/HBoxPanel';
 // type: { default, color }
 export const TextBox = ({
     ref,
+    name,
     className,
     value,
     defaultValue = '',
@@ -158,7 +159,8 @@ export const TextBox = ({
                       className={`${css.textarea}`}
                       readOnly={readonly}
                       onFocus={() => handleFocus(true)}
-                      onBlur={() => handleFocus(false)}/> : 
+                      onBlur={() => handleFocus(false)}
+                      name={name}/> : 
             <input type={password && !_visible ? 'password' : "text"}
                    value={value ?? _value}
                    onChange={handleChange}
@@ -166,7 +168,8 @@ export const TextBox = ({
                    className={`${css.input}`}
                    readOnly={readonly}
                    onFocus={() => handleFocus(true)}
-                   onBlur={() => handleFocus(false)}/>}
+                   onBlur={() => handleFocus(false)}
+                   name={name}/>}
             {password && (icon ?? <ToggleButton icon={<VisibilityOff/>}
                           toggledIcon={<Visibility/>}
                           onToggle={handleVisibility}/>)}
