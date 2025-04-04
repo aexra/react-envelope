@@ -9,6 +9,7 @@ import ExButton from '../../../ui/buttons/ExButton/ExButton';
 import HDivider from '../../../ui/dividers/HDivider/HDivider';
 import { UserDataPanel } from '../UserDataPanel/UserDataPanel';
 import { url } from '../../../../../api/image';
+import { User } from '../../../dummies/Icons';
 
 export const UserGeneralPanel = ({
     ref,
@@ -26,7 +27,7 @@ export const UserGeneralPanel = ({
         <VBoxPanel ref={ref}
                    className={`${className} ${css.panel} h-full r10`} gap='20px'>
             <HBoxPanel className={``} valign='center' gap='50px'>
-                <IconFilePicker readOnly className={`${css.avatar}`} src={url(user?.avatarId)}/>
+                {user?.avatarId ? <IconFilePicker readOnly className={`${css.avatar}`} src={url(user.avatarId)}/> : <User className={`${css.avatar}`}/>}
                 <span className={css.title}>{user?.tag}</span>
                 {edit && <ExButton className={`accent-button h-last ${css.globalEdit}`}
                           onClick={handleUserEdit}>Редактировать профиль пользователя</ExButton>}
