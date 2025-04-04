@@ -75,3 +75,9 @@
 .button.tip:active {
     background-color: var(--tip-active-color);
 }
+.button.flat {
+    background-color: transparent;
+}
+.button.flat:hover {
+    background-color: var(--highlight-light);
+}

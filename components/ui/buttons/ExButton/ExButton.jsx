@@ -18,7 +18,8 @@ function ExButton({
         'success': css.success,
         'warning': css.warning,
         'error': css.error,
-        'tip': css.tip
+        'tip': css.tip,
+        'flat': css.flat
     };
 
     return (
