@@ -7,7 +7,7 @@ import css from './EditSelfModal.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { update, updateavatar } from '../../../../../api/user';
 import { useAuth } from '../../../../hooks/useAuth';
-import { User } from '../../../dummies/Icons';
+import { Email, Envelope, User } from '../../../dummies/Icons';
 import toast from 'react-hot-toast';
 
 export const EditSelfModal = ({
@@ -21,20 +21,26 @@ export const EditSelfModal = ({
     const [lnValue, setlnValue] = useState();
     const [fnValue, setfnValue] = useState();
     const [mnValue, setmnValue] = useState();
+    const [email, setEmail] = useState();
+    const [tag, setTag] = useState();
     const [icon, setIcon] = useState();
 
     const [vs1, setvs1] = useState(true);
     const [vs2, setvs2] = useState(true);
     const [vs3, setvs3] = useState(true);
+    const [vs4, setvs4] = useState(true);
+    const [vs5, setvs5] = useState(true);
 
     const handleUpdate = async () => {
         try {
-            if (vs1 && vs2 && vs3) {
-                await update(auth, {
+            if (vs1 && vs2 && vs3 && vs4 && vs5) {
+                await update({
                     ...user,
                     lastname: lnValue,
                     firstname: fnValue,
-                    middlename: mnValue
+                    middlename: mnValue,
+                    email: email,
+                    tag: tag
                 });
 
                 console.log(icon);
@@ -63,6 +69,8 @@ export const EditSelfModal = ({
         setlnValue(user?.lastname);
         setfnValue(user?.firstname);
         setmnValue(user?.middlename);
+        setEmail(user?.email);
+        setTag(user?.tag);
     };
 
     useEffect(() => {
@@ -76,7 +84,7 @@ export const EditSelfModal = ({
                closeButtonText='Отмена'
                primaryButtonText='Применить'
                width='400px'
-               height='490px'
+               height='650px'
                className={className}
                ref={ref}
                onPrimaryClick={handleUpdate}>
@@ -89,6 +97,20 @@ export const EditSelfModal = ({
                 <VBoxPanel gap='15px'
                            padding='10px'
                            className={css.datacontainer}>
+                    <ExTextBox hint='Email' 
+                               icon={<Envelope/>}
+                               regex="."
+                               placeholder="Введите почту"
+                               text={email}
+                               onValidationStateChanged={setvs4}
+                               textChanged={setEmail}/>
+                    <ExTextBox hint='Tag' 
+                               icon={<Email/>}
+                               regex="."
+                               placeholder="Введите тег"
+                               text={tag}
+                               onValidationStateChanged={setvs5}
+                               textChanged={setTag}/>
                     <ExTextBox hint='Фамилия' 
                                icon={<User/>}
                                regex="."

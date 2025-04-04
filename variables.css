@@ -127,7 +127,7 @@ body.light {
     --dropdown-bk: #ddd;
 
     /* MODAL */
-    --modal-bk: #fff;
+    --modal-bk: var(--body-bk-color);
 
     /* TEXT */
     --caption-font-color: #494949;
@@ -212,7 +212,7 @@ body.dark {
     --dropdown-bk: #1b232e;
     
     /* MODAL */
-    --modal-bk: #283546;
+    --modal-bk: var(--body-bk-color);
     
     /* TEXT */
     --caption-font-color: #535353;
