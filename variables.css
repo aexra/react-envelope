@@ -63,7 +63,7 @@ body {
   
     --dropout-z: 200;
 
-    --sidebar-dim-z: 600;
+    --sidebar-dim-z: 500;
     --sidebar-z: 1000;
 
     --modal-z1: 2000;
