@@ -11,6 +11,10 @@
     color: var(--accent-color);
 }
 
+.avatar {
+    object-fit: cover;
+}
+
 .navlink {
     text-decoration: none;
     font-weight: bold;
