@@ -9,7 +9,7 @@ import HBoxPanel from '../../../../layouts/HBoxPanel/HBoxPanel';
 // borderType: { none, full, fullr, underline }
 // borderBehaviour: { default, focus }
 // labelType: { inline, above }
-// type: { default, color }
+// styleType: { default, color }
 export const TextBox = ({
     ref,
     name,
@@ -20,7 +20,7 @@ export const TextBox = ({
     borderType,
     borderBehaviour,
     labelType = 'inline',
-    type,
+    styleType,
     placeholder,
     label,
     readonly = false,
@@ -29,6 +29,7 @@ export const TextBox = ({
     password = false,
     icon,
     regex,
+    type = 'text',
     borderless = false,
     shadowless = false,
     wrap = false,
@@ -122,8 +123,8 @@ export const TextBox = ({
             }
         }
 
-        setT(mapType(type));
-    }, [type]);
+        setT(mapType(styleType));
+    }, [styleType]);
 
     useEffect(() => {
         const mapBH = (bh) => {
@@ -152,7 +153,7 @@ export const TextBox = ({
                     {limit && <span style={{ color: shouldShowError ? 'var(--error-color)' : _isFocused ? 'var(--accent-color)' : 'var(--disabled-accent-color)' }}>{limit}</span>}
                 </HBoxPanel>}
             {wrap ? 
-            <textarea type={password && !_visible ? 'password' : "text"}
+            <textarea type={password && !_visible ? 'password' : type}
                       value={value ?? _value}
                       onChange={handleChange}
                       placeholder={placeholder}
@@ -161,7 +162,7 @@ export const TextBox = ({
                       onFocus={() => handleFocus(true)}
                       onBlur={() => handleFocus(false)}
                       name={name}/> : 
-            <input type={password && !_visible ? 'password' : "text"}
+            <input type={password && !_visible ? 'password' : type}
                    value={value ?? _value}
                    onChange={handleChange}
                    placeholder={placeholder}

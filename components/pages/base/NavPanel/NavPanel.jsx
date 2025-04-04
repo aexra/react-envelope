@@ -29,7 +29,7 @@ export const NavPanel = ({
                      onChange={(e) => setQuery(e)}
                      placeholder={'Фильтр'}
                      borderType={'fullr'}
-                     type={'color'}
+                     styleType={'color'}
                      className={`${css.filter} end-self`}
                      borderless shadowless/>
             {links}
