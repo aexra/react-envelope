@@ -60,14 +60,6 @@ const RegisterForm = ({ onRegister }) => {
     return (
         <VBoxPanel gap={'20px'}>
             <TextBox borderType={'fullr'}
-                     label={'Имя пользователя'}
-                     placeholder={'Введите логин'}
-                     icon={<User/>}
-                     regex={/./}
-                     name={'nickname'}
-                     value={username}
-                     onChange={setUsername}/>
-            <TextBox borderType={'fullr'}
                      label={'E-mail'}
                      placeholder={'Введите почту'}
                      icon={<Email/>}
@@ -98,6 +90,14 @@ const RegisterForm = ({ onRegister }) => {
                      name={'additional-name'}
                      value={mn}
                      onChange={setMN}/>
+            <TextBox borderType={'fullr'}
+                     label={'Имя пользователя'}
+                     placeholder={'Введите логин'}
+                     icon={<User/>}
+                     regex={/./}
+                     name={'nickname'}
+                     value={username}
+                     onChange={setUsername}/>
             <TextBox borderType={'fullr'}
                      label={'Пароль'}
                      placeholder={'Введите пароль'}
