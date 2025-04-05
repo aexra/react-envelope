@@ -2,6 +2,8 @@
     background-color: var(--body-bk-color);
     border-radius: 10px;
     padding: 5px;
+
+    overflow: auto;
 }
 
 .item {
