@@ -84,7 +84,7 @@ body.light {
     /* BACKGROUND */
     --bk-color: #fefefe;
     --body-bk-color: #f8f9fc;
-    --header-bk-color: var(--dstu-light-blue);
+    --header-bk-color: var(--bk-color);
     --panel-bk: #fff;
 
     /* RESULT STATES PALETTE */
@@ -168,7 +168,7 @@ body.dark {
     /* BACKGROUND */
     --bk-color: #1b1b1b;
     --body-bk-color: #222222;
-    --header-bk-color: #1e1f22;
+    --header-bk-color: var(--bk-color);
     --panel-bk: #333;
     
     /* RESULT STATES PALETTE */

@@ -27,7 +27,7 @@
 
 .overlay > .header {
     height: var(--header-height);
-    background-color: var(--bk-color);
+    background-color: var(--header-bk-color);
 
     border-bottom: 1px solid var(--border-color);
 
