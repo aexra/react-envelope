@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { User } from "../../interfaces/User";
 import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
 import { Auth } from "../../interfaces/Auth";
-import { me } from "../../api/user";
+import { me, roles } from "../../api/user";
 import { getavatar } from "../../api/image";
 import axios from "axios";
 
@@ -33,10 +33,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const fetchData = async () => {
             try {
                 const mr = await me();
+                const rr = await roles();
 
                 if (mr.data) {
                     setUser(mr.data);
                 }
+
+                if (rr.data) {
+                    setUser({
+                        ...mr.data,
+                        roles: rr.data.map((rd: { roleName: any; }) => rd.roleName)
+                    });
+                }
+
             } catch (er) {
                 if (axios.isAxiosError(er) && (er.response?.status === 401)) {
                     removeItem('auth')
