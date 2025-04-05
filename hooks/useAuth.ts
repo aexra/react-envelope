@@ -5,6 +5,7 @@ import { useUser } from './useUser';
 import { login as _login, register as _register } from '../../api/auth';
 import { User } from '../../interfaces/User';
 import { useState } from 'react';
+import axios, { AxiosError } from 'axios';
 
 export const useAuth = () => {
     const { auth: _auth, user: _user, isLoading, setAuth, setUser, remove } = useUser();
@@ -69,9 +70,12 @@ export const useAuth = () => {
             setUser(mr.data);
             if (reload) window.location.reload();
         } catch (er) {
-            console.log(er);
-            remove();
-            throw(er);
+            console.error(er);
+            
+            if (axios.isAxiosError(er) && (er.response?.status === 401)) {
+                remove();
+                throw(er);
+            }
         }
     };
 

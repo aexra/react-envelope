@@ -4,6 +4,7 @@ import { useObjectLocalStorage } from "../hooks/useObjectLocalStorage";
 import { Auth } from "../../interfaces/Auth";
 import { me } from "../../api/user";
 import { getavatar } from "../../api/image";
+import axios from "axios";
 
 interface IAuthContext {
     user: User | null;
@@ -37,9 +38,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                     setUser(mr.data);
                 }
             } catch (er) {
-                removeItem('auth')
-                setAuth(null);
-                setUser(null);
+                if (axios.isAxiosError(er) && (er.response?.status === 401)) {
+                    removeItem('auth')
+                    setAuth(null);
+                    setUser(null);
+                }
             }
         };
 
