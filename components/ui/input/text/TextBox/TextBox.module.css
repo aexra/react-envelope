@@ -126,3 +126,30 @@
 .shadowless {
     box-shadow: none !important;
 }
+
+/* Убираем стандартные стрелки в Chrome, Safari, Edge */
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Убираем стандартные стрелки в Firefox */
+.input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Стилизация кастомных стрелок (если нужно) */
+.input[type="number"] + .number-controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.input[type="number"] + .number-controls button {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+}
+
