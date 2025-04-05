@@ -1,0 +1,82 @@
+.radioPanel {
+    display: flex;
+    padding: 12px;
+
+    --border: 1px solid var(--disabled-accent-color);
+}
+
+.radioOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.radioInput {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Стиль для выбранного состояния */
+.radioInput:checked {
+    border-color: var(--accent-color);
+    /* Цвет обводки при выборе */
+}
+
+/* Внутренняя точка при выборе */
+.radioInput:checked::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+/* Состояние при наведении */
+.radioInput:hover {
+    border-color: var(--accent-color);
+    /* box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2); */
+}
+
+.radioLabel {
+    font-size: 14px;
+    user-select: none;
+}
+
+.radioPanel.none {
+    border: 0;
+}
+.radioPanel.full {
+    border: var(--border);
+}
+.radioPanel.fullr {
+    border-radius: 5px;
+    border: var(--border);
+}
+.radioPanel.underline {
+    border-bottom: var(--border);
+}
+
+.label {
+    position: absolute;
+    font-size: small;
+    color: var(--disabled-accent-color);
+    transition: color var(--transition-duration) ease;
+
+    top: -10px;
+    left: 15px;
+    
+    padding: 0 3px;
+}
