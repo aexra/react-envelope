@@ -15,8 +15,8 @@
 .radioInput {
     appearance: none;
     -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
     border: 2px solid #ccc;
     border-radius: 50%;
     outline: none;
