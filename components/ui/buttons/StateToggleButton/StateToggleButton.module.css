@@ -1,0 +1,19 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    background-color: var(--body-bk-color);
+    cursor: pointer;
+    transition: all 0.12s ease-out;
+    text-align: center;
+    border: 0;
+
+    color: inherit;
+}
+
+.button:hover {
+    background-color: var(--disabled-accent-color)
+}
