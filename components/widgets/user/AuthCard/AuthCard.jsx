@@ -26,7 +26,7 @@ const LoginForm = ({ onLogin }) => {
                      placeholder={'Введите пароль'}
                      password
                      regex={/^.{6,}$/}
-                     limit={'16'}
+                    //  limit={'16'}
                      min={'6'}
                      strictLimit
                      value={password}
@@ -103,7 +103,7 @@ const RegisterForm = ({ onRegister }) => {
                      placeholder={'Введите пароль'}
                      password
                      regex={/^.{6,}$/}
-                     limit={'16'}
+                    //  limit={'16'}
                      min={'6'}
                      strictLimit
                      value={password}
